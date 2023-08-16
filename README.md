@@ -42,4 +42,4 @@ Examples: <br/>
 Add ticket link in the comment. 
 
 Examples: 
-<a href="https://www.w3schools.com/">Visit W3Schools.com!</a>
+[Integrate GraphQL](https://trello.com/c/yUezY8uB/1-integrate-graphql) 
