@@ -14,7 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9905A0D22A8CF8C1003B5FF5 /* birthdayapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = birthdayapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9905A0D22A8CF8C1003B5FF5 /* Birthday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birthday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9905A0D52A8CF8C1003B5FF5 /* birthdayappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = birthdayappApp.swift; sourceTree = "<group>"; };
 		9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -35,7 +35,7 @@
 		9905A0C92A8CF8C1003B5FF5 = {
 			isa = PBXGroup;
 			children = (
-				9905A0D42A8CF8C1003B5FF5 /* birthdayapp */,
+				9905A0D42A8CF8C1003B5FF5 /* Birthday */,
 				9905A0D32A8CF8C1003B5FF5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,12 +43,12 @@
 		9905A0D32A8CF8C1003B5FF5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9905A0D22A8CF8C1003B5FF5 /* birthdayapp.app */,
+				9905A0D22A8CF8C1003B5FF5 /* Birthday.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9905A0D42A8CF8C1003B5FF5 /* birthdayapp */ = {
+		9905A0D42A8CF8C1003B5FF5 /* Birthday */ = {
 			isa = PBXGroup;
 			children = (
 				9905A0D52A8CF8C1003B5FF5 /* birthdayappApp.swift */,
@@ -56,7 +56,7 @@
 				9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */,
 				9905A0DB2A8CF8C2003B5FF5 /* Preview Content */,
 			);
-			path = birthdayapp;
+			path = Birthday;
 			sourceTree = "<group>";
 		};
 		9905A0DB2A8CF8C2003B5FF5 /* Preview Content */ = {
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9905A0D12A8CF8C1003B5FF5 /* birthdayapp */ = {
+		9905A0D12A8CF8C1003B5FF5 /* Birthday */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9905A0E02A8CF8C2003B5FF5 /* Build configuration list for PBXNativeTarget "birthdayapp" */;
+			buildConfigurationList = 9905A0E02A8CF8C2003B5FF5 /* Build configuration list for PBXNativeTarget "Birthday" */;
 			buildPhases = (
 				9905A0CE2A8CF8C1003B5FF5 /* Sources */,
 				9905A0CF2A8CF8C1003B5FF5 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = birthdayapp;
+			name = Birthday;
 			productName = birthdayapp;
-			productReference = 9905A0D22A8CF8C1003B5FF5 /* birthdayapp.app */;
+			productReference = 9905A0D22A8CF8C1003B5FF5 /* Birthday.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9905A0CD2A8CF8C1003B5FF5 /* Build configuration list for PBXProject "birthdayapp" */;
+			buildConfigurationList = 9905A0CD2A8CF8C1003B5FF5 /* Build configuration list for PBXProject "Birthday" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9905A0D12A8CF8C1003B5FF5 /* birthdayapp */,
+				9905A0D12A8CF8C1003B5FF5 /* Birthday */,
 			);
 		};
 /* End PBXProject section */
@@ -266,7 +266,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"birthdayapp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Birthday/Preview Content\"";
 				DEVELOPMENT_TEAM = VBZ5789L53;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -297,7 +297,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"birthdayapp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Birthday/Preview Content\"";
 				DEVELOPMENT_TEAM = VBZ5789L53;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -324,7 +324,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9905A0CD2A8CF8C1003B5FF5 /* Build configuration list for PBXProject "birthdayapp" */ = {
+		9905A0CD2A8CF8C1003B5FF5 /* Build configuration list for PBXProject "Birthday" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9905A0DE2A8CF8C2003B5FF5 /* Debug */,
@@ -333,7 +333,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9905A0E02A8CF8C2003B5FF5 /* Build configuration list for PBXNativeTarget "birthdayapp" */ = {
+		9905A0E02A8CF8C2003B5FF5 /* Build configuration list for PBXNativeTarget "Birthday" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9905A0E12A8CF8C2003B5FF5 /* Debug */,
