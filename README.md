@@ -41,6 +41,5 @@ Examples: <br/>
 
 Add ticket link in the comment. 
 
-Examples: <br/>
+Examples: 
 <a href="[url](https://trello.com/c/yUezY8uB/1-integrate-graphql)">Integrate GraphQL</a>
-<br/>
