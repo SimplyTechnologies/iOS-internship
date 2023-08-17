@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9905A0D62A8CF8C1003B5FF5 /* birthdayappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905A0D52A8CF8C1003B5FF5 /* birthdayappApp.swift */; };
+		9905A0D62A8CF8C1003B5FF5 /* BirthdayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */; };
 		9905A0D82A8CF8C1003B5FF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */; };
 		9905A0DA2A8CF8C2003B5FF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */; };
 		9905A0DD2A8CF8C2003B5FF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9905A0DC2A8CF8C2003B5FF5 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9905A0D22A8CF8C1003B5FF5 /* birthdayapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = birthdayapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9905A0D52A8CF8C1003B5FF5 /* birthdayappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = birthdayappApp.swift; sourceTree = "<group>"; };
+		9905A0D22A8CF8C1003B5FF5 /* Birthday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birthday.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayApp.swift; sourceTree = "<group>"; };
 		9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9905A0DC2A8CF8C2003B5FF5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -35,7 +35,7 @@
 		9905A0C92A8CF8C1003B5FF5 = {
 			isa = PBXGroup;
 			children = (
-				9905A0D42A8CF8C1003B5FF5 /* birthdayapp */,
+				9905A0D42A8CF8C1003B5FF5 /* Birthday */,
 				9905A0D32A8CF8C1003B5FF5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,20 +43,20 @@
 		9905A0D32A8CF8C1003B5FF5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9905A0D22A8CF8C1003B5FF5 /* birthdayapp.app */,
+				9905A0D22A8CF8C1003B5FF5 /* Birthday.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9905A0D42A8CF8C1003B5FF5 /* birthdayapp */ = {
+		9905A0D42A8CF8C1003B5FF5 /* Birthday */ = {
 			isa = PBXGroup;
 			children = (
-				9905A0D52A8CF8C1003B5FF5 /* birthdayappApp.swift */,
+				9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */,
 				9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */,
 				9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */,
 				9905A0DB2A8CF8C2003B5FF5 /* Preview Content */,
 			);
-			path = birthdayapp;
+			path = Birthday;
 			sourceTree = "<group>";
 		};
 		9905A0DB2A8CF8C2003B5FF5 /* Preview Content */ = {
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9905A0D12A8CF8C1003B5FF5 /* birthdayapp */ = {
+		9905A0D12A8CF8C1003B5FF5 /* Birthday */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9905A0E02A8CF8C2003B5FF5 /* Build configuration list for PBXNativeTarget "birthdayapp" */;
+			buildConfigurationList = 9905A0E02A8CF8C2003B5FF5 /* Build configuration list for PBXNativeTarget "Birthday" */;
 			buildPhases = (
 				9905A0CE2A8CF8C1003B5FF5 /* Sources */,
 				9905A0CF2A8CF8C1003B5FF5 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = birthdayapp;
+			name = Birthday;
 			productName = birthdayapp;
-			productReference = 9905A0D22A8CF8C1003B5FF5 /* birthdayapp.app */;
+			productReference = 9905A0D22A8CF8C1003B5FF5 /* Birthday.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9905A0CD2A8CF8C1003B5FF5 /* Build configuration list for PBXProject "birthdayapp" */;
+			buildConfigurationList = 9905A0CD2A8CF8C1003B5FF5 /* Build configuration list for PBXProject "Birthday" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9905A0D12A8CF8C1003B5FF5 /* birthdayapp */,
+				9905A0D12A8CF8C1003B5FF5 /* Birthday */,
 			);
 		};
 /* End PBXProject section */
@@ -138,7 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9905A0D82A8CF8C1003B5FF5 /* ContentView.swift in Sources */,
-				9905A0D62A8CF8C1003B5FF5 /* birthdayappApp.swift in Sources */,
+				9905A0D62A8CF8C1003B5FF5 /* BirthdayApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +195,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -249,7 +249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -266,15 +266,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"birthdayapp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Birthday/Preview Content\"";
 				DEVELOPMENT_TEAM = VBZ5789L53;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Birthday;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,15 +297,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"birthdayapp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Birthday/Preview Content\"";
 				DEVELOPMENT_TEAM = VBZ5789L53;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Birthday;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,7 +324,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9905A0CD2A8CF8C1003B5FF5 /* Build configuration list for PBXProject "birthdayapp" */ = {
+		9905A0CD2A8CF8C1003B5FF5 /* Build configuration list for PBXProject "Birthday" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9905A0DE2A8CF8C2003B5FF5 /* Debug */,
@@ -329,7 +333,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9905A0E02A8CF8C2003B5FF5 /* Build configuration list for PBXNativeTarget "birthdayapp" */ = {
+		9905A0E02A8CF8C2003B5FF5 /* Build configuration list for PBXNativeTarget "Birthday" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9905A0E12A8CF8C2003B5FF5 /* Debug */,
