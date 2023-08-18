@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		985593642A8E6E9100A3E76C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593632A8E6E9100A3E76C /* Colors.swift */; };
+		985593662A8E6EC800A3E76C /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593652A8E6EC800A3E76C /* Logo.swift */; };
 		9905A0D62A8CF8C1003B5FF5 /* BirthdayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */; };
 		9905A0D82A8CF8C1003B5FF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */; };
 		9905A0DA2A8CF8C2003B5FF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		985593632A8E6E9100A3E76C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		985593652A8E6EC800A3E76C /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
 		9905A0D22A8CF8C1003B5FF5 /* Birthday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birthday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayApp.swift; sourceTree = "<group>"; };
 		9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +36,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		985593672A8E6EE400A3E76C /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				985593652A8E6EC800A3E76C /* Logo.swift */,
+				985593632A8E6E9100A3E76C /* Colors.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
 		9905A0C92A8CF8C1003B5FF5 = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +66,7 @@
 			children = (
 				9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */,
 				9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */,
+				985593672A8E6EE400A3E76C /* UIElements */,
 				9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */,
 				9905A0DB2A8CF8C2003B5FF5 /* Preview Content */,
 			);
@@ -138,6 +152,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9905A0D82A8CF8C1003B5FF5 /* ContentView.swift in Sources */,
+				985593642A8E6E9100A3E76C /* Colors.swift in Sources */,
+				985593662A8E6EC800A3E76C /* Logo.swift in Sources */,
 				9905A0D62A8CF8C1003B5FF5 /* BirthdayApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
