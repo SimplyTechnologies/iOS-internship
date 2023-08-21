@@ -37,7 +37,6 @@ extension GraphQLRepository {
       }
     }
     .eraseToAnyPublisher()
-    
   }
   
   func request<T: GraphQLMutation>(
