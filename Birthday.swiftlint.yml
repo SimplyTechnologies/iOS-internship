@@ -1,9 +1,7 @@
 # .swiftlint.yml
 
 # Rules to apply to all files
-included:
-  - Sources
-  - Birthday
+
 
 
 disabled_rules:
@@ -16,8 +14,9 @@ opt_in_rules:
 - indentation_width
 - empty_string
 excluded: # excluding pods, generated files and tests /for now/
+- Carthage
 - Pods
-- SwiftLint/Common/3rdPartyLib
+- Generated Mocks
 line_length:
     warning: 90
     error: 1000
