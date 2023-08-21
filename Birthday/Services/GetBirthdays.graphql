@@ -1,0 +1,8 @@
+query GetBirthdays {
+  birthdays {
+    id
+    image
+    createdAt
+    updatedAt
+  }
+}
