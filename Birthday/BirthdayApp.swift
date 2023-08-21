@@ -9,5 +9,4 @@ struct BirthdayApp: App {
       ContentView()
     }
   }
-  
 }

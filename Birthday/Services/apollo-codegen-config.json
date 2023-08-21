@@ -1,0 +1,47 @@
+
+{
+ "schemaName" : "api",
+ "input" : {
+  "operationSearchPaths" : [
+   "**/*.graphql"
+  ],
+  "schemaSearchPaths" : [
+   "**/*.graphqls"
+  ]
+ },
+ "output" : {
+  "testMocks" : {
+   "absolute": {
+    "path" : ".",
+    }
+  },
+  "schemaTypes" : {
+   "path" : "/Users/edgararakelyan/iOS-internship/Birthday/Services/GraphQL",
+   "moduleType" : {
+    "embeddedInTarget" : {
+     "name" : "Birthday"
+    }
+   }
+  },
+  "operations" : {
+   "inSchemaModule" : {
+   }
+  }
+ }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
