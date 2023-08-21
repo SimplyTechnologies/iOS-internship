@@ -1,3 +1,12 @@
+query GetUsers {
+  users {
+    id
+    lastName
+    email
+    firstName
+  }
+}
+
 query GetBirthdays {
   birthdays {
     id

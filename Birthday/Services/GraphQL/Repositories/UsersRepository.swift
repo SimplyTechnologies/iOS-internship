@@ -7,12 +7,13 @@ protocol UsersRepository: GraphQLRepository {
   
 }
 
-final class DefaultUsersRepository: UsersRepository {
+final class UsersRepositoryImpl: UsersRepository {
   
   func getUsers() -> AnyPublisher<[GetUsersQuery.Data.User], Error> {
     request(query: GetUsersQuery())
       .compactMap { $0.users }
       .eraseToAnyPublisher()
+    
   }
   
 }

@@ -1,14 +1,8 @@
-//
-//  ApolloManager.swift
-//  Birthday
-//
-//  Created by Edgar Arakelyan on 17.08.23.
-//
 
-import Foundation
 import Apollo
+import Foundation
 
-class ApolloManager {
+final class ApolloManager {
 
     static let shared = ApolloManager()
 
@@ -19,7 +13,8 @@ class ApolloManager {
         let cache = InMemoryNormalizedCache()
         let store = ApolloStore(cache: cache)
         let provider = LegacyInterceptorProvider(client: sessionClient, store: store)
-        let transport = RequestChainNetworkTransport(interceptorProvider: provider, endpointURL: RequestServices.GraphQL.API.baseUrl)
+        let transport = RequestChainNetworkTransport(interceptorProvider: provider, endpointURL: RequestServices.API.baseUrl)
         client = ApolloClient(networkTransport: transport, store: store)
     }
+  
 }

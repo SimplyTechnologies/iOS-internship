@@ -20,11 +20,9 @@
 		998E7D192A8E0AB300E8F807 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 998E7D182A8E0AB300E8F807 /* Apollo */; };
 		998E7D1B2A8E0C2800E8F807 /* RequestServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998E7D1A2A8E0C2800E8F807 /* RequestServiceError.swift */; };
 		998E7D1F2A8E104100E8F807 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998E7D1E2A8E104100E8F807 /* API.swift */; };
-		998E7D222A8E147700E8F807 /* GetUsers.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 998E7D212A8E147700E8F807 /* GetUsers.graphql */; };
-		998E7D262A8E42FA00E8F807 /* ExampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998E7D252A8E42FA00E8F807 /* ExampleViewModel.swift */; };
+		998E7D222A8E147700E8F807 /* GetQueries.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 998E7D212A8E147700E8F807 /* GetQueries.graphql */; };
 		998E7D292A8E43AA00E8F807 /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998E7D282A8E43AA00E8F807 /* UsersRepository.swift */; };
 		998E7D2C2A8E447800E8F807 /* GetUsersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998E7D2B2A8E447800E8F807 /* GetUsersUseCase.swift */; };
-		998E7D352A8E4C9E00E8F807 /* GetBirthdays.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 998E7D342A8E4C9E00E8F807 /* GetBirthdays.graphql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,11 +39,9 @@
 		998E7D152A8E041700E8F807 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		998E7D1A2A8E0C2800E8F807 /* RequestServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestServiceError.swift; sourceTree = "<group>"; };
 		998E7D1E2A8E104100E8F807 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		998E7D212A8E147700E8F807 /* GetUsers.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetUsers.graphql; sourceTree = "<group>"; };
-		998E7D252A8E42FA00E8F807 /* ExampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewModel.swift; sourceTree = "<group>"; };
+		998E7D212A8E147700E8F807 /* GetQueries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetQueries.graphql; sourceTree = "<group>"; };
 		998E7D282A8E43AA00E8F807 /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
 		998E7D2B2A8E447800E8F807 /* GetUsersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsersUseCase.swift; sourceTree = "<group>"; };
-		998E7D342A8E4C9E00E8F807 /* GetBirthdays.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; name = GetBirthdays.graphql; path = Birthday/Services/GetBirthdays.graphql; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,26 +178,9 @@
 		998E7D312A8E4C6000E8F807 /* Queries */ = {
 			isa = PBXGroup;
 			children = (
-				998E7D322A8E4C6700E8F807 /* GET */,
-				998E7D332A8E4C7F00E8F807 /* MUTATIONS */,
+				998E7D212A8E147700E8F807 /* GetQueries.graphql */,
 			);
 			path = Queries;
-			sourceTree = "<group>";
-		};
-		998E7D322A8E4C6700E8F807 /* GET */ = {
-			isa = PBXGroup;
-			children = (
-				998E7D212A8E147700E8F807 /* GetUsers.graphql */,
-				998E7D342A8E4C9E00E8F807 /* GetBirthdays.graphql */,
-			);
-			path = GET;
-			sourceTree = "<group>";
-		};
-		998E7D332A8E4C7F00E8F807 /* MUTATIONS */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MUTATIONS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,13 +285,11 @@
 				998E7D1B2A8E0C2800E8F807 /* RequestServiceError.swift in Sources */,
 				998E7D2C2A8E447800E8F807 /* GetUsersUseCase.swift in Sources */,
 				998E7D102A8DF34500E8F807 /* ApolloManager.swift in Sources */,
-				998E7D222A8E147700E8F807 /* GetUsers.graphql in Sources */,
+				998E7D222A8E147700E8F807 /* GetQueries.graphql in Sources */,
 				9905A0D82A8CF8C1003B5FF5 /* ContentView.swift in Sources */,
 				985593642A8E6E9100A3E76C /* Colors.swift in Sources */,
 				985593662A8E6EC800A3E76C /* Logo.swift in Sources */,
 				998E7D0E2A8DF31200E8F807 /* GraphQLRepository.swift in Sources */,
-				998E7D262A8E42FA00E8F807 /* ExampleViewModel.swift in Sources */,
-				998E7D352A8E4C9E00E8F807 /* GetBirthdays.graphql in Sources */,
 				998E7D132A8DF40100E8F807 /* RequestServices.swift in Sources */,
 				9905A0D62A8CF8C1003B5FF5 /* BirthdayApp.swift in Sources */,
 				998E7D292A8E43AA00E8F807 /* UsersRepository.swift in Sources */,

@@ -3,8 +3,6 @@ import Foundation
 
 enum RequestServices {
   
-  enum GraphQL {
-    
     struct API {
       
       static let baseUrl: URL = URL(string: "https://simply-mobile.amiryan.online/graphql")!
@@ -13,8 +11,6 @@ enum RequestServices {
         qos: .default,
         attributes: .concurrent
       )
-    }
-    
   }
   
 }

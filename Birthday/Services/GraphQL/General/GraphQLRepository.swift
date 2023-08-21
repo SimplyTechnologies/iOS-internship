@@ -1,18 +1,13 @@
-//
-//  GraphQLRepository.swift
-//  Birthday
-//
-//  Created by Edgar Arakelyan on 17.08.23.
-//
 
-import Combine
 import Apollo
+import Combine
 import Foundation
 
 protocol GraphQLRepository { }
 
 extension GraphQLRepository {
-    func request<T: GraphQLQuery>(query: T, client: ApolloClient = ApolloManager.shared.client, queue: DispatchQueue = RequestServices.GraphQL.API.apiQueue) -> AnyPublisher<T.Data, Error> {
+  
+    func request<T: GraphQLQuery>(query: T, client: ApolloClient = ApolloManager.shared.client, queue: DispatchQueue = RequestServices.API.apiQueue) -> AnyPublisher<T.Data, Error> {
         return Future { promise in
             client.fetch(query: query, cachePolicy: .fetchIgnoringCacheCompletely, queue: queue) { result in
                 switch result {
@@ -32,9 +27,11 @@ extension GraphQLRepository {
             }
         }
         .eraseToAnyPublisher()
+      
     }
 
-    func request<T: GraphQLMutation>(mutation: T, client: ApolloClient = ApolloManager.shared.client, queue: DispatchQueue = RequestServices.GraphQL.API.apiQueue) -> AnyPublisher<T.Data, Error> {
+    func request<T: GraphQLMutation>(mutation: T, client: ApolloClient = ApolloManager.shared.client, queue: DispatchQueue = RequestServices.API.apiQueue) -> AnyPublisher<T.Data, Error> {
+      
         return Future { promise in
             client.perform(mutation: mutation, queue: queue) { result in
                 switch result {
@@ -55,4 +52,5 @@ extension GraphQLRepository {
         }
         .eraseToAnyPublisher()
     }
+  
 }
