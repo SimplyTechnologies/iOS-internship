@@ -1,0 +1,51 @@
+# .swiftlint.yml
+
+included:
+  - Birthday
+
+
+disabled_rules:
+- trailing_whitespace
+- leading_whitespace
+- empty_count
+- identifier_name
+- file_length
+opt_in_rules:
+- indentation_width
+- empty_string
+excluded: # excluding pods, generated files and tests /for now/
+
+- Birthday/Services/GraphQL
+- Pods
+line_length:
+    warning: 90
+    error: 1000
+    ignores_comments: true
+    ignores_urls: true
+    ignores_interpolated_strings: true
+function_body_length:
+    warning: 150
+    error: 1000
+function_parameter_count:
+    warning: 4
+    error: 20
+type_body_length:
+    warning: 300
+    error: 10000
+cyclomatic_complexity:
+    warning: 15
+    error: 25
+type_name:
+  min_length: 4
+  max_length:
+    warning: 40
+    error: 50
+force_cast: warning
+force_try: warning
+indentation_width:
+  indentation_width: 2
+large_tuple:
+  warning: 2
+  error: 5
+reporter: "xcode"
+
