@@ -25,6 +25,9 @@
 		99F9E2E62A9393F9004ED89F /* GetUsersQuery.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2E02A9393F9004ED89F /* GetUsersQuery.graphql.swift */; };
 		99F9E2E92A939C8C004ED89F /* GraphQLRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2E82A939C8C004ED89F /* GraphQLRepository.swift */; };
 		99F9E2EC2A93A9B5004ED89F /* Error + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2EB2A93A9B5004ED89F /* Error + Extension.swift */; };
+		9939A9142A933B9600D3B19E /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9939A9132A933B9600D3B19E /* TabBarView.swift */; };
+		9939A9162A933BB700D3B19E /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9939A9152A933BB700D3B19E /* TabItem.swift */; };
+		9939A9182A933C7600D3B19E /* TabViewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9939A9172A933C7600D3B19E /* TabViewTab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		99F9E2E02A9393F9004ED89F /* GetUsersQuery.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUsersQuery.graphql.swift; sourceTree = "<group>"; };
 		99F9E2E82A939C8C004ED89F /* GraphQLRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRepository.swift; sourceTree = "<group>"; };
 		99F9E2EB2A93A9B5004ED89F /* Error + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error + Extension.swift"; sourceTree = "<group>"; };
+		9939A9132A933B9600D3B19E /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		9939A9152A933BB700D3B19E /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		9939A9172A933C7600D3B19E /* TabViewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewTab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				998E7D0B2A8DF2F500E8F807 /* Services */,
+				9939A9112A933B8200D3B19E /* Modules */,
 				9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */,
 				9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */,
 				985593672A8E6EE400A3E76C /* UIElements */,
@@ -178,6 +185,24 @@
 				99F9E2E82A939C8C004ED89F /* GraphQLRepository.swift */,
 			);
 			path = General;
+      sourceTree = "<group>";
+    };
+		9939A9112A933B8200D3B19E /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				9939A9122A933B8B00D3B19E /* TabBar */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		9939A9122A933B8B00D3B19E /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				9939A9132A933B9600D3B19E /* TabBarView.swift */,
+				9939A9152A933BB700D3B19E /* TabItem.swift */,
+				9939A9172A933C7600D3B19E /* TabViewTab.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +294,9 @@
 				995742642A9360B4005A3B7F /* RequestServices.swift in Sources */,
 				99F9E2EC2A93A9B5004ED89F /* Error + Extension.swift in Sources */,
 				99F9E2E92A939C8C004ED89F /* GraphQLRepository.swift in Sources */,
+				9939A9142A933B9600D3B19E /* TabBarView.swift in Sources */,
+				9939A9182A933C7600D3B19E /* TabViewTab.swift in Sources */,
+				9939A9162A933BB700D3B19E /* TabItem.swift in Sources */,
 				9905A0D62A8CF8C1003B5FF5 /* BirthdayApp.swift in Sources */,
 				99F9E2E52A9393F9004ED89F /* Api.graphql.swift in Sources */,
 			);
