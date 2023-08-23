@@ -18,7 +18,7 @@ struct TabBarView: View {
       Text("Home tab")
         .tabItem { TabViewTab(activeTab: $activeTab, tab: .home) }
         .tag(TabItem.home)
-      Text("Shop tab")
+      ShopListView(viewModel: ShopListViewModel())
         .tabItem { TabViewTab(activeTab: $activeTab, tab: .shop) }
         .tag(TabItem.shop)
       

@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		985593642A8E6E9100A3E76C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593632A8E6E9100A3E76C /* Colors.swift */; };
 		985593662A8E6EC800A3E76C /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593652A8E6EC800A3E76C /* Logo.swift */; };
+		985593922A963BA700A3E76C /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593912A963BA700A3E76C /* Toast.swift */; };
+		985593942A963BBC00A3E76C /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593932A963BBC00A3E76C /* ToastView.swift */; };
+		985593962A963BC800A3E76C /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593952A963BC800A3E76C /* Shop.swift */; };
+		985593982A963BF600A3E76C /* ShopListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593972A963BF600A3E76C /* ShopListViewModel.swift */; };
+		9855939A2A963C1100A3E76C /* ShopListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593992A963C1100A3E76C /* ShopListView.swift */; };
+		9855939C2A963C3000A3E76C /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9855939B2A963C3000A3E76C /* ShopView.swift */; };
+		9855939E2A963C7E00A3E76C /* ShopDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9855939D2A963C7E00A3E76C /* ShopDetailViewModel.swift */; };
+		985593A02A963C9300A3E76C /* ShopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9855939F2A963C9300A3E76C /* ShopDetailView.swift */; };
 		9905A0D62A8CF8C1003B5FF5 /* BirthdayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */; };
 		9905A0D82A8CF8C1003B5FF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */; };
 		9905A0DA2A8CF8C2003B5FF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */; };
@@ -33,6 +41,14 @@
 /* Begin PBXFileReference section */
 		985593632A8E6E9100A3E76C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		985593652A8E6EC800A3E76C /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
+		985593912A963BA700A3E76C /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		985593932A963BBC00A3E76C /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		985593952A963BC800A3E76C /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		985593972A963BF600A3E76C /* ShopListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListViewModel.swift; sourceTree = "<group>"; };
+		985593992A963C1100A3E76C /* ShopListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListView.swift; sourceTree = "<group>"; };
+		9855939B2A963C3000A3E76C /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		9855939D2A963C7E00A3E76C /* ShopDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewModel.swift; sourceTree = "<group>"; };
+		9855939F2A963C9300A3E76C /* ShopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailView.swift; sourceTree = "<group>"; };
 		9905A0D22A8CF8C1003B5FF5 /* Birthday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birthday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayApp.swift; sourceTree = "<group>"; };
 		9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +91,28 @@
 			path = UIElements;
 			sourceTree = "<group>";
 		};
+		9855938F2A963B8F00A3E76C /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				985593952A963BC800A3E76C /* Shop.swift */,
+				985593972A963BF600A3E76C /* ShopListViewModel.swift */,
+				985593992A963C1100A3E76C /* ShopListView.swift */,
+				9855939B2A963C3000A3E76C /* ShopView.swift */,
+				9855939D2A963C7E00A3E76C /* ShopDetailViewModel.swift */,
+				9855939F2A963C9300A3E76C /* ShopDetailView.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		985593902A963B9500A3E76C /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				985593912A963BA700A3E76C /* Toast.swift */,
+				985593932A963BBC00A3E76C /* ToastView.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 		9905A0C92A8CF8C1003B5FF5 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +136,8 @@
 				9939A9112A933B8200D3B19E /* Modules */,
 				9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */,
 				9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */,
+				9855938F2A963B8F00A3E76C /* Shop */,
+				985593902A963B9500A3E76C /* Toast */,
 				985593672A8E6EE400A3E76C /* UIElements */,
 				9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */,
 				9905A0DB2A8CF8C2003B5FF5 /* Preview Content */,
@@ -290,6 +330,8 @@
 				99F9E2E32A9393F9004ED89F /* SchemaConfiguration.swift in Sources */,
 				99F9E2E42A9393F9004ED89F /* SchemaMetadata.graphql.swift in Sources */,
 				985593642A8E6E9100A3E76C /* Colors.swift in Sources */,
+				985593922A963BA700A3E76C /* Toast.swift in Sources */,
+				985593A02A963C9300A3E76C /* ShopDetailView.swift in Sources */,
 				985593662A8E6EC800A3E76C /* Logo.swift in Sources */,
 				995742642A9360B4005A3B7F /* RequestServices.swift in Sources */,
 				99F9E2EC2A93A9B5004ED89F /* Error + Extension.swift in Sources */,
@@ -299,6 +341,13 @@
 				9939A9162A933BB700D3B19E /* TabItem.swift in Sources */,
 				9905A0D62A8CF8C1003B5FF5 /* BirthdayApp.swift in Sources */,
 				99F9E2E52A9393F9004ED89F /* Api.graphql.swift in Sources */,
+				985593982A963BF600A3E76C /* ShopListViewModel.swift in Sources */,
+				9855939E2A963C7E00A3E76C /* ShopDetailViewModel.swift in Sources */,
+				985593962A963BC800A3E76C /* Shop.swift in Sources */,
+				985593942A963BBC00A3E76C /* ToastView.swift in Sources */,
+				9905A0D62A8CF8C1003B5FF5 /* BirthdayApp.swift in Sources */,
+				9855939C2A963C3000A3E76C /* ShopView.swift in Sources */,
+				9855939A2A963C1100A3E76C /* ShopListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
