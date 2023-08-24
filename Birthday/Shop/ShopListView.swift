@@ -2,8 +2,8 @@
 import SwiftUI
 
 struct ShopListView: View {
-  @ObservedObject var viewModel: ShopListViewModel = ShopListViewModel()
   
+  @ObservedObject var viewModel: ShopListViewModel = ShopListViewModel()
   @State private var searchBarIsActive = false
   
   var body: some View {
@@ -12,10 +12,7 @@ struct ShopListView: View {
         Color.backgroundColor.edgesIgnoringSafeArea(.all)
         
         VStack {
-          Image("LogoBirthApp")
-            .frame(width: 88,
-                   height: 40,
-                   alignment: .trailing)
+          Logo()
           
           ZStack(alignment: .trailing) {
             TextField("Search", text: $viewModel.searchText)
@@ -23,13 +20,13 @@ struct ShopListView: View {
               .border(Color.white)
               .cornerRadius(30)
               .padding()
-            
-            Button(action: {
+            Button {
               if searchBarIsActive {
                 viewModel.searchText = ""
               }
               searchBarIsActive = false
-            }) {
+            } label: {
+              // swiftlint:disable:next line_length
               Image(systemName: searchBarIsActive || !viewModel.searchText.isEmpty ? "xmark.circle.fill" : "magnifyingglass")
                 .foregroundColor(.gray)
             }
@@ -64,7 +61,8 @@ struct ShopListView: View {
                     )
                   ) {
                     ShopView(
-                      shop: viewModel.sortedShops[viewModel.sortedShops.firstIndex(of: shop)!]
+                      shop:
+                        viewModel.sortedShops[viewModel.sortedShops.firstIndex(of: shop)!]
                     )
                     .environmentObject(viewModel)
                   }
@@ -73,7 +71,13 @@ struct ShopListView: View {
             }
           }
           .onTapGesture {
-            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            UIApplication.shared
+              .sendAction(
+                #selector(UIResponder.resignFirstResponder),
+                to: nil,
+                from: nil,
+                for: nil
+              )
           }
         }
         
@@ -82,12 +86,13 @@ struct ShopListView: View {
           ForEach(viewModel.toasts, id: \.self) {
             ToastView(toast: $0)
               .transition(
-                .asymmetric(insertion: .move(edge: .bottom),
-                            removal: .opacity))
+                .asymmetric(insertion: .move(edge: .bottom), removal: .opacity))
+            
           }
         }
         .animation(.easeInOut, value: viewModel.toasts.count)
         .zIndex(1)
+        
       }
     }
   }
