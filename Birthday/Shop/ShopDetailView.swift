@@ -2,6 +2,7 @@
 import SwiftUI
 
 struct ShopDetailView: View {
+  
   @ObservedObject var viewModel: ShopDetailViewModel
   @Environment(\.presentationMode) var mode: Binding<PresentationMode>
   @GestureState private var dragOffset = CGSize.zero
@@ -12,13 +13,19 @@ struct ShopDetailView: View {
       Color.backgroundColor.edgesIgnoringSafeArea(.all)
       
       VStack(spacing: 16) {
+        
         HStack {
+          
           BackButton()
           Spacer()
-          Image("LogoBirthApp").frame(width: 88,
-                                      height: 40,
-                                      alignment: .trailing)
-        } .padding(.horizontal)
+          Image("LogoBirthApp")
+            .frame(
+              width: 88,
+              height: 40,
+              alignment: .trailing
+            )
+        }
+        .padding(.horizontal)
         
         Image(systemName: viewModel.shop.image)
           .resizable()
@@ -36,16 +43,17 @@ struct ShopDetailView: View {
         }
         .padding(.vertical, 15)
         
-        Button(action: {
-          if let phoneURL = URL(string: viewModel.phone), UIApplication.shared.canOpenURL(phoneURL)
-          {
-            UIApplication.shared.open(phoneURL,
-                                      options: [:],
-                                      completionHandler: nil)
+        Button(
+          action: {
+            if let phoneURL = URL(string: viewModel.phone), UIApplication.shared.canOpenURL(phoneURL) {
+              UIApplication.shared.open(
+                phoneURL,
+                options: [:],
+                completionHandler: nil
+              )
+            }
           }
-        })
-        {
-          (
+        ) {(
             Text("Phone: ")
             +
             Text(viewModel.shop.phone)
@@ -71,13 +79,17 @@ struct ShopDetailView: View {
           .tint(.black)
         
         
-        Button(action: {
+        Button(
+          action: {
           viewModel.onTapFavoriteIcon(shop: viewModel.shop)
-        }) {
+        }
+        ){
           if viewModel.shop.isFavorite {
-            Image(systemName: "heart.fill").foregroundColor(.red)
+            Image(systemName: "heart.fill")
+              .foregroundColor(.red)
           } else {
-            Image(systemName: "heart").foregroundColor(.black)
+            Image(systemName: "heart")
+              .foregroundColor(.black)
           }
         }
         
@@ -86,37 +98,34 @@ struct ShopDetailView: View {
           ForEach(viewModel.toasts, id: \.self) {
             ToastView(toast: $0)
               .transition(
-                .asymmetric(insertion: .move(edge: .bottom),
-                            removal: .opacity))
+                .asymmetric(
+                  insertion: .move(edge: .bottom),
+                  removal: .opacity)
+              )
           }
         }
-        .animation(.easeInOut,
-                   value: viewModel.toasts.count)
+        .animation(
+          .easeInOut,
+          value: viewModel.toasts.count
+        )
         
         Spacer()
+        
       }
       .navigationBarBackButtonHidden(true)
     }
-    .gesture(DragGesture()
-      .updating($dragOffset,
-                body: { (value, state, transaction) in
-      if(value.startLocation.x < 200 && value.translation.width > 100) {
-        self.mode.wrappedValue.dismiss()
-      }
-    }))
+    .gesture(
+      DragGesture()
+        .updating(
+          $dragOffset,
+          body: { (value, state, transaction) in
+            if(value.startLocation.x < 200 && value.translation.width > 100) {
+              self.mode.wrappedValue.dismiss()
+              
+            }
+          }
+        )
+    )
   }
-}
-
-struct BackButton: View {
-  @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
   
-  var body: some View {
-    Button(action: {
-      self.presentationMode.wrappedValue.dismiss()
-    }) {
-      Image("Back")
-        .aspectRatio(contentMode: .fit)
-        .frame(width: 16, height: 24.04)
-    }
-  }
 }

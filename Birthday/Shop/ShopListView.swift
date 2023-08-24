@@ -2,8 +2,8 @@
 import SwiftUI
 
 struct ShopListView: View {
-  @ObservedObject var viewModel: ShopListViewModel = ShopListViewModel()
   
+  @ObservedObject var viewModel: ShopListViewModel = ShopListViewModel()
   @State private var searchBarIsActive = false
   
   var body: some View {
@@ -13,9 +13,11 @@ struct ShopListView: View {
         
         VStack {
           Image("LogoBirthApp")
-            .frame(width: 88,
-                   height: 40,
-                   alignment: .trailing)
+            .frame(
+              width: 88,
+              height: 40,
+              alignment: .trailing
+            )
           
           ZStack(alignment: .trailing) {
             TextField("Search", text: $viewModel.searchText)
@@ -24,7 +26,8 @@ struct ShopListView: View {
               .cornerRadius(30)
               .padding()
             
-            Button(action: {
+            Button(
+              action: {
               if searchBarIsActive {
                 viewModel.searchText = ""
               }
@@ -62,7 +65,8 @@ struct ShopListView: View {
                         onTapFavoriteIcon: viewModel.onTapFavoriteIcon
                       )
                     )
-                  ) {
+                  )
+                  {
                     ShopView(
                       shop: viewModel.sortedShops[viewModel.sortedShops.firstIndex(of: shop)!]
                     )
@@ -74,6 +78,7 @@ struct ShopListView: View {
           }
           .onTapGesture {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            
           }
         }
         
@@ -84,10 +89,13 @@ struct ShopListView: View {
               .transition(
                 .asymmetric(insertion: .move(edge: .bottom),
                             removal: .opacity))
+            
           }
         }
-        .animation(.easeInOut, value: viewModel.toasts.count)
+        .animation(.easeInOut,
+                   value: viewModel.toasts.count)
         .zIndex(1)
+        
       }
     }
   }

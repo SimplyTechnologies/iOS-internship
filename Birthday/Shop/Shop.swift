@@ -1,8 +1,5 @@
 
 class Shop: Equatable {
-  static func == (lhs: Shop, rhs: Shop) -> Bool {
-    lhs.id == rhs.id
-  }
   
   let id: Int
   let name: String
@@ -13,7 +10,16 @@ class Shop: Equatable {
   let rate: Float
   var isFavorite: Bool
   
-  init(id: Int, name: String, image: String, phone: String, address: String, url: String, rate: Float, isFavorite: Bool) {
+  init(
+    id: Int,
+    name: String,
+    image: String,
+    phone: String,
+    address: String,
+    url: String,
+    rate: Float,
+    isFavorite: Bool
+  ) {
     self.id = id
     self.name = name
     self.image = image
@@ -23,5 +29,11 @@ class Shop: Equatable {
     self.rate = rate
     self.isFavorite = isFavorite
   }
+  
+  static func == (lhs: Shop, rhs: Shop) -> Bool {
+    lhs.id == rhs.id
+    
+  }
+  
 }
 

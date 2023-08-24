@@ -9,23 +9,30 @@ class ShopDetailViewModel: ObservableObject {
   
   var addressURLString: String {
     "https://www.google.com/maps/search/?q=\(shop.address)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+    
   }
   
   var websiteURL: String {
     ("[Web Site](\(shop.url))")
+    
   }
   
   var phone: String {
     "tel:\(shop.phone)"
+    
   }
   
-  init(shop: Shop, toasts: [Toast], onTapFavoriteIcon: @escaping (Shop) -> ()) {
+  init(shop: Shop,
+       toasts: [Toast],
+       onTapFavoriteIcon: @escaping (Shop) -> ()) {
     self.shop = shop
     self.toasts = toasts
     self.onTapFavoriteIcon = onTapFavoriteIcon
+    
   }
   
   func onTapFavoriteIcon(shop: Shop) {
     self.onTapFavoriteIcon(shop)
+    
   }
 }
