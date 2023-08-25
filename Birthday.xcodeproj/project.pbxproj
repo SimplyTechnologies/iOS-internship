@@ -26,6 +26,16 @@
 		9939A9142A933B9600D3B19E /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9939A9132A933B9600D3B19E /* TabBarView.swift */; };
 		9939A9162A933BB700D3B19E /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9939A9152A933BB700D3B19E /* TabItem.swift */; };
 		9939A9182A933C7600D3B19E /* TabViewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9939A9172A933C7600D3B19E /* TabViewTab.swift */; };
+		994ECA932A96155E003D89A5 /* GetBirthdaysQuery.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994ECA922A96155E003D89A5 /* GetBirthdaysQuery.graphql.swift */; };
+		994ECA952A961564003D89A5 /* Birthday.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994ECA942A961564003D89A5 /* Birthday.graphql.swift */; };
+		994ECA982A96164A003D89A5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994ECA972A96164A003D89A5 /* Date.swift */; };
+		994ECA9B2A961770003D89A5 /* BirthdaysRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994ECA9A2A961770003D89A5 /* BirthdaysRepository.swift */; };
+		994ECAA12A961F36003D89A5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994ECAA02A961F36003D89A5 /* HomeViewModel.swift */; };
+		994ECAA32A961F49003D89A5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994ECAA22A961F49003D89A5 /* HomeView.swift */; };
+		994ECAA52A961FAC003D89A5 /* BirthdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994ECAA42A961FAC003D89A5 /* BirthdayCell.swift */; };
+		994ECAA72A961FE5003D89A5 /* BirthdayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994ECAA62A961FE5003D89A5 /* BirthdayModel.swift */; };
+		994ECAAE2A973041003D89A5 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994ECAAD2A973041003D89A5 /* String + Extension.swift */; };
+		994ECAB12A973075003D89A5 /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994ECAB02A973075003D89A5 /* Date + Extension.swift */; };
 		995742642A9360B4005A3B7F /* RequestServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995742632A9360B4005A3B7F /* RequestServices.swift */; };
 		998E7D102A8DF34500E8F807 /* ApolloManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998E7D0F2A8DF34500E8F807 /* ApolloManager.swift */; };
 		998E7D222A8E147700E8F807 /* Queries.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 998E7D212A8E147700E8F807 /* Queries.graphql */; };
@@ -63,6 +73,17 @@
 		9939A9132A933B9600D3B19E /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		9939A9152A933BB700D3B19E /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		9939A9172A933C7600D3B19E /* TabViewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewTab.swift; sourceTree = "<group>"; };
+		994ECA922A96155E003D89A5 /* GetBirthdaysQuery.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBirthdaysQuery.graphql.swift; sourceTree = "<group>"; };
+		994ECA942A961564003D89A5 /* Birthday.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Birthday.graphql.swift; sourceTree = "<group>"; };
+		994ECA972A96164A003D89A5 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		994ECA9A2A961770003D89A5 /* BirthdaysRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdaysRepository.swift; sourceTree = "<group>"; };
+		994ECAA02A961F36003D89A5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		994ECAA22A961F49003D89A5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		994ECAA42A961FAC003D89A5 /* BirthdayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayCell.swift; sourceTree = "<group>"; };
+		994ECAA62A961FE5003D89A5 /* BirthdayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayModel.swift; sourceTree = "<group>"; };
+		994ECAAC2A96405B003D89A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		994ECAAD2A973041003D89A5 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		994ECAB02A973075003D89A5 /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
 		995742632A9360B4005A3B7F /* RequestServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestServices.swift; sourceTree = "<group>"; };
 		998E7D0F2A8DF34500E8F807 /* ApolloManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloManager.swift; sourceTree = "<group>"; };
 		998E7D212A8E147700E8F807 /* Queries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Queries.graphql; sourceTree = "<group>"; };
@@ -151,12 +172,14 @@
 		9905A0D42A8CF8C1003B5FF5 /* Birthday */ = {
 			isa = PBXGroup;
 			children = (
+				994ECAAC2A96405B003D89A5 /* Info.plist */,
 				998E7D0B2A8DF2F500E8F807 /* Services */,
 				9939A9112A933B8200D3B19E /* Modules */,
 				9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */,
 				9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */,
 				9855938F2A963B8F00A3E76C /* Shop */,
 				985593902A963B9500A3E76C /* Toast */,
+				994ECAB22A9730E6003D89A5 /* Extensions */,
 				985593672A8E6EE400A3E76C /* UIElements */,
 				9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */,
 				9905A0DB2A8CF8C2003B5FF5 /* Preview Content */,
@@ -176,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				9939A9122A933B8B00D3B19E /* TabBar */,
+				994ECA9C2A961F05003D89A5 /* Home */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -188,6 +212,67 @@
 				9939A9172A933C7600D3B19E /* TabViewTab.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		994ECA962A96164A003D89A5 /* CustomScalars */ = {
+			isa = PBXGroup;
+			children = (
+				994ECA972A96164A003D89A5 /* Date.swift */,
+			);
+			path = CustomScalars;
+			sourceTree = "<group>";
+		};
+		994ECA992A961713003D89A5 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				994ECA9A2A961770003D89A5 /* BirthdaysRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		994ECA9C2A961F05003D89A5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				994ECA9F2A961F15003D89A5 /* ViewModel */,
+				994ECA9E2A961F11003D89A5 /* Model */,
+				994ECA9D2A961F0C003D89A5 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		994ECA9D2A961F0C003D89A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				994ECAA22A961F49003D89A5 /* HomeView.swift */,
+				994ECAA42A961FAC003D89A5 /* BirthdayCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		994ECA9E2A961F11003D89A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				994ECAA62A961FE5003D89A5 /* BirthdayModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		994ECA9F2A961F15003D89A5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				994ECAA02A961F36003D89A5 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		994ECAB22A9730E6003D89A5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				99F9E2EB2A93A9B5004ED89F /* Error + Extension.swift */,
+				994ECAAD2A973041003D89A5 /* String + Extension.swift */,
+				994ECAB02A973075003D89A5 /* Date + Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		998E7D0B2A8DF2F500E8F807 /* Services */ = {
@@ -203,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				99F9E2EA2A93A94B004ED89F /* General */,
+				994ECA992A961713003D89A5 /* Repositories */,
 				99F9E2DE2A9393F9004ED89F /* Operations */,
 				99F9E2D72A9393F9004ED89F /* Schema */,
 				99F9E2DD2A9393F9004ED89F /* Api.graphql.swift */,
@@ -214,6 +300,7 @@
 		99F9E2D72A9393F9004ED89F /* Schema */ = {
 			isa = PBXGroup;
 			children = (
+				994ECA962A96164A003D89A5 /* CustomScalars */,
 				99F9E2D82A9393F9004ED89F /* Objects */,
 				99F9E2DB2A9393F9004ED89F /* SchemaConfiguration.swift */,
 				99F9E2DC2A9393F9004ED89F /* SchemaMetadata.graphql.swift */,
@@ -224,6 +311,7 @@
 		99F9E2D82A9393F9004ED89F /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				994ECA942A961564003D89A5 /* Birthday.graphql.swift */,
 				99F9E2D92A9393F9004ED89F /* User.graphql.swift */,
 				99F9E2DA2A9393F9004ED89F /* Query.graphql.swift */,
 			);
@@ -242,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				99F9E2E02A9393F9004ED89F /* GetUsersQuery.graphql.swift */,
+				994ECA922A96155E003D89A5 /* GetBirthdaysQuery.graphql.swift */,
 			);
 			path = Queries;
 			sourceTree = "<group>";
@@ -249,7 +338,6 @@
 		99F9E2E72A939BF4004ED89F /* RequestManager */ = {
 			isa = PBXGroup;
 			children = (
-				99F9E2EB2A93A9B5004ED89F /* Error + Extension.swift */,
 				995742632A9360B4005A3B7F /* RequestServices.swift */,
 			);
 			path = RequestManager;
@@ -395,21 +483,29 @@
 				998E7D102A8DF34500E8F807 /* ApolloManager.swift in Sources */,
 				99F9E2E22A9393F9004ED89F /* Query.graphql.swift in Sources */,
 				99F9E2E62A9393F9004ED89F /* GetUsersQuery.graphql.swift in Sources */,
+				994ECA932A96155E003D89A5 /* GetBirthdaysQuery.graphql.swift in Sources */,
 				99F9E2E12A9393F9004ED89F /* User.graphql.swift in Sources */,
+				994ECAA12A961F36003D89A5 /* HomeViewModel.swift in Sources */,
 				998E7D222A8E147700E8F807 /* Queries.graphql in Sources */,
 				9905A0D82A8CF8C1003B5FF5 /* ContentView.swift in Sources */,
 				99F9E2E32A9393F9004ED89F /* SchemaConfiguration.swift in Sources */,
+				994ECA9B2A961770003D89A5 /* BirthdaysRepository.swift in Sources */,
 				99F9E2E42A9393F9004ED89F /* SchemaMetadata.graphql.swift in Sources */,
 				985593642A8E6E9100A3E76C /* Colors.swift in Sources */,
 				985593922A963BA700A3E76C /* Toast.swift in Sources */,
 				985593A02A963C9300A3E76C /* ShopDetailView.swift in Sources */,
 				985593662A8E6EC800A3E76C /* Logo.swift in Sources */,
 				995742642A9360B4005A3B7F /* RequestServices.swift in Sources */,
+				994ECAA72A961FE5003D89A5 /* BirthdayModel.swift in Sources */,
 				99F9E2EC2A93A9B5004ED89F /* Error + Extension.swift in Sources */,
 				99F9E2E92A939C8C004ED89F /* GraphQLRepository.swift in Sources */,
 				9939A9142A933B9600D3B19E /* TabBarView.swift in Sources */,
 				9939A9182A933C7600D3B19E /* TabViewTab.swift in Sources */,
+				994ECA982A96164A003D89A5 /* Date.swift in Sources */,
 				9939A9162A933BB700D3B19E /* TabItem.swift in Sources */,
+				994ECA952A961564003D89A5 /* Birthday.graphql.swift in Sources */,
+				994ECAA32A961F49003D89A5 /* HomeView.swift in Sources */,
+				994ECAAE2A973041003D89A5 /* String + Extension.swift in Sources */,
 				9905A0D62A8CF8C1003B5FF5 /* BirthdayApp.swift in Sources */,
 				99F9E2E52A9393F9004ED89F /* Api.graphql.swift in Sources */,
 				985593982A963BF600A3E76C /* ShopListViewModel.swift in Sources */,
@@ -419,6 +515,8 @@
 				985593942A963BBC00A3E76C /* ToastView.swift in Sources */,
 				9855939C2A963C3000A3E76C /* ShopView.swift in Sources */,
 				9855939A2A963C1100A3E76C /* ShopListView.swift in Sources */,
+				994ECAA52A961FAC003D89A5 /* BirthdayCell.swift in Sources */,
+				994ECAB12A973075003D89A5 /* Date + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +649,7 @@
 				DEVELOPMENT_TEAM = VBZ5789L53;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Birthday/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Birthday;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -583,6 +682,7 @@
 				DEVELOPMENT_TEAM = VBZ5789L53;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Birthday/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Birthday;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -6,7 +6,11 @@ struct TabBarView: View {
   @State var activeTab: TabItem = .home
   
   init() {
-    UITabBar.appearance().backgroundColor = UIColor(Color.secondaryColor)
+    let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
+    tabBarAppearance.configureWithDefaultBackground()
+    tabBarAppearance.backgroundColor = UIColor(Color.secondaryColor)
+    UITabBar.appearance().standardAppearance = tabBarAppearance
+    UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
   }
   
   var body: some View {
@@ -15,7 +19,11 @@ struct TabBarView: View {
   
   private var tabView: some View {
     TabView(selection: $activeTab) {
-      Text("Home tab")
+      HomeView(
+        viewModel: HomeViewModel(
+          birthdayRepository: BirthdaysRepositoryImpl()
+        )
+      )
         .tabItem { TabViewTab(activeTab: $activeTab, tab: .home) }
         .tag(TabItem.home)
       ShopListView(viewModel: ShopListViewModel())
