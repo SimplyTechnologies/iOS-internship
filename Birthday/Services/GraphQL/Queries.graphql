@@ -6,3 +6,19 @@ query GetUsers {
     firstName
   }
 }
+
+query GetBirthdays {
+  birthdays {
+    id
+    userId
+    name
+    image
+    relation
+    message
+    date
+    upcomingBirthday
+    upcomingAge
+    createdAt
+    updatedAt
+  }
+}

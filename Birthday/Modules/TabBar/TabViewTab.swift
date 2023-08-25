@@ -12,8 +12,6 @@ struct TabViewTab: View {
   
 }
 
-// MARK: - Preview
-
 struct TabViewTab_Previews: PreviewProvider {
   
   @State static var activeTab: TabItem = .home
