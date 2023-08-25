@@ -19,6 +19,9 @@
 		9855939E2A963C7E00A3E76C /* ShopDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9855939D2A963C7E00A3E76C /* ShopDetailViewModel.swift */; };
 		985593A02A963C9300A3E76C /* ShopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9855939F2A963C9300A3E76C /* ShopDetailView.swift */; };
 		985593A22A976CCE00A3E76C /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593A12A976CCE00A3E76C /* BackButton.swift */; };
+		017DB1622A8F581E0055BACF /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1612A8F581E0055BACF /* ProfileScreen.swift */; };
+		017DB1652A8F6E700055BACF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1642A8F6E700055BACF /* ProfileView.swift */; };
+		017DB1682A8F6F020055BACF /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1672A8F6F020055BACF /* PrimaryButtonStyle.swift */; };
 		9905A0D62A8CF8C1003B5FF5 /* BirthdayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */; };
 		9905A0D82A8CF8C1003B5FF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */; };
 		9905A0DA2A8CF8C2003B5FF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */; };
@@ -55,6 +58,9 @@
 		9855939D2A963C7E00A3E76C /* ShopDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewModel.swift; sourceTree = "<group>"; };
 		9855939F2A963C9300A3E76C /* ShopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailView.swift; sourceTree = "<group>"; };
 		985593A12A976CCE00A3E76C /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		017DB1612A8F581E0055BACF /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		017DB1642A8F6E700055BACF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		017DB1672A8F6F020055BACF /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		9905A0D22A8CF8C1003B5FF5 /* Birthday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birthday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayApp.swift; sourceTree = "<group>"; };
 		9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +111,23 @@
 				985593632A8E6E9100A3E76C /* Colors.swift */,
 			);
 			path = UIElements;
+      sourceTree = "<group>";
+    };
+		017DB1632A8F6E480055BACF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				017DB1612A8F581E0055BACF /* ProfileScreen.swift */,
+				017DB1642A8F6E700055BACF /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		017DB1662A8F6EB10055BACF /* ButtonStyles */ = {
+			isa = PBXGroup;
+			children = (
+				017DB1672A8F6F020055BACF /* PrimaryButtonStyle.swift */,
+			);
+			path = ButtonStyles;
 			sourceTree = "<group>";
 		};
 		9855938F2A963B8F00A3E76C /* Shop */ = {
@@ -153,6 +176,8 @@
 			children = (
 				998E7D0B2A8DF2F500E8F807 /* Services */,
 				9939A9112A933B8200D3B19E /* Modules */,
+				017DB1662A8F6EB10055BACF /* ButtonStyles */,
+				017DB1632A8F6E480055BACF /* Profile */,
 				9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */,
 				9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */,
 				9855938F2A963B8F00A3E76C /* Shop */,
@@ -397,6 +422,8 @@
 				99F9E2E62A9393F9004ED89F /* GetUsersQuery.graphql.swift in Sources */,
 				99F9E2E12A9393F9004ED89F /* User.graphql.swift in Sources */,
 				998E7D222A8E147700E8F807 /* Queries.graphql in Sources */,
+				017DB1652A8F6E700055BACF /* ProfileView.swift in Sources */,
+				017DB1682A8F6F020055BACF /* PrimaryButtonStyle.swift in Sources */,
 				9905A0D82A8CF8C1003B5FF5 /* ContentView.swift in Sources */,
 				99F9E2E32A9393F9004ED89F /* SchemaConfiguration.swift in Sources */,
 				99F9E2E42A9393F9004ED89F /* SchemaMetadata.graphql.swift in Sources */,
@@ -410,6 +437,7 @@
 				9939A9142A933B9600D3B19E /* TabBarView.swift in Sources */,
 				9939A9182A933C7600D3B19E /* TabViewTab.swift in Sources */,
 				9939A9162A933BB700D3B19E /* TabItem.swift in Sources */,
+				017DB1622A8F581E0055BACF /* ProfileScreen.swift in Sources */,
 				9905A0D62A8CF8C1003B5FF5 /* BirthdayApp.swift in Sources */,
 				99F9E2E52A9393F9004ED89F /* Api.graphql.swift in Sources */,
 				985593982A963BF600A3E76C /* ShopListViewModel.swift in Sources */,
