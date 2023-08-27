@@ -6,3 +6,12 @@ query GetUsers {
     firstName
   }
 }
+query GetProfile {
+  profile {
+    id
+    email
+    firstName
+    lastName
+    image
+  }
+}

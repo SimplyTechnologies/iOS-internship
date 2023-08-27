@@ -1,20 +1,38 @@
-//
-//  PhotoPicker.swift
-//  Birthday
-//
-//  Created by Mesrop Grigoryan on 25.08.23.
-//
 
 import SwiftUI
+import UIKit
 
-struct PhotoPicker: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct ImagePicker: UIViewControllerRepresentable {
+  @Binding var selectedImage: UIImage?
+  
+  func makeUIViewController(context: Context) -> UIImagePickerController {
+    let imagePicker = UIImagePickerController()
+    imagePicker.delegate = context.coordinator
+    return imagePicker
+  }
+  
+  func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
+    
+  }
+  
+  func makeCoordinator() -> Coordinator {
+    Coordinator(self)
+  }
+  
+  class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    var parent: ImagePicker
+    
+    init(_ parent: ImagePicker) {
+      self.parent = parent
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+      if let selectedImage = info[.originalImage] as? UIImage {
+        parent.selectedImage = selectedImage
+      }
+      picker.dismiss(animated: true, completion: nil)
+    }
+  }
 }
 
-struct PhotoPicker_Previews: PreviewProvider {
-    static var previews: some View {
-        PhotoPicker()
-    }
-}
+

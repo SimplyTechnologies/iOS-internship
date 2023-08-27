@@ -1,8 +1,22 @@
 
-import Combine
-import Foundation
+import UIKit
 
-class ProfileViewModel: ObservableObject {
+class ProfileScreenViewModel: ObservableObject {
+  
+  @Published var isEditingModeOff = true
+  @Published var showImagePicker = false
+  @Published var selectedImage: UIImage? = nil
+  @Published var isImagePickerPresented = false
+  
+  var fullName: String {
+    user.firstName + " " + user.lastName
+  }
+  
+  // TODO: will be changed
+  var areTextFieldsEdited: Bool {
+    user.firstName != "Shirley" || user.lastName != "Shirleyyan"
+  }
+  
   
   @Published var user =
     UserModel(
@@ -11,6 +25,7 @@ class ProfileViewModel: ObservableObject {
       email: "shirleyjan@shirley.ru",
       image: "shirley.png"
     )
+  
   func editFirstName() {
     
   }

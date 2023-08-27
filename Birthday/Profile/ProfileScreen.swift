@@ -3,20 +3,7 @@ import SwiftUI
 
 struct ProfileScreen: View {
   
-  @State private var isEditingModeOff = true
-  @State private var firstName = "Shirley"
-  @State private var lastName = "Peter"
-  
-  private var email = "ShirleyPeter01@gmail.com"
-  
-  private var fullName: String {
-    firstName + " " + lastName
-  }
-  
-  // TODO: will be changed
-  private var areTextFieldsEdited: Bool {
-    firstName != "Shirley" || lastName != "Peter"
-  }
+  @ObservedObject var viewModel = ProfileScreenViewModel()
   
   var body: some View {
     ZStack {
@@ -27,27 +14,16 @@ struct ProfileScreen: View {
           Spacer()
           Image("LogoBirthApp")
         }
-        .padding(
-          EdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: 50,
-            trailing: 24
-          )
-        )
-        ProfileView(
-          isEditingModeOff: $isEditingModeOff,
-          firstName: $firstName,
-          lastName: $lastName,
-          fullName: fullName,
-          email: email
-        )
+        .padding()
+        ProfileView()
+          .environmentObject(viewModel)
         Spacer()
-        if isEditingModeOff {
+        Spacer()
+        if viewModel.isEditingModeOff {
           Button(
             "Edit Account"
           ) {
-            isEditingModeOff.toggle()
+            viewModel.isEditingModeOff.toggle()
           }
           .buttonStyle(PrimaryButtonStyle())
           Button("Sign Out") {
@@ -56,10 +32,10 @@ struct ProfileScreen: View {
           .buttonStyle(PrimaryButtonStyle())
         } else {
           Button("Save") {
-            isEditingModeOff.toggle()
+            viewModel.isEditingModeOff.toggle()
           }
           .buttonStyle(PrimaryButtonStyle())
-          .disabled(!areTextFieldsEdited)
+          .disabled(!viewModel.areTextFieldsEdited)
         }
         Spacer()
       }

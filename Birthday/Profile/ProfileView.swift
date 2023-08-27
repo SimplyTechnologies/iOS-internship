@@ -3,54 +3,77 @@ import SwiftUI
 
 struct ProfileView: View {
   
-  @Binding var isEditingModeOff: Bool
-  @Binding var firstName: String
-  @Binding var lastName: String
-  
-  var fullName: String
-  var email: String
+  @EnvironmentObject var viewModel: ProfileScreenViewModel
   
   var body: some View {
     VStack {
-      // TODO:  Birth icon will be there
-      if isEditingModeOff {
-        Image("profilePicture")
-          .resizable()
-          .frame(
-            width: 150,
-            height: 150
-          )
-          .padding()
-        
-        Text(fullName)
+      if viewModel.isEditingModeOff {
+        if let image = viewModel.selectedImage {
+          Image(uiImage: image)
+            .resizable()
+            .frame(
+              width: 150,
+              height: 150
+            )
+            .cornerRadius(75)
+            .padding()
+        } else {
+          Image("profilePicture")
+            .resizable()
+            .frame(
+              width: 150,
+              height: 150
+            )
+            .padding()
+        }
+        Text(viewModel.fullName)
           .font(.title3)
           .padding()
+          .foregroundColor(.black)
         
-        Text(email)
+        Text(viewModel.user.email)
           .font(.headline)
           .padding()
+          .foregroundColor(.black)
       } else {
-        // TODO: Need to be changed
-        Image("Profile")
-          .resizable()
-          .frame(
-            width: 150,
-            height: 150
-          )
-          .padding()
+        ZStack {
+          if let image = viewModel.selectedImage {
+            Image(uiImage: image)
+              .resizable()
+              .frame(
+                width: 150,
+                height: 150
+              )
+              .cornerRadius(75)
+              .padding()
+          } else {
+            Image("AddImage")
+              .resizable()
+              .padding()
+              .frame(
+                width: 150,
+                height: 150
+              )
+              .cornerRadius(75)
+            
+          }
+        }
+        .onTapGesture {
+          viewModel.isImagePickerPresented.toggle()
+        }
         Text("First Name")
           .frame(
             maxWidth: 250,
             alignment: .leading
           )
-          .padding(
-            .horizontal, 65
-          )
+          .font(.headline)
+          .foregroundColor(.black)
         TextField(
           "First Name",
-          text: $firstName
+          text: $viewModel.user.firstName
         )
         .padding(10)
+        .foregroundColor(.black)
         .overlay(
           RoundedRectangle(cornerRadius: 14)
             .stroke(
@@ -58,28 +81,20 @@ struct ProfileView: View {
               lineWidth: 0.1
             )
         )
-        .padding(
-          EdgeInsets(
-            top: 0,
-            leading: 60,
-            bottom: 7,
-            trailing: 60
-          )
-        )
+        .padding(.bottom, 7)
         Text("Last Name")
           .frame(
             maxWidth: 250,
             alignment: .leading
           )
-          .padding(
-            .horizontal, 65
-          )
-        
+          .font(.headline)
+          .foregroundColor(.black)
         TextField(
           "Last Name",
-          text: $lastName
+          text: $viewModel.user.lastName
         )
         .padding(10)
+        .foregroundColor(.black)
         .overlay(
           RoundedRectangle(cornerRadius: 14)
             .stroke(
@@ -87,16 +102,12 @@ struct ProfileView: View {
               lineWidth: 0.1
             )
         )
-        .padding(
-          EdgeInsets(
-            top: 0,
-            leading: 60,
-            bottom: 0,
-            trailing: 60
-          )
-        )
       }
     }
+    .sheet(isPresented: $viewModel.isImagePickerPresented) {
+      ImagePicker(selectedImage: $viewModel.selectedImage)
+    }
+    .padding(.horizontal, 60)
   }
   
 }
