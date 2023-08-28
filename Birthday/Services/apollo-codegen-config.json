@@ -16,7 +16,7 @@
     }
   },
   "schemaTypes" : {
-   "path" : "/Users/edgararakelyan/iOS-internship/Birthday/Services/GraphQL",
+   "path" : "./Services/GraphQL",
    "moduleType" : {
     "embeddedInTarget" : {
      "name" : "Birthday"
