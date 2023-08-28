@@ -464,6 +464,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/SwiftLint/swiftlint",
 			);
 			outputFileListPaths = (
 			);
