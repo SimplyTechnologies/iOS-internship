@@ -15,6 +15,7 @@ opt_in_rules:
 - empty_string
 excluded: # excluding pods, generated files and tests /for now/
 
+- Birthday/Services/Services/GraphQL
 - Birthday/Services/GraphQL
 - Pods
 line_length:
