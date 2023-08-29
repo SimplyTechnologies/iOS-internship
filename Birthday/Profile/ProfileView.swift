@@ -3,7 +3,7 @@ import SwiftUI
 
 struct ProfileView: View {
   
-  @EnvironmentObject var viewModel: ProfileScreenViewModel
+  @ObservedObject var viewModel: ProfileScreenViewModel
   
   var body: some View {
     VStack {
@@ -30,11 +30,18 @@ struct ProfileView: View {
           .font(.title3)
           .padding()
           .foregroundColor(.black)
+          .multilineTextAlignment(.center)
+          .minimumScaleFactor(0.3)
+          .lineLimit(1)
         
         Text(viewModel.user.email)
           .font(.headline)
           .padding()
           .foregroundColor(.black)
+          .multilineTextAlignment(.center)
+          .minimumScaleFactor(0.3)
+          .lineLimit(1)
+
       } else {
         ZStack {
           if let image = viewModel.selectedImage {

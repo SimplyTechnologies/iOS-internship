@@ -1,5 +1,6 @@
 
-import UIKit
+import Foundation
+import Combine
 
 class BirthdayDetailsViewModel: ObservableObject {
   
@@ -7,25 +8,18 @@ class BirthdayDetailsViewModel: ObservableObject {
   @Published var isShareSheetPresented = false
   @Published var isGeneratingMessage: Bool = false
   
-  @Published var birthdayDetailsViewModel = BirthdayDetailsModel(
-    name: "Axjik axjikyan",
-    image: "profilePicture",
-    relation: "Heru Barekam",
-    message: "shnorhavor brats qez amenalavn u barin tangs",
-    date: Date()
-  )
+  private let birthdaysRepository: BirthdaysRepository
+  
+  var birthdayDetails: BirthdayModel
   
   var date: Date = Date()
-  var fullName: String {
-    birthdayDetailsViewModel.name
-  }
   
   var message: String {
     get {
-      birthdayDetailsViewModel.message
+      birthdayDetails.message
     }
     set {
-      birthdayDetailsViewModel.message = newValue
+//      birthdayDetails.message = newValue
     }
   }
   let dateFormatter: DateFormatter = {
@@ -34,4 +28,14 @@ class BirthdayDetailsViewModel: ObservableObject {
     return formatter
   }()
   
+  init(birthdayDetails: BirthdayModel,
+       birthdaysRepository: BirthdaysRepository) {
+    self.birthdayDetails = birthdayDetails
+    self.birthdaysRepository = birthdaysRepository
+  }
+  
+  func deleteBirthday(by id: Int) {
+    birthdaysRepository.deleteBirthday(by: id)
+    
+  }
 }

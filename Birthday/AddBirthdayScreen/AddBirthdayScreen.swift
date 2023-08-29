@@ -4,9 +4,7 @@ import SwiftUI
 struct AddBirthdayScreen: View {
   
   @ObservedObject var viewModel = AddBirthdayViewModel()
-  
   var body: some View {
-    
     ZStack {
       Color.backgroundColor
       .ignoresSafeArea()
@@ -14,7 +12,7 @@ struct AddBirthdayScreen: View {
         VStack {
           HStack {
             Spacer()
-            Image("LogoBirthApp")
+            Logo()
           }
           .padding(.horizontal)
           Image(systemName: "person.circle.fill")
@@ -74,7 +72,9 @@ struct AddBirthdayScreen: View {
             .frame(
               width: 270,
               height: 200)
-          DatePicker(selection: $viewModel.addBirthdayViewModel.date, in: ...Date.now, displayedComponents: .date) {
+          DatePicker(selection: $viewModel.addBirthdayViewModel.date,
+                     in: ...Date.now,
+                     displayedComponents: .date) {
             Text("Date of Birth:")
               .font(.title3)
           }

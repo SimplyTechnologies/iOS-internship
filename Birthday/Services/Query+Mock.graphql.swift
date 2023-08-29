@@ -11,6 +11,7 @@ public class Query: MockObject {
 
   public struct MockFields {
     @Field<[Birthday]>("birthdays") public var birthdays
+    @Field<User>("profile") public var profile
     @Field<[User]>("users") public var users
   }
 }
@@ -18,10 +19,12 @@ public class Query: MockObject {
 public extension Mock where O == Query {
   convenience init(
     birthdays: [Mock<Birthday>]? = nil,
+    profile: Mock<User>? = nil,
     users: [Mock<User>]? = nil
   ) {
     self.init()
     self.birthdays = birthdays
+    self.profile = profile
     self.users = users
   }
 }

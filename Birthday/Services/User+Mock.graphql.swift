@@ -13,6 +13,7 @@ public class User: MockObject {
     @Field<String>("email") public var email
     @Field<String>("firstName") public var firstName
     @Field<Api.ID>("id") public var id
+    @Field<String>("image") public var image
     @Field<String>("lastName") public var lastName
   }
 }
@@ -22,12 +23,14 @@ public extension Mock where O == User {
     email: String? = nil,
     firstName: String? = nil,
     id: Api.ID? = nil,
+    image: String? = nil,
     lastName: String? = nil
   ) {
     self.init()
     self.email = email
     self.firstName = firstName
     self.id = id
+    self.image = image
     self.lastName = lastName
   }
 }

@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		015DA3232A9DE0BB00F2902C /* BirthdayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA3222A9DE0BB00F2902C /* BirthdayApp.swift */; };
 		015DA3252A9DE1AB00F2902C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA3242A9DE1AA00F2902C /* ContentView.swift */; };
-		0164CD132A9B440C0046DEFC /* BirthdayDetailsScreen.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD0F2A9B440C0046DEFC /* BirthdayDetailsScreen.swift.swift */; };
+		015DA3292A9E12C700F2902C /* Mutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA3282A9E12C700F2902C /* Mutation.graphql.swift */; };
+		015DA32B2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA32A2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift */; };
+		015DA32E2A9E253F00F2902C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA32D2A9E253F00F2902C /* Extension.swift */; };
+		0164CD132A9B440C0046DEFC /* BirthdayDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD0F2A9B440C0046DEFC /* BirthdayDetailsScreen.swift */; };
 		0164CD142A9B440C0046DEFC /* BirthdayDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD102A9B440C0046DEFC /* BirthdayDetailsModel.swift */; };
 		0164CD152A9B440C0046DEFC /* BirthdayDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD112A9B440C0046DEFC /* BirthdayDetailsViewModel.swift */; };
 		0164CD162A9B440C0046DEFC /* GenerateMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD122A9B440C0046DEFC /* GenerateMessageView.swift */; };
@@ -66,7 +69,10 @@
 /* Begin PBXFileReference section */
 		015DA3222A9DE0BB00F2902C /* BirthdayApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayApp.swift; sourceTree = "<group>"; };
 		015DA3242A9DE1AA00F2902C /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0164CD0F2A9B440C0046DEFC /* BirthdayDetailsScreen.swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayDetailsScreen.swift.swift; sourceTree = "<group>"; };
+		015DA3282A9E12C700F2902C /* Mutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutation.graphql.swift; sourceTree = "<group>"; };
+		015DA32A2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteBirthdayMutation.graphql.swift; sourceTree = "<group>"; };
+		015DA32D2A9E253F00F2902C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		0164CD0F2A9B440C0046DEFC /* BirthdayDetailsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayDetailsScreen.swift; sourceTree = "<group>"; };
 		0164CD102A9B440C0046DEFC /* BirthdayDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayDetailsModel.swift; sourceTree = "<group>"; };
 		0164CD112A9B440C0046DEFC /* BirthdayDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayDetailsViewModel.swift; sourceTree = "<group>"; };
 		0164CD122A9B440C0046DEFC /* GenerateMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateMessageView.swift; sourceTree = "<group>"; };
@@ -136,13 +142,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		015DA32C2A9E143C00F2902C /* Mutations */ = {
+			isa = PBXGroup;
+			children = (
+				015DA32A2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift */,
+			);
+			path = Mutations;
+			sourceTree = "<group>";
+		};
 		0164CD082A9B43AB0046DEFC /* BirthdayDetailsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				0164CD0F2A9B440C0046DEFC /* BirthdayDetailsScreen.swift.swift */,
+				0164CD0F2A9B440C0046DEFC /* BirthdayDetailsScreen.swift */,
 				0164CD122A9B440C0046DEFC /* GenerateMessageView.swift */,
 				0164CD102A9B440C0046DEFC /* BirthdayDetailsModel.swift */,
 				0164CD112A9B440C0046DEFC /* BirthdayDetailsViewModel.swift */,
+				015DA32D2A9E253F00F2902C /* Extension.swift */,
 			);
 			path = BirthdayDetailsScreen;
 			sourceTree = "<group>";
@@ -382,6 +397,7 @@
 		99F9E2D82A9393F9004ED89F /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				015DA3282A9E12C700F2902C /* Mutation.graphql.swift */,
 				994ECA942A961564003D89A5 /* Birthday.graphql.swift */,
 				99F9E2D92A9393F9004ED89F /* User.graphql.swift */,
 				99F9E2DA2A9393F9004ED89F /* Query.graphql.swift */,
@@ -392,6 +408,7 @@
 		99F9E2DE2A9393F9004ED89F /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				015DA32C2A9E143C00F2902C /* Mutations */,
 				99F9E2DF2A9393F9004ED89F /* Queries */,
 			);
 			path = Operations;
@@ -552,6 +569,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				015DA32E2A9E253F00F2902C /* Extension.swift in Sources */,
 				998E7D102A8DF34500E8F807 /* ApolloManager.swift in Sources */,
 				0164CD162A9B440C0046DEFC /* GenerateMessageView.swift in Sources */,
 				99F9E2E22A9393F9004ED89F /* Query.graphql.swift in Sources */,
@@ -565,7 +583,6 @@
 				015DA3232A9DE0BB00F2902C /* BirthdayApp.swift in Sources */,
 				0164CD142A9B440C0046DEFC /* BirthdayDetailsModel.swift in Sources */,
 				0164CD192A9B52EB0046DEFC /* AddBirthdayViewModel.swift in Sources */,
-				015DA2FB2A9DC61D00F2902C /* BirthdayApp.swift in Sources */,
 				017DB1652A8F6E700055BACF /* ProfileView.swift in Sources */,
 				017DB1682A8F6F020055BACF /* PrimaryButtonStyle.swift in Sources */,
 				99F9E2E32A9393F9004ED89F /* SchemaConfiguration.swift in Sources */,
@@ -588,14 +605,15 @@
 				994ECAAE2A973041003D89A5 /* String + Extension.swift in Sources */,
 				0164CD1B2A9B53650046DEFC /* AddBirthdayModel.swift in Sources */,
 				017DB1622A8F581E0055BACF /* ProfileScreen.swift in Sources */,
-				015DA2F72A9DC58E00F2902C /* ContentView.swift in Sources */,
+				015DA3292A9E12C700F2902C /* Mutation.graphql.swift in Sources */,
 				0168396C2A98E34A00E483FC /* PhotoPicker.swift in Sources */,
 				99F9E2E52A9393F9004ED89F /* Api.graphql.swift in Sources */,
 				985593982A963BF600A3E76C /* ShopListViewModel.swift in Sources */,
 				0168396A2A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift in Sources */,
 				9855939E2A963C7E00A3E76C /* ShopDetailViewModel.swift in Sources */,
 				015DA3252A9DE1AB00F2902C /* ContentView.swift in Sources */,
-				0164CD132A9B440C0046DEFC /* BirthdayDetailsScreen.swift.swift in Sources */,
+				0164CD132A9B440C0046DEFC /* BirthdayDetailsScreen.swift in Sources */,
+				015DA32B2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift in Sources */,
 				0164CD1D2A9B53850046DEFC /* AddBirthdayScreen.swift in Sources */,
 				985593962A963BC800A3E76C /* Shop.swift in Sources */,
 				985593A22A976CCE00A3E76C /* BackButton.swift in Sources */,

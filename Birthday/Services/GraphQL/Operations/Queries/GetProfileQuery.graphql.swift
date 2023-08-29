@@ -4,18 +4,19 @@
 @_exported import ApolloAPI
 
 public extension Api {
-  class GetUsersQuery: GraphQLQuery {
-    public static let operationName: String = "GetUsers"
+  class GetProfileQuery: GraphQLQuery {
+    public static let operationName: String = "GetProfile"
     public static let document: ApolloAPI.DocumentType = .notPersisted(
       definition: .init(
         #"""
-        query GetUsers {
-          users {
+        query GetProfile {
+          profile {
             __typename
             id
-            lastName
             email
             firstName
+            lastName
+            image
           }
         }
         """#
@@ -29,15 +30,15 @@ public extension Api {
 
       public static var __parentType: ApolloAPI.ParentType { Api.Objects.Query }
       public static var __selections: [ApolloAPI.Selection] { [
-        .field("users", [User].self),
+        .field("profile", Profile?.self),
       ] }
 
-      public var users: [User] { __data["users"] }
+      public var profile: Profile? { __data["profile"] }
 
-      /// User
+      /// Profile
       ///
       /// Parent Type: `User`
-      public struct User: Api.SelectionSet {
+      public struct Profile: Api.SelectionSet {
         public let __data: DataDict
         public init(_dataDict: DataDict) { __data = _dataDict }
 
@@ -45,15 +46,17 @@ public extension Api {
         public static var __selections: [ApolloAPI.Selection] { [
           .field("__typename", String.self),
           .field("id", Api.ID.self),
-          .field("lastName", String.self),
           .field("email", String.self),
           .field("firstName", String.self),
+          .field("lastName", String.self),
+          .field("image", String?.self),
         ] }
 
         public var id: Api.ID { __data["id"] }
-        public var lastName: String { __data["lastName"] }
         public var email: String { __data["email"] }
         public var firstName: String { __data["firstName"] }
+        public var lastName: String { __data["lastName"] }
+        public var image: String? { __data["image"] }
       }
     }
   }

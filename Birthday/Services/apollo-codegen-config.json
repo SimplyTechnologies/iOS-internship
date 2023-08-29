@@ -16,7 +16,7 @@
     }
   },
   "schemaTypes" : {
-   "path" : "./Services/GraphQL",
+   "path" : "./GraphQL",
    "moduleType" : {
     "embeddedInTarget" : {
      "name" : "Birthday"
