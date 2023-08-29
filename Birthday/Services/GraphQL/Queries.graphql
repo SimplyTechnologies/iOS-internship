@@ -20,5 +20,16 @@ query GetBirthdays {
     upcomingAge
     createdAt
     updatedAt
+    
+  }
+}
+query GetProfile {
+  profile {
+    id
+    email
+    firstName
+    lastName
+    image
+
   }
 }
