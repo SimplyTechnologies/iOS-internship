@@ -4,12 +4,12 @@
 @_exported import ApolloAPI
 
 public extension Api {
-  class TestQuery: GraphQLQuery {
-    public static let operationName: String = "TestQuery"
+  class TestetetesQuery: GraphQLQuery {
+    public static let operationName: String = "testetetes"
     public static let document: ApolloAPI.DocumentType = .notPersisted(
       definition: .init(
         #"""
-        query TestQuery {
+        query testetetes {
           birthdays {
             __typename
             id
