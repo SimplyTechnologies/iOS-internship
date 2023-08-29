@@ -16,22 +16,35 @@ struct ShopListView: View {
           
           ZStack(alignment: .trailing) {
             TextField("Search", text: $viewModel.searchText)
+              .onChange(of: viewModel.searchText) { newValue in
+                viewModel.searchText = newValue
+                  .trimmingCharacters(in: .whitespacesAndNewlines)
+              }
               .textFieldStyle(RoundedBorderTextFieldStyle())
               .border(Color.white)
               .cornerRadius(30)
-              .padding()
+              .padding(.vertical, 10)
+              .onTapGesture {
+                searchBarIsActive = true
+              }
             Button {
               if searchBarIsActive {
                 viewModel.searchText = ""
               }
               searchBarIsActive = false
+              UIApplication.shared
+                .sendAction(#selector(UIResponder.resignFirstResponder),
+                            to: nil,
+                            from: nil,
+                            for: nil)
             } label: {
               // swiftlint:disable:next line_length
               Image(systemName: searchBarIsActive || !viewModel.searchText.isEmpty ? "xmark.circle.fill" : "magnifyingglass")
                 .foregroundColor(.gray)
             }
-            .padding(.horizontal, 24)
+            .padding(.trailing, 10)
           }
+          .padding(.horizontal, 24)
           .onChange(
             of: viewModel.searchText,
             perform: { newText in
@@ -44,31 +57,37 @@ struct ShopListView: View {
           Spacer()
           
           ScrollView {
-            LazyVStack {
-              if viewModel.sortedShops.isEmpty {
-                Text("No search results found")
-                  .foregroundColor(.gray)
-                  .padding()
+            LazyVStack(spacing: 18) {
+              if viewModel.isLoading {
+                ProgressView("Loading...")
               } else {
-                ForEach(viewModel.sortedShops, id: \.id) { shop in
-                  NavigationLink(
-                    destination: ShopDetailView(
-                      viewModel: ShopDetailViewModel(
-                        shop: shop,
-                        toasts: viewModel.toasts,
-                        onTapFavoriteIcon: viewModel.onTapFavoriteIcon
+                if viewModel.sortedShops.isEmpty {
+                  Text("No search results found")
+                    .foregroundColor(.gray)
+                    .padding()
+                } else {
+                  ForEach(viewModel.sortedShops, id: \.id) { shop in
+                    NavigationLink(
+                      destination: ShopDetailView(
+                        viewModel: ShopDetailViewModel(
+                          shop: shop,
+                          toasts: viewModel.toasts,
+                          onTapFavoriteIcon: viewModel.onTapFavoriteIcon
+                        )
                       )
-                    )
-                  ) {
-                    ShopView(
-                      shop:
-                        viewModel.sortedShops[viewModel.sortedShops.firstIndex(of: shop)!]
-                    )
-                    .environmentObject(viewModel)
+                    ) {
+                      ShopView(
+                        shop:
+                          viewModel.sortedShops[viewModel.sortedShops
+                            .firstIndex(of: shop)!]
+                      )
+                      .environmentObject(viewModel)
+                    }
                   }
                 }
               }
             }
+            .padding(.horizontal, 24)
           }
           .onTapGesture {
             UIApplication.shared

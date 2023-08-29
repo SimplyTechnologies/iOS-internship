@@ -35,6 +35,8 @@ public extension Api {
       case "User": return Api.Objects.User
       case "Birthday": return Api.Objects.Birthday
       case "Shop": return Api.Objects.Shop
+      case "Mutation": return Api.Objects.Mutation
+      case "UserFavoriteShop": return Api.Objects.UserFavoriteShop
       default: return nil
       }
     }

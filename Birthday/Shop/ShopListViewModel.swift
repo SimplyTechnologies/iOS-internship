@@ -5,19 +5,34 @@ import Foundation
 class ShopListViewModel: ObservableObject {
   
   @Published var searchText = ""
-  
-  // TODO: Mock data to be removed
-  // swiftlint:disable line_length
-  @Published private var shops: [Shop] = [
-    Shop(id: 111, name: "McDonald's", image: "photo.on.rectangle", phone: "0938427523", address: "Merab Kostava St, Tbilisi, Georgia", url: "https://www.mcdonalds.com/us/en-us.html", rate: 3.9, isFavorite: false),
-    Shop(id: 112, name: "H&M", image: "photo.on.rectangle", phone: "0938427523", address: "isjbv", url: "https://www2.hm.com/en_us/index.html", rate: 3.9, isFavorite: false),
-    Shop(id: 113, name: "Hugo Boss", image: "photo.on.rectangle", phone: "0938427523", address: "isjbv", url: "https://www.hugoboss.com/selectcountry", rate: 3.9, isFavorite: true),
-    Shop(id: 114, name: "KFC", image: "photo.on.rectangle", phone: "0938427523", address: "isjbv", url: "https://global.kfc.com/", rate: 3.9, isFavorite: false),
-    Shop(id: 115, name: "Burger King", image: "photo.on.rectangle", phone: "0938427523", address: "isjbv", url: "https://www.bk.com/", rate: 3.9, isFavorite: true),
-    Shop(id: 116, name: "Zara", image: "photo.on.rectangle", phone: "0938427523", address: "11 George Balanchini St", url: "https://www.zara.com/", rate: 3.9, isFavorite: true)
-  ]
-  // swiftlint:enable line_length
+  @Published private var shops: [Shop] = []
   @Published var toasts: [Toast] = []
+  @Published var isLoading = true
+  
+  private var cancellables: Set<AnyCancellable> = []
+  private let shopsRepository: ShopsRepository = ShopsRepositoryImpl()
+  
+  func getShops(shopFilter: Api.ShopFilter) {
+    isLoading = true
+    shopsRepository.getShops(shopFilter: shopFilter)
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] result in
+        self?.isLoading = false
+        switch result {
+        case .finished: break
+        case .failure(let error):
+          print(error)
+        }
+      } receiveValue: { [weak self] shopData in
+        let shopsModels = shopData.map { Shop(dto: $0) }
+        self?.shops = shopsModels
+      }
+      .store(in: &cancellables)
+  }
+  
+  init() {
+    getShops(shopFilter: Api.ShopFilter())
+  }
   
   var sortedShops: [Shop] {
     filteredShops.sorted {

@@ -22,14 +22,25 @@ struct ShopDetailView: View {
         }
         .padding(.horizontal)
         
-        Image(systemName: viewModel.shop.image)
-          .resizable()
-          .frame(width: 100, height: 100)
-          .padding(.top, 100)
+        AsyncImage(url: URL(string: viewModel.shop.image)) { image in
+          image
+            .resizable()
+            .frame(width: 100, height: 100)
+            .scaledToFit()
+            .cornerRadius(50)
+        } placeholder: {
+          Color.secondaryColor
+            .frame(width: 100, height: 100)
+
+            .cornerRadius(50)
+        }
+        .padding(.top, 100)
         
         Text(viewModel.shop.name)
           .font(.title)
-        
+          .padding(.horizontal, 20)
+          .multilineTextAlignment(.center)
+
         HStack {
           ForEach(0..<5) { index in
             Image(systemName: "star.fill")
@@ -68,9 +79,12 @@ struct ShopDetailView: View {
             .foregroundColor(.black)
           }
         }
-        Text(.init(viewModel.websiteURL))
-          .underline()
-          .tint(.black)
+        
+        if !viewModel.shop.url.isEmpty {
+          Text(.init(viewModel.websiteURL))
+            .underline()
+            .tint(.black)
+        }
         
         Button {
           viewModel.onTapFavoriteIcon(shop: viewModel.shop)

@@ -9,39 +9,41 @@ struct ShopView: View {
   
   var body: some View {
     
-    ZStack {
-      RoundedRectangle(cornerRadius: 30)
-        .padding(.horizontal)
-        .foregroundColor(.white)
-      
-      HStack {
-        Image(systemName: shop.image)
+    HStack {
+      AsyncImage(url: URL(string: shop.image)) { image in
+        image
           .resizable()
-          .frame(width: 100,
-            height: 100,
-            alignment: .center)
-          .fixedSize()
-        
-        Text(shop.name).foregroundColor(.black)
-        
-        Spacer()
-        
-        Button {
-          withAnimation {
-            viewModel.onTapFavoriteIcon(shop: shop)
-          }
-        } label: {
-          if shop.isFavorite {
-            Image(systemName: "heart.fill").foregroundColor(.red)
-          } else {
-            Image(systemName: "heart").foregroundColor(.black)
-            
-          }
+          .frame(width: 70, height: 70)
+          .scaledToFit()
+          .cornerRadius(35)
+      } placeholder: {
+        Color.secondaryColor
+          .cornerRadius(35)
+      }
+      .frame(width: 70, height: 70)
+      .padding(.trailing, 14)
+      
+      Text(shop.name).foregroundColor(.black)
+        .multilineTextAlignment(.leading)
+      
+      Spacer()
+      
+      Button {
+        withAnimation {
+          viewModel.onTapFavoriteIcon(shop: shop)
+        }
+      } label: {
+        if shop.isFavorite {
+          Image(systemName: "heart.fill").foregroundColor(.red)
+        } else {
+          Image(systemName: "heart").foregroundColor(.black)
+          
         }
       }
-      .padding(.vertical, 5)
-      .padding(.horizontal, 24)
-      
     }
+    .padding(.horizontal, 15)
+    .padding(.vertical, 20)
+    .background(Color.white)
+    .cornerRadius(30)
   }
 }
