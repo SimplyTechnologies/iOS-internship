@@ -29,7 +29,13 @@ struct BirthdayCell: View {
         .scaledToFit()
         .cornerRadius(50)
     } placeholder: {
-      Color.secondaryColor
+      ZStack {
+        Color.secondaryColor
+        Image(systemName: "person")
+          .resizable()
+          .frame(width: 30, height: 30)
+          .foregroundColor(Color.white)
+      }
         .cornerRadius(40)
     }
     .frame(width: 70, height: 70)
