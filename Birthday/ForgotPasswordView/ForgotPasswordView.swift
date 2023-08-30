@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ForgotPasswordView: View {
   
+  // MARK: - Properties
   @StateObject private var viewModel = ForgotPasswordViewModel()
   private let title: String = "Email"
   private let placeholder: String = "Enter your email"
@@ -24,11 +25,10 @@ struct ForgotPasswordView: View {
           Spacer()
         }
           
-          
         // MARK: TextField
         TextField(placeholder, text: $viewModel.text)
           .foregroundColor(
-            Color(red: 0.59, green: 0.24, blue: 0.35).opacity(0.74)
+            Color.primaryColor.opacity(0.74)
           )
           .font(
             Font.custom(weight: .bold, size: 14)
@@ -42,7 +42,7 @@ struct ForgotPasswordView: View {
         Button {
           print("Button pressed")
         } label: {
-          Text("Get The Code")
+          Text(Titles.getTheCode)
             .font(
               Font.custom(weight: .bold, size: 18)
             )
@@ -58,13 +58,12 @@ struct ForgotPasswordView: View {
         
         if viewModel.isCodeGot {
           VStack(alignment: .center, spacing: 23) {
-            Text("Password Code")
+            Text(Titles.passwordCode)
               .font(
                 Font.custom(weight: .bold, size: 18)
               )
               .foregroundColor(Color(red: 0.59, green: 0.24, blue: 0.35))
               .padding(.top, 27)
-            
             
             TextField("1 2 3 4", text: $viewModel.passwordCode)
               .font(
@@ -88,8 +87,7 @@ struct ForgotPasswordView: View {
   
 }
 
-
-
+// MARK: - Preview
 struct ForgotPasswordView_Previews: PreviewProvider {
   
   static var previews: some View {

@@ -2,6 +2,7 @@
 import SwiftUI
 
 struct ToastView: View {
+  
   let toast: Toast
   
   var body: some View {
@@ -12,4 +13,5 @@ struct ToastView: View {
       .shadow(radius: 10)
       .padding(.horizontal, 20)
   }
+  
 }

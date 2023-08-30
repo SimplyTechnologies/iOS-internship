@@ -50,10 +50,7 @@ extension GraphQLRepository {
         case .success(let response):
           do {
             guard let data = response.data, response.errors == nil else {
-              print("asd response data: \(response.data), errors: \(response.errors?.first)")
-              
               if let graphQLError = response.errors?.first {
-                print("asd graphQLError", graphQLError)
                 return promise(.failure(graphQLError))
               }
               
@@ -63,11 +60,9 @@ extension GraphQLRepository {
                 )
               )
             }
-            print("asd success data: \(response.data), errors: \(response.errors)")
             return promise(.success(data))
           }
         case .failure(let error):
-          print(error)
           return promise(.failure(error))
         }
       }

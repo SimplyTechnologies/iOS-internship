@@ -10,7 +10,7 @@ enum Regexes {
   var regex: String {
     switch self {
     case .name:
-      return "[a-zA-Z-]{2,20}"
+      return "[a-zA-Z-]{2,}"
     case .email:
       return "[a-zA-Z0-9.-_]+@[a-zA-Z0-9.-_]+\\.[a-zA-z]{2,}"
     case .password:
