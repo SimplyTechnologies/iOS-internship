@@ -1,6 +1,5 @@
 
 import SwiftUI
-import UIKit
 
 struct ImagePicker: UIViewControllerRepresentable {
   
@@ -12,8 +11,10 @@ struct ImagePicker: UIViewControllerRepresentable {
     return imagePicker
   }
   
-  func updateUIViewController(_ uiViewController: UIImagePickerController,
-                              context: Context) {
+  func updateUIViewController(
+    _ uiViewController: UIImagePickerController,
+    context: Context
+  ) {
     
   }
   
@@ -21,8 +22,9 @@ struct ImagePicker: UIViewControllerRepresentable {
     Coordinator(self)
   }
   
-  class Coordinator: NSObject, UIImagePickerControllerDelegate,
-                     UINavigationControllerDelegate {
+  class Coordinator: NSObject,
+  UINavigationControllerDelegate,
+  UIImagePickerControllerDelegate {
     
     var parent: ImagePicker
     
@@ -30,17 +32,21 @@ struct ImagePicker: UIViewControllerRepresentable {
       self.parent = parent
     }
     
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(
+      _ picker: UIImagePickerController,
+      didFinishPickingMediaWithInfo info: [
+        UIImagePickerController.InfoKey: Any
+      ]
+    ) {
       if let selectedImage = info[.originalImage] as? UIImage {
         parent.selectedImage = selectedImage
       }
-      picker.dismiss(animated: true,
-                     completion: nil)
+      picker.dismiss(
+        animated: true,
+        completion: nil
+      )
     }
     
   }
   
 }
-
-

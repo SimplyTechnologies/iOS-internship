@@ -48,7 +48,11 @@ struct BirthdayDetailsScreen: View {
             .fontWeight(.bold)
             .padding(1)
             .foregroundColor(.black)
-          Text(viewModel.dateFormatter.string(from: viewModel.birthdayDetails.date))
+          Text(
+            viewModel.dateFormatter.string(
+              from: viewModel.birthdayDetails.date
+            )
+          )
             .foregroundColor(.black)
           HStack {
             Text("Relationship :")
@@ -73,15 +77,19 @@ struct BirthdayDetailsScreen: View {
           .buttonStyle(PrimaryButtonStyle())
           .padding()
         }
-        .animation(.easeInOut,
-                   value: viewModel.isGeneratingMessage)
+        .animation(
+          .easeInOut,
+          value: viewModel.isGeneratingMessage
+        )
       }
     }
     .onTapGesture {
       UIApplication.shared.endEditing()
     }
     .toolbar {
-        Image("LogoBirthApp")
+      Image(
+        "LogoBirthApp"
+      )
     }
   }
   private var imageView: some View {

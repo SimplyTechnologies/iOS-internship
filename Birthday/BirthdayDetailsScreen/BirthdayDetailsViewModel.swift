@@ -28,8 +28,10 @@ class BirthdayDetailsViewModel: ObservableObject {
     return formatter
   }()
   
-  init(birthdayDetails: BirthdayModel,
-       birthdaysRepository: BirthdaysRepository) {
+  init(
+    birthdayDetails: BirthdayModel,
+    birthdaysRepository: BirthdaysRepository
+  ) {
     self.birthdayDetails = birthdayDetails
     self.birthdaysRepository = birthdaysRepository
   }
