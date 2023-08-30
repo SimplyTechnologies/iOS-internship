@@ -5,7 +5,7 @@ class ProfileScreenViewModel: ObservableObject {
   
   @Published var isEditingModeOff = true
   @Published var showImagePicker = false
-  @Published var selectedImage: UIImage? = nil
+  @Published var selectedImage: UIImage?
   @Published var isImagePickerPresented = false
   
   var fullName: String {
@@ -16,7 +16,6 @@ class ProfileScreenViewModel: ObservableObject {
   var areTextFieldsEdited: Bool {
     user.firstName != "Shirley" || user.lastName != "Shirleyyan"
   }
-  
   
   @Published var user =
     UserModel(

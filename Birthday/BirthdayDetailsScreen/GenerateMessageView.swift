@@ -17,13 +17,13 @@ struct GenerateMessageView: View {
         Spacer()
         Button(action: {
           presentShareSheet()
-        }) {
+        }, label: {
           Text("Send")
             .padding()
             .background(Color.backgroundColor)
             .foregroundColor(Color.primaryColor)
             .cornerRadius(10)
-        }
+        })
         .padding()
       }
     }
@@ -36,13 +36,19 @@ struct GenerateMessageView: View {
   
   private func presentShareSheet() {
     let activityItems = [viewModel.message]
-    let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+    let activityViewController = UIActivityViewController(
+      activityItems: activityItems,
+      applicationActivities: nil
+    )
     if let windowScene = UIApplication.shared.connectedScenes
       .filter({ $0.activationState == .foregroundActive })
-      .first as? UIWindowScene
-    {
+      .first as? UIWindowScene {
       if let mainWindow = windowScene.windows.first {
-        mainWindow.rootViewController?.present(activityViewController, animated: true, completion: nil)
+        mainWindow.rootViewController?.present(
+          activityViewController,
+          animated: true,
+          completion: nil
+        )
       }
     }
   }
@@ -54,11 +60,17 @@ struct ActivityViewController: UIViewControllerRepresentable {
   var activityItems: [Any]
   
   func makeUIViewController(context: Context) -> UIActivityViewController {
-    let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+    let activityViewController = UIActivityViewController(
+      activityItems: activityItems,
+      applicationActivities: nil
+    )
     return activityViewController
   }
   
-  func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
+  func updateUIViewController(
+    _ uiViewController: UIActivityViewController,
+    context: Context
+  ) {
     
   }
   

@@ -4,6 +4,7 @@ import SwiftUI
 struct AddBirthdayScreen: View {
   
   @ObservedObject var viewModel = AddBirthdayViewModel()
+  
   var body: some View {
     ZStack {
       Color.backgroundColor
@@ -46,14 +47,7 @@ struct AddBirthdayScreen: View {
                 lineWidth: 0.1
               )
           )
-          .padding(
-            EdgeInsets(
-              top: 0,
-              leading: 60,
-              bottom: 0,
-              trailing: 60
-            )
-          )
+          .padding(.horizontal, 60)
           HStack {
             Text("Bio")
               .font(.title3)
@@ -71,15 +65,21 @@ struct AddBirthdayScreen: View {
             .cornerRadius(10)
             .frame(
               width: 270,
-              height: 200)
-          DatePicker(selection: $viewModel.addBirthdayViewModel.date,
-                     in: ...Date.now,
-                     displayedComponents: .date) {
-            Text("Date of Birth:")
-              .font(.title3)
-          }
+              height: 200
+            )
+          DatePicker(
+            selection: $viewModel.addBirthdayViewModel.date,
+            in: ...Date.now,
+            displayedComponents: .date,
+            label: {
+              Text("Date of Birth:")
+                .font(.title3)
+            }
+          )
           .padding()
-          .padding(.horizontal, 49)
+          .padding(
+            .horizontal, 49
+          )
           HStack {
             Text("Phone number")
               .font(.title3)

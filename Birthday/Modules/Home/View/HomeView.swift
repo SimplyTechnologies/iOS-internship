@@ -40,7 +40,12 @@ struct HomeView: View {
       LazyVStack(spacing: 18) {
         ForEach(viewModel.birthdays, id: \.self) { birthday in
           NavigationLink {
-            BirthdayDetailsScreen(viewModel: BirthdayDetailsViewModel(birthdayDetails: birthday, birthdaysRepository: BirthdaysRepositoryImpl()))
+            BirthdayDetailsScreen(
+              viewModel: BirthdayDetailsViewModel(
+                birthdayDetails: birthday,
+                birthdaysRepository: BirthdaysRepositoryImpl()
+              )
+            )
           } label: {
             BirthdayCell(model: birthday)
           }
