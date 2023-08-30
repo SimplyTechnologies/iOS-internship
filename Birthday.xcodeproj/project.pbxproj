@@ -29,6 +29,7 @@
 		98BA7D8F2A9E0C8A004BF312 /* RemoveShopFromFavoriteMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BA7D8D2A9E0C8A004BF312 /* RemoveShopFromFavoriteMutation.graphql.swift */; };
 		98BA7D922A9E0CC1004BF312 /* Mutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BA7D902A9E0CC1004BF312 /* Mutation.graphql.swift */; };
 		98BA7D932A9E0CC1004BF312 /* UserFavoriteShop.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BA7D912A9E0CC1004BF312 /* UserFavoriteShop.graphql.swift */; };
+		98BA7D952A9E11BC004BF312 /* AddRemoveShopToFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BA7D942A9E11BC004BF312 /* AddRemoveShopToFavorite.swift */; };
 		9905A0D62A8CF8C1003B5FF5 /* BirthdayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */; };
 		9905A0D82A8CF8C1003B5FF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */; };
 		9905A0DA2A8CF8C2003B5FF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */; };
@@ -86,6 +87,7 @@
 		98BA7D8D2A9E0C8A004BF312 /* RemoveShopFromFavoriteMutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveShopFromFavoriteMutation.graphql.swift; sourceTree = "<group>"; };
 		98BA7D902A9E0CC1004BF312 /* Mutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutation.graphql.swift; sourceTree = "<group>"; };
 		98BA7D912A9E0CC1004BF312 /* UserFavoriteShop.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFavoriteShop.graphql.swift; sourceTree = "<group>"; };
+		98BA7D942A9E11BC004BF312 /* AddRemoveShopToFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemoveShopToFavorite.swift; sourceTree = "<group>"; };
 		9905A0D22A8CF8C1003B5FF5 /* Birthday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birthday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayApp.swift; sourceTree = "<group>"; };
 		9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			children = (
 				994ECA9A2A961770003D89A5 /* BirthdaysRepository.swift */,
 				98BA7D892A9DDF09004BF312 /* GetShopsRepository.swift */,
+				98BA7D942A9E11BC004BF312 /* AddRemoveShopToFavorite.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				985E887F2A9DD4550069CB3E /* AvgPriceFilter.graphql.swift in Sources */,
 				985593962A963BC800A3E76C /* Shop.swift in Sources */,
 				985E88802A9DD4550069CB3E /* ShopFilter.graphql.swift in Sources */,
+				98BA7D952A9E11BC004BF312 /* AddRemoveShopToFavorite.swift in Sources */,
 				985593A22A976CCE00A3E76C /* BackButton.swift in Sources */,
 				985593942A963BBC00A3E76C /* ToastView.swift in Sources */,
 				9855939C2A963C3000A3E76C /* ShopView.swift in Sources */,

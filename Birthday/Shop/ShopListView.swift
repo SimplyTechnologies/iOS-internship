@@ -3,7 +3,7 @@ import SwiftUI
 
 struct ShopListView: View {
   
-  @ObservedObject var viewModel: ShopListViewModel = ShopListViewModel()
+  @StateObject var viewModel: ShopListViewModel
   @State private var searchBarIsActive = false
   
   var body: some View {
@@ -16,14 +16,15 @@ struct ShopListView: View {
           
           ZStack(alignment: .trailing) {
             TextField("Search", text: $viewModel.searchText)
-              .onChange(of: viewModel.searchText) { newValue in
-                viewModel.searchText = newValue
-                  .trimmingCharacters(in: .whitespacesAndNewlines)
-              }
               .textFieldStyle(RoundedBorderTextFieldStyle())
               .border(Color.white)
               .cornerRadius(30)
               .padding(.vertical, 10)
+              .onChange(of: viewModel.searchText) { newValue in
+                viewModel.searchText = newValue
+                  .trimmingCharacters(in: .newlines)
+              }
+            //TODO: reusable method for keyboard hiding
               .onTapGesture {
                 searchBarIsActive = true
               }
@@ -32,11 +33,12 @@ struct ShopListView: View {
                 viewModel.searchText = ""
               }
               searchBarIsActive = false
+              //TODO: reusable method for keyboard hiding
               UIApplication.shared
                 .sendAction(#selector(UIResponder.resignFirstResponder),
-                            to: nil,
-                            from: nil,
-                            for: nil)
+                  to: nil,
+                  from: nil,
+                  for: nil)
             } label: {
               // swiftlint:disable:next line_length
               Image(systemName: searchBarIsActive || !viewModel.searchText.isEmpty ? "xmark.circle.fill" : "magnifyingglass")
@@ -67,27 +69,33 @@ struct ShopListView: View {
                     .padding()
                 } else {
                   ForEach(viewModel.sortedShops, id: \.id) { shop in
-                    NavigationLink(
-                      destination: ShopDetailView(
-                        viewModel: ShopDetailViewModel(
-                          shop: shop,
-                          toasts: viewModel.toasts,
-                          onTapFavoriteIcon: viewModel.onTapFavoriteIcon
+                    if let index = viewModel.sortedShops.firstIndex(of: shop) {
+                      NavigationLink(
+                        destination: ShopDetailView(
+                          viewModel: ShopDetailViewModel(
+                            shop: shop,
+                            toasts: viewModel.toasts,
+                            onTapFavoriteIcon: viewModel.onTapFavoriteIcon
+                          )
                         )
-                      )
-                    ) {
-                      ShopView(
-                        shop:
-                          viewModel.sortedShops[viewModel.sortedShops
-                            .firstIndex(of: shop)!]
-                      )
-                      .environmentObject(viewModel)
+                      ) {
+                        ShopView(
+                          viewModel: viewModel,
+                          shop: viewModel.sortedShops[index]
+                        )
+                        .environmentObject(viewModel)
+                      }
                     }
                   }
+                  .shadow(color: Color.gray.opacity(0.3), radius: 1, x: 1, y: 1)
+                  .animation(.easeInOut, value: viewModel.sortedShops)
                 }
               }
             }
             .padding(.horizontal, 24)
+          }
+          .onAppear {
+            viewModel.getShops(shopFilter: Api.ShopFilter())
           }
           .onTapGesture {
             UIApplication.shared

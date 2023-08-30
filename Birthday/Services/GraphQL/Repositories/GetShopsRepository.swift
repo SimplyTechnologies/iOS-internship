@@ -14,4 +14,5 @@ final class ShopsRepositoryImpl: ShopsRepository {
       .compactMap { $0.shops }
       .eraseToAnyPublisher()
   }
+  
 }

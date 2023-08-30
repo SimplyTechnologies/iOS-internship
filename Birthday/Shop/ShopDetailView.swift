@@ -9,7 +9,7 @@ struct ShopDetailView: View {
   
   var body: some View {
     
-    ZStack(alignment: .center) {
+    ZStack(alignment: .top) {
       Color.backgroundColor.edgesIgnoringSafeArea(.all)
       
       VStack(spacing: 16) {
@@ -22,18 +22,19 @@ struct ShopDetailView: View {
         }
         .padding(.horizontal)
         
-        AsyncImage(url: URL(string: viewModel.shop.image)) { image in
+        let asyncImageURL = URL(string: viewModel.shop.image)
+        AsyncImage(url: asyncImageURL) { image in
           image
             .resizable()
-            .frame(width: 100, height: 100)
-            .scaledToFit()
-            .cornerRadius(50)
+            .scaledToFill()
         } placeholder: {
-          Color.secondaryColor
-            .frame(width: 100, height: 100)
-
-            .cornerRadius(50)
+            Text(viewModel.shop.name.prefix(1))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+              .font(.largeTitle)
+              .background(Color.secondaryColor)
         }
+        .frame(width: 100, height: 100)
+        .cornerRadius(50)
         .padding(.top, 100)
         
         Text(viewModel.shop.name)
@@ -77,6 +78,7 @@ struct ShopDetailView: View {
                 .underline()
             )
             .foregroundColor(.black)
+            .padding(.horizontal, 20)
           }
         }
         
@@ -97,26 +99,23 @@ struct ShopDetailView: View {
               .foregroundColor(.black)
           }
         }
-        
-        VStack {
-          Spacer()
-          ForEach(viewModel.toasts, id: \.self) {
-            ToastView(toast: $0)
-              .transition(
-                .asymmetric(
-                  insertion: .move(edge: .bottom),
-                  removal: .opacity)
-              )
-          }
-        }
-        .animation(
-          .easeInOut,
-          value: viewModel.toasts.count
-        )
-        
         Spacer()
-        
       }
+      VStack {
+        Spacer()
+        ForEach(viewModel.toasts, id: \.self) {
+          ToastView(toast: $0)
+            .transition(
+              .asymmetric(
+                insertion: .move(edge: .bottom),
+                removal: .opacity)
+            )
+        }
+      }
+      .animation(
+        .easeInOut,
+        value: viewModel.toasts.count
+      )
       .navigationBarBackButtonHidden(true)
     }
     .gesture(

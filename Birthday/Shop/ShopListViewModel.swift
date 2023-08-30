@@ -1,4 +1,3 @@
-
 import Combine
 import Foundation
 
@@ -8,9 +7,10 @@ class ShopListViewModel: ObservableObject {
   @Published private var shops: [Shop] = []
   @Published var toasts: [Toast] = []
   @Published var isLoading = true
-  
+    
   private var cancellables: Set<AnyCancellable> = []
   private let shopsRepository: ShopsRepository = ShopsRepositoryImpl()
+  private let favoriteShopsRepository = AddRemoveShopToFavoriteImpl()
   
   func getShops(shopFilter: Api.ShopFilter) {
     isLoading = true
@@ -20,8 +20,7 @@ class ShopListViewModel: ObservableObject {
         self?.isLoading = false
         switch result {
         case .finished: break
-        case .failure(let error):
-          print(error)
+        case .failure: break
         }
       } receiveValue: { [weak self] shopData in
         let shopsModels = shopData.map { Shop(dto: $0) }
@@ -29,15 +28,10 @@ class ShopListViewModel: ObservableObject {
       }
       .store(in: &cancellables)
   }
-  
-  init() {
-    getShops(shopFilter: Api.ShopFilter())
-  }
-  
+
   var sortedShops: [Shop] {
     filteredShops.sorted {
       $0.isFavorite && !$1.isFavorite
-      
     }
   }
   
@@ -47,10 +41,12 @@ class ShopListViewModel: ObservableObject {
     }
   }
   
-  func onTapFavoriteIcon(shop: Shop) {
-    shop.isFavorite.toggle()
-    self.objectWillChange.send()
-    showToast(shop: shop)
+  func onTapFavoriteIcon(_ shop: Shop) {
+    if !shop.isFavorite {
+      addShopToFavorite(shop)
+    } else {
+      removeShopFromFavorite(shop)
+    }
   }
   
   private func showToast(shop: Shop) {
@@ -68,6 +64,36 @@ class ShopListViewModel: ObservableObject {
         self.toasts.remove(at: index)
       }
     }
+  }
+  
+  private func addShopToFavorite(_ shop: Shop) {
+    favoriteShopsRepository.addShopToFavorite(shopId: shop.id)
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] result in
+        switch result {
+        case .finished: break
+        case .failure: break
+        }
+      } receiveValue: { [weak self] response in
+        self?.shops.first(where: {$0.id == response.shopId})?.isFavorite.toggle()
+        self?.showToast(shop: shop)
+      }
+      .store(in: &cancellables)
+  }
+  
+  private func removeShopFromFavorite(_ shop: Shop) {
+    favoriteShopsRepository.removeShopFromFavorite(shopId: shop.id)
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] result in
+        switch result {
+        case .finished: break
+        case .failure: break
+        }
+      } receiveValue: { [weak self] response in
+        self?.shops.first(where: {$0.id == response.shopId})?.isFavorite.toggle()
+        self?.showToast(shop: shop)
+      }
+      .store(in: &cancellables)
   }
   
 }
