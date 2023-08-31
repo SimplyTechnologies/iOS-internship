@@ -25,8 +25,8 @@ struct BirthdayCell: View {
     AsyncImage(url: URL(string: model.image)) { image in
       image
         .resizable()
+        .scaledToFill()
         .frame(width: 70, height: 70)
-        .scaledToFit()
         .cornerRadius(50)
     } placeholder: {
       ZStack {

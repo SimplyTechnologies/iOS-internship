@@ -94,14 +94,19 @@ struct BirthdayDetailsScreen: View {
     AsyncImage(url: URL(string: viewModel.birthdayDetails.image)) { image in
       image
         .resizable()
-        .frame(width: 150, height: 150)
-        .scaledToFit()
-        .cornerRadius(75)
+        .scaledToFill()
     } placeholder: {
-      Color.secondaryColor
-        .cornerRadius(75)
+      ZStack {
+        Color.secondaryColor
+        Image(systemName: "person")
+          .resizable()
+          .scaledToFit()
+          .foregroundColor(Color.white)
+          .frame(width: 80)
+      }
     }
     .frame(width: 150, height: 150)
+    .cornerRadius(75)
   }
 }
 

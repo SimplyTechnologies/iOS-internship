@@ -18,13 +18,16 @@ struct ProfileView: View {
             .cornerRadius(75)
             .padding()
         } else {
-          Image("profilePicture")
-            .resizable()
-            .frame(
-              width: 150,
-              height: 150
-            )
-            .padding()
+          ZStack {
+            Color.secondaryColor
+            Image(systemName: "person")
+              .resizable()
+              .scaledToFit()
+              .foregroundColor(Color.white)
+              .frame(width: 80)
+          }
+          .frame(width: 150, height: 150)
+          .cornerRadius(75)
         }
         Text(viewModel.fullName)
           .font(.title3)
@@ -32,7 +35,6 @@ struct ProfileView: View {
           .foregroundColor(.black)
           .multilineTextAlignment(.center)
           .minimumScaleFactor(0.3)
-          .lineLimit(1)
         
         Text(viewModel.user.email)
           .font(.headline)
@@ -40,7 +42,6 @@ struct ProfileView: View {
           .foregroundColor(.black)
           .multilineTextAlignment(.center)
           .minimumScaleFactor(0.3)
-          .lineLimit(1)
 
       } else {
         ZStack {
@@ -62,7 +63,6 @@ struct ProfileView: View {
                 height: 150
               )
               .cornerRadius(75)
-            
           }
         }
         .onTapGesture {
@@ -74,7 +74,7 @@ struct ProfileView: View {
             alignment: .leading
           )
           .font(.headline)
-          .foregroundColor(.black)
+          .foregroundColor(.primaryColor)
         TextField(
           "First Name",
           text: $viewModel.user.firstName
@@ -95,7 +95,7 @@ struct ProfileView: View {
             alignment: .leading
           )
           .font(.headline)
-          .foregroundColor(.black)
+          .foregroundColor(.primaryColor)
         TextField(
           "Last Name",
           text: $viewModel.user.lastName
