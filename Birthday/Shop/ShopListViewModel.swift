@@ -13,6 +13,18 @@ class ShopListViewModel: ObservableObject {
   private let shopsRepository: ShopsRepository = ShopsRepositoryImpl()
   private let favoriteShopsRepository = AddRemoveShopToFavoriteImpl()
   
+  var sortedShops: [Shop] {
+    filteredShops.sorted {
+      $0.isFavorite && !$1.isFavorite
+    }
+  }
+  
+  private var filteredShops: [Shop] {
+    shops.filter {
+      searchText.isEmpty || $0.name.localizedCaseInsensitiveContains(searchText)
+    }
+  }
+  
   func getShops(shopFilter: Api.ShopFilter) {
     isLoading = true
     shopsRepository.getShops(shopFilter: shopFilter)
@@ -30,18 +42,6 @@ class ShopListViewModel: ObservableObject {
       .store(in: &cancellables)
   }
 
-  var sortedShops: [Shop] {
-    filteredShops.sorted {
-      $0.isFavorite && !$1.isFavorite
-    }
-  }
-  
-  private var filteredShops: [Shop] {
-    shops.filter {
-      searchText.isEmpty || $0.name.localizedCaseInsensitiveContains(searchText)
-    }
-  }
-  
   func onTapFavoriteIcon(_ shop: Shop) {
     if !shop.isFavorite {
       addShopToFavorite(shop)

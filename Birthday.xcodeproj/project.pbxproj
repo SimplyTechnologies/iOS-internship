@@ -50,7 +50,6 @@
 		995742642A9360B4005A3B7F /* RequestServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995742632A9360B4005A3B7F /* RequestServices.swift */; };
 		998E7D102A8DF34500E8F807 /* ApolloManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998E7D0F2A8DF34500E8F807 /* ApolloManager.swift */; };
 		998E7D222A8E147700E8F807 /* Queries.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 998E7D212A8E147700E8F807 /* Queries.graphql */; };
-		9995D8292A9F3F9D002C0005 /* apollo-ios-cli in Resources */ = {isa = PBXBuildFile; fileRef = 9995D8282A9F3F9D002C0005 /* apollo-ios-cli */; };
 		99F9E2D62A937E33004ED89F /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 99F9E2D52A937E33004ED89F /* Apollo */; };
 		99F9E2E12A9393F9004ED89F /* User.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2D92A9393F9004ED89F /* User.graphql.swift */; };
 		99F9E2E22A9393F9004ED89F /* Query.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2DA2A9393F9004ED89F /* Query.graphql.swift */; };
@@ -110,7 +109,6 @@
 		995742632A9360B4005A3B7F /* RequestServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestServices.swift; sourceTree = "<group>"; };
 		998E7D0F2A8DF34500E8F807 /* ApolloManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloManager.swift; sourceTree = "<group>"; };
 		998E7D212A8E147700E8F807 /* Queries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Queries.graphql; sourceTree = "<group>"; };
-		9995D8282A9F3F9D002C0005 /* apollo-ios-cli */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "apollo-ios-cli"; sourceTree = "<group>"; };
 		99F9E2D92A9393F9004ED89F /* User.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.graphql.swift; sourceTree = "<group>"; };
 		99F9E2DA2A9393F9004ED89F /* Query.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.graphql.swift; sourceTree = "<group>"; };
 		99F9E2DB2A9393F9004ED89F /* SchemaConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaConfiguration.swift; sourceTree = "<group>"; };
@@ -323,7 +321,6 @@
 		998E7D0B2A8DF2F500E8F807 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				9995D8282A9F3F9D002C0005 /* apollo-ios-cli */,
 				99F9E2E72A939BF4004ED89F /* RequestManager */,
 				998E7D2D2A8E4AEE00E8F807 /* GraphQL */,
 			);
@@ -479,7 +476,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9905A0DD2A8CF8C2003B5FF5 /* Preview Assets.xcassets in Resources */,
-				9995D8292A9F3F9D002C0005 /* apollo-ios-cli in Resources */,
 				9905A0DA2A8CF8C2003B5FF5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
