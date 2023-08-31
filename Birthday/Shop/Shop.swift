@@ -9,6 +9,7 @@ class Shop: Equatable {
   let url: String
   let rate: Float
   var isFavorite: Bool
+  var favoriteIsLoading: Bool = false
   
   init(
     id: Int,

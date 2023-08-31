@@ -27,17 +27,19 @@ struct ShopView: View {
       .padding(.trailing, 14)
       
       Text(shop.name)
+        .frame(maxWidth: .infinity, alignment: .leading)
         .foregroundColor(.black)
-        .multilineTextAlignment(.leading)
-      
-      Spacer()
-      
+    
       Button {
         withAnimation {
           viewModel.onTapFavoriteIcon(shop)
         }
       } label: {
-        if shop.isFavorite {
+        if shop.favoriteIsLoading {
+          ProgressView()
+            .progressViewStyle(CircularProgressViewStyle())
+            .foregroundColor(.gray)
+        } else if shop.isFavorite {
           Image(systemName: "heart.fill")
             .foregroundColor(.red)
         } else {
@@ -52,4 +54,5 @@ struct ShopView: View {
     .background(Color.white)
     .cornerRadius(30)
   }
+  
 }

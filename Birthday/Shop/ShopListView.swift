@@ -16,6 +16,8 @@ struct ShopListView: View {
           
           ZStack(alignment: .trailing) {
             TextField("Search", text: $viewModel.searchText)
+              .accentColor(.secondaryColor)
+              .disableAutocorrection(true)
               .textFieldStyle(RoundedBorderTextFieldStyle())
               .border(Color.white)
               .cornerRadius(30)
@@ -60,7 +62,7 @@ struct ShopListView: View {
           Spacer()
           
           ScrollView {
-            LazyVStack(spacing: 18) {
+            VStack(spacing: 18) {
               if viewModel.isLoading {
                 ProgressView("Loading...")
               } else {
@@ -70,23 +72,22 @@ struct ShopListView: View {
                     .padding()
                 } else {
                   ForEach(viewModel.sortedShops, id: \.id) { shop in
-                    if let index = viewModel.sortedShops.firstIndex(of: shop) {
-                      NavigationLink(
-                        destination: ShopDetailView(
-                          viewModel: ShopDetailViewModel(
-                            shop: shop,
-                            toasts: viewModel.toasts,
-                            onTapFavoriteIcon: viewModel.onTapFavoriteIcon
-                          )
+                    NavigationLink(
+                      destination: ShopDetailView(
+                        viewModel: ShopDetailViewModel(
+                          shop: shop,
+                          toasts: viewModel.toasts,
+                          onTapFavoriteIcon: viewModel.onTapFavoriteIcon
                         )
-                      ) {
-                        ShopView(
-                          viewModel: viewModel,
-                          shop: viewModel.sortedShops[index]
-                        )
-                        .environmentObject(viewModel)
-                      }
+                      )
+                    ) {
+                      ShopView(
+                        viewModel: viewModel,
+                        shop: shop
+                      )
+                      .environmentObject(viewModel)
                     }
+                    .transition(.move(edge: .top).combined(with: .opacity))
                   }
                   .shadow(color: Color.gray.opacity(0.3), radius: 1, x: 1, y: 1)
                   .animation(.easeInOut, value: viewModel.sortedShops)
@@ -95,6 +96,10 @@ struct ShopListView: View {
             }
             .padding(.horizontal, 24)
           }
+          .refreshable {
+            viewModel.getShops(shopFilter: Api.ShopFilter())
+          }
+          .frame(maxWidth: .infinity)
           .onAppear {
             viewModel.getShops(shopFilter: Api.ShopFilter())
           }
@@ -123,5 +128,7 @@ struct ShopListView: View {
         
       }
     }
+    
   }
+  
 }

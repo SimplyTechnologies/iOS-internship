@@ -91,7 +91,11 @@ struct ShopDetailView: View {
         Button {
           viewModel.onTapFavoriteIcon(shop: viewModel.shop)
         } label: {
-          if viewModel.shop.isFavorite {
+          if viewModel.shop.favoriteIsLoading {
+            ProgressView()
+              .progressViewStyle(CircularProgressViewStyle())
+              .foregroundColor(.gray)
+          } else if viewModel.shop.isFavorite {
             Image(systemName: "heart.fill")
               .foregroundColor(.red)
           } else {

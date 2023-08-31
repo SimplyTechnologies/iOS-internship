@@ -8,7 +8,8 @@ class ShopListViewModel: ObservableObject {
   @Published private var shops: [Shop] = []
   @Published var toasts: [Toast] = []
   @Published var isLoading = true
-    
+  @Published var favoriteIsLoading = false
+
   private var cancellables: Set<AnyCancellable> = []
   private let shopsRepository: ShopsRepository = ShopsRepositoryImpl()
   private let favoriteShopsRepository = AddRemoveShopToFavoriteImpl()
@@ -43,11 +44,13 @@ class ShopListViewModel: ObservableObject {
   }
 
   func onTapFavoriteIcon(_ shop: Shop) {
+    shop.favoriteIsLoading = true
     if !shop.isFavorite {
       addShopToFavorite(shop)
     } else {
       removeShopFromFavorite(shop)
     }
+    shop.favoriteIsLoading = false
   }
   
   private func showToast(shop: Shop) {
