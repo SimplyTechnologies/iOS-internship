@@ -55,14 +55,7 @@ struct ProfileView: View {
               .cornerRadius(75)
               .padding()
           } else {
-            Image("AddImage")
-              .resizable()
-              .padding()
-              .frame(
-                width: 150,
-                height: 150
-              )
-              .cornerRadius(75)
+            Image("circle")
           }
         }
         .onTapGesture {
