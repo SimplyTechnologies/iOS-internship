@@ -15,7 +15,7 @@ final class HomeViewModel: ObservableObject {
     getBirthdays()
   }
   
-  private func getBirthdays() {
+  func getBirthdays() {
     self.isLoading = true
     birthdayRepository.getBirthdays()
       .receive(on: DispatchQueue.main)

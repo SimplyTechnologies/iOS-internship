@@ -15,7 +15,7 @@ struct ProfileScreen: View {
           Image("LogoBirthApp")
         }
         .padding()
-        ProfileView()
+        ProfileView(viewModel: viewModel)
           .environmentObject(viewModel)
         Spacer()
         Spacer()
@@ -26,9 +26,11 @@ struct ProfileScreen: View {
             viewModel.isEditingModeOff.toggle()
           }
           .buttonStyle(PrimaryButtonStyle())
+          .minimumScaleFactor(0.5)
           Button("Sign Out") {
             // TODO: Logic for Sign out and back to Main Page
           }
+          .minimumScaleFactor(0.5)
           .buttonStyle(PrimaryButtonStyle())
         } else {
           Button("Save") {

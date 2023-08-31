@@ -8,11 +8,7 @@ struct PrimaryButtonStyle: ButtonStyle {
   func makeBody(configuration: Configuration) -> some View {
     configuration.label
       .foregroundColor(
-        Color(
-          red: 0.59,
-          green: 0.24,
-          blue: 0.35
-        )
+        Color.primaryColor
         .opacity(isEnabled ? 1 : 0.5)
       )
       .frame(

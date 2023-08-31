@@ -8,7 +8,8 @@ class AddBirthdayViewModel: ObservableObject {
   @Published var date = Date.now
   @Published var phoneNumber = ""
   @Published var isPhoneNumberValid = false
-  @Published var phoneNumberInfo: (phoneNumber: String, isValid: Bool) = ("", false)
+  @Published var phoneNumberInfo: (phoneNumber: String,
+                                   isValid: Bool) = ("", false)
   
   @Published var addBirthdayViewModel =
     AddBirthdayModel(name: "Mesrop",
@@ -21,8 +22,10 @@ class AddBirthdayViewModel: ObservableObject {
     let armenianRegex = "^\\+374\\d{8}$"
     let americanRegex = "^(\\d{3}-\\d{3}-\\d{4})|(\\(\\d{3}\\) \\d{3}-\\d{4})$"
     
-    let armenianPredicate = NSPredicate(format: "SELF MATCHES %@", armenianRegex)
-    let americanPredicate = NSPredicate(format: "SELF MATCHES %@", americanRegex)
+    let armenianPredicate = NSPredicate(format: "SELF MATCHES %@",
+                                        armenianRegex)
+    let americanPredicate = NSPredicate(format: "SELF MATCHES %@",
+                                        americanRegex)
     
     let isValid = armenianPredicate.evaluate(with: phoneNumber) || americanPredicate.evaluate(with: phoneNumber)
     

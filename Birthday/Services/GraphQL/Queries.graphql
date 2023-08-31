@@ -23,6 +23,7 @@ query GetBirthdays {
     
   }
 }
+
 query GetProfile {
   profile {
     id
@@ -30,7 +31,22 @@ query GetProfile {
     firstName
     lastName
     image
+  }
+}
 
+mutation DeleteBirthday($id: Int!) {
+  deleteBirthday(id: $id) {
+    id
+    userId
+    name
+    image
+    relation
+    message
+    date
+    upcomingBirthday
+    upcomingAge
+    createdAt
+    updatedAt
   }
 }
 
