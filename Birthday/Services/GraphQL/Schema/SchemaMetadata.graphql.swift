@@ -37,6 +37,7 @@ public extension Api {
       case "Mutation": return Api.Objects.Mutation
       case "Shop": return Api.Objects.Shop
       case "UserFavoriteShop": return Api.Objects.UserFavoriteShop
+      case "AccessToken": return Api.Objects.AccessToken
       default: return nil
       }
     }

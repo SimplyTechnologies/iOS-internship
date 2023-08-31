@@ -61,7 +61,14 @@
 		0C3FB53C2AA0BD6800C1CE2F /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB53A2AA0BD6800C1CE2F /* RegisterView.swift */; };
 		0C3FB53D2AA0BD6800C1CE2F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB53B2AA0BD6800C1CE2F /* RegisterViewModel.swift */; };
 		0C3FB53F2AA0BF0600C1CE2F /* RegisterTextFieldModel + Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB53E2AA0BF0600C1CE2F /* RegisterTextFieldModel + Equatable.swift */; };
-		6066AAED73EC04490C28B372 /* Pods_Birthday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9605DC23AE115B87A291A31E /* Pods_Birthday.framework */; };
+		0C3FB5432AA0CBF300C1CE2F /* LoginInput.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5422AA0CBF300C1CE2F /* LoginInput.graphql.swift */; };
+		0C3FB5452AA0CC8200C1CE2F /* SignInRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5442AA0CC8200C1CE2F /* SignInRepository.swift */; };
+		0C3FB5472AA0CD5900C1CE2F /* LoginMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5462AA0CD5900C1CE2F /* LoginMutation.graphql.swift */; };
+		0C3FB5492AA0CDB900C1CE2F /* AccessToken.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5482AA0CDB900C1CE2F /* AccessToken.graphql.swift */; };
+		0C3FB54B2AA0CF2F00C1CE2F /* Pods_Birthday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3FB54A2AA0CF2F00C1CE2F /* Pods_Birthday.framework */; };
+		0C3FB54C2AA0CF2F00C1CE2F /* Pods_Birthday.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3FB54A2AA0CF2F00C1CE2F /* Pods_Birthday.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0C3FB54F2AA0CFBD00C1CE2F /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 0C3FB54E2AA0CFBD00C1CE2F /* Apollo */; };
+		0C3FB5512AA0D1BA00C1CE2F /* apollo-ios-cli in Resources */ = {isa = PBXBuildFile; fileRef = 0C3FB5502AA0D1BA00C1CE2F /* apollo-ios-cli */; };
 		985593642A8E6E9100A3E76C /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593632A8E6E9100A3E76C /* Color + Extension.swift */; };
 		985593922A963BA700A3E76C /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593912A963BA700A3E76C /* Toast.swift */; };
 		985593942A963BBC00A3E76C /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593932A963BBC00A3E76C /* ToastView.swift */; };
@@ -102,7 +109,6 @@
 		995742642A9360B4005A3B7F /* RequestServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995742632A9360B4005A3B7F /* RequestServices.swift */; };
 		998E7D102A8DF34500E8F807 /* ApolloManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998E7D0F2A8DF34500E8F807 /* ApolloManager.swift */; };
 		998E7D222A8E147700E8F807 /* Queries.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 998E7D212A8E147700E8F807 /* Queries.graphql */; };
-		99F9E2D62A937E33004ED89F /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 99F9E2D52A937E33004ED89F /* Apollo */; };
 		99F9E2E12A9393F9004ED89F /* User.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2D92A9393F9004ED89F /* User.graphql.swift */; };
 		99F9E2E22A9393F9004ED89F /* Query.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2DA2A9393F9004ED89F /* Query.graphql.swift */; };
 		99F9E2E32A9393F9004ED89F /* SchemaConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2DB2A9393F9004ED89F /* SchemaConfiguration.swift */; };
@@ -111,8 +117,21 @@
 		99F9E2E62A9393F9004ED89F /* GetUsersQuery.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2E02A9393F9004ED89F /* GetUsersQuery.graphql.swift */; };
 		99F9E2E92A939C8C004ED89F /* GraphQLRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2E82A939C8C004ED89F /* GraphQLRepository.swift */; };
 		99F9E2EC2A93A9B5004ED89F /* Error + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2EB2A93A9B5004ED89F /* Error + Extension.swift */; };
-		99FA9D532AA0BBF7006D1D74 /* apollo-ios-cli in Resources */ = {isa = PBXBuildFile; fileRef = 99FA9D522AA0BBF7006D1D74 /* apollo-ios-cli */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0C3FB54D2AA0CF2F00C1CE2F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0C3FB54C2AA0CF2F00C1CE2F /* Pods_Birthday.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		015682B02AA0841C002E4445 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -169,6 +188,12 @@
 		0C3FB53A2AA0BD6800C1CE2F /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		0C3FB53B2AA0BD6800C1CE2F /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		0C3FB53E2AA0BF0600C1CE2F /* RegisterTextFieldModel + Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RegisterTextFieldModel + Equatable.swift"; sourceTree = "<group>"; };
+		0C3FB5422AA0CBF300C1CE2F /* LoginInput.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInput.graphql.swift; sourceTree = "<group>"; };
+		0C3FB5442AA0CC8200C1CE2F /* SignInRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRepository.swift; sourceTree = "<group>"; };
+		0C3FB5462AA0CD5900C1CE2F /* LoginMutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginMutation.graphql.swift; sourceTree = "<group>"; };
+		0C3FB5482AA0CDB900C1CE2F /* AccessToken.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessToken.graphql.swift; sourceTree = "<group>"; };
+		0C3FB54A2AA0CF2F00C1CE2F /* Pods_Birthday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Birthday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C3FB5502AA0D1BA00C1CE2F /* apollo-ios-cli */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "apollo-ios-cli"; sourceTree = "<group>"; };
 		43137589BDF5678B8045873F /* Pods-Birthday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthday.debug.xcconfig"; path = "Target Support Files/Pods-Birthday/Pods-Birthday.debug.xcconfig"; sourceTree = "<group>"; };
 		5A45D5187426C71C62F6FF11 /* Pods-Birthday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthday.release.xcconfig"; path = "Target Support Files/Pods-Birthday/Pods-Birthday.release.xcconfig"; sourceTree = "<group>"; };
 		9605DC23AE115B87A291A31E /* Pods_Birthday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Birthday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,7 +246,6 @@
 		99F9E2E02A9393F9004ED89F /* GetUsersQuery.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUsersQuery.graphql.swift; sourceTree = "<group>"; };
 		99F9E2E82A939C8C004ED89F /* GraphQLRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRepository.swift; sourceTree = "<group>"; };
 		99F9E2EB2A93A9B5004ED89F /* Error + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error + Extension.swift"; sourceTree = "<group>"; };
-		99FA9D522AA0BBF7006D1D74 /* apollo-ios-cli */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "apollo-ios-cli"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,8 +253,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99F9E2D62A937E33004ED89F /* Apollo in Frameworks */,
-				6066AAED73EC04490C28B372 /* Pods_Birthday.framework in Frameworks */,
+				0C3FB54B2AA0CF2F00C1CE2F /* Pods_Birthday.framework in Frameworks */,
+				0C3FB54F2AA0CFBD00C1CE2F /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +500,7 @@
 		985E887A2A9DD4550069CB3E /* InputObjects */ = {
 			isa = PBXGroup;
 			children = (
+				0C3FB5422AA0CBF300C1CE2F /* LoginInput.graphql.swift */,
 				985E887B2A9DD4550069CB3E /* RateFilter.graphql.swift */,
 				985E887C2A9DD4550069CB3E /* AvgPriceFilter.graphql.swift */,
 				985E887D2A9DD4550069CB3E /* ShopFilter.graphql.swift */,
@@ -486,6 +511,7 @@
 		98BA7D8B2A9E0C8A004BF312 /* Mutations */ = {
 			isa = PBXGroup;
 			children = (
+				0C3FB5462AA0CD5900C1CE2F /* LoginMutation.graphql.swift */,
 				98BA7D8C2A9E0C8A004BF312 /* AddShopToFavoriteMutation.graphql.swift */,
 				98BA7D8D2A9E0C8A004BF312 /* RemoveShopFromFavoriteMutation.graphql.swift */,
 				015DA32A2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift */,
@@ -580,6 +606,7 @@
 				994ECA9A2A961770003D89A5 /* BirthdaysRepository.swift */,
 				98BA7D892A9DDF09004BF312 /* GetShopsRepository.swift */,
 				98BA7D942A9E11BC004BF312 /* AddRemoveShopToFavorite.swift */,
+				0C3FB5442AA0CC8200C1CE2F /* SignInRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -636,7 +663,7 @@
 		998E7D0B2A8DF2F500E8F807 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				99FA9D522AA0BBF7006D1D74 /* apollo-ios-cli */,
+				0C3FB5502AA0D1BA00C1CE2F /* apollo-ios-cli */,
 				99F9E2E72A939BF4004ED89F /* RequestManager */,
 				998E7D2D2A8E4AEE00E8F807 /* GraphQL */,
 			);
@@ -671,6 +698,7 @@
 		99F9E2D82A9393F9004ED89F /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				0C3FB5482AA0CDB900C1CE2F /* AccessToken.graphql.swift */,
 				98BA7D902A9E0CC1004BF312 /* Mutation.graphql.swift */,
 				98BA7D912A9E0CC1004BF312 /* UserFavoriteShop.graphql.swift */,
 				985E88762A9DD25C0069CB3E /* Shop.graphql.swift */,
@@ -721,6 +749,7 @@
 		B4305D2FA6EA6FC7F5D85362 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0C3FB54A2AA0CF2F00C1CE2F /* Pods_Birthday.framework */,
 				9605DC23AE115B87A291A31E /* Pods_Birthday.framework */,
 			);
 			name = Frameworks;
@@ -738,6 +767,7 @@
 				9905A0CF2A8CF8C1003B5FF5 /* Frameworks */,
 				9905A0D02A8CF8C1003B5FF5 /* Resources */,
 				985593A32A979CD700A3E76C /* ShellScript */,
+				0C3FB54D2AA0CF2F00C1CE2F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -745,7 +775,7 @@
 			);
 			name = Birthday;
 			packageProductDependencies = (
-				99F9E2D52A937E33004ED89F /* Apollo */,
+				0C3FB54E2AA0CFBD00C1CE2F /* Apollo */,
 			);
 			productName = birthdayapp;
 			productReference = 9905A0D22A8CF8C1003B5FF5 /* Birthday.app */;
@@ -793,8 +823,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9905A0DD2A8CF8C2003B5FF5 /* Preview Assets.xcassets in Resources */,
-				99FA9D532AA0BBF7006D1D74 /* apollo-ios-cli in Resources */,
 				0C3FB5062AA0B77900C1CE2F /* Karma-Light.ttf in Resources */,
+				0C3FB5512AA0D1BA00C1CE2F /* apollo-ios-cli in Resources */,
 				0C3FB5092AA0B77900C1CE2F /* Karma-Bold.ttf in Resources */,
 				0C3FB50A2AA0B77900C1CE2F /* Karma-Regular.ttf in Resources */,
 				0C3FB5072AA0B77900C1CE2F /* Karma-Medium.ttf in Resources */,
@@ -899,6 +929,7 @@
 				0C3FB50C2AA0B7BB00C1CE2F /* Font + Extension.swift in Sources */,
 				995742642A9360B4005A3B7F /* RequestServices.swift in Sources */,
 				0C3FB5032AA0B77900C1CE2F /* TitleText.swift in Sources */,
+				0C3FB5492AA0CDB900C1CE2F /* AccessToken.graphql.swift in Sources */,
 				994ECAA72A961FE5003D89A5 /* BirthdayModel.swift in Sources */,
 				99F9E2EC2A93A9B5004ED89F /* Error + Extension.swift in Sources */,
 				98BA7D922A9E0CC1004BF312 /* Mutation.graphql.swift in Sources */,
@@ -936,17 +967,20 @@
 				0C3FB5302AA0BB2F00C1CE2F /* SignInView.swift in Sources */,
 				0C3FB5272AA0BADC00C1CE2F /* ButtonTitles.swift in Sources */,
 				0C3FB51F2AA0BABB00C1CE2F /* Regexes.swift in Sources */,
+				0C3FB5472AA0CD5900C1CE2F /* LoginMutation.graphql.swift in Sources */,
 				98BA7D952A9E11BC004BF312 /* AddRemoveShopToFavorite.swift in Sources */,
 				985593A22A976CCE00A3E76C /* BackButton.swift in Sources */,
 				985593942A963BBC00A3E76C /* ToastView.swift in Sources */,
 				015682B12AA0841C002E4445 /* DateExtension.swift in Sources */,
 				0C3FB4FF2AA0B77900C1CE2F /* ValidationTextFieldStyle.swift in Sources */,
 				9855939C2A963C3000A3E76C /* ShopView.swift in Sources */,
+				0C3FB5432AA0CBF300C1CE2F /* LoginInput.graphql.swift in Sources */,
 				9855939A2A963C1100A3E76C /* ShopListView.swift in Sources */,
 				994ECAA52A961FAC003D89A5 /* BirthdayCell.swift in Sources */,
 				985E88792A9DD3240069CB3E /* GetShopsQuery.graphql.swift in Sources */,
 				0C3FB5042AA0B77900C1CE2F /* FullRoundedButtonStyle.swift in Sources */,
 				994ECAB12A973075003D89A5 /* Date + Extension.swift in Sources */,
+				0C3FB5452AA0CC8200C1CE2F /* SignInRepository.swift in Sources */,
 				0C3FB51D2AA0BABB00C1CE2F /* AccessToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1173,7 +1207,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		99F9E2D52A937E33004ED89F /* Apollo */ = {
+		0C3FB54E2AA0CFBD00C1CE2F /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 99F9E2D42A937E33004ED89F /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;

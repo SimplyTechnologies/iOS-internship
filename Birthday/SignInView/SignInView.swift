@@ -79,7 +79,7 @@ struct SignInView: View {
                 }
               }
               .frame(width: 18, height: 18)
-              .cornerRadius(2.31)
+              .cornerRadius(2)
               
               TitleText(title: Titles.rememberPassword, size: 12)
                 .frame(alignment: .center)
@@ -105,7 +105,7 @@ struct SignInView: View {
           ) {
             Text(ButtonTitles.signIn)
               .onTapGesture {
-                //              viewModel.signIn()
+                viewModel.signIn()
               }
           }
           .buttonStyle(

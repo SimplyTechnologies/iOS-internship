@@ -16,7 +16,7 @@ final class SignInViewModel: ObservableObject {
   
   private let storeManager = StoreManager.shared
   private let accessToken = AccessToken.shared
-//  private let signInRepository = SignInRepositoryImpl()
+  private let signInRepository = SignInRepositoryImpl()
   private var cancellables = Set<AnyCancellable>()
   
   var errorMessage: String = ""
@@ -63,47 +63,47 @@ final class SignInViewModel: ObservableObject {
     password.error = (false, nil)
   }
   
-//  func signIn() {
-//    signInRepository.signIn(
-//      payload:
-//        Api.LoginInput(
-//          email: email.text,
-//          password: password.text)
-//    )
-//    .receive(on: DispatchQueue.main)
-//    .sink { [weak self] result in
-//      switch result {
-//      case .failure:
-//        guard let self else { return }
-//        self.isValidationSuccess = false
-//        self.hasError = true
-//        self.errorMessage = NetworkError.validationFailure.description
-//      case .finished:
-//        break
-//      }
-//    } receiveValue: { [weak self] token in
-//      guard let self else { return }
-//      
-//      self.isValidationSuccess = true
-//      self.hasError = false
-//      self.errorMessage = ""
-//      
-//      // Saving a token for further use in the session
-//      accessToken.save(token: token.access_token)
-//      print(isChecked)
-//      // If there is a checkmark, then save the token creation date
-//      if isChecked {
-//        accessToken.saveDate()
-//        
-//        // Resave the email, because after registering the user may be logged into another account
-//        storeManager.setValue(email.text, for: SignInKeys.email.rawValue)
-//        
-//        // Saving information that the user has logged
-//        storeManager.setValue(true, for: SignInKeys.isLogged.rawValue)
-//      }
-//    }
-//    .store(in: &cancellables)
-//  }
+  func signIn() {
+    signInRepository.signIn(
+      payload:
+        Api.LoginInput(
+          email: email.text,
+          password: password.text)
+    )
+    .receive(on: DispatchQueue.main)
+    .sink { [weak self] result in
+      switch result {
+      case .failure:
+        guard let self else { return }
+        self.isValidationSuccess = false
+        self.hasError = true
+        self.errorMessage = NetworkError.validationFailure.description
+      case .finished:
+        break
+      }
+    } receiveValue: { [weak self] token in
+      guard let self else { return }
+      
+      self.isValidationSuccess = true
+      self.hasError = false
+      self.errorMessage = ""
+      
+      // Saving a token for further use in the session
+      accessToken.save(token: token.access_token)
+      print(isChecked)
+      // If there is a checkmark, then save the token creation date
+      if isChecked {
+        accessToken.saveDate()
+        
+        // Resave the email, because after registering the user may be logged into another account
+        storeManager.setValue(email.text, for: SignInKeys.email.rawValue)
+        
+        // Saving information that the user has logged
+        storeManager.setValue(true, for: SignInKeys.isLogged.rawValue)
+      }
+    }
+    .store(in: &cancellables)
+  }
   
   func setButton() {
     if email.text.isEmpty
