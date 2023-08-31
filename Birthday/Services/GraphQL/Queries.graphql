@@ -22,3 +22,17 @@ query GetBirthdays {
     updatedAt
   }
 }
+
+query GetShops($filter: ShopFilter!) {
+  shops(filter: $filter) {
+    id
+    name
+    image
+    phone
+    address
+    url
+    rate
+    avgPrice
+    isFavorite
+  }
+}
