@@ -3,11 +3,14 @@ import SwiftUI
 
 struct TitleText: View {
   
-  // MARK: - Properties
-  let title: String
-  let size: CGFloat
+  private let title: String
+  private let size: CGFloat
   
-  // MARK: - Body
+  init(title: String, size: CGFloat) {
+    self.title = title
+    self.size = size
+  }
+  
   var body: some View {
     Text(title)
       .font(

@@ -5,25 +5,25 @@ import SwiftUI
 final class SignInViewModel: ObservableObject {
   
   // MARK: - Properties
-  @Published var email = SignInTextFieldModel()
-  @Published var password = SignInTextFieldModel()
+  @Published var email = TextFieldModel()
+  @Published var password = TextFieldModel()
   
   @Published var isDisable: Bool = true
   @Published var isChecked: Bool = false
   
-  #warning("Переименовать свойство")
   // Property for set `Sign In` button state
   @Published var isValidationSuccess: Bool = false
   
   private let storeManager = StoreManager.shared
   private let accessToken = AccessToken.shared
-  private let signInRepository = SignInRepositoryImpl()
+//  private let signInRepository = SignInRepositoryImpl()
   private var cancellables = Set<AnyCancellable>()
   
   var errorMessage: String = ""
   var hasError: Bool = false
   
   // MARK: - Functions
+  
   // Checking email against a regular expression
   private func checkEmailRegex() {
     guard NSPredicate(

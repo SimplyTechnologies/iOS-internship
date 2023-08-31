@@ -8,5 +8,7 @@ extension Color {
   static let tertiaryColor = Color("TertiaryColor")
   static let backgroundColor = Color("BackgroundColor")
   static let textFieldBorderColor = Color("TextFieldBorder")
+  static let errorBackgroundColor = Color("ErrorBackgroundColor")
+  static let errorColor = Color("ErrorColor")
   
 }
