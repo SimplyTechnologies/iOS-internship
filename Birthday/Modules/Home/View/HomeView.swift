@@ -26,14 +26,29 @@ struct HomeView: View {
           }
         }
       }
-    } .edgesIgnoringSafeArea(.top)
+    }
+    .onAppear {
+      viewModel.getBirthdays()
+    }
+    .edgesIgnoringSafeArea(.top)
+    .navigationTitle("")
+    
   }
   
   private var birthdaysView: some View {
     ScrollView {
       LazyVStack(spacing: 18) {
         ForEach(viewModel.birthdays, id: \.self) { birthday in
-          BirthdayCell(model: birthday)
+          NavigationLink {
+            BirthdayDetailsScreen(
+              viewModel: BirthdayDetailsViewModel(
+                birthdayDetails: birthday,
+                birthdaysRepository: BirthdaysRepositoryImpl()
+              )
+            )
+          } label: {
+            BirthdayCell(model: birthday)
+          }
         }
       }
       .padding(.horizontal, 24)

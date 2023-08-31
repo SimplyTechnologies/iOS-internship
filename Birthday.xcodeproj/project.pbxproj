@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		015682B12AA0841C002E4445 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015682B02AA0841C002E4445 /* DateExtension.swift */; };
+		015DA3232A9DE0BB00F2902C /* BirthdayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA3222A9DE0BB00F2902C /* BirthdayApp.swift */; };
+		015DA3252A9DE1AB00F2902C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA3242A9DE1AA00F2902C /* ContentView.swift */; };
+		015DA3292A9E12C700F2902C /* Mutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA3282A9E12C700F2902C /* Mutation.graphql.swift */; };
+		015DA32B2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA32A2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift */; };
+		015DA32E2A9E253F00F2902C /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA32D2A9E253F00F2902C /* UIApplicationExtension.swift */; };
+		0164CD132A9B440C0046DEFC /* BirthdayDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD0F2A9B440C0046DEFC /* BirthdayDetailsScreen.swift */; };
+		0164CD142A9B440C0046DEFC /* BirthdayDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD102A9B440C0046DEFC /* BirthdayDetailsModel.swift */; };
+		0164CD152A9B440C0046DEFC /* BirthdayDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD112A9B440C0046DEFC /* BirthdayDetailsViewModel.swift */; };
+		0164CD162A9B440C0046DEFC /* GenerateMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD122A9B440C0046DEFC /* GenerateMessageView.swift */; };
+		0164CD192A9B52EB0046DEFC /* AddBirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD182A9B52EB0046DEFC /* AddBirthdayViewModel.swift */; };
+		0164CD1B2A9B53650046DEFC /* AddBirthdayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD1A2A9B53650046DEFC /* AddBirthdayModel.swift */; };
+		0164CD1D2A9B53850046DEFC /* AddBirthdayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD1C2A9B53850046DEFC /* AddBirthdayScreen.swift */; };
+		016839682A98982900E483FC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016839672A98982900E483FC /* UserModel.swift */; };
+		0168396A2A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016839692A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift */; };
+		0168396C2A98E34A00E483FC /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0168396B2A98E34A00E483FC /* PhotoPicker.swift */; };
+		017DB1622A8F581E0055BACF /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1612A8F581E0055BACF /* ProfileScreen.swift */; };
+		017DB1652A8F6E700055BACF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1642A8F6E700055BACF /* ProfileView.swift */; };
+		017DB1682A8F6F020055BACF /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1672A8F6F020055BACF /* PrimaryButtonStyle.swift */; };
 		6066AAED73EC04490C28B372 /* Pods_Birthday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9605DC23AE115B87A291A31E /* Pods_Birthday.framework */; };
 		985593642A8E6E9100A3E76C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593632A8E6E9100A3E76C /* Colors.swift */; };
 		985593662A8E6EC800A3E76C /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593652A8E6EC800A3E76C /* Logo.swift */; };
@@ -30,8 +49,7 @@
 		98BA7D922A9E0CC1004BF312 /* Mutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BA7D902A9E0CC1004BF312 /* Mutation.graphql.swift */; };
 		98BA7D932A9E0CC1004BF312 /* UserFavoriteShop.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BA7D912A9E0CC1004BF312 /* UserFavoriteShop.graphql.swift */; };
 		98BA7D952A9E11BC004BF312 /* AddRemoveShopToFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BA7D942A9E11BC004BF312 /* AddRemoveShopToFavorite.swift */; };
-		9905A0D62A8CF8C1003B5FF5 /* BirthdayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */; };
-		9905A0D82A8CF8C1003B5FF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */; };
+		9905A0D62A8CF8C1003B5FF5 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		9905A0DA2A8CF8C2003B5FF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */; };
 		9905A0DD2A8CF8C2003B5FF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9905A0DC2A8CF8C2003B5FF5 /* Preview Assets.xcassets */; };
 		9939A9142A933B9600D3B19E /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9939A9132A933B9600D3B19E /* TabBarView.swift */; };
@@ -62,6 +80,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		015682B02AA0841C002E4445 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		015DA3222A9DE0BB00F2902C /* BirthdayApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayApp.swift; sourceTree = "<group>"; };
+		015DA3242A9DE1AA00F2902C /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		015DA3282A9E12C700F2902C /* Mutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutation.graphql.swift; sourceTree = "<group>"; };
+		015DA32A2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteBirthdayMutation.graphql.swift; sourceTree = "<group>"; };
+		015DA32D2A9E253F00F2902C /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		0164CD0F2A9B440C0046DEFC /* BirthdayDetailsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayDetailsScreen.swift; sourceTree = "<group>"; };
+		0164CD102A9B440C0046DEFC /* BirthdayDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayDetailsModel.swift; sourceTree = "<group>"; };
+		0164CD112A9B440C0046DEFC /* BirthdayDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayDetailsViewModel.swift; sourceTree = "<group>"; };
+		0164CD122A9B440C0046DEFC /* GenerateMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateMessageView.swift; sourceTree = "<group>"; };
+		0164CD182A9B52EB0046DEFC /* AddBirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBirthdayViewModel.swift; sourceTree = "<group>"; };
+		0164CD1A2A9B53650046DEFC /* AddBirthdayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBirthdayModel.swift; sourceTree = "<group>"; };
+		0164CD1C2A9B53850046DEFC /* AddBirthdayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBirthdayScreen.swift; sourceTree = "<group>"; };
+		016839672A98982900E483FC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		016839692A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swiftViewModel.swift; sourceTree = "<group>"; };
+		0168396B2A98E34A00E483FC /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		017DB1612A8F581E0055BACF /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		017DB1642A8F6E700055BACF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		017DB1672A8F6F020055BACF /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		43137589BDF5678B8045873F /* Pods-Birthday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthday.debug.xcconfig"; path = "Target Support Files/Pods-Birthday/Pods-Birthday.debug.xcconfig"; sourceTree = "<group>"; };
 		5A45D5187426C71C62F6FF11 /* Pods-Birthday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthday.release.xcconfig"; path = "Target Support Files/Pods-Birthday/Pods-Birthday.release.xcconfig"; sourceTree = "<group>"; };
 		9605DC23AE115B87A291A31E /* Pods_Birthday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Birthday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,8 +125,6 @@
 		98BA7D912A9E0CC1004BF312 /* UserFavoriteShop.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFavoriteShop.graphql.swift; sourceTree = "<group>"; };
 		98BA7D942A9E11BC004BF312 /* AddRemoveShopToFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemoveShopToFavorite.swift; sourceTree = "<group>"; };
 		9905A0D22A8CF8C1003B5FF5 /* Birthday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birthday.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayApp.swift; sourceTree = "<group>"; };
-		9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9905A0DC2A8CF8C2003B5FF5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9939A9132A933B9600D3B19E /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -132,6 +167,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0164CD082A9B43AB0046DEFC /* BirthdayDetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0164CD0F2A9B440C0046DEFC /* BirthdayDetailsScreen.swift */,
+				0164CD122A9B440C0046DEFC /* GenerateMessageView.swift */,
+				0164CD102A9B440C0046DEFC /* BirthdayDetailsModel.swift */,
+				0164CD112A9B440C0046DEFC /* BirthdayDetailsViewModel.swift */,
+				015DA32D2A9E253F00F2902C /* UIApplicationExtension.swift */,
+				015682B02AA0841C002E4445 /* DateExtension.swift */,
+			);
+			path = BirthdayDetailsScreen;
+			sourceTree = "<group>";
+		};
+		0164CD172A9B4A780046DEFC /* AddBirthdayScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0164CD1C2A9B53850046DEFC /* AddBirthdayScreen.swift */,
+				0164CD1A2A9B53650046DEFC /* AddBirthdayModel.swift */,
+				0164CD182A9B52EB0046DEFC /* AddBirthdayViewModel.swift */,
+			);
+			path = AddBirthdayScreen;
+			sourceTree = "<group>";
+		};
+		017DB1632A8F6E480055BACF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				017DB1612A8F581E0055BACF /* ProfileScreen.swift */,
+				017DB1642A8F6E700055BACF /* ProfileView.swift */,
+				0168396B2A98E34A00E483FC /* PhotoPicker.swift */,
+				016839672A98982900E483FC /* UserModel.swift */,
+				016839692A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		017DB1662A8F6EB10055BACF /* ButtonStyles */ = {
+			isa = PBXGroup;
+			children = (
+				017DB1672A8F6F020055BACF /* PrimaryButtonStyle.swift */,
+			);
+			path = ButtonStyles;
+			sourceTree = "<group>";
+		};
 		0A8E6F59DF06E687E5AA3412 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +266,7 @@
 			children = (
 				98BA7D8C2A9E0C8A004BF312 /* AddShopToFavoriteMutation.graphql.swift */,
 				98BA7D8D2A9E0C8A004BF312 /* RemoveShopFromFavoriteMutation.graphql.swift */,
+				015DA32A2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift */,
 			);
 			path = Mutations;
 			sourceTree = "<group>";
@@ -214,10 +293,14 @@
 			isa = PBXGroup;
 			children = (
 				994ECAAC2A96405B003D89A5 /* Info.plist */,
+				015DA3222A9DE0BB00F2902C /* BirthdayApp.swift */,
+				015DA3242A9DE1AA00F2902C /* ContentView.swift */,
 				998E7D0B2A8DF2F500E8F807 /* Services */,
 				9939A9112A933B8200D3B19E /* Modules */,
-				9905A0D52A8CF8C1003B5FF5 /* BirthdayApp.swift */,
-				9905A0D72A8CF8C1003B5FF5 /* ContentView.swift */,
+				017DB1662A8F6EB10055BACF /* ButtonStyles */,
+				017DB1632A8F6E480055BACF /* Profile */,
+				0164CD082A9B43AB0046DEFC /* BirthdayDetailsScreen */,
+				0164CD172A9B4A780046DEFC /* AddBirthdayScreen */,
 				9855938F2A963B8F00A3E76C /* Shop */,
 				985593902A963B9500A3E76C /* Toast */,
 				994ECAB22A9730E6003D89A5 /* Extensions */,
@@ -358,6 +441,7 @@
 				98BA7D902A9E0CC1004BF312 /* Mutation.graphql.swift */,
 				98BA7D912A9E0CC1004BF312 /* UserFavoriteShop.graphql.swift */,
 				985E88762A9DD25C0069CB3E /* Shop.graphql.swift */,
+				015DA3282A9E12C700F2902C /* Mutation.graphql.swift */,
 				994ECA942A961564003D89A5 /* Birthday.graphql.swift */,
 				99F9E2D92A9393F9004ED89F /* User.graphql.swift */,
 				99F9E2DA2A9393F9004ED89F /* Query.graphql.swift */,
@@ -530,15 +614,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				015DA32E2A9E253F00F2902C /* UIApplicationExtension.swift in Sources */,
 				998E7D102A8DF34500E8F807 /* ApolloManager.swift in Sources */,
+				0164CD162A9B440C0046DEFC /* GenerateMessageView.swift in Sources */,
 				99F9E2E22A9393F9004ED89F /* Query.graphql.swift in Sources */,
 				99F9E2E62A9393F9004ED89F /* GetUsersQuery.graphql.swift in Sources */,
 				994ECA932A96155E003D89A5 /* GetBirthdaysQuery.graphql.swift in Sources */,
 				99F9E2E12A9393F9004ED89F /* User.graphql.swift in Sources */,
 				994ECAA12A961F36003D89A5 /* HomeViewModel.swift in Sources */,
 				98BA7D8E2A9E0C8A004BF312 /* AddShopToFavoriteMutation.graphql.swift in Sources */,
+				016839682A98982900E483FC /* UserModel.swift in Sources */,
+				0164CD152A9B440C0046DEFC /* BirthdayDetailsViewModel.swift in Sources */,
 				998E7D222A8E147700E8F807 /* Queries.graphql in Sources */,
-				9905A0D82A8CF8C1003B5FF5 /* ContentView.swift in Sources */,
+				015DA3232A9DE0BB00F2902C /* BirthdayApp.swift in Sources */,
+				0164CD142A9B440C0046DEFC /* BirthdayDetailsModel.swift in Sources */,
+				0164CD192A9B52EB0046DEFC /* AddBirthdayViewModel.swift in Sources */,
+				017DB1652A8F6E700055BACF /* ProfileView.swift in Sources */,
+				017DB1682A8F6F020055BACF /* PrimaryButtonStyle.swift in Sources */,
 				99F9E2E32A9393F9004ED89F /* SchemaConfiguration.swift in Sources */,
 				994ECA9B2A961770003D89A5 /* BirthdaysRepository.swift in Sources */,
 				99F9E2E42A9393F9004ED89F /* SchemaMetadata.graphql.swift in Sources */,
@@ -562,17 +654,27 @@
 				994ECAA32A961F49003D89A5 /* HomeView.swift in Sources */,
 				985E887E2A9DD4550069CB3E /* RateFilter.graphql.swift in Sources */,
 				994ECAAE2A973041003D89A5 /* String + Extension.swift in Sources */,
-				9905A0D62A8CF8C1003B5FF5 /* BirthdayApp.swift in Sources */,
+				9905A0D62A8CF8C1003B5FF5 /* (null) in Sources */,
 				98BA7D932A9E0CC1004BF312 /* UserFavoriteShop.graphql.swift in Sources */,
+				0164CD1B2A9B53650046DEFC /* AddBirthdayModel.swift in Sources */,
+				017DB1622A8F581E0055BACF /* ProfileScreen.swift in Sources */,
+				015DA3292A9E12C700F2902C /* Mutation.graphql.swift in Sources */,
+				0168396C2A98E34A00E483FC /* PhotoPicker.swift in Sources */,
 				99F9E2E52A9393F9004ED89F /* Api.graphql.swift in Sources */,
 				985593982A963BF600A3E76C /* ShopListViewModel.swift in Sources */,
+				0168396A2A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift in Sources */,
 				9855939E2A963C7E00A3E76C /* ShopDetailViewModel.swift in Sources */,
 				985E887F2A9DD4550069CB3E /* AvgPriceFilter.graphql.swift in Sources */,
+				015DA3252A9DE1AB00F2902C /* ContentView.swift in Sources */,
+				0164CD132A9B440C0046DEFC /* BirthdayDetailsScreen.swift in Sources */,
+				015DA32B2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift in Sources */,
+				0164CD1D2A9B53850046DEFC /* AddBirthdayScreen.swift in Sources */,
 				985593962A963BC800A3E76C /* Shop.swift in Sources */,
 				985E88802A9DD4550069CB3E /* ShopFilter.graphql.swift in Sources */,
 				98BA7D952A9E11BC004BF312 /* AddRemoveShopToFavorite.swift in Sources */,
 				985593A22A976CCE00A3E76C /* BackButton.swift in Sources */,
 				985593942A963BBC00A3E76C /* ToastView.swift in Sources */,
+				015682B12AA0841C002E4445 /* DateExtension.swift in Sources */,
 				9855939C2A963C3000A3E76C /* ShopView.swift in Sources */,
 				9855939A2A963C1100A3E76C /* ShopListView.swift in Sources */,
 				994ECAA52A961FAC003D89A5 /* BirthdayCell.swift in Sources */,
@@ -704,10 +806,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Birthday/Preview Content\"";
-				DEVELOPMENT_TEAM = VBZ5789L53;
+				DEVELOPMENT_TEAM = DA9H7Z32HZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Birthday/Info.plist;
@@ -723,8 +826,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.birthdayapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.birthdayAppp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -737,10 +841,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Birthday/Preview Content\"";
-				DEVELOPMENT_TEAM = VBZ5789L53;
+				DEVELOPMENT_TEAM = DA9H7Z32HZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Birthday/Info.plist;
@@ -756,8 +861,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.birthdayapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.birthdayAppp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -4,13 +4,13 @@
 @_exported import ApolloAPI
 
 public extension Api {
-  class TestetetesQuery: GraphQLQuery {
-    public static let operationName: String = "testetetes"
+  class DeleteBirthdayMutation: GraphQLMutation {
+    public static let operationName: String = "DeleteBirthday"
     public static let document: ApolloAPI.DocumentType = .notPersisted(
       definition: .init(
         #"""
-        query testetetes {
-          birthdays {
+        mutation DeleteBirthday($id: Int!) {
+          deleteBirthday(id: $id) {
             __typename
             id
             userId
@@ -28,23 +28,29 @@ public extension Api {
         """#
       ))
 
-    public init() {}
+    public var id: Int
+
+    public init(id: Int) {
+      self.id = id
+    }
+
+    public var __variables: Variables? { ["id": id] }
 
     public struct Data: Api.SelectionSet {
       public let __data: DataDict
       public init(_dataDict: DataDict) { __data = _dataDict }
 
-      public static var __parentType: ApolloAPI.ParentType { Api.Objects.Query }
+      public static var __parentType: ApolloAPI.ParentType { Api.Objects.Mutation }
       public static var __selections: [ApolloAPI.Selection] { [
-        .field("birthdays", [Birthday].self),
+        .field("deleteBirthday", DeleteBirthday?.self, arguments: ["id": .variable("id")]),
       ] }
 
-      public var birthdays: [Birthday] { __data["birthdays"] }
+      public var deleteBirthday: DeleteBirthday? { __data["deleteBirthday"] }
 
-      /// Birthday
+      /// DeleteBirthday
       ///
       /// Parent Type: `Birthday`
-      public struct Birthday: Api.SelectionSet {
+      public struct DeleteBirthday: Api.SelectionSet {
         public let __data: DataDict
         public init(_dataDict: DataDict) { __data = _dataDict }
 

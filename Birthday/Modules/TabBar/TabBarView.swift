@@ -19,18 +19,21 @@ struct TabBarView: View {
   
   private var tabView: some View {
     TabView(selection: $activeTab) {
-      HomeView(
-        viewModel: HomeViewModel(
-          birthdayRepository: BirthdaysRepositoryImpl()
+      NavigationView {
+        HomeView(
+          viewModel: HomeViewModel(
+            birthdayRepository: BirthdaysRepositoryImpl()
+          )
         )
-      )
+      }
+      .accentColor(Color.primaryColor)
         .tabItem { TabViewTab(activeTab: $activeTab, tab: .home) }
         .tag(TabItem.home)
       ShopListView(viewModel: ShopListViewModel())
         .tabItem { TabViewTab(activeTab: $activeTab, tab: .shop) }
         .tag(TabItem.shop)
       
-      Text("Profile tab")
+      ProfileScreen(viewModel: ProfileScreenViewModel())
         .tabItem { TabViewTab(activeTab: $activeTab, tab: .profile) }
         .tag(TabItem.profile)
     }
