@@ -5,24 +5,17 @@ import Foundation
 class ShopListViewModel: ObservableObject {
   
   @Published var searchText = ""
-  
-  // TODO: Mock data to be removed
-  // swiftlint:disable line_length
-  @Published private var shops: [Shop] = [
-    Shop(id: 111, name: "McDonald's", image: "photo.on.rectangle", phone: "0938427523", address: "Merab Kostava St, Tbilisi, Georgia", url: "https://www.mcdonalds.com/us/en-us.html", rate: 3.9, isFavorite: false),
-    Shop(id: 112, name: "H&M", image: "photo.on.rectangle", phone: "0938427523", address: "isjbv", url: "https://www2.hm.com/en_us/index.html", rate: 3.9, isFavorite: false),
-    Shop(id: 113, name: "Hugo Boss", image: "photo.on.rectangle", phone: "0938427523", address: "isjbv", url: "https://www.hugoboss.com/selectcountry", rate: 3.9, isFavorite: true),
-    Shop(id: 114, name: "KFC", image: "photo.on.rectangle", phone: "0938427523", address: "isjbv", url: "https://global.kfc.com/", rate: 3.9, isFavorite: false),
-    Shop(id: 115, name: "Burger King", image: "photo.on.rectangle", phone: "0938427523", address: "isjbv", url: "https://www.bk.com/", rate: 3.9, isFavorite: true),
-    Shop(id: 116, name: "Zara", image: "photo.on.rectangle", phone: "0938427523", address: "11 George Balanchini St", url: "https://www.zara.com/", rate: 3.9, isFavorite: true)
-  ]
-  // swiftlint:enable line_length
+  @Published private var shops: [Shop] = []
   @Published var toasts: [Toast] = []
+  @Published var isLoading = true
+    
+  private var cancellables: Set<AnyCancellable> = []
+  private let shopsRepository: ShopsRepository = ShopsRepositoryImpl()
+  private let favoriteShopsRepository = AddRemoveShopToFavoriteImpl()
   
   var sortedShops: [Shop] {
     filteredShops.sorted {
       $0.isFavorite && !$1.isFavorite
-      
     }
   }
   
@@ -32,10 +25,29 @@ class ShopListViewModel: ObservableObject {
     }
   }
   
-  func onTapFavoriteIcon(shop: Shop) {
-    shop.isFavorite.toggle()
-    self.objectWillChange.send()
-    showToast(shop: shop)
+  func getShops(shopFilter: Api.ShopFilter) {
+    isLoading = true
+    shopsRepository.getShops(shopFilter: shopFilter)
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] response in
+        self?.isLoading = false
+        switch response {
+        case .finished: break
+        case .failure: break
+        }
+      } receiveValue: { [weak self] shopData in
+        let shopsModels = shopData.map { Shop(dto: $0) }
+        self?.shops = shopsModels
+      }
+      .store(in: &cancellables)
+  }
+
+  func onTapFavoriteIcon(_ shop: Shop) {
+    if !shop.isFavorite {
+      addShopToFavorite(shop)
+    } else {
+      removeShopFromFavorite(shop)
+    }
   }
   
   private func showToast(shop: Shop) {
@@ -53,6 +65,36 @@ class ShopListViewModel: ObservableObject {
         self.toasts.remove(at: index)
       }
     }
+  }
+  
+  private func addShopToFavorite(_ shop: Shop) {
+    favoriteShopsRepository.addShopToFavorite(shopId: shop.id)
+      .receive(on: DispatchQueue.main)
+      .sink { response in
+        switch response {
+        case .finished: break
+        case .failure: break
+        }
+      } receiveValue: { [weak self] response in
+        self?.shops.first(where: {$0.id == response.shopId})?.isFavorite.toggle()
+        self?.showToast(shop: shop)
+      }
+      .store(in: &cancellables)
+  }
+  
+  private func removeShopFromFavorite(_ shop: Shop) {
+    favoriteShopsRepository.removeShopFromFavorite(shopId: shop.id)
+      .receive(on: DispatchQueue.main)
+      .sink { response in
+        switch response {
+        case .finished: break
+        case .failure: break
+        }
+      } receiveValue: { [weak self] response in
+        self?.shops.first(where: {$0.id == response.shopId})?.isFavorite.toggle()
+        self?.showToast(shop: shop)
+      }
+      .store(in: &cancellables)
   }
   
 }

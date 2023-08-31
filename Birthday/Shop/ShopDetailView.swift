@@ -9,10 +9,10 @@ struct ShopDetailView: View {
   
   var body: some View {
     
-    ZStack(alignment: .center) {
+    ZStack(alignment: .top) {
       Color.backgroundColor.edgesIgnoringSafeArea(.all)
       
-      VStack(spacing: 16) {
+      VStack(spacing: 15) {
         
         HStack {
           
@@ -22,21 +22,33 @@ struct ShopDetailView: View {
         }
         .padding(.horizontal)
         
-        Image(systemName: viewModel.shop.image)
-          .resizable()
-          .frame(width: 100, height: 100)
-          .padding(.top, 100)
+        let asyncImageURL = URL(string: viewModel.shop.image)
+        AsyncImage(url: asyncImageURL) { image in
+          image
+            .resizable()
+            .scaledToFill()
+        } placeholder: {
+          Text(viewModel.shop.name.prefix(1))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+              .font(.largeTitle)
+              .background(Color.secondaryColor)
+        }
+        .frame(width: 100, height: 100)
+        .cornerRadius(50)
+        .padding(.top, 80)
         
         Text(viewModel.shop.name)
           .font(.title)
-        
+          .padding(.horizontal, 20)
+          .multilineTextAlignment(.center)
+
         HStack {
           ForEach(0..<5) { index in
             Image(systemName: "star.fill")
               .foregroundColor(index < Int(viewModel.shop.rate) ? .orange : .gray)
           }
         }
-        .padding(.vertical, 15)
+        .padding(.vertical, 10)
         
         Button {
           if let phoneURL = URL(string: viewModel.phone), UIApplication
@@ -66,11 +78,15 @@ struct ShopDetailView: View {
                 .underline()
             )
             .foregroundColor(.black)
+            .padding(.horizontal, 20)
           }
         }
-        Text(.init(viewModel.websiteURL))
-          .underline()
-          .tint(.black)
+        
+        if !viewModel.shop.url.isEmpty {
+          Text(.init(viewModel.websiteURL))
+            .underline()
+            .tint(.black)
+        }
         
         Button {
           viewModel.onTapFavoriteIcon(shop: viewModel.shop)
@@ -83,26 +99,23 @@ struct ShopDetailView: View {
               .foregroundColor(.black)
           }
         }
-        
-        VStack {
-          Spacer()
-          ForEach(viewModel.toasts, id: \.self) {
-            ToastView(toast: $0)
-              .transition(
-                .asymmetric(
-                  insertion: .move(edge: .bottom),
-                  removal: .opacity)
-              )
-          }
-        }
-        .animation(
-          .easeInOut,
-          value: viewModel.toasts.count
-        )
-        
         Spacer()
-        
       }
+      VStack {
+        Spacer()
+        ForEach(viewModel.toasts, id: \.self) {
+          ToastView(toast: $0)
+            .transition(
+              .asymmetric(
+                insertion: .move(edge: .bottom),
+                removal: .opacity)
+            )
+        }
+      }
+      .animation(
+        .easeInOut,
+        value: viewModel.toasts.count
+      )
       .navigationBarBackButtonHidden(true)
     }
     .gesture(

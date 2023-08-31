@@ -30,6 +30,17 @@ class Shop: Equatable {
     self.isFavorite = isFavorite
   }
   
+  init(dto: Api.GetShopsQuery.Data.Shop) {
+    id = dto.id
+    name = dto.name
+    image = dto.image
+    phone = dto.phone ?? ""
+    address = dto.address
+    url = dto.url ?? ""
+    rate = Float(dto.rate ?? 0.0)
+    isFavorite = dto.isFavorite ?? false
+  }
+  
   static func == (lhs: Shop, rhs: Shop) -> Bool {
     lhs.id == rhs.id
     

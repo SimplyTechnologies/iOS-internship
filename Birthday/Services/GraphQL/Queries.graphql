@@ -22,3 +22,35 @@ query GetBirthdays {
     updatedAt
   }
 }
+
+query GetShops($filter: ShopFilter!) {
+  shops(filter: $filter) {
+    id
+    name
+    image
+    phone
+    address
+    url
+    rate
+    avgPrice
+    isFavorite
+  }
+}
+
+mutation AddShopToFavorite($shopId: Int!) {
+  addShopToFavorite(shopId: $shopId) {
+    id
+    userId
+    shopId
+    createdAt
+  }
+}
+
+mutation removeShopFromFavorite($shopId: Int!) {
+  removeShopFromFavorite(shopId: $shopId) {
+    id
+    userId
+    shopId
+    createdAt
+  }
+}
