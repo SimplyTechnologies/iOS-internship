@@ -77,6 +77,7 @@
 		99F9E2E62A9393F9004ED89F /* GetUsersQuery.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2E02A9393F9004ED89F /* GetUsersQuery.graphql.swift */; };
 		99F9E2E92A939C8C004ED89F /* GraphQLRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2E82A939C8C004ED89F /* GraphQLRepository.swift */; };
 		99F9E2EC2A93A9B5004ED89F /* Error + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2EB2A93A9B5004ED89F /* Error + Extension.swift */; };
+		99FA9D532AA0BBF7006D1D74 /* apollo-ios-cli in Resources */ = {isa = PBXBuildFile; fileRef = 99FA9D522AA0BBF7006D1D74 /* apollo-ios-cli */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +153,7 @@
 		99F9E2E02A9393F9004ED89F /* GetUsersQuery.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUsersQuery.graphql.swift; sourceTree = "<group>"; };
 		99F9E2E82A939C8C004ED89F /* GraphQLRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLRepository.swift; sourceTree = "<group>"; };
 		99F9E2EB2A93A9B5004ED89F /* Error + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error + Extension.swift"; sourceTree = "<group>"; };
+		99FA9D522AA0BBF7006D1D74 /* apollo-ios-cli */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "apollo-ios-cli"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -404,6 +406,7 @@
 		998E7D0B2A8DF2F500E8F807 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				99FA9D522AA0BBF7006D1D74 /* apollo-ios-cli */,
 				99F9E2E72A939BF4004ED89F /* RequestManager */,
 				998E7D2D2A8E4AEE00E8F807 /* GraphQL */,
 			);
@@ -560,6 +563,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9905A0DD2A8CF8C2003B5FF5 /* Preview Assets.xcassets in Resources */,
+				99FA9D532AA0BBF7006D1D74 /* apollo-ios-cli in Resources */,
 				9905A0DA2A8CF8C2003B5FF5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
