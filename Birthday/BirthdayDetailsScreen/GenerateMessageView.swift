@@ -8,7 +8,7 @@ struct GenerateMessageView: View {
   var body: some View {
     
     VStack(spacing: 0) {
-      TextEditor(text: $viewModel.message)
+      TextEditor(text: $viewModel.birthdayDetails.message)
         .colorMultiply(Color.backgroundColor)
         .cornerRadius(10)
         .padding(EdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 16))
@@ -35,7 +35,7 @@ struct GenerateMessageView: View {
   }
   
   private func presentShareSheet() {
-    let activityItems = [viewModel.message]
+    let activityItems = [viewModel.birthdayDetails.message]
     let activityViewController = UIActivityViewController(
       activityItems: activityItems,
       applicationActivities: nil

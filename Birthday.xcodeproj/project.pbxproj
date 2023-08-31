@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		015682B12AA0841C002E4445 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015682B02AA0841C002E4445 /* DateExtension.swift */; };
 		015DA3232A9DE0BB00F2902C /* BirthdayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA3222A9DE0BB00F2902C /* BirthdayApp.swift */; };
 		015DA3252A9DE1AB00F2902C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA3242A9DE1AA00F2902C /* ContentView.swift */; };
 		015DA3292A9E12C700F2902C /* Mutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA3282A9E12C700F2902C /* Mutation.graphql.swift */; };
 		015DA32B2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA32A2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift */; };
-		015DA32E2A9E253F00F2902C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA32D2A9E253F00F2902C /* Extension.swift */; };
+		015DA32E2A9E253F00F2902C /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA32D2A9E253F00F2902C /* UIApplicationExtension.swift */; };
 		0164CD132A9B440C0046DEFC /* BirthdayDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD0F2A9B440C0046DEFC /* BirthdayDetailsScreen.swift */; };
 		0164CD142A9B440C0046DEFC /* BirthdayDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD102A9B440C0046DEFC /* BirthdayDetailsModel.swift */; };
 		0164CD152A9B440C0046DEFC /* BirthdayDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD112A9B440C0046DEFC /* BirthdayDetailsViewModel.swift */; };
@@ -79,11 +80,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		015682B02AA0841C002E4445 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		015DA3222A9DE0BB00F2902C /* BirthdayApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayApp.swift; sourceTree = "<group>"; };
 		015DA3242A9DE1AA00F2902C /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		015DA3282A9E12C700F2902C /* Mutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutation.graphql.swift; sourceTree = "<group>"; };
 		015DA32A2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteBirthdayMutation.graphql.swift; sourceTree = "<group>"; };
-		015DA32D2A9E253F00F2902C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		015DA32D2A9E253F00F2902C /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		0164CD0F2A9B440C0046DEFC /* BirthdayDetailsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayDetailsScreen.swift; sourceTree = "<group>"; };
 		0164CD102A9B440C0046DEFC /* BirthdayDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayDetailsModel.swift; sourceTree = "<group>"; };
 		0164CD112A9B440C0046DEFC /* BirthdayDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -172,7 +174,8 @@
 				0164CD122A9B440C0046DEFC /* GenerateMessageView.swift */,
 				0164CD102A9B440C0046DEFC /* BirthdayDetailsModel.swift */,
 				0164CD112A9B440C0046DEFC /* BirthdayDetailsViewModel.swift */,
-				015DA32D2A9E253F00F2902C /* Extension.swift */,
+				015DA32D2A9E253F00F2902C /* UIApplicationExtension.swift */,
+				015682B02AA0841C002E4445 /* DateExtension.swift */,
 			);
 			path = BirthdayDetailsScreen;
 			sourceTree = "<group>";
@@ -611,7 +614,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				015DA32E2A9E253F00F2902C /* Extension.swift in Sources */,
+				015DA32E2A9E253F00F2902C /* UIApplicationExtension.swift in Sources */,
 				998E7D102A8DF34500E8F807 /* ApolloManager.swift in Sources */,
 				0164CD162A9B440C0046DEFC /* GenerateMessageView.swift in Sources */,
 				99F9E2E22A9393F9004ED89F /* Query.graphql.swift in Sources */,
@@ -671,6 +674,7 @@
 				98BA7D952A9E11BC004BF312 /* AddRemoveShopToFavorite.swift in Sources */,
 				985593A22A976CCE00A3E76C /* BackButton.swift in Sources */,
 				985593942A963BBC00A3E76C /* ToastView.swift in Sources */,
+				015682B12AA0841C002E4445 /* DateExtension.swift in Sources */,
 				9855939C2A963C3000A3E76C /* ShopView.swift in Sources */,
 				9855939A2A963C1100A3E76C /* ShopListView.swift in Sources */,
 				994ECAA52A961FAC003D89A5 /* BirthdayCell.swift in Sources */,

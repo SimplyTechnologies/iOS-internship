@@ -8,7 +8,7 @@ struct BirthdayModel: Hashable {
   let name: String
   let image: String
   let relation: String
-  let message: String
+  var message: String
   let date: Date
   let upcomingBirthday: Date
   let upcomingAge: Int

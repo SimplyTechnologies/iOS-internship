@@ -49,9 +49,7 @@ struct BirthdayDetailsScreen: View {
             .padding(1)
             .foregroundColor(.black)
           Text(
-            viewModel.dateFormatter.string(
-              from: viewModel.birthdayDetails.date
-            )
+            viewModel.birthdayDetails.date.stringFromDate()
           )
             .foregroundColor(.black)
           HStack {
