@@ -26,7 +26,7 @@ struct ProfileView: View {
             )
             .padding()
         }
-        Text(viewModel.fullName)
+        Text("\(viewModel.user.firstName) \(viewModel.user.lastName)")
           .font(.title3)
           .padding()
           .foregroundColor(.black)
@@ -34,7 +34,7 @@ struct ProfileView: View {
           .minimumScaleFactor(0.3)
           .lineLimit(1)
         
-        Text(viewModel.user.email)
+        Text("\(viewModel.user.email)")
           .font(.headline)
           .padding()
           .foregroundColor(.black)
@@ -110,6 +110,9 @@ struct ProfileView: View {
             )
         )
       }
+    }
+    .onAppear {
+      viewModel.getProfile()
     }
     .sheet(isPresented: $viewModel.isImagePickerPresented) {
       ImagePicker(selectedImage: $viewModel.selectedImage)

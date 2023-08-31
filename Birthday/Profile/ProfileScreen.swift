@@ -3,7 +3,7 @@ import SwiftUI
 
 struct ProfileScreen: View {
   
-  @ObservedObject var viewModel = ProfileScreenViewModel()
+  @ObservedObject var viewModel: ProfileScreenViewModel
   
   var body: some View {
     ZStack {
@@ -35,6 +35,8 @@ struct ProfileScreen: View {
         } else {
           Button("Save") {
             viewModel.isEditingModeOff.toggle()
+            viewModel.editFirstName(firstName: viewModel.user.firstName)
+            viewModel.editLastName(lastName: viewModel.user.lastName)
           }
           .buttonStyle(PrimaryButtonStyle())
           .disabled(!viewModel.areTextFieldsEdited)
@@ -50,7 +52,11 @@ struct ProfileScreen: View {
 struct ProfileScreen_Previews: PreviewProvider {
   
   static var previews: some View {
-    ProfileScreen()
+    ProfileScreen(
+      viewModel: ProfileScreenViewModel(
+        birthdaysRepository: BirthdaysRepositoryImpl()
+      )
+    )
   }
   
 }

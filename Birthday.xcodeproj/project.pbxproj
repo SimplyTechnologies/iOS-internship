@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0156A2CD2A9F48AF004D7E97 /* GetProfileQuery.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0156A2CC2A9F48AF004D7E97 /* GetProfileQuery.graphql.swift */; };
 		015DA3232A9DE0BB00F2902C /* BirthdayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA3222A9DE0BB00F2902C /* BirthdayApp.swift */; };
 		015DA3252A9DE1AB00F2902C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA3242A9DE1AA00F2902C /* ContentView.swift */; };
 		015DA3292A9E12C700F2902C /* Mutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA3282A9E12C700F2902C /* Mutation.graphql.swift */; };
@@ -20,7 +21,7 @@
 		0164CD1B2A9B53650046DEFC /* AddBirthdayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD1A2A9B53650046DEFC /* AddBirthdayModel.swift */; };
 		0164CD1D2A9B53850046DEFC /* AddBirthdayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD1C2A9B53850046DEFC /* AddBirthdayScreen.swift */; };
 		016839682A98982900E483FC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016839672A98982900E483FC /* UserModel.swift */; };
-		0168396A2A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016839692A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift */; };
+		0168396A2A989B7200E483FC /* ProfileScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016839692A989B7200E483FC /* ProfileScreenViewModel.swift */; };
 		0168396C2A98E34A00E483FC /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0168396B2A98E34A00E483FC /* PhotoPicker.swift */; };
 		017DB1622A8F581E0055BACF /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1612A8F581E0055BACF /* ProfileScreen.swift */; };
 		017DB1652A8F6E700055BACF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1642A8F6E700055BACF /* ProfileView.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0156A2CC2A9F48AF004D7E97 /* GetProfileQuery.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetProfileQuery.graphql.swift; sourceTree = "<group>"; };
 		015DA3222A9DE0BB00F2902C /* BirthdayApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayApp.swift; sourceTree = "<group>"; };
 		015DA3242A9DE1AA00F2902C /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		015DA3282A9E12C700F2902C /* Mutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutation.graphql.swift; sourceTree = "<group>"; };
@@ -80,7 +82,7 @@
 		0164CD1A2A9B53650046DEFC /* AddBirthdayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBirthdayModel.swift; sourceTree = "<group>"; };
 		0164CD1C2A9B53850046DEFC /* AddBirthdayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBirthdayScreen.swift; sourceTree = "<group>"; };
 		016839672A98982900E483FC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		016839692A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swiftViewModel.swift; sourceTree = "<group>"; };
+		016839692A989B7200E483FC /* ProfileScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swift; sourceTree = "<group>"; };
 		0168396B2A98E34A00E483FC /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		017DB1612A8F581E0055BACF /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		017DB1642A8F6E700055BACF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -179,7 +181,7 @@
 				017DB1642A8F6E700055BACF /* ProfileView.swift */,
 				0168396B2A98E34A00E483FC /* PhotoPicker.swift */,
 				016839672A98982900E483FC /* UserModel.swift */,
-				016839692A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift */,
+				016839692A989B7200E483FC /* ProfileScreenViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -417,6 +419,7 @@
 		99F9E2DF2A9393F9004ED89F /* Queries */ = {
 			isa = PBXGroup;
 			children = (
+				0156A2CC2A9F48AF004D7E97 /* GetProfileQuery.graphql.swift */,
 				99F9E2E02A9393F9004ED89F /* GetUsersQuery.graphql.swift */,
 				994ECA922A96155E003D89A5 /* GetBirthdaysQuery.graphql.swift */,
 			);
@@ -609,10 +612,11 @@
 				0168396C2A98E34A00E483FC /* PhotoPicker.swift in Sources */,
 				99F9E2E52A9393F9004ED89F /* Api.graphql.swift in Sources */,
 				985593982A963BF600A3E76C /* ShopListViewModel.swift in Sources */,
-				0168396A2A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift in Sources */,
+				0168396A2A989B7200E483FC /* ProfileScreenViewModel.swift in Sources */,
 				9855939E2A963C7E00A3E76C /* ShopDetailViewModel.swift in Sources */,
 				015DA3252A9DE1AB00F2902C /* ContentView.swift in Sources */,
 				0164CD132A9B440C0046DEFC /* BirthdayDetailsScreen.swift in Sources */,
+				0156A2CD2A9F48AF004D7E97 /* GetProfileQuery.graphql.swift in Sources */,
 				015DA32B2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift in Sources */,
 				0164CD1D2A9B53850046DEFC /* AddBirthdayScreen.swift in Sources */,
 				985593962A963BC800A3E76C /* Shop.swift in Sources */,
