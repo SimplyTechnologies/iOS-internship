@@ -81,3 +81,17 @@ mutation removeShopFromFavorite($shopId: Int!) {
     createdAt
   }
 }
+
+query GetProfile {
+  profile {
+    id
+    email
+    firstName
+    lastName
+    image
+    password
+    hash
+    createdAt
+    updatedAt
+  }
+}

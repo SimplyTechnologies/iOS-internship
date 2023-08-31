@@ -19,6 +19,7 @@ struct BirthdayCell: View {
     .frame(maxWidth: .infinity)
     .background(Color.white)
     .cornerRadius(24)
+    .shadow(color: Color.gray.opacity(0.3), radius: 1, x: 1, y: 1)
   }
   
   private var imageView: some View {

@@ -8,10 +8,27 @@ struct HomeView: View {
   var body: some View {
     ZStack {
       Color.backgroundColor
+        .edgesIgnoringSafeArea(.top)
       VStack {
-        Image("LogoBirthApp")
-          .padding(.vertical, 20)
-          .padding(.top, 40)
+        ZStack(alignment: .trailing) {
+          if !viewModel.birthdays.isEmpty && !viewModel.isLoading {
+            Button {
+              
+            } label: {
+              Image(systemName: "plus")
+                .resizable()
+                .frame(width: 20, height: 20)
+                .foregroundColor(Color.secondaryColor)
+            }
+          }
+          HStack {
+            Spacer()
+            Image("LogoBirthApp")
+            Spacer()
+            
+          } .padding(.horizontal, 24)
+            .padding(.vertical, 10)
+        }.padding(.horizontal, 24)
         if viewModel.birthdays.isEmpty && !viewModel.isLoading {
           Spacer()
           addNewBirthdayButton
@@ -52,6 +69,7 @@ struct HomeView: View {
         }
       }
       .padding(.horizontal, 24)
+      .animation(.easeInOut, value: viewModel.birthdays)
     }
   }
   
@@ -74,7 +92,7 @@ struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
     HomeView(
       viewModel: HomeViewModel(
-      birthdayRepository: BirthdaysRepositoryImpl()
+        birthdayRepository: BirthdaysRepositoryImpl()
       )
     )
   }
