@@ -5,6 +5,7 @@ class ShopDetailViewModel: ObservableObject {
   
   var shop: Shop
   @Published var toasts: [Toast] = []
+  @Published var favoriteIsLoading = false
   private var onTapFavoriteIcon: (Shop) -> Void
   
   var addressURLString: String {
@@ -32,5 +33,5 @@ class ShopDetailViewModel: ObservableObject {
   func onTapFavoriteIcon(shop: Shop) {
     self.onTapFavoriteIcon(shop)
   }
-  
+ 
 }
