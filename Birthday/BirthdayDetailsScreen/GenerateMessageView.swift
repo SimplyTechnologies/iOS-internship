@@ -11,7 +11,14 @@ struct GenerateMessageView: View {
       TextEditor(text: $viewModel.birthdayDetails.message)
         .colorMultiply(Color.backgroundColor)
         .cornerRadius(10)
-        .padding(EdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 16))
+        .padding(
+          EdgeInsets(
+            top: 16,
+            leading: 16,
+            bottom: 0,
+            trailing: 16
+          )
+        )
       
       HStack {
         Spacer()
