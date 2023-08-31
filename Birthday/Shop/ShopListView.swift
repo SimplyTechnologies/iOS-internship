@@ -20,11 +20,12 @@ struct ShopListView: View {
               .border(Color.white)
               .cornerRadius(30)
               .padding(.vertical, 10)
+              .shadow(color: Color.gray.opacity(0.3), radius: 0.5, x: 0.5, y: 0.5)
               .onChange(of: viewModel.searchText) { newValue in
                 viewModel.searchText = newValue
                   .trimmingCharacters(in: .newlines)
               }
-            //TODO: reusable method for keyboard hiding
+            // TODO: - reusable method for keyboard hiding
               .onTapGesture {
                 searchBarIsActive = true
               }
@@ -33,7 +34,7 @@ struct ShopListView: View {
                 viewModel.searchText = ""
               }
               searchBarIsActive = false
-              //TODO: reusable method for keyboard hiding
+              // TODO: - reusable method for keyboard hiding
               UIApplication.shared
                 .sendAction(#selector(UIResponder.resignFirstResponder),
                   to: nil,

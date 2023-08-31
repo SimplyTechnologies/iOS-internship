@@ -12,7 +12,7 @@ struct ShopDetailView: View {
     ZStack(alignment: .top) {
       Color.backgroundColor.edgesIgnoringSafeArea(.all)
       
-      VStack(spacing: 16) {
+      VStack(spacing: 15) {
         
         HStack {
           
@@ -28,14 +28,14 @@ struct ShopDetailView: View {
             .resizable()
             .scaledToFill()
         } placeholder: {
-            Text(viewModel.shop.name.prefix(1))
+          Text(viewModel.shop.name.prefix(1))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
               .font(.largeTitle)
               .background(Color.secondaryColor)
         }
         .frame(width: 100, height: 100)
         .cornerRadius(50)
-        .padding(.top, 100)
+        .padding(.top, 80)
         
         Text(viewModel.shop.name)
           .font(.title)
@@ -48,7 +48,7 @@ struct ShopDetailView: View {
               .foregroundColor(index < Int(viewModel.shop.rate) ? .orange : .gray)
           }
         }
-        .padding(.vertical, 15)
+        .padding(.vertical, 10)
         
         Button {
           if let phoneURL = URL(string: viewModel.phone), UIApplication

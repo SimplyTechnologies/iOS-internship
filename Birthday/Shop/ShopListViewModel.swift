@@ -1,3 +1,4 @@
+
 import Combine
 import Foundation
 
@@ -16,9 +17,9 @@ class ShopListViewModel: ObservableObject {
     isLoading = true
     shopsRepository.getShops(shopFilter: shopFilter)
       .receive(on: DispatchQueue.main)
-      .sink { [weak self] result in
+      .sink { [weak self] response in
         self?.isLoading = false
-        switch result {
+        switch response {
         case .finished: break
         case .failure: break
         }
@@ -69,8 +70,8 @@ class ShopListViewModel: ObservableObject {
   private func addShopToFavorite(_ shop: Shop) {
     favoriteShopsRepository.addShopToFavorite(shopId: shop.id)
       .receive(on: DispatchQueue.main)
-      .sink { [weak self] result in
-        switch result {
+      .sink { response in
+        switch response {
         case .finished: break
         case .failure: break
         }
@@ -84,8 +85,8 @@ class ShopListViewModel: ObservableObject {
   private func removeShopFromFavorite(_ shop: Shop) {
     favoriteShopsRepository.removeShopFromFavorite(shopId: shop.id)
       .receive(on: DispatchQueue.main)
-      .sink { [weak self] result in
-        switch result {
+      .sink { response in
+        switch response {
         case .finished: break
         case .failure: break
         }
