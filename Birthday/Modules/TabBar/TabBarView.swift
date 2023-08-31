@@ -30,7 +30,7 @@ struct TabBarView: View {
         .tabItem { TabViewTab(activeTab: $activeTab, tab: .shop) }
         .tag(TabItem.shop)
       
-      Text("Profile tab")
+      ProfileScreen(viewModel: ProfileScreenViewModel())
         .tabItem { TabViewTab(activeTab: $activeTab, tab: .profile) }
         .tag(TabItem.profile)
     }
