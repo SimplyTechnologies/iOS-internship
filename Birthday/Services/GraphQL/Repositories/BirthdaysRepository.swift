@@ -5,6 +5,7 @@ protocol BirthdaysRepository: GraphQLRepository {
   
   func getBirthdays() -> AnyPublisher<[Api.GetBirthdaysQuery.Data.Birthday], Error>
   func deleteBirthday(by id: Int) -> AnyPublisher<Api.DeleteBirthdayMutation.Data.DeleteBirthday, Error>
+  
 }
 
 final class BirthdaysRepositoryImpl: BirthdaysRepository {
