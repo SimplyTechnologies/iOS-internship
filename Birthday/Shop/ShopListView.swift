@@ -12,7 +12,13 @@ struct ShopListView: View {
         Color.backgroundColor.edgesIgnoringSafeArea(.all)
         
         VStack {
-          Logo()
+          Image(Images.logo.rawValue)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(
+              width: 88,
+              height: 40
+            )
           
           ZStack(alignment: .trailing) {
             TextField("Search", text: $viewModel.searchText)

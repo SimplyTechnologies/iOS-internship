@@ -13,7 +13,13 @@ struct AddBirthdayScreen: View {
         VStack {
           HStack {
             Spacer()
-            Logo()
+            Image(Images.logo.rawValue)
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .frame(
+                width: 88,
+                height: 40
+              )
           }
           .padding(.horizontal)
           Image(systemName: "person.circle.fill")

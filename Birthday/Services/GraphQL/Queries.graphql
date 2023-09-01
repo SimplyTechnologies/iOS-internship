@@ -81,3 +81,9 @@ mutation removeShopFromFavorite($shopId: Int!) {
     createdAt
   }
 }
+
+mutation login($loginInput: LoginInput!)  {
+  login(loginInput: $loginInput) {
+    access_token
+  }
+}
