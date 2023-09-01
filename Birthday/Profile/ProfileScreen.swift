@@ -15,31 +15,6 @@ struct ProfileScreen: View {
         Spacer()
         ProgressView()
         Spacer()
-        if viewModel.isEditingModeOff {
-          Button(
-            "Edit Account"
-          ) {
-            viewModel.isEditingModeOff.toggle()
-          }
-          .buttonStyle(PrimaryButtonStyle())
-          .minimumScaleFactor(0.5)
-          
-          Button {
-            viewModel.signOut()
-            presentationMode.wrappedValue.dismiss()
-          } label: {
-            Text("Sign Out")
-          }
-          .minimumScaleFactor(0.5)
-          .buttonStyle(PrimaryButtonStyle())
-        } else {
-          Button("Save") {
-            viewModel.isEditingModeOff.toggle()
-          }
-          .buttonStyle(PrimaryButtonStyle())
-          .disabled(!viewModel.areTextFieldsEdited)
-        }
-        Spacer()
       }
     } else {
       ZStack {
@@ -70,8 +45,11 @@ struct ProfileScreen: View {
             }
             .buttonStyle(PrimaryButtonStyle())
             .minimumScaleFactor(0.5)
-            Button("Sign Out") {
-              // TODO: Logic for Sign out and back to Main Page
+            Button {
+              viewModel.signOut()
+              presentationMode.wrappedValue.dismiss()
+            } label: {
+              Text("Sign Out")
             }
             .minimumScaleFactor(0.5)
             .buttonStyle(PrimaryButtonStyle())
