@@ -67,7 +67,7 @@ struct BirthdayDetailsScreen: View {
           }
           if !viewModel.isGeneratingMessage {
             Spacer()
-              .frame(minHeight: 270)
+              .frame(minHeight: 150)
           }
           Button("Generate Message") {
             viewModel.isGeneratingMessage.toggle()
@@ -81,6 +81,7 @@ struct BirthdayDetailsScreen: View {
         )
       }
     }
+    .font(Font.custom(weight: .bold, size: 20))
     .onTapGesture {
       UIApplication.shared.endEditing()
     }

@@ -79,15 +79,15 @@ final class SignInViewModel: ObservableObject {
       
       switch result {
       case .failure:
-        hasError = true
-        isValidationSuccess = false
-        isLoading = false
-        hapticManager.callHaptic(with: .error, and: .medium)
+        self.hasError = true
+        self.isValidationSuccess = false
+        self.isLoading = false
+        self.hapticManager.callHaptic(with: .error, and: .medium)
       case .finished:
-        hasError = false
-        isValidationSuccess = true
-        isLoading = false
-        hapticManager.callHaptic(with: .success, and: .medium)
+        self.hasError = false
+        self.isValidationSuccess = true
+        self.isLoading = false
+        self.hapticManager.callHaptic(with: .success, and: .medium)
         
         // Saving information that the user has logged
         self.storeManager.setValue(true, for: UserDefaultsKeys.isLogged.rawValue)
@@ -101,7 +101,7 @@ final class SignInViewModel: ObservableObject {
       guard let self else { return }
       
       // Saving a token for further use in the session
-      accessToken.save(token: token.access_token)
+      self.accessToken.save(token: token.access_token)
     }
     .store(in: &cancellables)
   }

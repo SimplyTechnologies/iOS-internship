@@ -8,35 +8,35 @@ struct ProfileView: View {
   var body: some View {
     VStack {
       if viewModel.isEditingModeOff {
-          if !viewModel.user.image.isEmpty {
-            Image(uiImage: UIImage(data: Data(base64Encoded: viewModel.user.image)!)!)
-              .resizable()
-              .frame(
-                width: 150,
-                height: 150
-              )
-              .cornerRadius(75)
-          } else {
-            ZStack {
-              Color.secondaryColor
-              Image(systemName: "person")
-                .resizable()
-                .scaledToFit()
-                .foregroundColor(Color.white)
-                .frame(width: 80)
-            }
-            .frame(width: 150, height: 150)
+        if !viewModel.user.image.isEmpty {
+          Image(uiImage: UIImage(data: Data(base64Encoded: viewModel.user.image)!)!)
+            .resizable()
+            .frame(
+              width: 150,
+              height: 150
+            )
             .cornerRadius(75)
+        } else {
+          ZStack {
+            Color.secondaryColor
+            Image(systemName: "person")
+              .resizable()
+              .scaledToFit()
+              .foregroundColor(Color.white)
+              .frame(width: 80)
           }
+          .frame(width: 150, height: 150)
+          .cornerRadius(75)
+        }
         Text(viewModel.fullName)
-          .font(.title3)
+          .font(Font.custom(weight: .bold, size: 20))
           .padding()
           .foregroundColor(.black)
           .multilineTextAlignment(.center)
           .minimumScaleFactor(0.3)
         
         Text(viewModel.user.email)
-          .font(.headline)
+          .font(Font.custom(weight: .bold, size: 20))
           .padding()
           .foregroundColor(.black)
           .multilineTextAlignment(.center)
@@ -109,6 +109,7 @@ struct ProfileView: View {
         )
         .padding(10)
         .foregroundColor(.black)
+        .font(Font.custom(weight: .bold, size: 20))
         .overlay(
           RoundedRectangle(cornerRadius: 14)
             .stroke(

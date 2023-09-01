@@ -8,17 +8,21 @@ struct BirthdayCell: View {
   var body: some View {
     HStack {
       imageView
-      VStack(alignment: .leading, spacing: 15) {
+      VStack(alignment: .leading, spacing: 10) {
         Text(model.name)
+          .font(Font.custom(weight: .bold, size: 20))
         Text(model.date.stringFromDate())
+          .font(Font.custom(weight: .bold, size: 18))
       }
       Spacer()
     }
+    .foregroundColor(.black)
     .padding(.vertical, 20)
     .padding(.horizontal, 16)
     .frame(maxWidth: .infinity)
     .background(Color.white)
     .cornerRadius(24)
+    .shadow(color: Color.gray.opacity(0.3), radius: 1, x: 1, y: 1)
   }
   
   private var imageView: some View {

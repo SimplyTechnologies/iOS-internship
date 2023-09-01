@@ -27,6 +27,8 @@ struct ShopView: View {
       .padding(.trailing, 14)
       
       Text(shop.name)
+        .font(Font.custom(weight: .bold, size: 20))
+        .multilineTextAlignment(.leading)
         .frame(maxWidth: .infinity, alignment: .leading)
         .foregroundColor(.black)
     

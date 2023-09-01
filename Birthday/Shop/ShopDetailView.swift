@@ -44,7 +44,7 @@ struct ShopDetailView: View {
         .padding(.top, 80)
         
         Text(viewModel.shop.name)
-          .font(.title)
+          .font(Font.custom(weight: .bold, size: 20))
           .padding(.horizontal, 20)
           .multilineTextAlignment(.center)
 
@@ -128,6 +128,7 @@ struct ShopDetailView: View {
       )
       .navigationBarBackButtonHidden(true)
     }
+    .font(Font.custom(weight: .bold, size: 20))
     .gesture(
       DragGesture()
         .updating(

@@ -8,10 +8,10 @@ struct HomeView: View {
   var body: some View {
     ZStack {
       Color.backgroundColor
+        .edgesIgnoringSafeArea(.top)
       VStack {
         Image("LogoBirthApp")
-          .padding(.vertical, 20)
-          .padding(.top, 40)
+          .padding(.vertical, 10)
         if viewModel.birthdays.isEmpty && !viewModel.isLoading {
           Spacer()
           addNewBirthdayButton
@@ -30,7 +30,6 @@ struct HomeView: View {
     .onAppear {
       viewModel.getBirthdays()
     }
-    .edgesIgnoringSafeArea(.top)
     .navigationTitle("")
     .navigationBarHidden(true)
     

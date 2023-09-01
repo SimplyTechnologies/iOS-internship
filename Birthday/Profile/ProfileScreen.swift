@@ -29,7 +29,7 @@ struct ProfileScreen: View {
             }
 
             Spacer()
-            Logo()
+            Image(Images.logo.rawValue)
           }
           .padding()
           ProfileView(viewModel: viewModel)
@@ -58,6 +58,7 @@ struct ProfileScreen: View {
           Spacer()
         }
         .padding(.horizontal)
+        .font(Font.custom(weight: .bold, size: 20))
       }
     }
   }
