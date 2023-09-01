@@ -7,16 +7,6 @@ final class HapticManager {
   
   private init() {}
   
-//  func notification(type: UINotificationFeedbackGenerator.FeedbackType) {
-//    let generator = UINotificationFeedbackGenerator()
-//    generator.notificationOccurred(type)
-//  }
-//
-//  func haptic(style: UIImpactFeedbackGenerator.FeedbackStyle) {
-//    let generator = UIImpactFeedbackGenerator(style: style)
-//    generator.impactOccurred()
-//  }
-  
   func callHaptic(
     with notificationType: UINotificationFeedbackGenerator.FeedbackType,
     and impactStyle: UIImpactFeedbackGenerator.FeedbackStyle

@@ -100,15 +100,15 @@ final class RegisterViewModel: ObservableObject {
       return
     }
     
-//    guard NSPredicate(
-//      format: Regexes.matchFormat,
-//      Regexes.password.regex
-//    )
-//      .evaluate(with: password.text)
-//    else {
-//      completion(true, LocalError.invalidPassword.description)
-//      return
-//    }
+    guard NSPredicate(
+      format: Regexes.matchFormat,
+      Regexes.password.regex
+    )
+      .evaluate(with: password.text)
+    else {
+      password.error = (true, LocalError.invalidPassword.description)
+      return
+    }
     
     // If password was edited
     checkRepeatedPassword()
@@ -162,20 +162,20 @@ final class RegisterViewModel: ObservableObject {
   }
   
   func checkTextField(by field: TextFieldPlaceholders) {
-      switch field {
-      case .name:
-        self.checkName()
-      case .surname:
-        self.checkSurname()
-      case .email:
-        self.checkEmail()
-      case .password:
-        self.checkPassword()
-      case .repeatPassword:
-        self.checkRepeatedPassword()
-      }
-      
-      setButtonState()
+    switch field {
+    case .name:
+      self.checkName()
+    case .surname:
+      self.checkSurname()
+    case .email:
+      self.checkEmail()
+    case .password:
+      self.checkPassword()
+    case .repeatPassword:
+      self.checkRepeatedPassword()
+    }
+    
+    setButtonState()
   }
   
   // Checking email maximum length
