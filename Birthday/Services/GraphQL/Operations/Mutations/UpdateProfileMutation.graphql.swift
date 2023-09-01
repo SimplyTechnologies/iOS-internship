@@ -4,43 +4,47 @@
 @_exported import ApolloAPI
 
 public extension Api {
-  class GetProfileQuery: GraphQLQuery {
-    public static let operationName: String = "GetProfile"
+  class UpdateProfileMutation: GraphQLMutation {
+    public static let operationName: String = "UpdateProfile"
     public static let document: ApolloAPI.DocumentType = .notPersisted(
       definition: .init(
         #"""
-        query GetProfile {
-          profile {
+        mutation UpdateProfile($updateProfileInput: UpdateProfileInput!) {
+          updateProfile(updateProfileInput: $updateProfileInput) {
             __typename
             id
             email
             firstName
             lastName
             image
-            createdAt
-            updatedAt
           }
         }
         """#
       ))
 
-    public init() {}
+    public var updateProfileInput: UpdateProfileInput
+
+    public init(updateProfileInput: UpdateProfileInput) {
+      self.updateProfileInput = updateProfileInput
+    }
+
+    public var __variables: Variables? { ["updateProfileInput": updateProfileInput] }
 
     public struct Data: Api.SelectionSet {
       public let __data: DataDict
       public init(_dataDict: DataDict) { __data = _dataDict }
 
-      public static var __parentType: ApolloAPI.ParentType { Api.Objects.Query }
+      public static var __parentType: ApolloAPI.ParentType { Api.Objects.Mutation }
       public static var __selections: [ApolloAPI.Selection] { [
-        .field("profile", Profile?.self),
+        .field("updateProfile", UpdateProfile?.self, arguments: ["updateProfileInput": .variable("updateProfileInput")]),
       ] }
 
-      public var profile: Profile? { __data["profile"] }
+      public var updateProfile: UpdateProfile? { __data["updateProfile"] }
 
-      /// Profile
+      /// UpdateProfile
       ///
       /// Parent Type: `User`
-      public struct Profile: Api.SelectionSet {
+      public struct UpdateProfile: Api.SelectionSet {
         public let __data: DataDict
         public init(_dataDict: DataDict) { __data = _dataDict }
 
@@ -52,8 +56,6 @@ public extension Api {
           .field("firstName", String.self),
           .field("lastName", String.self),
           .field("image", String?.self),
-          .field("createdAt", Api.Date?.self),
-          .field("updatedAt", Api.Date?.self),
         ] }
 
         public var id: Api.ID { __data["id"] }
@@ -61,8 +63,6 @@ public extension Api {
         public var firstName: String { __data["firstName"] }
         public var lastName: String { __data["lastName"] }
         public var image: String? { __data["image"] }
-        public var createdAt: Api.Date? { __data["createdAt"] }
-        public var updatedAt: Api.Date? { __data["updatedAt"] }
       }
     }
   }

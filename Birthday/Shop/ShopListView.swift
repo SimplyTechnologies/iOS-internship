@@ -13,12 +13,7 @@ struct ShopListView: View {
         
         VStack {
           Image(Images.logo.rawValue)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(
-              width: 88,
-              height: 40
-            )
+            .padding(.vertical, 10)
           
           ZStack(alignment: .trailing) {
             TextField("Search", text: $viewModel.searchText)
@@ -101,9 +96,6 @@ struct ShopListView: View {
               }
             }
             .padding(.horizontal, 24)
-          }
-          .refreshable {
-            viewModel.getShops(shopFilter: Api.ShopFilter())
           }
           .frame(maxWidth: .infinity)
           .onAppear {

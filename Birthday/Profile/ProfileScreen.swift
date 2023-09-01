@@ -2,46 +2,64 @@
 import SwiftUI
 
 struct ProfileScreen: View {
-  
-  @ObservedObject var viewModel = ProfileScreenViewModel()
+    
+  @ObservedObject var viewModel = ProfileScreenViewModel(
+    userRepository: UserRepositoryImpl()
+  )
   
   var body: some View {
-    ZStack {
-      Color.backgroundColor
-        .ignoresSafeArea()
+    if viewModel.isLoading {
       VStack {
-        HStack {
-          Spacer()
-          Image("LogoBirthApp")
-        }
-        .padding()
-        ProfileView(viewModel: viewModel)
-          .environmentObject(viewModel)
         Spacer()
-        Spacer()
-        if viewModel.isEditingModeOff {
-          Button(
-            "Edit Account"
-          ) {
-            viewModel.isEditingModeOff.toggle()
-          }
-          .buttonStyle(PrimaryButtonStyle())
-          .minimumScaleFactor(0.5)
-          Button("Sign Out") {
-            // TODO: Logic for Sign out and back to Main Page
-          }
-          .minimumScaleFactor(0.5)
-          .buttonStyle(PrimaryButtonStyle())
-        } else {
-          Button("Save") {
-            viewModel.isEditingModeOff.toggle()
-          }
-          .buttonStyle(PrimaryButtonStyle())
-          .disabled(!viewModel.areTextFieldsEdited)
-        }
+        ProgressView()
         Spacer()
       }
-      .padding(.horizontal)
+    } else {
+      ZStack {
+        Color.backgroundColor
+          .ignoresSafeArea()
+        VStack {
+          HStack {
+            if !viewModel.isEditingModeOff {
+              Button {
+                viewModel.isEditingModeOff = true
+              } label: {
+                Image("Back")
+              }
+            }
+
+            Spacer()
+            Image(Images.logo.rawValue)
+          }
+          .padding()
+          ProfileView(viewModel: viewModel)
+          Spacer()
+          if viewModel.isEditingModeOff {
+            Button(
+              "Edit Account"
+            ) {
+              viewModel.startToEdit()
+              
+            }
+            .buttonStyle(PrimaryButtonStyle())
+            .minimumScaleFactor(0.5)
+            Button("Sign Out") {
+              // TODO: Logic for Sign out and back to Main Page
+            }
+            .minimumScaleFactor(0.5)
+            .buttonStyle(PrimaryButtonStyle())
+          } else {
+            Button("Save") {
+              viewModel.saveProfileInfo()
+            }
+            .buttonStyle(PrimaryButtonStyle())
+            .disabled(!viewModel.areTextFieldsEdited)
+          }
+          Spacer()
+        }
+        .padding(.horizontal)
+        .font(Font.custom(weight: .bold, size: 20))
+      }
     }
   }
   

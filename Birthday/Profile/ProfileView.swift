@@ -8,15 +8,14 @@ struct ProfileView: View {
   var body: some View {
     VStack {
       if viewModel.isEditingModeOff {
-        if let image = viewModel.selectedImage {
-          Image(uiImage: image)
+        if !viewModel.user.image.isEmpty {
+          Image(uiImage: UIImage(data: Data(base64Encoded: viewModel.user.image)!)!)
             .resizable()
             .frame(
               width: 150,
               height: 150
             )
             .cornerRadius(75)
-            .padding()
         } else {
           ZStack {
             Color.secondaryColor
@@ -30,33 +29,48 @@ struct ProfileView: View {
           .cornerRadius(75)
         }
         Text(viewModel.fullName)
-          .font(.title3)
+          .font(Font.custom(weight: .bold, size: 20))
           .padding()
           .foregroundColor(.black)
           .multilineTextAlignment(.center)
           .minimumScaleFactor(0.3)
         
         Text(viewModel.user.email)
-          .font(.headline)
+          .font(Font.custom(weight: .bold, size: 20))
           .padding()
           .foregroundColor(.black)
           .multilineTextAlignment(.center)
           .minimumScaleFactor(0.3)
-
       } else {
-        ZStack {
-          if let image = viewModel.selectedImage {
-            Image(uiImage: image)
-              .resizable()
-              .frame(
-                width: 150,
-                height: 150
-              )
-              .cornerRadius(75)
-              .padding()
-          } else {
-            Image("circle")
+        ZStack(alignment: .topTrailing) {
+          
+          ZStack {
+            if let image = viewModel.selectedImage {
+              Image(uiImage: image)
+                .resizable()
+                .frame(
+                  width: 150,
+                  height: 150
+                )
+                .cornerRadius(75)
+            } else {
+              if !viewModel.user.image.isEmpty {
+                Image(uiImage: UIImage(data: Data(base64Encoded: viewModel.user.image)!)!)
+                  .resizable()
+                  .frame(
+                    width: 150,
+                    height: 150
+                  )
+                  .cornerRadius(75)
+              } else {
+                Image("circle")
+              }
+            }
+            
           }
+          Image(systemName: "plus.circle.fill")
+            .resizable()
+            .frame(width: 30, height: 30)
         }
         .onTapGesture {
           viewModel.isImagePickerPresented.toggle()
@@ -95,6 +109,7 @@ struct ProfileView: View {
         )
         .padding(10)
         .foregroundColor(.black)
+        .font(Font.custom(weight: .bold, size: 20))
         .overlay(
           RoundedRectangle(cornerRadius: 14)
             .stroke(
