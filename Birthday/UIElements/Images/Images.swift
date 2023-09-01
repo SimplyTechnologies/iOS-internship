@@ -1,7 +1,7 @@
 
 enum Images: String {
   
-  case backButton = "Arrow"
+  case backButton = "Back"
   case hidePassword = "HidePassword"
   case seePassword = "SeePassword"
   case checkMark = "CheckMark"

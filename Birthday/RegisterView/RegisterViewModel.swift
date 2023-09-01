@@ -3,7 +3,6 @@ import Foundation
 
 final class RegisterViewModel: ObservableObject {
   
-  // MARK: - Properties
   @Published var name = TextFieldModel()
   @Published var surname = TextFieldModel()
   @Published var email = TextFieldModel()
@@ -11,11 +10,11 @@ final class RegisterViewModel: ObservableObject {
   @Published var repeatPassword = TextFieldModel()
   
   @Published var isDisable: Bool = true
-  @Published var isValidationSuccess: Bool = false
+  @Published var isLoading: Bool = true
   @Published var hasRegistrationError: Bool = false
   @Published var toastIsHidden: Bool = true
   
-  var testToggle: Bool = false
+  var testToggle: Bool = false // TODO: УБРАТЬ!!!!!!!!!!!
   
   private let storeManager = StoreManager.shared
   let toast = Toast(
@@ -23,7 +22,6 @@ final class RegisterViewModel: ObservableObject {
     isSuccess: true
   )
   
-  // MARK: - Functions
   private func checkName() {
     guard !name.text.isEmpty else {
       name.error = (true, LocalError.emptyName.description)
@@ -102,6 +100,16 @@ final class RegisterViewModel: ObservableObject {
       return
     }
     
+//    guard NSPredicate(
+//      format: Regexes.matchFormat,
+//      Regexes.password.regex
+//    )
+//      .evaluate(with: password.text)
+//    else {
+//      completion(true, LocalError.invalidPassword.description)
+//      return
+//    }
+    
     // If password was edited
     checkRepeatedPassword()
     
@@ -117,13 +125,17 @@ final class RegisterViewModel: ObservableObject {
     repeatPassword.error = (false, nil)
   }
   
+  private func saveUserEmail() {
+    storeManager.setValue(email.text.lowercased(), for: UserDefaultsKeys.email.rawValue)
+  }
+  
   func registration() {
     // get response
     
     testToggle.toggle()
     
     if testToggle {
-      showTost()
+      showToast()
       saveUserEmail()
     } else {
       toastIsHidden = true
@@ -133,16 +145,16 @@ final class RegisterViewModel: ObservableObject {
   
   func setButtonState() {
     if name.text.isEmpty
-        || surname.text.isEmpty
-        || email.text.isEmpty
-        || password.text.isEmpty
-        || repeatPassword.text.isEmpty
+      || surname.text.isEmpty
+      || email.text.isEmpty
+      || password.text.isEmpty
+      || repeatPassword.text.isEmpty
         
-        || name.error.0
-        || surname.error.0
-        || email.error.0
-        || password.error.0
-        || repeatPassword.error.0 {
+      || name.error.0
+      || surname.error.0
+      || email.error.0
+      || password.error.0
+      || repeatPassword.error.0 {
       isDisable = true
     } else {
       isDisable = false
@@ -150,9 +162,6 @@ final class RegisterViewModel: ObservableObject {
   }
   
   func checkTextField(by field: TextFieldPlaceholders) {
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-      guard let self else { return }
-      
       switch field {
       case .name:
         self.checkName()
@@ -167,11 +176,6 @@ final class RegisterViewModel: ObservableObject {
       }
       
       setButtonState()
-    }
-  }
-  
-  func saveUserEmail() {
-    storeManager.setValue(email.text, for: SignInKeys.email.rawValue)
   }
   
   // Checking email maximum length
@@ -199,14 +203,14 @@ final class RegisterViewModel: ObservableObject {
     }
   }
   
-  func showTost() {
+  func showToast() {
     toastIsHidden = false
     
     DispatchQueue.main.asyncAfter(
-      deadline: .now() + toast.duration
+      deadline: .now() + 3
     ) { [weak self] in
       guard let self else { return }
-      self.toastIsHidden = true
+        self.toastIsHidden = true
     }
   }
   

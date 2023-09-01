@@ -3,11 +3,9 @@ import SwiftUI
 
 struct RegisterView: View {
   
-  // MARK: - Properties
   @StateObject private var viewModel = RegisterViewModel()
   @FocusState private var focusField: TextFieldPlaceholders?
   
-  // MARK: - Body
   var body: some View {
     NavigationView {
       ZStack {
@@ -126,7 +124,7 @@ struct RegisterView: View {
             }
             .padding(.horizontal, 37)
             
-            // MARK: - Register button
+            // MARK: Register button
             NavigationLink {
               SignInView()
             } label: {
@@ -153,20 +151,33 @@ struct RegisterView: View {
           .cornerRadius(30)
           .padding(.horizontal, 24)
         }
-        
+
         if !viewModel.toastIsHidden {
-          ToastView(toast: viewModel.toast)
+          Text(ToastTitles.successMessage)
+            .font(Font.custom(weight: .bold, size: 16))
+            .foregroundColor(Color.primaryColor)
+            .multilineTextAlignment(.center)
+            .padding(.all, 15)
+            .background(Color.backgroundColor)
+            .cornerRadius(15)
+            .shadow(color: .gray.opacity(0.6), radius: 15)
+            .padding(.horizontal, 60)
             .transition(
-              .asymmetric(insertion: .move(edge: .bottom), removal: .opacity))
-            .padding(.horizontal, 30)
+              .asymmetric(
+                insertion: .move(edge: .bottom),
+                removal: .opacity
+              )
+            )
         }
+      }
+      .onTapGesture {
+        UIApplication.shared.endEditing()
       }
     }
   }
   
 }
 
-// MARK: - Preview
 struct RegisterView_Previews: PreviewProvider {
   
   static var previews: some View {

@@ -14,7 +14,7 @@ enum Regexes {
     case .email:
       return "[a-zA-Z0-9.-_]+@[a-zA-Z0-9.-_]+\\.[a-zA-z]{2,}"
     case .password:
-      return "[a-zA-Z0-9.-_]{6,32}"
+      return "[a-zA-Z0-9.-_]{8,32}"
     }
   }
   

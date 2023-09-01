@@ -32,6 +32,7 @@ struct HomeView: View {
     }
     .edgesIgnoringSafeArea(.top)
     .navigationTitle("")
+    .navigationBarHidden(true)
     
   }
   

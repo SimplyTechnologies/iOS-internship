@@ -3,12 +3,10 @@ import Foundation
 
 struct StoreManager {
   
-  // MARK: - Properties
   static var shared = StoreManager()
 
   private let userDefaults = UserDefaults.standard
 
-  // MARK: - Initializer
   private init() {}
     
   // MARK: Set
@@ -21,8 +19,8 @@ struct StoreManager {
     userDefaults.object(forKey: key)
   }
 
-  func getStringObject(for key: String) -> String? {
-    userDefaults.string(forKey: key)
+  func getStringObject(for key: String) -> String {
+    return userDefaults.string(forKey: key) ?? ""
   }
   
   func getBoolObject(for key: String) -> Bool {

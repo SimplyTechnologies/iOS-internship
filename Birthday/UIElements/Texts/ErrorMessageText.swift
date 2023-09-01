@@ -5,7 +5,9 @@ struct ErrorMessageText: View {
   
   private let errorMessage: String
   
-  init(_ errorMessage: String) {
+  init(
+    _ errorMessage: String
+  ) {
     self.errorMessage = errorMessage
   }
   

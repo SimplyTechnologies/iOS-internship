@@ -3,10 +3,14 @@ import SwiftUI
 
 struct FullRoundedButtonStyle: ButtonStyle {
   
-  // MARK: - Properties
-  let isDisable: Bool
+  private let isDisable: Bool
   
-  // MARK: - Functions
+  init(
+    isDisable: Bool
+  ) {
+    self.isDisable = isDisable
+  }
+  
   func makeBody(configuration: Configuration) -> some View {
     configuration
       .label

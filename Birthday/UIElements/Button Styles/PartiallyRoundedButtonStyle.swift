@@ -3,12 +3,20 @@ import SwiftUI
 
 struct PartiallyRoundedButtonStyle: ButtonStyle {
   
-  // MARK: - Properties
-  let corners: UIRectCorner
-  let backgroundColor: Color
-  let foregroundColor: Color
+  private let corners: UIRectCorner
+  private let backgroundColor: Color
+  private let foregroundColor: Color
   
-  // MARK: - Functions
+  init(
+    corners: UIRectCorner,
+    backgroundColor: Color,
+    foregroundColor: Color
+  ) {
+    self.corners = corners
+    self.backgroundColor = backgroundColor
+    self.foregroundColor = foregroundColor
+  }
+  
   func makeBody(configuration: Configuration) -> some View {
     configuration
       .label

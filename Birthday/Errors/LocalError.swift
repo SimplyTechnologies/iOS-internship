@@ -54,7 +54,7 @@ enum LocalError: Error {
     case .invalidEmail:
       return "Please enter a valid email address"
     case .invalidPassword:
-      return "The password can contain only latin letters, dots, dashes and underlines"
+      return "The password contains forbidden characters"
       
       // MARK: - Match error
     case .passwordMatch:

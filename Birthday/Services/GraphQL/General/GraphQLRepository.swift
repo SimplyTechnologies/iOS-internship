@@ -49,7 +49,7 @@ extension GraphQLRepository {
         switch result {
         case .success(let response):
           do {
-            guard let data = response.data else {
+            guard let data = response.data, response.errors == nil else {
               if let graphQLError = response.errors?.first {
                 return promise(.failure(graphQLError))
               }

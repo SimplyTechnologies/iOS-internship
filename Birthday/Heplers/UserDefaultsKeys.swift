@@ -1,18 +1,12 @@
 
 import Foundation
 
-typealias SignInKeys = UserDefaultsKeys.SignIn
-
-enum UserDefaultsKeys {
+enum UserDefaultsKeys: String {
   
-  enum SignIn: String {
-    
-    case isChecked = "isChecked"
-    case isLogged = "isLogged"
-    case email = "email"
-    case token = "token"
-    case tokenCreationDate = "tokenCreationDate"
-    
-  }
+  case isChecked
+  case isLogged
+  case email
+  case token
+  case tokenCreationDate
   
 }

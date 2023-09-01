@@ -3,15 +3,13 @@ import SwiftUI
 
 struct ValidationTextField: View {
   
-  // MARK: - Properties
+  @State private var isPasswordHidden: Bool = true
   private let placeholder: String
   private let text: Binding<String>
   private let hasError: Binding<(Bool, message: String?)>
   private let isAutocapitalization: Bool
   private var isSecure: Bool
-  @State private var isPasswordHidden: Bool = true
   
-  // MARK: - Initializer
   init(
     placeholder: String,
     text: Binding<String>,
@@ -26,9 +24,7 @@ struct ValidationTextField: View {
     self.isAutocapitalization = isAutocapitalization
   }
   
-  // MARK: - Body
   var body: some View {
-    
     VStack(alignment: .leading, spacing: 5) {
       HStack {
         if isPasswordHidden && isSecure {
@@ -49,6 +45,7 @@ struct ValidationTextField: View {
             )
         }
         
+        // MARK: Open-closed eye image
         if isSecure {
           Button {
             isPasswordHidden.toggle()
@@ -76,12 +73,14 @@ struct ValidationTextField: View {
           )
         }
       }
-      
+
       // MARK: Error message
       if hasError.wrappedValue.0, let errorMessage = hasError.wrappedValue.message {
         ErrorMessageText(errorMessage)
       }
     }
+    .animation(.easeInOut, value: hasError.wrappedValue.0)
+
   }
   
 }

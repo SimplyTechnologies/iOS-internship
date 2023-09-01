@@ -2,9 +2,9 @@
 struct AlertTitles {
   
   static let authorizationError = "Authorization error"
-  #warning("Добавить описания")
-  static let successAthorization = ""
-  static let userExsists = ""
+  // TODO: added descriptions for successAuthorization and userExsists properties
+//  static let successAuthorization = ""
+//  static let userExsists = ""
   static let registrationError = "Registration Error"
   
 }

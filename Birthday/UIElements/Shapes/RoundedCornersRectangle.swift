@@ -3,11 +3,9 @@ import SwiftUI
 
 struct RoundedCornersRectangle: Shape {
   
-  // MARK: - Properties
   private let corners: UIRectCorner
   private let radius: CGFloat
   
-  // MARK: - Initializer
   init(
     corners: UIRectCorner,
     radius: CGFloat
@@ -16,7 +14,6 @@ struct RoundedCornersRectangle: Shape {
     self.radius = radius
   }
   
-  // MARK: - Functions
   func path(in rect: CGRect) -> Path {
     let path = UIBezierPath(
       roundedRect: rect,

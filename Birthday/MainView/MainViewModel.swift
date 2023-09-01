@@ -5,10 +5,10 @@ final class MainViewModel: ObservableObject {
   
   private let storeManager = StoreManager.shared
   
-  func isTokenExist() -> Bool {
+  func isTokenExists() -> Bool {
     guard let tokenCreateDate =
       storeManager.getObject(
-        for: SignInKeys.tokenCreationDate.rawValue
+        for: UserDefaultsKeys.tokenCreationDate.rawValue
       ) as? Date
     else { return false }
     
@@ -19,8 +19,8 @@ final class MainViewModel: ObservableObject {
     if numberOfDays <= 90 {
       return true
     } else {
-      storeManager.removeObject(for: SignInKeys.token.rawValue)
-      storeManager.removeObject(for: SignInKeys.tokenCreationDate.rawValue)
+      storeManager.removeObject(for: UserDefaultsKeys.token.rawValue)
+      storeManager.removeObject(for: UserDefaultsKeys.tokenCreationDate.rawValue)
       return false
     }
   }

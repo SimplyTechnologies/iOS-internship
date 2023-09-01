@@ -26,6 +26,7 @@ struct TabBarView: View {
           )
         )
       }
+      .navigationBarHidden(true)
       .accentColor(Color.primaryColor)
         .tabItem { TabViewTab(activeTab: $activeTab, tab: .home) }
         .tag(TabItem.home)

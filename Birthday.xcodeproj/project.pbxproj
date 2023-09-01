@@ -27,7 +27,6 @@
 		017DB1682A8F6F020055BACF /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1672A8F6F020055BACF /* PrimaryButtonStyle.swift */; };
 		0C3FB4FC2AA0B77900C1CE2F /* ValidationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB4E52AA0B77800C1CE2F /* ValidationTextField.swift */; };
 		0C3FB4FD2AA0B77900C1CE2F /* RoundedCornersRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB4E72AA0B77800C1CE2F /* RoundedCornersRectangle.swift */; };
-		0C3FB4FE2AA0B77900C1CE2F /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB4E92AA0B77800C1CE2F /* RoundedButton.swift */; };
 		0C3FB4FF2AA0B77900C1CE2F /* ValidationTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB4EB2AA0B77800C1CE2F /* ValidationTextFieldStyle.swift */; };
 		0C3FB5012AA0B77900C1CE2F /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB4EE2AA0B77800C1CE2F /* Images.swift */; };
 		0C3FB5022AA0B77900C1CE2F /* ErrorMessageText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB4F02AA0B77900C1CE2F /* ErrorMessageText.swift */; };
@@ -69,6 +68,9 @@
 		0C3FB54C2AA0CF2F00C1CE2F /* Pods_Birthday.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3FB54A2AA0CF2F00C1CE2F /* Pods_Birthday.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0C3FB54F2AA0CFBD00C1CE2F /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 0C3FB54E2AA0CFBD00C1CE2F /* Apollo */; };
 		0C3FB5512AA0D1BA00C1CE2F /* apollo-ios-cli in Resources */ = {isa = PBXBuildFile; fileRef = 0C3FB5502AA0D1BA00C1CE2F /* apollo-ios-cli */; };
+		0C3FB5582AA13C3200C1CE2F /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5572AA13C3200C1CE2F /* LoadingIndicator.swift */; };
+		0C3FB55A2AA14E1A00C1CE2F /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5592AA14E1A00C1CE2F /* HapticManager.swift */; };
+		0CB016FE2AA1FB1B008BCC1F /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB016FD2AA1FB1B008BCC1F /* LandingViewModel.swift */; };
 		985593642A8E6E9100A3E76C /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593632A8E6E9100A3E76C /* Color + Extension.swift */; };
 		985593922A963BA700A3E76C /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593912A963BA700A3E76C /* Toast.swift */; };
 		985593942A963BBC00A3E76C /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593932A963BBC00A3E76C /* ToastView.swift */; };
@@ -154,7 +156,6 @@
 		017DB1672A8F6F020055BACF /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		0C3FB4E52AA0B77800C1CE2F /* ValidationTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationTextField.swift; sourceTree = "<group>"; };
 		0C3FB4E72AA0B77800C1CE2F /* RoundedCornersRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersRectangle.swift; sourceTree = "<group>"; };
-		0C3FB4E92AA0B77800C1CE2F /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		0C3FB4EB2AA0B77800C1CE2F /* ValidationTextFieldStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationTextFieldStyle.swift; sourceTree = "<group>"; };
 		0C3FB4EE2AA0B77800C1CE2F /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		0C3FB4F02AA0B77900C1CE2F /* ErrorMessageText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessageText.swift; sourceTree = "<group>"; };
@@ -194,6 +195,9 @@
 		0C3FB5482AA0CDB900C1CE2F /* AccessToken.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessToken.graphql.swift; sourceTree = "<group>"; };
 		0C3FB54A2AA0CF2F00C1CE2F /* Pods_Birthday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Birthday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C3FB5502AA0D1BA00C1CE2F /* apollo-ios-cli */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "apollo-ios-cli"; sourceTree = "<group>"; };
+		0C3FB5572AA13C3200C1CE2F /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		0C3FB5592AA14E1A00C1CE2F /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		0CB016FD2AA1FB1B008BCC1F /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
 		43137589BDF5678B8045873F /* Pods-Birthday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthday.debug.xcconfig"; path = "Target Support Files/Pods-Birthday/Pods-Birthday.debug.xcconfig"; sourceTree = "<group>"; };
 		5A45D5187426C71C62F6FF11 /* Pods-Birthday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthday.release.xcconfig"; path = "Target Support Files/Pods-Birthday/Pods-Birthday.release.xcconfig"; sourceTree = "<group>"; };
 		9605DC23AE115B87A291A31E /* Pods_Birthday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Birthday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,14 +333,6 @@
 			path = Shapes;
 			sourceTree = "<group>";
 		};
-		0C3FB4E82AA0B77800C1CE2F /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				0C3FB4E92AA0B77800C1CE2F /* RoundedButton.swift */,
-			);
-			path = Buttons;
-			sourceTree = "<group>";
-		};
 		0C3FB4EA2AA0B77800C1CE2F /* TextField Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				0C3FB5102AA0BA5D00C1CE2F /* LandingView.swift */,
+				0CB016FD2AA1FB1B008BCC1F /* LandingViewModel.swift */,
 			);
 			path = LandingView;
 			sourceTree = "<group>";
@@ -411,11 +408,12 @@
 		0C3FB5172AA0BABB00C1CE2F /* Heplers */ = {
 			isa = PBXGroup;
 			children = (
-				0C3FB5182AA0BABB00C1CE2F /* UserDefaultsKeys.swift */,
 				0C3FB5192AA0BABB00C1CE2F /* AccessToken.swift */,
-				0C3FB51A2AA0BABB00C1CE2F /* StoreManager.swift */,
+				0C3FB5592AA14E1A00C1CE2F /* HapticManager.swift */,
 				0C3FB51B2AA0BABB00C1CE2F /* Regexes.swift */,
+				0C3FB51A2AA0BABB00C1CE2F /* StoreManager.swift */,
 				0C3FB52B2AA0BB1800C1CE2F /* TextFieldModel.swift */,
+				0C3FB5182AA0BABB00C1CE2F /* UserDefaultsKeys.swift */,
 			);
 			path = Heplers;
 			sourceTree = "<group>";
@@ -459,11 +457,19 @@
 			path = RegisterView;
 			sourceTree = "<group>";
 		};
+		0C3FB5562AA13BCC00C1CE2F /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				0C3FB5572AA13C3200C1CE2F /* LoadingIndicator.swift */,
+			);
+			path = ProgressView;
+			sourceTree = "<group>";
+		};
 		985593672A8E6EE400A3E76C /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				0C3FB5562AA13BCC00C1CE2F /* ProgressView */,
 				0C3FB4F22AA0B77900C1CE2F /* Button Styles */,
-				0C3FB4E82AA0B77800C1CE2F /* Buttons */,
 				0C3FB4F52AA0B77900C1CE2F /* Fonts */,
 				0C3FB4EC2AA0B77800C1CE2F /* Images */,
 				0C3FB4E62AA0B77800C1CE2F /* Shapes */,
@@ -883,6 +889,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C3FB5582AA13C3200C1CE2F /* LoadingIndicator.swift in Sources */,
 				0C3FB5352AA0BB5200C1CE2F /* LocalError.swift in Sources */,
 				015DA32E2A9E253F00F2902C /* UIApplicationExtension.swift in Sources */,
 				998E7D102A8DF34500E8F807 /* ApolloManager.swift in Sources */,
@@ -907,7 +914,9 @@
 				0164CD142A9B440C0046DEFC /* BirthdayDetailsModel.swift in Sources */,
 				0164CD192A9B52EB0046DEFC /* AddBirthdayViewModel.swift in Sources */,
 				0C3FB5022AA0B77900C1CE2F /* ErrorMessageText.swift in Sources */,
+				0CB016FE2AA1FB1B008BCC1F /* LandingViewModel.swift in Sources */,
 				017DB1652A8F6E700055BACF /* ProfileView.swift in Sources */,
+				0C3FB55A2AA14E1A00C1CE2F /* HapticManager.swift in Sources */,
 				0C3FB5362AA0BB5200C1CE2F /* NetworkError.swift in Sources */,
 				017DB1682A8F6F020055BACF /* PrimaryButtonStyle.swift in Sources */,
 				0C3FB4FD2AA0B77900C1CE2F /* RoundedCornersRectangle.swift in Sources */,
@@ -925,7 +934,6 @@
 				985593A02A963C9300A3E76C /* ShopDetailView.swift in Sources */,
 				98BA7D8A2A9DDF09004BF312 /* GetShopsRepository.swift in Sources */,
 				0C3FB5292AA0BADC00C1CE2F /* TextFieldPlaceholders.swift in Sources */,
-				0C3FB4FE2AA0B77900C1CE2F /* RoundedButton.swift in Sources */,
 				0C3FB50C2AA0B7BB00C1CE2F /* Font + Extension.swift in Sources */,
 				995742642A9360B4005A3B7F /* RequestServices.swift in Sources */,
 				0C3FB5032AA0B77900C1CE2F /* TitleText.swift in Sources */,

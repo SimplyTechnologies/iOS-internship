@@ -3,22 +3,41 @@ import SwiftUI
 
 struct SignInView: View {
   
-  // MARK: - Properties
+  @Environment(\.presentationMode) var presentationMode
   @StateObject private var viewModel = SignInViewModel()
-  @FocusState private var focusField: TextFieldPlaceholders?
   @State private var checked: Bool = false
+  @FocusState private var focusField: TextFieldPlaceholders?
+  @GestureState private var dragOffset = CGSize.zero
   
-  // MARK: - Body
   var body: some View {
-    NavigationView {
-      ZStack {
-        Color.backgroundColor
-          .ignoresSafeArea()
+    ZStack {
+      Color.backgroundColor
+        .ignoresSafeArea()
+      
+      VStack {
+        HStack {
+          Button {
+            presentationMode.wrappedValue.dismiss()
+          } label: {
+            Image(Images.backButton.rawValue)
+          }
+          
+          Spacer()
+          Image(Images.logo.rawValue)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(
+              width: 88,
+              height: 40
+            )
+        }
+        .padding(.horizontal)
         
         Spacer()
         
         VStack {
-          // MARK: Title
+          
+          // MARK: - Title
           TitleText(title: Titles.signIn, size: 20)
             .padding(.top, 15)
             .padding(.bottom, 25)
@@ -39,8 +58,8 @@ struct SignInView: View {
               viewModel.getEmailFromStore()
             }
             .onChange(of: viewModel.email.text) { _ in
-              viewModel.checkEmailLength()
-              viewModel.checkAndSetButton(by: .email)
+              viewModel.trimCharacterOverflow()
+              viewModel.checkFieldAndSetButton(by: .email)
             }
             .focused($focusField, equals: .email)
             .submitLabel(.next)
@@ -60,7 +79,7 @@ struct SignInView: View {
               viewModel.getEmailFromStore()
             }
             .onChange(of: viewModel.password.text) { _ in
-              viewModel.checkAndSetButton(by: .password)
+              viewModel.checkFieldAndSetButton(by: .password)
             }
             .focused($focusField, equals: .password)
             .submitLabel(.done)
@@ -98,13 +117,14 @@ struct SignInView: View {
           .padding(.horizontal, 23)
           .padding(.bottom, 18)
           
-          // MARK: Sign In button
+          // MARK: - Sign In button
           NavigationLink(
             destination: TabBarView(),
             isActive: $viewModel.isValidationSuccess
           ) {
             Text(ButtonTitles.signIn)
               .onTapGesture {
+                viewModel.isLoading = true
                 viewModel.signIn()
               }
           }
@@ -114,7 +134,10 @@ struct SignInView: View {
           .padding(.horizontal, 62)
           .padding(.bottom, 26)
           .disabled(viewModel.isDisable)
-          .alert(AlertTitles.authorizationError, isPresented: $viewModel.hasError) {
+          .alert(
+            AlertTitles.authorizationError,
+            isPresented: $viewModel.hasError
+          ) {
             Button(ButtonTitles.ok, role: .cancel) {}
           } message: {
             Text(NetworkError.validationFailure.description)
@@ -127,12 +150,20 @@ struct SignInView: View {
         
         Spacer()
       }
+      
+      if viewModel.isLoading {
+        LoadingIndicator()
+      }
     }
+    .navigationBarHidden(true)
+    .onTapGesture {
+      UIApplication.shared.endEditing()
+    }
+    .accentColor(Color.primaryColor)
   }
   
 }
 
-// MARK: - Preview
 struct SignInView_Previews: PreviewProvider {
   
   static var previews: some View {

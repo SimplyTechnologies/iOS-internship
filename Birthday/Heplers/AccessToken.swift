@@ -10,14 +10,14 @@ struct AccessToken {
   private init() {}
   
   func save(token: String) {
-    storeManager.setValue(token, for: SignInKeys.token.rawValue)
+    storeManager.setValue(token, for: UserDefaultsKeys.token.rawValue)
   }
   
   func saveDate() {
     let currentDate = Date()
     storeManager.setValue(
       currentDate,
-      for: SignInKeys.tokenCreationDate.rawValue
+      for: UserDefaultsKeys.tokenCreationDate.rawValue
     )
   }
   
