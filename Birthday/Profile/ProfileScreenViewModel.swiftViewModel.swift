@@ -16,6 +16,8 @@ class ProfileScreenViewModel: ObservableObject {
   private var cancellables: Set<AnyCancellable> = []
   private let userRepository: UserRepository
   
+  private let storeManager = StoreManager.shared
+  
   var fullName: String {
     user.firstName + " " + user.lastName
   }
@@ -81,4 +83,11 @@ class ProfileScreenViewModel: ObservableObject {
     isEditingModeOff.toggle()
     selectedImage = nil
   }
+  
+  func signOut() {
+    storeManager.removeObject(for: UserDefaultsKeys.token.rawValue)
+    storeManager.removeObject(for: UserDefaultsKeys.tokenCreationDate.rawValue)
+    MainViewModel.LoginStatusSubject.send(false)
+  }
+  
 }
