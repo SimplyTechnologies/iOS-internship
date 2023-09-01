@@ -20,6 +20,15 @@ struct ProfileScreen: View {
           .ignoresSafeArea()
         VStack {
           HStack {
+            if !viewModel.isEditingModeOff {
+              Button {
+                viewModel.isEditingModeOff = true
+              } label: {
+                Image(systemName: "chevron.left")
+                  .foregroundColor(.secondaryColor)
+              }
+            }
+
             Spacer()
             Logo()
           }

@@ -11,6 +11,8 @@ class ProfileScreenViewModel: ObservableObject {
   @Published var isImagePickerPresented = false
   @Published var isLoading: Bool = false
   
+  var mockUser: UserModel = UserModel()
+  
   private var cancellables: Set<AnyCancellable> = []
   private let userRepository: UserRepository
   
@@ -19,7 +21,7 @@ class ProfileScreenViewModel: ObservableObject {
   }
   
   var areTextFieldsEdited: Bool {
-    user.firstName != "Shirley" || user.lastName != "Shirleyyan"
+    user.firstName != mockUser.firstName || user.lastName != mockUser.lastName || selectedImage != nil
   }
   
   init(userRepository: UserRepository) {
@@ -41,6 +43,7 @@ class ProfileScreenViewModel: ObservableObject {
       } receiveValue: { [weak self] profileData in
         let profileModel = UserModel(dto: profileData)
         self?.user = profileModel
+        self?.mockUser = profileModel
       }
       .store(in: &cancellables)
   }

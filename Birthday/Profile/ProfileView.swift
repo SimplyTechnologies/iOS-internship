@@ -8,27 +8,26 @@ struct ProfileView: View {
   var body: some View {
     VStack {
       if viewModel.isEditingModeOff {
-        if !viewModel.user.image.isEmpty {
-          Image(uiImage: UIImage(data: Data(base64Encoded: viewModel.user.image)!)!)
-            .resizable()
-            .frame(
-              width: 150,
-              height: 150
-            )
-            .cornerRadius(75)
-            .padding()
-        } else {
-          ZStack {
-            Color.secondaryColor
-            Image(systemName: "person")
+          if !viewModel.user.image.isEmpty {
+            Image(uiImage: UIImage(data: Data(base64Encoded: viewModel.user.image)!)!)
               .resizable()
-              .scaledToFit()
-              .foregroundColor(Color.white)
-              .frame(width: 80)
+              .frame(
+                width: 150,
+                height: 150
+              )
+              .cornerRadius(75)
+          } else {
+            ZStack {
+              Color.secondaryColor
+              Image(systemName: "person")
+                .resizable()
+                .scaledToFit()
+                .foregroundColor(Color.white)
+                .frame(width: 80)
+            }
+            .frame(width: 150, height: 150)
+            .cornerRadius(75)
           }
-          .frame(width: 150, height: 150)
-          .cornerRadius(75)
-        }
         Text(viewModel.fullName)
           .font(.title3)
           .padding()
@@ -43,19 +42,35 @@ struct ProfileView: View {
           .multilineTextAlignment(.center)
           .minimumScaleFactor(0.3)
       } else {
-        ZStack {
-          if let image = viewModel.selectedImage {
-            Image(uiImage: image)
-              .resizable()
-              .frame(
-                width: 150,
-                height: 150
-              )
-              .cornerRadius(75)
-              .padding()
-          } else {
-            Image("circle")
+        ZStack(alignment: .topTrailing) {
+          
+          ZStack {
+            if let image = viewModel.selectedImage {
+              Image(uiImage: image)
+                .resizable()
+                .frame(
+                  width: 150,
+                  height: 150
+                )
+                .cornerRadius(75)
+            } else {
+              if !viewModel.user.image.isEmpty {
+                Image(uiImage: UIImage(data: Data(base64Encoded: viewModel.user.image)!)!)
+                  .resizable()
+                  .frame(
+                    width: 150,
+                    height: 150
+                  )
+                  .cornerRadius(75)
+              } else {
+                Image("circle")
+              }
+            }
+            
           }
+          Image(systemName: "plus.circle.fill")
+            .resizable()
+            .frame(width: 30, height: 30)
         }
         .onTapGesture {
           viewModel.isImagePickerPresented.toggle()
