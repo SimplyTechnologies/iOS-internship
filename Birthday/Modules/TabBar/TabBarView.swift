@@ -34,7 +34,11 @@ struct TabBarView: View {
         .tabItem { TabViewTab(activeTab: $activeTab, tab: .shop) }
         .tag(TabItem.shop)
       
-      ProfileScreen(viewModel: ProfileScreenViewModel())
+      ProfileScreen(
+        viewModel: ProfileScreenViewModel(
+          userRepository: UserRepositoryImpl()
+        )
+      )
         .tabItem { TabViewTab(activeTab: $activeTab, tab: .profile) }
         .tag(TabItem.profile)
     }

@@ -8,8 +8,8 @@ struct ProfileView: View {
   var body: some View {
     VStack {
       if viewModel.isEditingModeOff {
-        if let image = viewModel.selectedImage {
-          Image(uiImage: image)
+        if !viewModel.user.image.isEmpty {
+          Image(uiImage: UIImage(data: Data(base64Encoded: viewModel.user.image)!)!)
             .resizable()
             .frame(
               width: 150,
@@ -42,7 +42,6 @@ struct ProfileView: View {
           .foregroundColor(.black)
           .multilineTextAlignment(.center)
           .minimumScaleFactor(0.3)
-
       } else {
         ZStack {
           if let image = viewModel.selectedImage {
