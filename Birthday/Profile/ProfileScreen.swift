@@ -24,8 +24,7 @@ struct ProfileScreen: View {
               Button {
                 viewModel.isEditingModeOff = true
               } label: {
-                Image(systemName: "chevron.left")
-                  .foregroundColor(.secondaryColor)
+                Image("Back")
               }
             }
 

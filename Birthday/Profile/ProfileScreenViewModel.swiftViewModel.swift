@@ -68,7 +68,7 @@ class ProfileScreenViewModel: ObservableObject {
       payload: Api.UpdateProfileInput(
         firstName: user.firstName ?? "",
         lastName: user.lastName ?? "",
-        image: selectedImage?.base64 ?? ""
+        image: selectedImage?.base64 ?? nil
       )
     )
     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
