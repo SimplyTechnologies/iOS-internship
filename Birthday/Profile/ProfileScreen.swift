@@ -2,15 +2,13 @@
 import SwiftUI
 
 struct ProfileScreen: View {
-  
-  @State var isLoading: Bool = false
-  
+    
   @ObservedObject var viewModel = ProfileScreenViewModel(
     userRepository: UserRepositoryImpl()
   )
   
   var body: some View {
-    if isLoading {
+    if viewModel.isLoading {
       VStack {
         Spacer()
         ProgressView()
@@ -23,19 +21,16 @@ struct ProfileScreen: View {
         VStack {
           HStack {
             Spacer()
-            Image("LogoBirthApp")
+            Logo()
           }
           .padding()
           ProfileView(viewModel: viewModel)
-            .environmentObject(viewModel)
-          Spacer()
           Spacer()
           if viewModel.isEditingModeOff {
             Button(
               "Edit Account"
             ) {
-              viewModel.isEditingModeOff.toggle()
-              viewModel.selectedImage = nil
+              viewModel.startToEdit()
               
             }
             .buttonStyle(PrimaryButtonStyle())
@@ -47,19 +42,7 @@ struct ProfileScreen: View {
             .buttonStyle(PrimaryButtonStyle())
           } else {
             Button("Save") {
-              isLoading = true
-              viewModel.editProfileInfo(
-                payload: Api.UpdateProfileInput(
-                  firstName: viewModel.user.firstName ?? "",
-                  lastName: viewModel.user.lastName ?? "",
-                  image: viewModel.selectedImage?.base64 ?? ""
-                )
-              )
-              DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                viewModel.isEditingModeOff.toggle()
-                viewModel.getProfileInfo()
-                isLoading = false
-              }
+              viewModel.saveProfileInfo()
             }
             .buttonStyle(PrimaryButtonStyle())
             .disabled(!viewModel.areTextFieldsEdited)

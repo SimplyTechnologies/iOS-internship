@@ -46,11 +46,9 @@ class ProfileScreenViewModel: ObservableObject {
   }
   
   func editProfileInfo(payload: Api.UpdateProfileInput) {
-    self.isLoading = true
     userRepository.editProfileInfo(payload: payload)
       .receive(on: DispatchQueue.main)
       .sink { [weak self] result in
-        self?.isLoading = false
         switch result {
         case .finished: break
         case .failure(let error):
@@ -62,4 +60,22 @@ class ProfileScreenViewModel: ObservableObject {
       .store(in: &cancellables)
   }
   
+  func saveProfileInfo() {
+    editProfileInfo(
+      payload: Api.UpdateProfileInput(
+        firstName: user.firstName ?? "",
+        lastName: user.lastName ?? "",
+        image: selectedImage?.base64 ?? ""
+      )
+    )
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+      self.isEditingModeOff.toggle()
+      self.getProfileInfo()
+    }
+  }
+  
+  func startToEdit() {
+    isEditingModeOff.toggle()
+    selectedImage = nil
+  }
 }
