@@ -118,16 +118,15 @@ struct SignInView: View {
           .padding(.bottom, 18)
           
           // MARK: - Sign In button
-          NavigationLink(
-            destination: TabBarView(),
-            isActive: $viewModel.isValidationSuccess
-          ) {
+          Button(action: {
+            viewModel.signIn()
+          }, label: {
             Text(ButtonTitles.signIn)
               .onTapGesture {
                 viewModel.isLoading = true
                 viewModel.signIn()
               }
-          }
+          })
           .buttonStyle(
             FullRoundedButtonStyle(isDisable: viewModel.isDisable)
           )

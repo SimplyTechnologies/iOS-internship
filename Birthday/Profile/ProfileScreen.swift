@@ -7,6 +7,8 @@ struct ProfileScreen: View {
     userRepository: UserRepositoryImpl()
   )
   
+  @Environment(\.presentationMode) var presentationMode
+  
   var body: some View {
     if viewModel.isLoading {
       VStack {
@@ -43,8 +45,11 @@ struct ProfileScreen: View {
             }
             .buttonStyle(PrimaryButtonStyle())
             .minimumScaleFactor(0.5)
-            Button("Sign Out") {
-              // TODO: Logic for Sign out and back to Main Page
+            Button {
+              viewModel.signOut()
+              presentationMode.wrappedValue.dismiss()
+            } label: {
+              Text("Sign Out")
             }
             .minimumScaleFactor(0.5)
             .buttonStyle(PrimaryButtonStyle())

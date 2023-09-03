@@ -101,7 +101,8 @@ final class SignInViewModel: ObservableObject {
       guard let self else { return }
       
       // Saving a token for further use in the session
-      self.accessToken.save(token: token.access_token)
+      accessToken.save(token: token.access_token)
+      MainViewModel.LoginStatusSubject.send(true)
     }
     .store(in: &cancellables)
   }
