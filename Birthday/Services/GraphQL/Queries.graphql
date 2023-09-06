@@ -87,6 +87,8 @@ mutation removeShopFromFavorite($shopId: Int!) {
 mutation login($loginInput: LoginInput!)  {
   login(loginInput: $loginInput) {
     access_token
+  }
+}
 
 mutation UpdateProfile($updateProfileInput: UpdateProfileInput!) {
   updateProfile(updateProfileInput: $updateProfileInput) {
@@ -95,5 +97,11 @@ mutation UpdateProfile($updateProfileInput: UpdateProfileInput!) {
     firstName
     lastName
     image
+  }
+}
+
+mutation ChangePassword($oldPassword: String!, $newPassword: String!) {
+  changePassword(oldPassword: $oldPassword, newPassword: $newPassword) {
+    id
   }
 }

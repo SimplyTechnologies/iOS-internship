@@ -62,18 +62,21 @@ struct BirthdayDetailsScreen: View {
               .cornerRadius(10)
           }
           .padding(1)
+          HStack {
+            Text("Zodiac Sign : ")
+            Text(viewModel.zodiacSign())
+              .foregroundColor(.primaryColor)
+          }
           if viewModel.isGeneratingMessage {
             GenerateMessageView(viewModel: viewModel)
-          }
-          if !viewModel.isGeneratingMessage {
+          } else {
             Spacer()
-              .frame(minHeight: 150)
+            Button("Generate Message") {
+              viewModel.isGeneratingMessage.toggle()
+            }
+            .buttonStyle(PrimaryButtonStyle())
+            .padding()
           }
-          Button("Generate Message") {
-            viewModel.isGeneratingMessage.toggle()
-          }
-          .buttonStyle(PrimaryButtonStyle())
-          .padding()
         }
         .animation(
           .easeInOut,
@@ -81,14 +84,10 @@ struct BirthdayDetailsScreen: View {
         )
       }
     }
+    .navigationBar()
     .font(Font.custom(weight: .bold, size: 20))
     .onTapGesture {
       UIApplication.shared.endEditing()
-    }
-    .toolbar {
-      Image(
-        "LogoBirthApp"
-      )
     }
   }
   private var imageView: some View {

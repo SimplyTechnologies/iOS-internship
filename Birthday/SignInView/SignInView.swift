@@ -3,7 +3,6 @@ import SwiftUI
 
 struct SignInView: View {
   
-  @Environment(\.presentationMode) var presentationMode
   @StateObject private var viewModel = SignInViewModel()
   @State private var checked: Bool = false
   @FocusState private var focusField: TextFieldPlaceholders?
@@ -15,23 +14,6 @@ struct SignInView: View {
         .ignoresSafeArea()
       
       VStack {
-        HStack {
-          Button {
-            presentationMode.wrappedValue.dismiss()
-          } label: {
-            Image(Images.backButton.rawValue)
-          }
-          
-          Spacer()
-          Image(Images.logo.rawValue)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(
-              width: 88,
-              height: 40
-            )
-        }
-        .padding(.horizontal)
         
         Spacer()
         
@@ -154,7 +136,7 @@ struct SignInView: View {
         LoadingIndicator()
       }
     }
-    .navigationBarHidden(true)
+    .navigationBar()
     .onTapGesture {
       UIApplication.shared.endEditing()
     }

@@ -17,22 +17,17 @@ struct HomeView: View {
           addNewBirthdayButton
             .padding(.bottom, 20)
         } else {
-          if viewModel.isLoading {
-            Spacer()
-            ProgressView()
-            Spacer()
-          } else {
-            birthdaysView
-          }
+          birthdaysView
         }
       }
     }
+    .navigationBarHidden(true)
     .onAppear {
       viewModel.getBirthdays()
     }
-    .navigationTitle("")
-    .navigationBarHidden(true)
-    
+    .overlay {
+      viewModel.isLoading ? ProgressView() : nil
+    }
   }
   
   private var birthdaysView: some View {
@@ -52,6 +47,7 @@ struct HomeView: View {
         }
       }
       .padding(.horizontal, 24)
+      .padding(.bottom, 24)
     }
   }
   
@@ -74,7 +70,7 @@ struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
     HomeView(
       viewModel: HomeViewModel(
-      birthdayRepository: BirthdaysRepositoryImpl()
+        birthdayRepository: BirthdaysRepositoryImpl()
       )
     )
   }
