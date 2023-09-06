@@ -9,7 +9,9 @@ struct MainView: View {
     if viewModel.isLogged {
       TabBarView()
     } else {
-      LandingView()
+      NavigationView {
+        LandingView()
+      }
     }
   }
   

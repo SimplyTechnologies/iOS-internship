@@ -28,19 +28,17 @@ struct ProfileView: View {
           .frame(width: 150, height: 150)
           .cornerRadius(75)
         }
-        Text(viewModel.fullName)
-          .font(Font.custom(weight: .bold, size: 20))
-          .padding()
-          .foregroundColor(.black)
-          .multilineTextAlignment(.center)
-          .minimumScaleFactor(0.3)
-        
-        Text(viewModel.user.email)
-          .font(Font.custom(weight: .bold, size: 20))
-          .padding()
-          .foregroundColor(.black)
-          .multilineTextAlignment(.center)
-          .minimumScaleFactor(0.3)
+        VStack(spacing: 10) {
+          Text(viewModel.fullName)
+            .font(Font.custom(weight: .bold, size: 20))
+            .foregroundColor(.black)
+            .multilineTextAlignment(.center)
+          
+          Text(viewModel.user.email)
+            .font(Font.custom(weight: .bold, size: 20))
+            .foregroundColor(.black)
+            .multilineTextAlignment(.center)
+        }
       } else {
         ZStack(alignment: .topTrailing) {
           
@@ -68,61 +66,67 @@ struct ProfileView: View {
             }
             
           }
-          Image(systemName: "plus.circle.fill")
-            .resizable()
-            .frame(width: 30, height: 30)
+          ZStack {
+            Color.white
+              .frame(width: 40, height: 40)
+              .cornerRadius(50)
+            Image(systemName: "plus.circle.fill")
+              .resizable()
+              .frame(width: 40, height: 40)
+              .foregroundColor(.primaryColor)
+          }
         }
         .onTapGesture {
           viewModel.isImagePickerPresented.toggle()
         }
-        Text("First Name")
-          .frame(
-            maxWidth: 250,
-            alignment: .leading
+        VStack(alignment: .leading, spacing: 0) {
+          Text("First Name")
+            .foregroundColor(.primaryColor)
+            .padding(.leading, 4)
+          TextField(
+            "First Name",
+            text: $viewModel.user.firstName
           )
-          .font(.headline)
-          .foregroundColor(.primaryColor)
-        TextField(
-          "First Name",
-          text: $viewModel.user.firstName
-        )
-        .padding(10)
-        .foregroundColor(.black)
-        .overlay(
-          RoundedRectangle(cornerRadius: 14)
-            .stroke(
-              Color.textFieldBorderColor,
-              lineWidth: 0.1
-            )
-        )
-        .padding(.bottom, 7)
-        Text("Last Name")
-          .frame(
-            maxWidth: 250,
-            alignment: .leading
+          .padding(10)
+          .foregroundColor(.black)
+          .overlay(
+            RoundedRectangle(cornerRadius: 14)
+              .stroke(
+                Color.textFieldBorderColor,
+                lineWidth: 0.1
+              )
           )
-          .font(.headline)
-          .foregroundColor(.primaryColor)
-        TextField(
-          "Last Name",
-          text: $viewModel.user.lastName
-        )
-        .padding(10)
-        .foregroundColor(.black)
-        .font(Font.custom(weight: .bold, size: 20))
-        .overlay(
-          RoundedRectangle(cornerRadius: 14)
-            .stroke(
-              Color.textFieldBorderColor,
-              lineWidth: 0.1
-            )
-        )
+          .background(.white)
+          .cornerRadius(14)
+        }
+        
+        VStack(alignment: .leading, spacing: 0) {
+          Text("Last Name")
+            .foregroundColor(.primaryColor)
+            .padding(.leading, 4)
+          TextField(
+            "Last Name",
+            text: $viewModel.user.lastName
+          )
+          .padding(10)
+          .foregroundColor(.black)
+          .font(Font.custom(weight: .bold, size: 20))
+          .overlay(
+            RoundedRectangle(cornerRadius: 14)
+              .stroke(
+                Color.textFieldBorderColor,
+                lineWidth: 0.1
+              )
+          )
+          .background(.white)
+          .cornerRadius(14)
+        }
       }
     }
     .sheet(isPresented: $viewModel.isImagePickerPresented) {
       ImagePicker(selectedImage: $viewModel.selectedImage)
     }
-    .padding(.horizontal, 60)
+    .padding(.horizontal, 18)
   }
   
 }

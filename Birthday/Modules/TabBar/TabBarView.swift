@@ -26,21 +26,26 @@ struct TabBarView: View {
           )
         )
       }
-      .navigationBarHidden(true)
-      .accentColor(Color.primaryColor)
         .tabItem { TabViewTab(activeTab: $activeTab, tab: .home) }
         .tag(TabItem.home)
-      ShopListView(viewModel: ShopListViewModel())
+      
+      NavigationView {
+        ShopListView(
+          viewModel: ShopListViewModel()
+        )
+      }
         .tabItem { TabViewTab(activeTab: $activeTab, tab: .shop) }
         .tag(TabItem.shop)
       
-      ProfileScreen(
-        viewModel: ProfileScreenViewModel(
-          userRepository: UserRepositoryImpl()
+      NavigationView {
+        ProfileScreen(
+          viewModel: ProfileScreenViewModel(
+            userRepository: UserRepositoryImpl()
+          )
         )
-      )
-        .tabItem { TabViewTab(activeTab: $activeTab, tab: .profile) }
-        .tag(TabItem.profile)
+      }
+      .tabItem { TabViewTab(activeTab: $activeTab, tab: .profile) }
+      .tag(TabItem.profile)
     }
   }
   
