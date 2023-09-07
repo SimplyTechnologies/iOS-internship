@@ -66,35 +66,35 @@ struct AddBirthdayScreen: View {
           viewModel.iSImagePickerPresented.toggle()
         }
         VStack(alignment: .leading, spacing: 0) {
-        HStack {
-          Text("Name")
-            .foregroundColor(.primaryColor)
-            .font(Font.custom(weight: .bold, size: 18))
-            .frame(
-              maxWidth: 250,
-              alignment: .leading
+          HStack {
+            Text("Name")
+              .foregroundColor(.primaryColor)
+              .font(Font.custom(weight: .bold, size: 18))
+              .frame(
+                maxWidth: 250,
+                alignment: .leading
+              )
+              .padding(
+                .horizontal, 65
+              )
+            Spacer()
+          }
+          ZStack(alignment: .leading) {
+            RoundedRectangle(cornerRadius: 14)
+              .stroke(
+                Color.gray,
+                lineWidth: 0.1
+              )
+              .background(Color.white)
+              .cornerRadius(14)
+            TextField(
+              "",
+              text: $viewModel.birthdayDetails.name
             )
-            .padding(
-              .horizontal, 65
-            )
-          Spacer()
+            .padding(10)
+          }
+          .padding(.horizontal, 60)
         }
-        ZStack(alignment: .leading) {
-          RoundedRectangle(cornerRadius: 14)
-            .stroke(
-              Color.gray,
-              lineWidth: 0.1
-            )
-            .background(Color.white)
-            .cornerRadius(14)
-          TextField(
-            "",
-            text: $viewModel.birthdayDetails.name
-          )
-          .padding(10)
-        }
-        .padding(.horizontal, 60)
-      }
         VStack(alignment: .leading, spacing: 4) {
           HStack {
             Text("Relationship")
@@ -176,11 +176,14 @@ struct AddBirthdayScreen: View {
           label: {
             Text("Date of Birth:")
               .foregroundColor(.primaryColor)
-              .font(Font.custom(weight: .bold, size: 18))
-              .accentColor(.primaryColor)
+              .font(
+                Font.custom(
+                  weight: .bold, size: 18
+                )
+              )
           }
         )
-        .foregroundColor(.primaryColor)
+        .tint(Color.primaryColor)
         .padding()
         .padding(
           .horizontal, 49

@@ -35,7 +35,8 @@ struct HomeView: View {
             Image("LogoBirthApp")
             Spacer()
           }
-        } .padding(.horizontal, 24)
+        }
+        .padding(.horizontal, 24)
         if viewModel.birthdays.isEmpty && !viewModel.isLoading {
           EmptyStateView(description: "Let's add some birthdays.")
         } else {
