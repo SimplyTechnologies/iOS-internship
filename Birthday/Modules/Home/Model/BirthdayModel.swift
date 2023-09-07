@@ -5,11 +5,11 @@ struct BirthdayModel: Hashable {
   
   let id: Int
   let userId: Int
-  let name: String
-  let image: String
-  let relation: String
+  var name: String
+  var image: String
+  var relation: String
   var message: String
-  let date: Date
+  var date: Date
   let upcomingBirthday: Date
   let upcomingAge: Int
   let createdAt: Date

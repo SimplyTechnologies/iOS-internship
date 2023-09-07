@@ -5,6 +5,7 @@ protocol BirthdaysRepository: GraphQLRepository {
   
   func getBirthdays() -> AnyPublisher<[Api.GetBirthdaysQuery.Data.Birthday], Error>
   func deleteBirthday(by id: Int) -> AnyPublisher<Api.DeleteBirthdayMutation.Data.DeleteBirthday, Error>
+  func addBirthday(by input: Api.CreateBirthdayInput) -> AnyPublisher<Api.CreateNewBirthdayMutation.Data.CreateBirthday, Error>
   
 }
 
@@ -21,5 +22,12 @@ final class BirthdaysRepositoryImpl: BirthdaysRepository {
       .compactMap { $0.deleteBirthday }
       .eraseToAnyPublisher()
   }
+  
+  func addBirthday(by input: Api.CreateBirthdayInput) -> AnyPublisher<Api.CreateNewBirthdayMutation.Data.CreateBirthday, Error> {
+    return request(mutation: Api.CreateNewBirthdayMutation(input: input))
+      .compactMap { $0.createBirthday }
+      .eraseToAnyPublisher()
+  }
+  
   
 }

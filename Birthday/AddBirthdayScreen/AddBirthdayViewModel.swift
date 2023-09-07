@@ -1,49 +1,41 @@
 
 import Foundation
+import Combine
 
 class AddBirthdayViewModel: ObservableObject {
   
-  @Published var name: String = ""
-  @Published var message: String = ""
-  @Published var date = Date.now
-  @Published var phoneNumber = ""
-  @Published var isPhoneNumberValid = false
-  @Published var phoneNumberInfo: (
-    phoneNumber: String,
-    isValid: Bool
-  ) = (
-    "",
-    false
-  )
+  @Published var isLoading: Bool = false
+  @Published var isImagePickerPresented = false
+
   
-  @Published var addBirthdayViewModel =
-  AddBirthdayModel(
-    name: "Mesrop",
-    image: "profilePicture",
-    message: "bioooo",
-    phoneNumber: "+37493274722",
-    date: Date()
-  )
+  private var cancellables: Set<AnyCancellable> = []
   
-  func validatePhoneNumber(_ phoneNumber: String) -> Bool {
-    let armenianRegex = "^\\+374\\d{8}$"
-    let americanRegex = "^(\\d{3}-\\d{3}-\\d{4})|(\\(\\d{3}\\) \\d{3}-\\d{4})$"
-    
-    let armenianPredicate = NSPredicate(
-      format: "SELF MATCHES %@",
-      armenianRegex
-    )
-    let americanPredicate = NSPredicate(
-      format: "SELF MATCHES %@",
-      americanRegex
-    )
-    
-    let isValid = armenianPredicate.evaluate(with: phoneNumber) ||
-    americanPredicate.evaluate(with: phoneNumber)
-    
-    phoneNumberInfo = (phoneNumber, isValid)
-    
-    return isValid
+  private let birthdaysRepository: BirthdaysRepository
+  var birthdayDetails: BirthdayModel
+  
+  init(
+    birthdayDetails: BirthdayModel,
+    birthdaysRepository: BirthdaysRepository
+  ) {
+    self.birthdayDetails = birthdayDetails
+    self.birthdaysRepository = birthdaysRepository
+  }
+  
+  func addBirthday(by input: Api.CreateBirthdayInput) {
+    self.isLoading = true
+    birthdaysRepository.addBirthday(by: input)
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] result in
+        self?.isLoading = false
+        switch result {
+        case .finished: break
+        case .failure(let error):
+          print(error)
+        }
+      } receiveValue: { [weak self] birthdayData in
+//        print(birthdayData)
+      }
+      .store(in: &cancellables)
   }
   
 }
