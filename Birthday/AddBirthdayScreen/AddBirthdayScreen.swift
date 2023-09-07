@@ -67,7 +67,8 @@ struct AddBirthdayScreen: View {
         HStack {
           Text("Name")
             .foregroundColor(.primaryColor)
-            .font(.title3)
+            .font(Font.custom(weight: .bold, size: 18))
+
             .frame(
               maxWidth: 250,
               alignment: .leading
@@ -95,7 +96,7 @@ struct AddBirthdayScreen: View {
         HStack {
           Text("Relationship")
             .foregroundColor(.primaryColor)
-            .font(.title3)
+            .font(Font.custom(weight: .bold, size: 18))
             .frame(
               maxWidth: 250,
               alignment: .leading
@@ -138,7 +139,7 @@ struct AddBirthdayScreen: View {
             .padding(10)
           }
           .padding(.horizontal, 60)
-          .padding(.vertical, 20)
+          .padding(.vertical)
         } else {
           Button {
             withAnimation {
@@ -148,13 +149,13 @@ struct AddBirthdayScreen: View {
           } label: {
             Image("plusButton")
           }
-          .padding(.vertical, 20)
+          .padding(.vertical, 18)
         }
         VStack {
           HStack {
             Text("Message")
               .foregroundColor(.primaryColor)
-              .font(.title3)
+              .font(Font.custom(weight: .bold, size: 18))
               .frame(
                 maxWidth: 250,
                 alignment: .leading
@@ -168,7 +169,7 @@ struct AddBirthdayScreen: View {
             .colorMultiply(.white)
             .cornerRadius(10)
             .frame(
-              width: 270,
+              width: 300,
               height: 200
             )
         }
@@ -179,7 +180,7 @@ struct AddBirthdayScreen: View {
           label: {
             Text("Date of Birth:")
               .foregroundColor(.primaryColor)
-              .font(.title3)
+              .font(Font.custom(weight: .bold, size: 18))
               .accentColor(.primaryColor)
           }
         )
@@ -201,10 +202,10 @@ struct AddBirthdayScreen: View {
             .frame(width: 18, height: 18)
             .cornerRadius(2)
           }
-          .padding(.leading)
+          .padding(.leading, 22)
           Text("Add To Calendar")
+            .font(Font.custom(weight: .bold, size: 14))
             .foregroundColor(.primaryColor)
-            .font(Font.subheadline)
           Spacer()
         }
         Button("Save") {
@@ -226,6 +227,7 @@ struct AddBirthdayScreen: View {
             }
           }
         }
+        .font(Font.custom(weight: .bold, size: 24))
         .disabled(
           viewModel.birthdayDetails.name.isEmpty ||
           viewModel.birthdayDetails.relation.isEmpty
@@ -240,9 +242,7 @@ struct AddBirthdayScreen: View {
     .onTapGesture {
       UIApplication.shared.endEditing()
     }
-    .toolbar {
-      Image("LogoBirthApp")
-    }
+    .navigationBar()
   }
   
   private func createRelationshipCell(text: String) -> some View {
@@ -264,7 +264,8 @@ struct AddBirthdayScreen: View {
             Color.black
         )
         .cornerRadius(66)
-        .font(.footnote)
+        .font(Font.custom(weight: .bold, size: 13))
+
     }
   }
   private func requestCalendarAccess() {
