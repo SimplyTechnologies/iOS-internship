@@ -25,8 +25,8 @@ struct BirthdayDetailsScreen: View {
             .alert(isPresented: $viewModel.showAlert) {
               Alert(
                 title: Text(
-                "Are you sure you want to delete this birthday information?"
-              ),
+                  "Are you sure you want to delete this birthday information?"
+                ),
                 primaryButton: .destructive(
                   Text("Yes")
                 ) {
@@ -43,7 +43,7 @@ struct BirthdayDetailsScreen: View {
           .padding(.horizontal)
           imageView
             .padding()
-            
+          
           Text(viewModel.birthdayDetails.name)
             .fontWeight(.bold)
             .padding(1)
@@ -51,7 +51,7 @@ struct BirthdayDetailsScreen: View {
           Text(
             viewModel.birthdayDetails.date.stringFromDate()
           )
-            .foregroundColor(.black)
+          .foregroundColor(.black)
           HStack {
             Text("Relationship :")
               .foregroundColor(.black)
@@ -71,10 +71,16 @@ struct BirthdayDetailsScreen: View {
             GenerateMessageView(viewModel: viewModel)
           } else {
             Spacer()
-            Button("Generate Message") {
+            Button {
               viewModel.isGeneratingMessage.toggle()
+            } label: {
+              Text("Generate Message")
+                .padding(.horizontal, 28)
+                .padding(.vertical, 8)
+                .foregroundColor(.white)
+                .background(Color.primaryColor)
+                .cornerRadius(16)
             }
-            .buttonStyle(PrimaryButtonStyle())
             .padding()
           }
         }
@@ -90,23 +96,27 @@ struct BirthdayDetailsScreen: View {
       UIApplication.shared.endEditing()
     }
   }
+  
+  @ViewBuilder
   private var imageView: some View {
-    AsyncImage(url: URL(string: viewModel.birthdayDetails.image)) { image in
-      image
-        .resizable()
-        .scaledToFill()
-    } placeholder: {
+    if let imageData = viewModel.birthdayDetails.image,
+       !imageData.isEmpty,
+       let data = Data(base64Encoded: imageData),
+       let uiImage = UIImage(data: data) {
+      Image(uiImage: uiImage)
+        .frame(width: 150, height: 150)
+        .cornerRadius(75)
+    } else {
       ZStack {
         Color.secondaryColor
         Image(systemName: "person")
           .resizable()
-          .scaledToFit()
+          .frame(width: 80, height: 80)
           .foregroundColor(Color.white)
-          .frame(width: 80)
       }
+      .frame(width: 150, height: 150)
+      .cornerRadius(75)
     }
-    .frame(width: 150, height: 150)
-    .cornerRadius(75)
   }
 }
 

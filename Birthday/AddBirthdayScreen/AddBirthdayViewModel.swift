@@ -1,49 +1,79 @@
 
-import Foundation
+import Combine
+import UIKit
+import EventKit
 
 class AddBirthdayViewModel: ObservableObject {
   
-  @Published var name: String = ""
-  @Published var message: String = ""
-  @Published var date = Date.now
-  @Published var phoneNumber = ""
-  @Published var isPhoneNumberValid = false
-  @Published var phoneNumberInfo: (
-    phoneNumber: String,
-    isValid: Bool
-  ) = (
-    "",
-    false
-  )
+  @Published var isLoading: Bool = false
+  @Published var isImagePickerPresented = false
+  @Published var iSImagePickerPresented = false
+  @Published var addImage: UIImage?
+  private var eventStore = EKEventStore()
+  private var authorizationStatus: EKAuthorizationStatus = EKEventStore.authorizationStatus(for: .event)
   
-  @Published var addBirthdayViewModel =
-  AddBirthdayModel(
-    name: "Mesrop",
-    image: "profilePicture",
-    message: "bioooo",
-    phoneNumber: "+37493274722",
-    date: Date()
-  )
+  private var cancellables: Set<AnyCancellable> = []
   
-  func validatePhoneNumber(_ phoneNumber: String) -> Bool {
-    let armenianRegex = "^\\+374\\d{8}$"
-    let americanRegex = "^(\\d{3}-\\d{3}-\\d{4})|(\\(\\d{3}\\) \\d{3}-\\d{4})$"
+  private let birthdaysRepository: BirthdaysRepository
+  @Published var birthdayDetails: BirthdayModel
+  var relations: [String] = [
+    "Best Friend", "Mother", "Father", "Grandmother", "Grandfather", "Brother", "Sister", "Uncle", "Daughter"
+  ]
+  init(
+    birthdayDetails: BirthdayModel,
+    birthdaysRepository: BirthdaysRepository
+  ) {
+    self.birthdayDetails = birthdayDetails
+    self.birthdaysRepository = birthdaysRepository
+  }
+  
+  func addBirthday(by input: Api.CreateBirthdayInput) {
+    self.isLoading = true
+    birthdaysRepository.addBirthday(by: input)
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] result in
+        
+        switch result {
+        case .finished:
+          break
+        case .failure(let error):
+          print(error)
+        }
+      } receiveValue: { [weak self] birthdayData in
+        self?.isLoading = false
+        HomeViewModel.updateStatusSubject.send()
+      }
+      .store(in: &cancellables)
     
-    let armenianPredicate = NSPredicate(
-      format: "SELF MATCHES %@",
-      armenianRegex
+  }
+  
+  func addRepeatingEventToCalendar() {
+    let event = EKEvent(eventStore: eventStore)
+    event.title = "\(birthdayDetails.name)'s Birthday"
+    event.calendar = eventStore.defaultCalendarForNewEvents
+    event.notes = "Congratulate!!!"
+    event.startDate = Calendar.current.date(
+      from: birthdayDetails.date.get(
+        .year,
+        .month,
+        .day
+      )
+    )!
+    event.endDate = event.startDate.addingTimeInterval(
+      86400
     )
-    let americanPredicate = NSPredicate(
-      format: "SELF MATCHES %@",
-      americanRegex
+    let recurrenceRule = EKRecurrenceRule(
+      recurrenceWith: .yearly,
+      interval: 1,
+      end: nil
     )
-    
-    let isValid = armenianPredicate.evaluate(with: phoneNumber) ||
-    americanPredicate.evaluate(with: phoneNumber)
-    
-    phoneNumberInfo = (phoneNumber, isValid)
-    
-    return isValid
+    event.recurrenceRules = [recurrenceRule]
+    do {
+      try eventStore.save(event, span: .thisEvent)
+      print("Repeating event saved to calendar")
+    } catch {
+      print("Error saving repeating event: \(error.localizedDescription)")
+    }
   }
   
 }

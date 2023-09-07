@@ -23,6 +23,21 @@ struct TabBarView: View {
         HomeView(
           viewModel: HomeViewModel(
             birthdayRepository: BirthdaysRepositoryImpl()
+          ),
+          addBirtdayViewModel: AddBirthdayViewModel(
+            birthdayDetails: BirthdayModel(
+              id: 0,
+              userId: 0,
+              name: "",
+              image: "",
+              relation: "",
+              message: "",
+              date: Date(),
+              upcomingBirthday: Date(),
+              upcomingAge: 0,
+              createdAt: Date(),
+              updatedAt: Date()),
+            birthdaysRepository: BirthdaysRepositoryImpl()
           )
         )
       }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		013B0EB92AA0C0A00026B24E /* CreateNewBirthdayMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B0EB82AA0C0A00026B24E /* CreateNewBirthdayMutation.graphql.swift */; };
+		013B0EBB2AA0C1030026B24E /* CreateBirthdayInput.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B0EBA2AA0C1030026B24E /* CreateBirthdayInput.graphql.swift */; };
+		013B0EED2AA2087F0026B24E /* AddImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013B0EEC2AA2087F0026B24E /* AddImage.swift */; };
 		015682B12AA0841C002E4445 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015682B02AA0841C002E4445 /* DateExtension.swift */; };
 		015DA3232A9DE0BB00F2902C /* BirthdayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA3222A9DE0BB00F2902C /* BirthdayApp.swift */; };
 		015DA3292A9E12C700F2902C /* Mutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015DA3282A9E12C700F2902C /* Mutation.graphql.swift */; };
@@ -146,6 +149,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		013B0EB82AA0C0A00026B24E /* CreateNewBirthdayMutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewBirthdayMutation.graphql.swift; sourceTree = "<group>"; };
+		013B0EBA2AA0C1030026B24E /* CreateBirthdayInput.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateBirthdayInput.graphql.swift; path = Birthday/Services/GraphQL/Schema/InputObjects/CreateBirthdayInput.graphql.swift; sourceTree = SOURCE_ROOT; };
+		013B0EEC2AA2087F0026B24E /* AddImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImage.swift; sourceTree = "<group>"; };
 		015682B02AA0841C002E4445 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		015DA3222A9DE0BB00F2902C /* BirthdayApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayApp.swift; sourceTree = "<group>"; };
 		015DA3282A9E12C700F2902C /* Mutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutation.graphql.swift; sourceTree = "<group>"; };
@@ -318,6 +324,7 @@
 			children = (
 				0164CD1C2A9B53850046DEFC /* AddBirthdayScreen.swift */,
 				0164CD1A2A9B53650046DEFC /* AddBirthdayModel.swift */,
+				013B0EEC2AA2087F0026B24E /* AddImage.swift */,
 				0164CD182A9B52EB0046DEFC /* AddBirthdayViewModel.swift */,
 			);
 			path = AddBirthdayScreen;
@@ -595,6 +602,7 @@
 				982CE6982AA7078300EF6678 /* ResetPasswordMutation.graphql.swift */,
 				0C3FB5462AA0CD5900C1CE2F /* LoginMutation.graphql.swift */,
 				99FA9D582AA0C710006D1D74 /* UpdateProfileMutation.graphql.swift */,
+				013B0EB82AA0C0A00026B24E /* CreateNewBirthdayMutation.graphql.swift */,
 				98BA7D8C2A9E0C8A004BF312 /* AddShopToFavoriteMutation.graphql.swift */,
 				98BA7D8D2A9E0C8A004BF312 /* RemoveShopFromFavoriteMutation.graphql.swift */,
 				015DA32A2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift */,
@@ -820,6 +828,7 @@
 			isa = PBXGroup;
 			children = (
 				0C3FB5482AA0CDB900C1CE2F /* AccessToken.graphql.swift */,
+				013B0EBA2AA0C1030026B24E /* CreateBirthdayInput.graphql.swift */,
 				98BA7D902A9E0CC1004BF312 /* Mutation.graphql.swift */,
 				98BA7D912A9E0CC1004BF312 /* UserFavoriteShop.graphql.swift */,
 				985E88762A9DD25C0069CB3E /* Shop.graphql.swift */,
@@ -1071,7 +1080,9 @@
 				985E88772A9DD25C0069CB3E /* Shop.graphql.swift in Sources */,
 				0C3FB5262AA0BADC00C1CE2F /* AlertTitles.swift in Sources */,
 				0C3FB51C2AA0BABB00C1CE2F /* UserDefaultsKeys.swift in Sources */,
+				013B0EED2AA2087F0026B24E /* AddImage.swift in Sources */,
 				99F9E2E92A939C8C004ED89F /* GraphQLRepository.swift in Sources */,
+				013B0EBB2AA0C1030026B24E /* CreateBirthdayInput.graphql.swift in Sources */,
 				9939A9142A933B9600D3B19E /* TabBarView.swift in Sources */,
 				982CE6932AA5DD5100EF6678 /* NewPasswordViewModel.swift in Sources */,
 				9939A9182A933C7600D3B19E /* TabViewTab.swift in Sources */,
@@ -1100,6 +1111,7 @@
 				985E887F2A9DD4550069CB3E /* AvgPriceFilter.graphql.swift in Sources */,
 				0164CD132A9B440C0046DEFC /* BirthdayDetailsScreen.swift in Sources */,
 				015DA32B2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift in Sources */,
+				013B0EB92AA0C0A00026B24E /* CreateNewBirthdayMutation.graphql.swift in Sources */,
 				0164CD1D2A9B53850046DEFC /* AddBirthdayScreen.swift in Sources */,
 				99E966872AA9AF7700F2D16E /* EmptyStateView.swift in Sources */,
 				985593962A963BC800A3E76C /* Shop.swift in Sources */,
@@ -1260,11 +1272,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Birthday/Preview Content\"";
-				DEVELOPMENT_TEAM = VBZ5789L53;
+				DEVELOPMENT_TEAM = DA9H7Z32HZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Birthday/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Birthday;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1276,7 +1289,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.birthdayAp.;
+				PRODUCT_BUNDLE_IDENTIFIER = com.birthdayyy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1300,6 +1313,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Birthday/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Birthday;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1311,7 +1325,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.birthdayAp.;
+				PRODUCT_BUNDLE_IDENTIFIER = com.birthdayyy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

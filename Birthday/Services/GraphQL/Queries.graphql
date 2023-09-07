@@ -84,6 +84,7 @@ mutation removeShopFromFavorite($shopId: Int!) {
   }
 }
 
+<<<<<<< HEAD
 mutation login($loginInput: LoginInput!)  {
   login(loginInput: $loginInput) {
     access_token
@@ -103,6 +104,21 @@ mutation UpdateProfile($updateProfileInput: UpdateProfileInput!) {
 mutation ChangePassword($oldPassword: String!, $newPassword: String!) {
   changePassword(oldPassword: $oldPassword, newPassword: $newPassword) {
     id
+=======
+mutation CreateNewBirthday($input: CreateBirthdayInput!) {
+  createBirthday(createBirthdayInput: $input) {
+    id
+    userId
+    name
+    image
+    relation
+    message
+    date
+    upcomingBirthday
+    upcomingAge
+    createdAt
+    updatedAt
+>>>>>>> a1b3e76 (Add Birthday with Networking)
   }
 }
 

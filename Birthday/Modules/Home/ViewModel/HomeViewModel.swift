@@ -40,6 +40,7 @@ final class HomeViewModel: ObservableObject {
       } receiveValue: { [weak self] birthdayData in
         let birthdayModels = birthdayData.map { BirthdayModel(dto: $0) }
         self?.birthdays = birthdayModels
+        self?.birthdays.append(contentsOf: birthdayModels)
       }
       .store(in: &cancellables)
   }
