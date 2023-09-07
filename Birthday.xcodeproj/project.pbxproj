@@ -128,6 +128,7 @@
 		999384842AA72BC7001454DE /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999384832AA72BC7001454DE /* ChangePasswordView.swift */; };
 		999384862AA751B8001454DE /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999384852AA751B8001454DE /* ChangePasswordViewModel.swift */; };
 		999384882AA874D2001454DE /* UIApplication + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999384872AA874D2001454DE /* UIApplication + Extension.swift */; };
+		99E966872AA9AF7700F2D16E /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E966862AA9AF7700F2D16E /* EmptyStateView.swift */; };
 		99F9E2E12A9393F9004ED89F /* User.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2D92A9393F9004ED89F /* User.graphql.swift */; };
 		99F9E2E22A9393F9004ED89F /* Query.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2DA2A9393F9004ED89F /* Query.graphql.swift */; };
 		99F9E2E32A9393F9004ED89F /* SchemaConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E2DB2A9393F9004ED89F /* SchemaConfiguration.swift */; };
@@ -269,6 +270,7 @@
 		999384832AA72BC7001454DE /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		999384852AA751B8001454DE /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		999384872AA874D2001454DE /* UIApplication + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + Extension.swift"; sourceTree = "<group>"; };
+		99E966862AA9AF7700F2D16E /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		99F9E2D92A9393F9004ED89F /* User.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.graphql.swift; sourceTree = "<group>"; };
 		99F9E2DA2A9393F9004ED89F /* Query.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.graphql.swift; sourceTree = "<group>"; };
 		99F9E2DB2A9393F9004ED89F /* SchemaConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaConfiguration.swift; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 				982CE6942AA6110200EF6678 /* SimpleTextFieldModel.swift */,
 				0C3FB5182AA0BABB00C1CE2F /* UserDefaultsKeys.swift */,
 				999384792AA723FF001454DE /* CustomNavigationBarModifier.swift */,
+				99E966862AA9AF7700F2D16E /* EmptyStateView.swift */,
 			);
 			path = Heplers;
 			sourceTree = "<group>";
@@ -1088,6 +1091,7 @@
 				0164CD132A9B440C0046DEFC /* BirthdayDetailsScreen.swift in Sources */,
 				015DA32B2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift in Sources */,
 				0164CD1D2A9B53850046DEFC /* AddBirthdayScreen.swift in Sources */,
+				99E966872AA9AF7700F2D16E /* EmptyStateView.swift in Sources */,
 				985593962A963BC800A3E76C /* Shop.swift in Sources */,
 				982CE69A2AA7078300EF6678 /* ResetPasswordMutation.graphql.swift in Sources */,
 				985E88802A9DD4550069CB3E /* ShopFilter.graphql.swift in Sources */,

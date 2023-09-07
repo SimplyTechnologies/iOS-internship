@@ -6,6 +6,7 @@ struct ToastView: View {
   
   var body: some View {
     Text(toast.message).frame(maxWidth: .infinity)
+      .font(Font.custom(weight: .regular, size: 18))
       .padding()
       .background(Color.backgroundColor)
       .cornerRadius(30)

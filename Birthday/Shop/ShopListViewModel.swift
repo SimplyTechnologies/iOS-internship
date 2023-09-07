@@ -26,6 +26,10 @@ class ShopListViewModel: ObservableObject {
     }
   }
   
+  init() {
+    getShops(shopFilter: Api.ShopFilter())
+  }
+  
   func getShops(shopFilter: Api.ShopFilter) {
     isLoading = true
     shopsRepository.getShops(shopFilter: shopFilter)

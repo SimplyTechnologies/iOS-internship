@@ -36,6 +36,7 @@ class BirthdayDetailsViewModel: ObservableObject {
         }
       } receiveValue: { deleted in
         print(deleted)
+        HomeViewModel.updateStatusSubject.send()
       }
       .store(in: &cancellables)
   }
