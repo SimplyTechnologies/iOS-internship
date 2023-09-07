@@ -1,7 +1,6 @@
 
 enum Regexes {
   
-  #warning("Сделать regex для пароля на содержание специального символа")
   static let matchFormat = "SELF MATCHES %@"
   static let containtFormat = "SELF CONTAINS %@"
   

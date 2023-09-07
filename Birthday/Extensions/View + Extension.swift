@@ -21,7 +21,6 @@ extension View {
     )
   }
   
-  
   func toast(
     message: String,
     isPresented: Binding<Bool>

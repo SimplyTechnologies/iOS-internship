@@ -11,6 +11,7 @@ final class SignInViewModel: ObservableObject {
   @Published var hasUserLoggedIn: Bool = false
   @Published var isButtonDisabled: Bool = true
   @Published var isLoading: Bool = false
+  @Published var hasError: Bool = false
     
   private let storeManager = StoreManager.shared
   private let accessToken = AccessToken.shared
@@ -19,15 +20,12 @@ final class SignInViewModel: ObservableObject {
   private let signInRepository = SignInRepositoryImpl()
   private var cancellables = Set<AnyCancellable>()
   
-  @Published var textFields: [TextFieldModel] = []
-  
-  var hasError: Bool = false
-  
   init() {
-    textFields = [email, password]
-    
+    presetEmailTextField()
+  }
+  
+  private func presetEmailTextField() {
     email.text = storeManager.getStringObject(for: UserDefaultsKeys.email.rawValue)
-    
     storeManager.removeObject(for: UserDefaultsKeys.email.rawValue)
   }
   
@@ -137,7 +135,6 @@ final class SignInViewModel: ObservableObject {
       isButtonDisabled = false
     }
   }
-  
 
   func checkTextFieldAndSetButton(
     by textField: TextFieldPlaceholders

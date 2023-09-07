@@ -26,5 +26,5 @@ enum TextFieldPlaceholders: Int, CaseIterable, Identifiable {
     }
   }
   
-  static let signINCases = [Self.email,Self.password]
+  static let signInCases = [Self.email, Self.password]
 }

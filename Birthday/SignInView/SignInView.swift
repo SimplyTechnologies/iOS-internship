@@ -8,7 +8,6 @@ struct SignInView: View {
   @State private var checked: Bool = false
   @State private var isPasswordHidden: Bool = true
   
-  
   var body: some View {
     let textFields: [
       Binding<TextFieldModel>
@@ -32,7 +31,7 @@ struct SignInView: View {
           
           // MARK: - TextFields
           VStack(spacing: 0) {
-            ForEach(Array(TextFieldPlaceholders.signINCases.enumerated()), id: \.element) { index, placeholder in              
+            ForEach(Array(TextFieldPlaceholders.signInCases.enumerated()), id: \.element) { index, placeholder in
               ValidationTextField(
                 placeholder: placeholder.description,
                 text: textFields[index].text,
@@ -102,14 +101,6 @@ struct SignInView: View {
           )
           .padding(.horizontal, 62)
           .disabled(viewModel.isButtonDisabled)
-          .alert(
-            AlertTitles.authorizationError,
-            isPresented: $viewModel.hasError
-          ) {
-            Button(ButtonTitles.ok, role: .cancel) {}
-          } message: {
-            Text(NetworkError.authorizationFailure.description)
-          }
           .padding(.bottom, 20)
         }
         .background(Color.white)
@@ -129,6 +120,11 @@ struct SignInView: View {
     .onTapGesture {
       UIApplication.shared.endEditing()
     }
+    .customAlert(
+      title: AlertTitles.authorizationError,
+      message: NetworkError.authorizationFailure.description,
+      isPresented: $viewModel.hasError
+    )
   }
   
 }

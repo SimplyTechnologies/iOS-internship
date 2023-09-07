@@ -93,42 +93,6 @@ final class RegisterViewModel: ObservableObject {
     }
   }
   
-  func fakeRegistration(result: Result<Bool, Error>) {
-    switch result {
-    case .success:
-      registrationError = (false, .emptyString)
-
-      storeManager.setValue(
-        true, for: UserDefaultsKeys.isLoggedInOnce.rawValue
-      )
-      
-      storeManager.setValue(email.text, for: UserDefaultsKeys.email.rawValue)
-      
-      print(storeManager.getBoolObject(
-        for: UserDefaultsKeys.isLoggedInOnce.rawValue
-      ))
-      
-      hasUserRegistered = true
-      
-      if hasUserRegistered {
-        showToast()
-      } else {
-        toastIsHidden = true
-      }
-      
-      
-      isLoading = false
-      
-    case .failure(let failure):
-      print("REGISTRATION ERROR", failure)
-      
-      
-      
-      alertIsPresented = true
-    }
-    
-  }
-  
   func registration() {
     registerRepository.signUp(
       payload:
@@ -149,8 +113,6 @@ final class RegisterViewModel: ObservableObject {
         hasUserRegistered = false
         isLoading = false
         hapticManager.callHaptic(with: .error, and: .medium)
-        
-        print("REGISTRATION ERROR", error)
       case .finished:
         break
       }
@@ -245,7 +207,5 @@ final class RegisterViewModel: ObservableObject {
       self.toastIsHidden = true
     }
   }
-  
-  
   
 }

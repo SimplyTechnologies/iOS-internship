@@ -91,7 +91,7 @@ struct RegisterView: View {
             } label: {
               Text(Titles.register)
                 .onTapGesture {
-                  viewModel.registration() //viewModel.fakeRegistration(result: .failure(NetworkError.registrationError))
+                  viewModel.registration()
                   viewModel.isLoading = true
                 }
             }
@@ -132,10 +132,6 @@ struct RegisterView: View {
 
       Spacer()
     }
-//    .toast(
-//      message: viewModel.registrationError.1,
-//      isPresented: $viewModel.registrationError.0
-//    )
     .customAlert(
       title: AlertTitles.registrationError,
       message: NetworkError.registrationError.description,
@@ -155,15 +151,10 @@ struct RegisterView: View {
 }
 
 struct RegisterView_Previews: PreviewProvider {
-
+  
   static var previews: some View {
-    Group {
-//      RegisterView()
-//        .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
-
-      RegisterView()
-        .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
-    }
+    RegisterView()
+      .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
   }
 
 }

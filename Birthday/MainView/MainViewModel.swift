@@ -5,10 +5,6 @@ import Foundation
 final class MainViewModel: ObservableObject {
   
   static var loginStatusSubject = PassthroughSubject<Bool, Never>()
-  
-//  @Published var landingViewModel = LandingViewModel()
-//  @Published var signInViewModel = SignInViewModel()
-//  @Published var registerViewModel = RegisterViewModel()
 
   @Published var isAuthorized = false
   
