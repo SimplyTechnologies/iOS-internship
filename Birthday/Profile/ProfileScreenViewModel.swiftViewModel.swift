@@ -87,7 +87,7 @@ class ProfileScreenViewModel: ObservableObject {
   func signOut() {
     storeManager.removeObject(for: UserDefaultsKeys.token.rawValue)
     storeManager.removeObject(for: UserDefaultsKeys.tokenCreationDate.rawValue)
-    MainViewModel.LoginStatusSubject.send(false)
+    MainViewModel.loginStatusSubject.send(false)
   }
   
 }

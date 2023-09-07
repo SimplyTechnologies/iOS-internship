@@ -1,22 +1,24 @@
 
-import Foundation
 import Combine
+import Foundation
 
 final class MainViewModel: ObservableObject {
   
-  static var LoginStatusSubject = PassthroughSubject<Bool, Never>()
+  static var loginStatusSubject = PassthroughSubject<Bool, Never>()
 
-  @Published var isLogged = false
+  @Published var isAuthorized = false
+  
   private let storeManager = StoreManager.shared
-  private var LoginStatusPublisher: AnyPublisher<Bool, Never> = {
-    LoginStatusSubject.eraseToAnyPublisher()
+  private var loginStatusPublisher: AnyPublisher<Bool, Never> = {
+    loginStatusSubject.eraseToAnyPublisher()
   }()
   private var cancellable = Set<AnyCancellable>()
   
   init() {
     isTokenExists()
-    LoginStatusPublisher.sink { isLogin in
-      self.isLogged = isLogin
+    
+    loginStatusPublisher.sink { isLogin in
+      self.isAuthorized = isLogin
     }
     .store(in: &cancellable)
   }
@@ -27,7 +29,7 @@ final class MainViewModel: ObservableObject {
         for: UserDefaultsKeys.tokenCreationDate.rawValue
       ) as? Date
     else {
-      isLogged = false
+      isAuthorized = false
       return
     }
     
@@ -36,11 +38,11 @@ final class MainViewModel: ObservableObject {
       .numberOfDaysBetween(tokenCreateDate, and: currentDate)
     
     if numberOfDays <= 90 {
-      isLogged = true
+      isAuthorized = true
     } else {
       storeManager.removeObject(for: UserDefaultsKeys.token.rawValue)
       storeManager.removeObject(for: UserDefaultsKeys.tokenCreationDate.rawValue)
-      isLogged = false
+      isAuthorized = false
     }
   }
   

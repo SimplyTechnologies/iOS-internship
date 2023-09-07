@@ -6,12 +6,10 @@ struct MainView: View {
   @StateObject private var viewModel = MainViewModel()
   
   var body: some View {
-    if viewModel.isLogged {
+    if viewModel.isAuthorized {
       TabBarView()
     } else {
-      NavigationView {
-        LandingView()
-      }
+      LandingView()
     }
   }
   

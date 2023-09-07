@@ -4,79 +4,70 @@ import SwiftUI
 struct SignInView: View {
   
   @StateObject private var viewModel = SignInViewModel()
-  @State private var checked: Bool = false
   @FocusState private var focusField: TextFieldPlaceholders?
-  @GestureState private var dragOffset = CGSize.zero
+  @State private var checked: Bool = false
+  @State private var isPasswordHidden: Bool = true
   
   var body: some View {
+    let textFields: [
+      Binding<TextFieldModel>
+    ] = [
+      $viewModel.email,
+      $viewModel.password
+    ]
+    
     ZStack {
       Color.backgroundColor
         .ignoresSafeArea()
       
       VStack {
-        
         Spacer()
         
-        VStack {
+        VStack(spacing: 20) {
           
           // MARK: - Title
           TitleText(title: Titles.signIn, size: 20)
-            .padding(.top, 15)
-            .padding(.bottom, 25)
+            .padding(.top, 20)
           
           // MARK: - TextFields
           VStack(spacing: 0) {
-            
-            // MARK: Email
-            ValidationTextField(
-              placeholder: TextFieldPlaceholders.email.rawValue,
-              text: $viewModel.email.text,
-              hasError: $viewModel.email.error,
-              isAutocapitalization: false
-            )
-            .keyboardType(.emailAddress)
-            .padding(.bottom, viewModel.email.error.0 ? 5 : 30)
-            .onAppear {
-              viewModel.getEmailFromStore()
-            }
-            .onChange(of: viewModel.email.text) { _ in
-              viewModel.trimCharacterOverflow()
-              viewModel.checkFieldAndSetButton(by: .email)
-            }
-            .focused($focusField, equals: .email)
-            .submitLabel(.next)
-            .onSubmit {
-              focusField = .password
-            }
-            
-            // MARK: Password
-            ValidationTextField(
-              placeholder: TextFieldPlaceholders.password.rawValue,
-              text: $viewModel.password.text,
-              hasError: $viewModel.password.error,
-              isSecure: true
-            )
-            .padding(.bottom, viewModel.password.error.0 ? 5 : 30)
-            .onAppear {
-              viewModel.getEmailFromStore()
-            }
-            .onChange(of: viewModel.password.text) { _ in
-              viewModel.checkFieldAndSetButton(by: .password)
-            }
-            .focused($focusField, equals: .password)
-            .submitLabel(.done)
-            .onSubmit {
-              focusField = nil
+            ForEach(Array(TextFieldPlaceholders.signInCases.enumerated()), id: \.element) { index, placeholder in
+              ValidationTextField(
+                placeholder: placeholder.description,
+                text: textFields[index].text,
+                errorMessage: textFields[index].wrappedValue.errorMessage,
+                isAutocapitalization: placeholder == .email ? false : true,
+                isSecure: placeholder == .password,
+                isPasswordHidden: $isPasswordHidden,
+                submitLabel: placeholder == .password ? .done : .next
+              )
+              .keyboardType(placeholder == .email ? .emailAddress : .default)
+              .textContentType(placeholder == .email ? .emailAddress : .oneTimeCode)
+              .onChange(of: textFields[index].wrappedValue.text) { _ in
+                if placeholder == .email {
+                  viewModel.trimCharacterOverflow()
+                }
+                
+                viewModel.checkTextFieldAndSetButton(by: placeholder)
+              }
+              .focused($focusField, equals: placeholder)
+              .onSubmit {
+                if placeholder == .password {
+                  focusField = nil
+                } else {
+                  focusField = TextFieldPlaceholders(rawValue: index + 3)
+                }
+              }
             }
             
             HStack(alignment: .center) {
               // MARK: Remember Me Button
               Button {
-                viewModel.isChecked.toggle()
+                viewModel.isCheckboxChecked.toggle()
               } label: {
                 ZStack(alignment: .center) {
                   Color.secondaryColor
-                  viewModel.isChecked ? Image(Images.checkMark.rawValue) : nil
+                  viewModel.isCheckboxChecked ? Image(Images.checkMark.rawValue) : nil
                 }
               }
               .frame(width: 18, height: 18)
@@ -97,32 +88,20 @@ struct SignInView: View {
             }
           }
           .padding(.horizontal, 23)
-          .padding(.bottom, 18)
           
           // MARK: - Sign In button
-          Button(action: {
+          Button {
             viewModel.signIn()
-          }, label: {
+            viewModel.isLoading = true
+          } label: {
             Text(ButtonTitles.signIn)
-              .onTapGesture {
-                viewModel.isLoading = true
-                viewModel.signIn()
-              }
-          })
+          }
           .buttonStyle(
-            FullRoundedButtonStyle(isDisable: viewModel.isDisable)
+            FullRoundedButtonStyle(isDisable: viewModel.isButtonDisabled)
           )
           .padding(.horizontal, 62)
-          .padding(.bottom, 26)
-          .disabled(viewModel.isDisable)
-          .alert(
-            AlertTitles.authorizationError,
-            isPresented: $viewModel.hasError
-          ) {
-            Button(ButtonTitles.ok, role: .cancel) {}
-          } message: {
-            Text(NetworkError.validationFailure.description)
-          }
+          .disabled(viewModel.isButtonDisabled)
+          .padding(.bottom, 20)
         }
         .background(Color.white)
         .cornerRadius(24)
@@ -135,12 +114,17 @@ struct SignInView: View {
       if viewModel.isLoading {
         LoadingIndicator()
       }
+      
     }
     .navigationBar()
     .onTapGesture {
       UIApplication.shared.endEditing()
     }
-    .accentColor(Color.primaryColor)
+    .customAlert(
+      title: AlertTitles.authorizationError,
+      message: NetworkError.authorizationFailure.description,
+      isPresented: $viewModel.hasError
+    )
   }
   
 }

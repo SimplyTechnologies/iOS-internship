@@ -3,44 +3,51 @@ import SwiftUI
 
 struct ValidationTextField: View {
   
-  @State private var isPasswordHidden: Bool = true
+  @Binding var isPasswordHidden: Bool
+
   private let placeholder: String
   private let text: Binding<String>
-  private let hasError: Binding<(Bool, message: String?)>
+  private let errorMessage: String
   private let isAutocapitalization: Bool
+  private let submitLabel: SubmitLabel
   private var isSecure: Bool
   
   init(
     placeholder: String,
     text: Binding<String>,
-    hasError: Binding<(Bool, message: String?)>,
+    errorMessage: String,
+    isAutocapitalization: Bool = true,
     isSecure: Bool = false,
-    isAutocapitalization: Bool = true
+    isPasswordHidden: Binding<Bool>,
+    submitLabel: SubmitLabel = .next
   ) {
     self.placeholder = placeholder
     self.text = text
-    self.hasError = hasError
-    self.isSecure = isSecure
+    self.errorMessage = errorMessage
     self.isAutocapitalization = isAutocapitalization
+    self.isSecure = isSecure
+    self._isPasswordHidden = isPasswordHidden
+    self.submitLabel = submitLabel
   }
   
   var body: some View {
-    VStack(alignment: .leading, spacing: 5) {
+    VStack(alignment: .leading, spacing: 0) {
       HStack {
         if isPasswordHidden && isSecure {
           SecureField(placeholder, text: text)
             .textFieldStyle(
               ValidationTextFieldStyle(
-                isError: hasError.wrappedValue.0,
-                isAutocapitalization: false
+                isAutocapitalization: false,
+                submitLabel: submitLabel
               )
             )
+            
         } else {
           TextField(placeholder, text: text)
             .textFieldStyle(
               ValidationTextFieldStyle(
-                isError: hasError.wrappedValue.0,
-                isAutocapitalization: isAutocapitalization && !isSecure
+                isAutocapitalization: isAutocapitalization && !isSecure,
+                submitLabel: submitLabel
               )
             )
         }
@@ -58,11 +65,11 @@ struct ValidationTextField: View {
         }
       }
       .background(
-        hasError.wrappedValue.0 ? Color.errorBackgroundColor : Color.backgroundColor
+        errorMessage.isEmpty ? Color.backgroundColor : Color.errorBackgroundColor
       )
       .cornerRadius(13)
       .overlay {
-        if hasError.wrappedValue.0 {
+        if !errorMessage.isEmpty {
           RoundedCornersRectangle(
             corners: .allCorners,
             radius: 13
@@ -73,14 +80,10 @@ struct ValidationTextField: View {
           )
         }
       }
-
-      // MARK: Error message
-      if hasError.wrappedValue.0, let errorMessage = hasError.wrappedValue.message {
-        ErrorMessageText(errorMessage)
-      }
+      
+      ErrorMessageText(errorMessage)
     }
-    .animation(.easeInOut, value: hasError.wrappedValue.0)
-
+    .animation(.easeInOut, value: errorMessage)
   }
   
 }

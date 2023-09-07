@@ -1,10 +1,30 @@
 
-enum TextFieldPlaceholders: String {
+enum TextFieldPlaceholders: Int, CaseIterable, Identifiable {
   
-  case name = "Name"
-  case surname = "Surname"
-  case email = "Email"
-  case password = "Password"
-  case repeatPassword = "Repeat password"
+  var id: Int {
+    self.rawValue
+  }
   
+  case name = 0
+  case surname
+  case email
+  case password
+  case repeatedPassword
+  
+  var description: String {
+    switch self {
+    case .name:
+      return "Name"
+    case .surname:
+      return "Surname"
+    case .email:
+      return "Email"
+    case .password:
+      return "Password"
+    case .repeatedPassword:
+      return "Repeat password"
+    }
+  }
+  
+  static let signInCases = [Self.email, Self.password]
 }

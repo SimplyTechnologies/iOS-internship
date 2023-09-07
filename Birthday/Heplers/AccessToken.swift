@@ -1,5 +1,5 @@
 
-import Foundation
+import Foundation.NSDate
 
 struct AccessToken {
   

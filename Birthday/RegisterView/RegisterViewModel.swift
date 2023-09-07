@@ -1,4 +1,5 @@
 
+import Combine
 import Foundation
 
 final class RegisterViewModel: ObservableObject {
@@ -7,200 +8,194 @@ final class RegisterViewModel: ObservableObject {
   @Published var surname = TextFieldModel()
   @Published var email = TextFieldModel()
   @Published var password = TextFieldModel()
-  @Published var repeatPassword = TextFieldModel()
+  @Published var repeatedPassword = TextFieldModel()
   
-  @Published var isDisable: Bool = true
-  @Published var isLoading: Bool = true
-  @Published var hasRegistrationError: Bool = false
+  @Published var isButtonDisabled: Bool = true
+  @Published var isLoading: Bool = false
+  @Published var hasUserRegistered: Bool = false
+  @Published var alertIsPresented: Bool = false
   @Published var toastIsHidden: Bool = true
-  
-  var testToggle: Bool = false // TODO: УБРАТЬ!!!!!!!!!!!
-  
+  @Published var registrationError: (Bool, String) = (false, .emptyString)
+    
   private let storeManager = StoreManager.shared
-  let toast = Toast(
-    message: ToastTitles.successMessage,
-    isSuccess: true
-  )
-  
-  private func checkName() {
-    guard !name.text.isEmpty else {
-      name.error = (true, LocalError.emptyName.description)
-      return
-    }
+  private let hapticManager = HapticManager.shared
+  private let registerRepository = RegisterRepositoryImpl()
+  private var cancellable = Set<AnyCancellable>()
     
-    guard name.text.count >= 2 else {
-      name.error = (true, LocalError.shortName.description)
-      return
-    }
-    
-    guard NSPredicate(
-      format: Regexes.matchFormat,
-      Regexes.name.regex
-    )
-      .evaluate(with: name.text)
-    else {
-      name.error = (true, LocalError.invalidName.description)
-      return
-    }
-    
-    name.error = (false, nil)
-  }
-  
-  private func checkSurname() {
-    guard !surname.text.isEmpty else {
-      surname.error = (true, LocalError.emptySurname.description)
-      return
-    }
-    
-    guard surname.text.count >= 2 else {
-      surname.error = (true, LocalError.shortSurname.description)
-      return
-    }
-    
-    guard NSPredicate(
-      format: Regexes.matchFormat,
-      Regexes.name.regex
-    )
-      .evaluate(with: surname.text)
-    else {
-      surname.error = (true, LocalError.invalidSurname.description)
-      return
-    }
-    
-    surname.error = (false, nil)
-  }
-  
-  private func checkEmail() {
-    guard !email.text.isEmpty else {
-      email.error = (true, LocalError.emptyEmail.description)
-      return
-    }
-    
-    guard NSPredicate(
-      format: Regexes.matchFormat,
-      Regexes.email.regex
-    )
-      .evaluate(with: email.text)
-    else {
-      email.error = (true, LocalError.invalidEmail.description)
-      return
-    }
-    
-    email.error = (false, nil)
-  }
-  
-  private func checkPassword() {
-    guard !password.text.isEmpty else {
-      password.error = (true, LocalError.emptyPassword.description)
-      return
-    }
-    
-    guard password.text.count >= 8 else {
-      password.error = (true, LocalError.shortPassword.description)
-      return
-    }
-    
-    guard NSPredicate(
-      format: Regexes.matchFormat,
-      Regexes.password.regex
-    )
-      .evaluate(with: password.text)
-    else {
-      password.error = (true, LocalError.invalidPassword.description)
-      return
-    }
-    
-    // If password was edited
-    checkRepeatedPassword()
-    
-    password.error = (false, nil)
-  }
-  
-  private func checkRepeatedPassword() {
-    guard repeatPassword.text == password.text else {
-      repeatPassword.error = (true, LocalError.passwordMatch.description)
-      return
-    }
-    
-    repeatPassword.error = (false, nil)
-  }
-  
-  private func saveUserEmail() {
-    storeManager.setValue(email.text.lowercased(), for: UserDefaultsKeys.email.rawValue)
-  }
-  
-  func registration() {
-    // get response
-    
-    testToggle.toggle()
-    
-    if testToggle {
-      showToast()
-      saveUserEmail()
-    } else {
-      toastIsHidden = true
-    }
-    
-  }
-  
-  func setButtonState() {
+  private func setButtonState() {
     if name.text.isEmpty
       || surname.text.isEmpty
       || email.text.isEmpty
       || password.text.isEmpty
-      || repeatPassword.text.isEmpty
+      || repeatedPassword.text.isEmpty
         
-      || name.error.0
-      || surname.error.0
-      || email.error.0
-      || password.error.0
-      || repeatPassword.error.0 {
-      isDisable = true
+      || !name.errorMessage.isEmpty
+      || !surname.errorMessage.isEmpty
+      || !email.errorMessage.isEmpty
+      || !password.errorMessage.isEmpty
+      || !repeatedPassword.errorMessage.isEmpty {
+      isButtonDisabled = true
     } else {
-      isDisable = false
+      isButtonDisabled = false
     }
   }
   
-  func checkTextField(by field: TextFieldPlaceholders) {
-    switch field {
+  private func check(
+    textField: inout TextFieldModel,
+    minCharLimit: Int? = nil,
+    regexType: Regexes,
+    errorMessage: (
+      isEmpty: LocalError,
+      isShort: LocalError?,
+      isInvalid: LocalError
+    )
+  ) {
+    guard !textField.text.isEmpty
+    else {
+      textField.errorMessage = errorMessage.isEmpty.description
+      return
+    }
+    
+    if regexType != .email {
+      guard let minCharLimit = minCharLimit,
+            textField.text.checkMinimumLength(with: minCharLimit)
+      else {
+        textField.errorMessage = errorMessage.isShort?.description ?? .emptyString
+        return
+      }
+    }
+    
+    guard textField.text.isValidWith(regexType: regexType)
+    else {
+      textField.errorMessage = errorMessage.isInvalid.description
+      return
+    }
+    
+    if textField == password {
+      checkPasswordMatching()
+    }
+    
+    textField.errorMessage = .emptyString
+  }
+  
+  private func checkPasswordMatching() {
+    guard repeatedPassword.text == password.text else {
+      repeatedPassword.errorMessage = LocalError.passwordMatch.description
+      return
+    }
+
+    repeatedPassword.errorMessage = .emptyString
+  }
+  
+  func resetRepeatedPasswordIfNeeded() {
+    if password.text != repeatedPassword.text {
+      repeatedPassword.text = .emptyString
+    }
+  }
+  
+  func registration() {
+    registerRepository.signUp(
+      payload:
+        Api.SignUpInput(
+          email: email.text,
+          firstName: name.text,
+          lastName: surname.text,
+          password: password.text
+        )
+    )
+    .receive(on: DispatchQueue.main)
+    .sink { [weak self] result in
+      guard let self else { return }
+      
+      switch result {
+      case .failure(let error):
+        registrationError = (true, error.localizedDescription)
+        hasUserRegistered = false
+        isLoading = false
+        hapticManager.callHaptic(with: .error, and: .medium)
+      case .finished:
+        break
+      }
+    } receiveValue: { [weak self] _ in
+      guard let self else { return }
+      
+      registrationError = (false, .emptyString)
+      
+      storeManager.setValue(
+        true, for: UserDefaultsKeys.isLoggedInOnce.rawValue
+      )
+      
+      storeManager.setValue(email.text, for: UserDefaultsKeys.email.rawValue)
+      
+      MainViewModel.loginStatusSubject.send(false)
+      
+      hasUserRegistered = true
+      
+      isLoading = false
+      hapticManager.callHaptic(with: .success, and: .medium)
+    }
+    .store(in: &cancellable)
+    
+    if hasUserRegistered {
+      showToast()
+    } else {
+      toastIsHidden = true
+    }
+  }
+  
+  func checkTextField(by textField: TextFieldPlaceholders) {
+    switch textField {
     case .name:
-      self.checkName()
+      name.text = name.text.cutTailIfLimitExceeded(with: 20)
+      self.check(
+        textField: &name,
+        minCharLimit: 2,
+        regexType: .name,
+        errorMessage: (
+          isEmpty: .emptyName,
+          isShort: .shortName,
+          isInvalid: .invalidName
+        )
+      )
     case .surname:
-      self.checkSurname()
+      surname.text = surname.text.cutTailIfLimitExceeded(with: 20)
+      self.check(
+        textField: &surname,
+        minCharLimit: 2,
+        regexType: .name,
+        errorMessage: (
+          isEmpty: .emptySurname,
+          isShort: .shortSurname,
+          isInvalid: .invalidSurname
+        )
+      )
     case .email:
-      self.checkEmail()
+      email.text = email.text.cutTailIfLimitExceeded(with: 60)
+      self.check(
+        textField: &email,
+        regexType: .email,
+        errorMessage: (
+          isEmpty: .emptyEmail,
+          isShort: .none,
+          isInvalid: .invalidEmail
+        )
+      )
     case .password:
-      self.checkPassword()
-    case .repeatPassword:
-      self.checkRepeatedPassword()
+      self.check(
+        textField: &password,
+        minCharLimit: 8,
+        regexType: .password,
+        errorMessage: (
+          isEmpty: .emptyPassword,
+          isShort: .shortPassword,
+          isInvalid: .invalidPassword
+        )
+      )
+    case .repeatedPassword:
+      checkPasswordMatching()
     }
     
     setButtonState()
-  }
-  
-  // Checking email maximum length
-  func checkLength(by field: TextFieldPlaceholders) {
-    let charLimit: Int
-    
-    switch field {
-    case .name:
-      charLimit = 20
-      if name.text.count > charLimit {
-        name.text = String(name.text.prefix(charLimit))
-      }
-    case .surname:
-      charLimit = 20
-      if surname.text.count > charLimit {
-        surname.text = String(surname.text.prefix(charLimit))
-      }
-    case .email:
-      charLimit = 60
-      if email.text.count > charLimit {
-        email.text = String(email.text.prefix(charLimit))
-      }
-    default:
-      break
-    }
   }
   
   func showToast() {
@@ -208,9 +203,8 @@ final class RegisterViewModel: ObservableObject {
     
     DispatchQueue.main.asyncAfter(
       deadline: .now() + 3
-    ) { [weak self] in
-      guard let self else { return }
-        self.toastIsHidden = true
+    ) {
+      self.toastIsHidden = true
     }
   }
   

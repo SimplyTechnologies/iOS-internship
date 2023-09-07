@@ -16,7 +16,7 @@ struct ErrorMessageText: View {
       .font(Font.custom(weight: .bold, size: 12))
       .foregroundColor(Color.errorColor)
       .multilineTextAlignment(.leading)
-      .frame(height: 20, alignment: .leading)
+      .frame(height: 30, alignment: .leading)
       .offset(x: 5)
   }
   
