@@ -1,8 +1,9 @@
 
-import Foundation
 import Combine
+import Foundation
 
 final class ForgotPasswordViewModel: ObservableObject {
+  
   @Published var email = SimpleTextFieldModel()
   @Published var hasError: (Bool, message: String?) = (false, nil)
   @Published var passwordCode: String = ""
@@ -12,6 +13,12 @@ final class ForgotPasswordViewModel: ObservableObject {
   @Published var isLoading: Bool = false
   @Published var toasts: [Toast] = []
   @Published var isVerificationCodeViewVisible = false
+  @Published var codeText = ""
+  @Published var isPasswordHidden = true
+  
+  var isCodeMatched: Bool {
+    codeText == passwordCode
+  }
   
   private var cancellables: Set<AnyCancellable> = []
   private var verificationCode: String?

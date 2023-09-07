@@ -12,45 +12,46 @@ struct NewPasswordView: View {
   }
   
   var body: some View {
-    NavigationView {
-      ZStack {
-        Color.backgroundColor
-          .ignoresSafeArea()
+    ZStack {
+      Color.backgroundColor
+        .ignoresSafeArea()
+      
+      VStack(alignment: .leading, spacing: 0) {
+        SimpleTextField(
+          title: "New Password",
+          placeholder: "",
+          text: $viewModel.password.text,
+          errorMessage: viewModel.password.errorMessage,
+          isAutocapitalization: false,
+          isSecure: true,
+          isPasswordHidden: $isPasswordHidden, submitLabel: .next
+        )
+        .shadow(
+          color: Color.gray.opacity(0.3),
+          radius: 0.5, x: 0.5, y: 0.5
+        )
+        .accentColor(.primaryColor)
+        .padding(.top, 100)
         
-        VStack(alignment: .leading, spacing: 0) {
-          SimpleTextField(
-            title: "New Password",
-            placeholder: "",
-            text: $viewModel.password.text,
-            errorMessage: viewModel.password.errorMessage,
-            isAutocapitalization: false,
-            isSecure: true,
-            isPasswordHidden: $isPasswordHidden, submitLabel: .next
-          )
-          .shadow(
-            color: Color.gray.opacity(0.3),
-            radius: 0.5, x: 0.5, y: 0.5
-          )
-          .accentColor(.primaryColor)
-          .padding(.top, 100)
-          
-          SimpleTextField(
-            title: "Repeat New Password",
-            placeholder: "",
-            text: $viewModel.repeatedPassword.text,
-            errorMessage: viewModel.repeatedPassword.errorMessage,
-            isAutocapitalization: false,
-            isSecure: true,
-            isPasswordHidden: $isPasswordHidden,
-            submitLabel: .done
-          )
-          .shadow(
-            color: Color.gray.opacity(0.3),
-            radius: 0.5, x: 0.5, y: 0.5
-          )
-          .accentColor(.primaryColor)
+        SimpleTextField(
+          title: "Repeat New Password",
+          placeholder: "",
+          text: $viewModel.repeatedPassword.text,
+          errorMessage: viewModel.repeatedPassword.errorMessage,
+          isAutocapitalization: false,
+          isSecure: true,
+          isPasswordHidden: $isPasswordHidden,
+          submitLabel: .done
+        )
+        .shadow(
+          color: Color.gray.opacity(0.3),
+          radius: 0.5, x: 0.5, y: 0.5
+        )
+        .accentColor(.primaryColor)
+        Spacer()
+        
+        HStack {
           Spacer()
-          
           Button(action: {
             viewModel.resetPassword()
           }) {
@@ -59,44 +60,46 @@ struct NewPasswordView: View {
                 Font.custom(weight: .bold, size: 18)
               )
               .foregroundColor(.white)
-              .frame(width: 100, height: 41)
+              .frame(width: 100.0, height: 41.0)
               .background(Color.primaryColor)
               .cornerRadius(10)
-              .padding(.horizontal, 100)
-              .padding(.bottom, 20)
           }
-          Spacer()
+          .padding(.bottom, 75)
           NavigationLink(
             destination: SignInView(),
             isActive: $viewModel.isPasswordUpdated,
             label: {}
           )
           .opacity(0)
-          
-        }
-        .padding(.horizontal, 37)
-        
-        VStack {
           Spacer()
-          ForEach(viewModel.toasts, id: \.self) {
-            ToastView(toast: $0)
-              .transition(
-                .asymmetric(insertion: .move(edge: .bottom), removal: .opacity))
+        }
+      }
+      .padding(.horizontal, 37)
+      .alert(isPresented: $viewModel.showAlert) {
+        Alert(
+          title: Text(
+            "The code you entered was not correct. Please double-check the code and try again."
+          ),
+          dismissButton: .default(
+            Text("OK")
+          ) {
+            mode.wrappedValue.dismiss()
           }
-        }
-      }
-      .animation(.easeInOut, value: viewModel.toasts.count)
-      .zIndex(1)
-      
-    }
-    .onChange(of: viewModel.codeError.message) { _ in
-      // swiftlint:disable:next line_length
-      if viewModel.codeError.message == "Reset Password Hash expired. Please try to reset again." {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-          mode.wrappedValue.dismiss()
-        }
+        )
       }
     }
+  }
+  
+}
+
+struct NewPasswordView_Previews: PreviewProvider {
+  
+  static var previews: some View {
+    NewPasswordView(viewModel: NewPasswordViewModel(
+      signInRepository: SignInRepositoryImpl(),
+      hash: "",
+      email: "")
+    )
   }
   
 }

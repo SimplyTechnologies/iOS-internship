@@ -1,15 +1,15 @@
 
-import Foundation
 import Combine
+import Foundation
 
 final class NewPasswordViewModel: ObservableObject {
   
   @Published var password = SimpleTextFieldModel()
   @Published var repeatedPassword = SimpleTextFieldModel()
   @Published var isPasswordUpdated = false
-  @Published var toasts: [Toast] = []
   @Published var passwordError: (Bool, message: String?) = (false, message: nil)
   @Published var codeError: (Bool, message: String?) = (false, message: nil)
+  @Published var showAlert: Bool = false
   var repeatedPasswordError: (Bool, message: String?) = (false, message: nil)
   private var cancellables: Set<AnyCancellable> = []
   private let signInRepository: SignInRepository
@@ -24,22 +24,6 @@ final class NewPasswordViewModel: ObservableObject {
     self.signInRepository = signInRepository
     self.hash = hash
     self.email = email
-  }
-  
-  func showToast(message: String) {
-    let toast = Toast(
-      message: message,
-      isSuccess: true
-    )
-    toasts.append(toast)
-    DispatchQueue.main.asyncAfter(
-      deadline: .now() + toast.duration
-    ) {
-      if let index = self.toasts.firstIndex(
-        where: { $0 == toast }) {
-        self.toasts.remove(at: index)
-      }
-    }
   }
   
   func resetPassword() {
@@ -69,11 +53,7 @@ final class NewPasswordViewModel: ObservableObject {
             self?.repeatedPassword.errorMessage = self?.repeatedPasswordError.message ?? ""
           }
         } else {
-          self?.codeError.message = error.localizedDescription
-          self?.showToast(
-            // swiftlint:disable:next line_length
-            message: "The code you entered was not correct. Please double-check the code and try again."
-          )
+          self?.showAlert = true
         }
       }
     } receiveValue: { _ in
@@ -83,11 +63,17 @@ final class NewPasswordViewModel: ObservableObject {
   
   private func checkPassword() {
     guard !password.text.isEmpty else {
-      self.passwordError = (true, LocalError.emptyPassword.description)
+      self.passwordError = (
+        true,
+        LocalError.emptyPassword.description
+      )
       return
     }
     guard password.text.count >= 8 else {
-      self.passwordError = (true, LocalError.shortPassword.description)
+      self.passwordError = (
+        true,
+        LocalError.shortPassword.description
+      )
       return
     }
     guard NSPredicate(
@@ -96,7 +82,10 @@ final class NewPasswordViewModel: ObservableObject {
     )
       .evaluate(with: password.text)
     else {
-      self.passwordError = (true, LocalError.invalidPassword.description)
+      self.passwordError = (
+        true,
+        LocalError.invalidPassword.description
+      )
       return
     }
     checkRepeatedPassword()
@@ -105,8 +94,10 @@ final class NewPasswordViewModel: ObservableObject {
   
   private func checkRepeatedPassword() {
     guard repeatedPassword.text == password.text else {
-      self.repeatedPasswordError = (true,
-                                    LocalError.passwordMatch.description)
+      self.repeatedPasswordError = (
+        true,
+        LocalError.passwordMatch.description
+      )
       return
     }
     self.repeatedPasswordError = (false, nil)

@@ -1,16 +1,12 @@
+
 import SwiftUI
 
 struct ForgotPasswordView: View {
+  
   @StateObject private var viewModel = ForgotPasswordViewModel(
     signInRepository: SignInRepositoryImpl()
   )
   @State private var isVerificationCodeViewVisible = false
-  @State private var codeText = ""
-  @State private var isPasswordHidden = true
-  
-  private var isCodeMatched: Bool {
-    codeText == viewModel.passwordCode
-  }
   
   var body: some View {
     ZStack {
@@ -25,7 +21,7 @@ struct ForgotPasswordView: View {
           errorMessage: viewModel.hasError.message ?? "",
           isAutocapitalization: false,
           isSecure: false,
-          isPasswordHidden: $isPasswordHidden,
+          isPasswordHidden: $viewModel.isPasswordHidden,
           submitLabel: .next
         )
         .accentColor(.primaryColor)
@@ -78,7 +74,7 @@ struct ForgotPasswordView: View {
                 .foregroundColor(Color.primaryColor)
                 .padding(.top, 27)
               
-              TextField("1 2 3 4 5 6", text: $codeText)
+              TextField("1 2 3 4 5 6", text: $viewModel.codeText)
                 .font(
                   Font.custom(weight: .bold, size: 18)
                 )
@@ -91,20 +87,15 @@ struct ForgotPasswordView: View {
                 .padding(.horizontal, 40)
                 .keyboardType(.numberPad)
                 .submitLabel(.done)
-                .onChange(of: codeText) { newValue in
+                .onChange(of: viewModel.codeText) { newValue in
                   if newValue.count > 6 {
-                    codeText = String(newValue.prefix(6))
+                    viewModel.codeText = String(newValue.prefix(6))
                   }
                 }
                 .toolbar {
                   ToolbarItem(placement: .keyboard) {
                     Button("Done") {
-                      UIApplication.shared.sendAction(
-                        #selector(UIResponder.resignFirstResponder),
-                        to: nil,
-                        from: nil,
-                        for: nil
-                      )
+                      UIApplication.shared.endEditing()
                     }
                   }
                 }
@@ -118,7 +109,7 @@ struct ForgotPasswordView: View {
             destination: NewPasswordView(
               viewModel: NewPasswordViewModel(
                 signInRepository: SignInRepositoryImpl(),
-                hash: codeText,
+                hash: viewModel.codeText,
                 email: viewModel.email.text
               )
             ),
@@ -129,7 +120,7 @@ struct ForgotPasswordView: View {
           .buttonStyle(
             FullRoundedButtonStyle(isDisable: true)
           )
-          .padding(.bottom, 80)
+          .padding(.bottom, 75)
           .padding(.horizontal, 20)
         } else {
           Spacer()

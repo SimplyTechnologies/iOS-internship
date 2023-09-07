@@ -25,4 +25,5 @@ struct SimpleTextFieldStyle: TextFieldStyle {
       .textInputAutocapitalization(isAutocapitalization ? .words : .never)
       .cornerRadius(66)
   }
+  
 }

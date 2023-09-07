@@ -1,86 +1,6 @@
-//
-//import SwiftUI
-//
-//struct SimpleTextField: View {
-//
-//  @Binding var isPasswordHidden: Bool
-//
-//  private let title: String
-//  private let placeholder: String
-//  private let text: Binding<String>
-//  private var errorMessage: String
-//  private let isAutocapitalization: Bool
-//  private var isSecure: Bool = false
-//  private let submitLabel: SubmitLabel
-//
-//  init(
-//    title: String,
-//    placeholder: String,
-//    text: Binding<String>,
-//    errorMessage: String,
-//    isAutocapitalization: Bool,
-//    isSecure: Bool,
-//    submitLabel: SubmitLabel,
-//    isPasswordHidden: Binding<Bool>
-//  ) {
-//    self.title = title
-//    self.placeholder = placeholder
-//    self.text = text
-//    self.errorMessage = errorMessage
-//    self.isAutocapitalization = isAutocapitalization
-//    self.isSecure = isSecure
-//    self.submitLabel = submitLabel
-//    self._isPasswordHidden = isPasswordHidden
-//  }
-//
-//  var body: some View {
-//    VStack(alignment: .leading, spacing: 0) {
-//
-//      Text(title)
-//        .font(
-//          Font.custom(weight: .medium, size: 18)
-//            .weight(.bold)
-//        )
-//        .foregroundColor(Color.primaryColor)
-//        .offset(x: 5)
-//
-//      HStack(alignment: .center) {
-//          if isPasswordHidden && isSecure {
-//          SecureField(placeholder, text: text)
-//            .textFieldStyle(
-//              SimpleTextFieldStyle(
-//                isAutocapitalization: false
-//              )
-//            )
-//
-//        } else {
-//          TextField(placeholder, text: text)
-//            .textFieldStyle(
-//              SimpleTextFieldStyle(
-//                isAutocapitalization: isAutocapitalization && !isSecure
-//              )
-//            )
-//        }
-//
-//          if isSecure {
-//          Button {
-//            isPasswordHidden.toggle()
-//          } label: {
-//            isPasswordHidden
-//            ? Image(Images.hidePassword.rawValue)
-//            : Image(Images.seePassword.rawValue)
-//          }
-//          .padding(.trailing, 12)
-//        }
-//    }
-//
-//      ErrorMessageText(errorMessage)
-//    }
-//  }
-//
-//}
 
 import SwiftUI
+
 struct SimpleTextField: View {
   
   @Binding var isPasswordHidden: Bool
@@ -142,7 +62,6 @@ struct SimpleTextField: View {
             )
         }
         
-        // MARK: Open-closed eye image
         if isSecure {
           Button {
             isPasswordHidden.toggle()
