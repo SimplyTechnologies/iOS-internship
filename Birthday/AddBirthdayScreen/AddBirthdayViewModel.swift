@@ -1,13 +1,14 @@
 
-import Foundation
 import Combine
+import UIKit
 
 class AddBirthdayViewModel: ObservableObject {
   
   @Published var isLoading: Bool = false
   @Published var isImagePickerPresented = false
+  @Published var iSImagePickerPresented = false
+  @Published var addImage: UIImage?
 
-  
   private var cancellables: Set<AnyCancellable> = []
   
   private let birthdaysRepository: BirthdaysRepository

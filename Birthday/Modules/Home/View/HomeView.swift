@@ -11,14 +11,24 @@ struct HomeView: View {
       Color.backgroundColor
         .edgesIgnoringSafeArea(.top)
       VStack {
-        ZStack(alignment: .trailing) {
+        ZStack(
+          alignment: .trailing
+        ) {
           NavigationLink {
-            AddBirthdayScreen(viewModel: AddBirthdayViewModel(birthdayDetails: addBirtdayViewModel.birthdayDetails, birthdaysRepository: BirthdaysRepositoryImpl()), homeScreenViewModel: viewModel)
+            AddBirthdayScreen(
+              viewModel: AddBirthdayViewModel(
+                birthdayDetails: addBirtdayViewModel.birthdayDetails,
+                birthdaysRepository: BirthdaysRepositoryImpl()
+              ),
+              homeScreenViewModel: viewModel
+            )
           } label: {
-              Image(systemName: "plus")
-              .resizable()
-              .frame(width: 20, height: 20)
-              .foregroundColor(.secondaryColor)
+            Image(
+              systemName: "plus"
+            )
+            .resizable()
+            .frame(width: 20, height: 20)
+            .foregroundColor(.secondaryColor)
           }
           HStack {
             Spacer()
