@@ -74,7 +74,7 @@ struct ForgotPasswordView: View {
                 .foregroundColor(Color.primaryColor)
                 .padding(.top, 27)
               
-              TextField("1 2 3 4 5 6", text: $viewModel.codeText)
+              KerningTextField(text: $viewModel.codeText, placeholder: "1 2 3 4 5 6", kerning: 5)
                 .font(
                   Font.custom(weight: .bold, size: 18)
                 )

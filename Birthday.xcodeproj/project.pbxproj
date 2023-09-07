@@ -83,6 +83,7 @@
 		982CE6972AA7076200EF6678 /* ResetPasswordInput.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE6962AA7076200EF6678 /* ResetPasswordInput.graphql.swift */; };
 		982CE69A2AA7078300EF6678 /* ResetPasswordMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE6982AA7078300EF6678 /* ResetPasswordMutation.graphql.swift */; };
 		982CE69B2AA7078300EF6678 /* ResetPasswordEmailMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE6992AA7078300EF6678 /* ResetPasswordEmailMutation.graphql.swift */; };
+		982CE69E2AAA0FA800EF6678 /* KerningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE69D2AAA0FA800EF6678 /* KerningView.swift */; };
 		985593642A8E6E9100A3E76C /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593632A8E6E9100A3E76C /* Color + Extension.swift */; };
 		985593922A963BA700A3E76C /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593912A963BA700A3E76C /* Toast.swift */; };
 		985593942A963BBC00A3E76C /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593932A963BBC00A3E76C /* ToastView.swift */; };
@@ -210,7 +211,6 @@
 		0C3FB5592AA14E1A00C1CE2F /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		0CB016FD2AA1FB1B008BCC1F /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
 		0CD861B02AA9C0BD00055642 /* AlertViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModifier.swift; sourceTree = "<group>"; };
-		0CD861B22AA9C0E700055642 /* View + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Extension.swift"; sourceTree = "<group>"; };
 		43137589BDF5678B8045873F /* Pods-Birthday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthday.debug.xcconfig"; path = "Target Support Files/Pods-Birthday/Pods-Birthday.debug.xcconfig"; sourceTree = "<group>"; };
 		5A45D5187426C71C62F6FF11 /* Pods-Birthday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthday.release.xcconfig"; path = "Target Support Files/Pods-Birthday/Pods-Birthday.release.xcconfig"; sourceTree = "<group>"; };
 		9605DC23AE115B87A291A31E /* Pods_Birthday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Birthday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +224,7 @@
 		982CE6962AA7076200EF6678 /* ResetPasswordInput.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordInput.graphql.swift; sourceTree = "<group>"; };
 		982CE6982AA7078300EF6678 /* ResetPasswordMutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordMutation.graphql.swift; sourceTree = "<group>"; };
 		982CE6992AA7078300EF6678 /* ResetPasswordEmailMutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailMutation.graphql.swift; sourceTree = "<group>"; };
+		982CE69D2AAA0FA800EF6678 /* KerningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KerningView.swift; sourceTree = "<group>"; };
 		985593632A8E6E9100A3E76C /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
 		985593912A963BA700A3E76C /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		985593932A963BBC00A3E76C /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
@@ -523,9 +524,18 @@
 			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
+		982CE69C2AAA0F7600EF6678 /* Kerning */ = {
+			isa = PBXGroup;
+			children = (
+				982CE69D2AAA0FA800EF6678 /* KerningView.swift */,
+			);
+			path = Kerning;
+			sourceTree = "<group>";
+		};
 		985593672A8E6EE400A3E76C /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				982CE69C2AAA0F7600EF6678 /* Kerning */,
 				0CD861AF2AA9C0AB00055642 /* ViewModifiers */,
 				0C3FB5562AA13BCC00C1CE2F /* ProgressView */,
 				0C3FB4F52AA0B77900C1CE2F /* Fonts */,
@@ -599,7 +609,6 @@
 				9905A0D32A8CF8C1003B5FF5 /* Products */,
 				0A8E6F59DF06E687E5AA3412 /* Pods */,
 				B4305D2FA6EA6FC7F5D85362 /* Frameworks */,
-				0CD861B52AA9DC0400055642 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1056,6 +1065,7 @@
 				0C3FB5492AA0CDB900C1CE2F /* AccessToken.graphql.swift in Sources */,
 				994ECAA72A961FE5003D89A5 /* BirthdayModel.swift in Sources */,
 				99F9E2EC2A93A9B5004ED89F /* Error + Extension.swift in Sources */,
+				982CE69E2AAA0FA800EF6678 /* KerningView.swift in Sources */,
 				9993847E2AA72A52001454DE /* ChangePasswordMutation.graphql.swift in Sources */,
 				98BA7D922A9E0CC1004BF312 /* Mutation.graphql.swift in Sources */,
 				985E88772A9DD25C0069CB3E /* Shop.graphql.swift in Sources */,

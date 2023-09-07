@@ -66,7 +66,7 @@ struct NewPasswordView: View {
           }
           .padding(.bottom, 75)
           NavigationLink(
-            destination: SignInView(),
+            destination: MainView(),
             isActive: $viewModel.isPasswordUpdated,
             label: {}
           )
@@ -78,6 +78,7 @@ struct NewPasswordView: View {
       .alert(isPresented: $viewModel.showAlert) {
         Alert(
           title: Text(
+            // swiftlint:disable:next line_length
             "The code you entered was not correct. Please double-check the code and try again."
           ),
           dismissButton: .default(
