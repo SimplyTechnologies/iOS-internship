@@ -41,6 +41,7 @@ class AddBirthdayViewModel: ObservableObject {
         }
       } receiveValue: { [weak self] birthdayData in
         self?.isLoading = false
+        HomeViewModel.updateStatusSubject.send()
       }
       .store(in: &cancellables)
     

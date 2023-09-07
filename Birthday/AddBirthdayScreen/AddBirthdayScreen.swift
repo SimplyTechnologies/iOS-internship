@@ -65,11 +65,11 @@ struct AddBirthdayScreen: View {
         .onTapGesture {
           viewModel.iSImagePickerPresented.toggle()
         }
+        VStack(alignment: .leading, spacing: 0) {
         HStack {
           Text("Name")
             .foregroundColor(.primaryColor)
             .font(Font.custom(weight: .bold, size: 18))
-
             .frame(
               maxWidth: 250,
               alignment: .leading
@@ -94,35 +94,37 @@ struct AddBirthdayScreen: View {
           .padding(10)
         }
         .padding(.horizontal, 60)
-        HStack {
-          Text("Relationship")
-            .foregroundColor(.primaryColor)
-            .font(Font.custom(weight: .bold, size: 18))
-            .frame(
-              maxWidth: 250,
-              alignment: .leading
-            )
-            .padding(
-              .horizontal, 65
-            )
-          Spacer()
-        }
-        LazyVGrid(
-          columns: Array(
-            repeating: GridItem(),
-            count: 3
-          ),
-          spacing: 15
-        ) {
-          ForEach(
-            viewModel.relations,
-            id: \.self
-          ) {
-            createRelationshipCell(text: $0)
+      }
+        VStack(alignment: .leading, spacing: 4) {
+          HStack {
+            Text("Relationship")
+              .foregroundColor(.primaryColor)
+              .font(Font.custom(weight: .bold, size: 18))
+              .frame(
+                maxWidth: 250,
+                alignment: .leading
+              )
+              .padding(
+                .horizontal, 65
+              )
+            Spacer()
           }
+          LazyVGrid(
+            columns: Array(
+              repeating: GridItem(),
+              count: 3
+            ),
+            spacing: 15
+          ) {
+            ForEach(
+              viewModel.relations,
+              id: \.self
+            ) {
+              createRelationshipCell(text: $0)
+            }
+          }
+          .padding(.horizontal, 24)
         }
-        .padding(.horizontal, 24)
-        
         if addRelationshipEnabled {
           
           ZStack(alignment: .leading) {
@@ -141,6 +143,7 @@ struct AddBirthdayScreen: View {
           }
           .padding(.horizontal, 60)
           .padding(.vertical)
+          
         } else {
           Button {
             withAnimation {
@@ -153,26 +156,18 @@ struct AddBirthdayScreen: View {
           .padding(.vertical, 18)
         }
         VStack {
-          HStack {
+          VStack(alignment: .leading, spacing: 2) {
             Text("Message")
               .foregroundColor(.primaryColor)
               .font(Font.custom(weight: .bold, size: 18))
+            TextEditor(text: $viewModel.birthdayDetails.message)
+              .colorMultiply(.white)
+              .cornerRadius(10)
               .frame(
-                maxWidth: 250,
-                alignment: .leading
+                width: 300,
+                height: 200
               )
-              .padding(
-                .horizontal, 65
-              )
-            Spacer()
           }
-          TextEditor(text: $viewModel.birthdayDetails.message)
-            .colorMultiply(.white)
-            .cornerRadius(10)
-            .frame(
-              width: 300,
-              height: 200
-            )
         }
         DatePicker(
           selection: $viewModel.birthdayDetails.date,
@@ -270,7 +265,7 @@ struct AddBirthdayScreen: View {
         )
         .cornerRadius(66)
         .font(Font.custom(weight: .bold, size: 13))
-
+      
     }
   }
   private func requestCalendarAccess() {
