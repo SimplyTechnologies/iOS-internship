@@ -17,21 +17,6 @@ struct AddBirthdayScreen: View {
       Color.backgroundColor
         .ignoresSafeArea()
       ScrollView {
-        
-        //        ZStack {
-        //          if let image = viewModel.selectedImage {
-        //            Image(uiImage: image)
-        //              .resizable()
-        //              .frame(
-        //                width: 150,
-        //                height: 150
-        //              )
-        //              .cornerRadius(75)
-        //              .padding()
-        //          } else {
-        //            Image("circle")
-        //          }
-        //        }
         VStack {
           if let image = viewModel.addImage {
             ZStack {
@@ -56,8 +41,7 @@ struct AddBirthdayScreen: View {
                   viewModel.addImage = nil
                 }
               }
-              )
-              {
+              ) {
                 Image(systemName: "xmark.circle.fill")
                   .foregroundColor(.white)
                   .padding(8)
@@ -121,13 +105,21 @@ struct AddBirthdayScreen: View {
             )
           Spacer()
         }
-        LazyVGrid(columns: Array(repeating: GridItem(), count: 3), spacing: 15) {
-          ForEach(viewModel.relations, id: \.self) {
+        LazyVGrid(
+          columns: Array(
+            repeating: GridItem(),
+            count: 3
+          ),
+          spacing: 15
+        ) {
+          ForEach(
+            viewModel.relations,
+            id: \.self
+          ) {
             createRelationshipCell(text: $0)
           }
         }
         .padding(.horizontal, 24)
-        
         
         if addRelationshipEnabled {
           
@@ -276,44 +268,12 @@ struct AddBirthdayScreen: View {
     }
   }
   private func requestCalendarAccess() {
-    eventStore.requestAccess(to: .event) { (granted, error) in
+    eventStore.requestAccess(to: .event) { (granted, _ ) in
       if granted {
         authorizationStatus = .authorized
       } else {
-//        requestCalendarAccess()
+        
       }
     }
   }
-  
-//  private func addEventToCalendar() {
-//    let event = EKEvent(eventStore: eventStore)
-//    
-//    event.title = "\(viewModel.birthdayDetails.name)'s Birthday"
-//    event.startDate = Calendar.current.date(from: viewModel.birthdayDetails.date.get(.day, .month))
-//    event.endDate = event.startDate.addingTimeInterval(86400)
-//    event.notes = "Congratulate!!!"
-//    event.addRecurrenceRule(
-//      EKRecurrenceRule(recurrenceWith: .yearly,
-//                       interval: 100,
-//                       end: nil
-//                      )
-//    )
-//  
-//    event.calendar = eventStore.defaultCalendarForNewEvents
-//   
-//    print(event.startDate)
-//    do {
-//      try eventStore.save(event, span: .thisEvent)
-//    } catch {
-//      print(error)
-//    }
-//  }
 }
-
-//struct AddBirthdayScreen_Previews: PreviewProvider {
-//
-//  static var previews: some View {
-//    AddBirthdayScreen(viewModel: AddBirthdayViewModel(birthdayDetails: BirthdayModel(id: 0, userId: 0, name: "", image: "", relation: "", message: "", date: Date(), upcomingBirthday: Date(), upcomingAge: 0, createdAt: Date(), updatedAt: Date()), birthdaysRepository: BirthdaysRepositoryImpl()))
-//  }
-//
-//}

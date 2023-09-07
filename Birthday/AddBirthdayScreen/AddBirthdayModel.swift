@@ -30,4 +30,5 @@ struct AddBirthdayModel {
     date = dto.date?.dateFromString() ?? Date()
     relation = dto.relation
   }
+  
 }

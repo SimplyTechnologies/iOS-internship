@@ -48,7 +48,13 @@ class AddBirthdayViewModel: ObservableObject {
     event.title = "\(birthdayDetails.name)'s Birthday"
     event.calendar = eventStore.defaultCalendarForNewEvents
     event.notes = "Congratulate!!!"
-    event.startDate = Calendar.current.date(from: birthdayDetails.date.get(.year, .month, .day))!
+    event.startDate = Calendar.current.date(
+      from: birthdayDetails.date.get(
+        .year,
+        .month,
+        .day
+      )
+    )!
     event.endDate = event.startDate.addingTimeInterval(
       86400
     )
