@@ -73,6 +73,16 @@
 		0C3FB55A2AA14E1A00C1CE2F /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5592AA14E1A00C1CE2F /* HapticManager.swift */; };
 		0CB016FE2AA1FB1B008BCC1F /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB016FD2AA1FB1B008BCC1F /* LandingViewModel.swift */; };
 		0CD861B12AA9C0BD00055642 /* AlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD861B02AA9C0BD00055642 /* AlertViewModifier.swift */; };
+		982CE6892AA5CE4200EF6678 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE6882AA5CE4200EF6678 /* ForgotPasswordView.swift */; };
+		982CE68B2AA5CE5900EF6678 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE68A2AA5CE5900EF6678 /* ForgotPasswordViewModel.swift */; };
+		982CE68D2AA5D9A900EF6678 /* SimpleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE68C2AA5D9A900EF6678 /* SimpleTextField.swift */; };
+		982CE68F2AA5DA8500EF6678 /* SimpleTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE68E2AA5DA8500EF6678 /* SimpleTextFieldStyle.swift */; };
+		982CE6912AA5DD2D00EF6678 /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE6902AA5DD2D00EF6678 /* NewPasswordView.swift */; };
+		982CE6932AA5DD5100EF6678 /* NewPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE6922AA5DD5100EF6678 /* NewPasswordViewModel.swift */; };
+		982CE6952AA6110200EF6678 /* SimpleTextFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE6942AA6110200EF6678 /* SimpleTextFieldModel.swift */; };
+		982CE6972AA7076200EF6678 /* ResetPasswordInput.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE6962AA7076200EF6678 /* ResetPasswordInput.graphql.swift */; };
+		982CE69A2AA7078300EF6678 /* ResetPasswordMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE6982AA7078300EF6678 /* ResetPasswordMutation.graphql.swift */; };
+		982CE69B2AA7078300EF6678 /* ResetPasswordEmailMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE6992AA7078300EF6678 /* ResetPasswordEmailMutation.graphql.swift */; };
 		985593642A8E6E9100A3E76C /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593632A8E6E9100A3E76C /* Color + Extension.swift */; };
 		985593922A963BA700A3E76C /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593912A963BA700A3E76C /* Toast.swift */; };
 		985593942A963BBC00A3E76C /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593932A963BBC00A3E76C /* ToastView.swift */; };
@@ -203,6 +213,16 @@
 		43137589BDF5678B8045873F /* Pods-Birthday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthday.debug.xcconfig"; path = "Target Support Files/Pods-Birthday/Pods-Birthday.debug.xcconfig"; sourceTree = "<group>"; };
 		5A45D5187426C71C62F6FF11 /* Pods-Birthday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthday.release.xcconfig"; path = "Target Support Files/Pods-Birthday/Pods-Birthday.release.xcconfig"; sourceTree = "<group>"; };
 		9605DC23AE115B87A291A31E /* Pods_Birthday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Birthday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		982CE6882AA5CE4200EF6678 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		982CE68A2AA5CE5900EF6678 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		982CE68C2AA5D9A900EF6678 /* SimpleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextField.swift; sourceTree = "<group>"; };
+		982CE68E2AA5DA8500EF6678 /* SimpleTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextFieldStyle.swift; sourceTree = "<group>"; };
+		982CE6902AA5DD2D00EF6678 /* NewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordView.swift; sourceTree = "<group>"; };
+		982CE6922AA5DD5100EF6678 /* NewPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewModel.swift; sourceTree = "<group>"; };
+		982CE6942AA6110200EF6678 /* SimpleTextFieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextFieldModel.swift; sourceTree = "<group>"; };
+		982CE6962AA7076200EF6678 /* ResetPasswordInput.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordInput.graphql.swift; sourceTree = "<group>"; };
+		982CE6982AA7078300EF6678 /* ResetPasswordMutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordMutation.graphql.swift; sourceTree = "<group>"; };
+		982CE6992AA7078300EF6678 /* ResetPasswordEmailMutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailMutation.graphql.swift; sourceTree = "<group>"; };
 		985593632A8E6E9100A3E76C /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
 		985593912A963BA700A3E76C /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		985593932A963BBC00A3E76C /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
@@ -333,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				0C3FB4E52AA0B77800C1CE2F /* ValidationTextField.swift */,
+				982CE68C2AA5D9A900EF6678 /* SimpleTextField.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -349,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				0C3FB4EB2AA0B77800C1CE2F /* ValidationTextFieldStyle.swift */,
+				982CE68E2AA5DA8500EF6678 /* SimpleTextFieldStyle.swift */,
 			);
 			path = "TextField Styles";
 			sourceTree = "<group>";
@@ -425,6 +447,7 @@
 				0C3FB51B2AA0BABB00C1CE2F /* Regexes.swift */,
 				0C3FB51A2AA0BABB00C1CE2F /* StoreManager.swift */,
 				0C3FB52B2AA0BB1800C1CE2F /* TextFieldModel.swift */,
+				982CE6942AA6110200EF6678 /* SimpleTextFieldModel.swift */,
 				0C3FB5182AA0BABB00C1CE2F /* UserDefaultsKeys.swift */,
 				999384792AA723FF001454DE /* CustomNavigationBarModifier.swift */,
 			);
@@ -486,12 +509,15 @@
 			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
-		0CD861B52AA9DC0400055642 /* Recovered References */ = {
+		982CE6872AA5CDCF00EF6678 /* ForgotPassword */ = {
 			isa = PBXGroup;
 			children = (
-				0CD861B22AA9C0E700055642 /* View + Extension.swift */,
+				982CE6882AA5CE4200EF6678 /* ForgotPasswordView.swift */,
+				982CE68A2AA5CE5900EF6678 /* ForgotPasswordViewModel.swift */,
+				982CE6902AA5DD2D00EF6678 /* NewPasswordView.swift */,
+				982CE6922AA5DD5100EF6678 /* NewPasswordViewModel.swift */,
 			);
-			name = "Recovered References";
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 		985593672A8E6EE400A3E76C /* UIElements */ = {
@@ -499,8 +525,8 @@
 			children = (
 				0CD861AF2AA9C0AB00055642 /* ViewModifiers */,
 				0C3FB5562AA13BCC00C1CE2F /* ProgressView */,
-				0C3FB4F22AA0B77900C1CE2F /* Button Styles */,
 				0C3FB4F52AA0B77900C1CE2F /* Fonts */,
+				0C3FB4F22AA0B77900C1CE2F /* Button Styles */,
 				0C3FB4EC2AA0B77800C1CE2F /* Images */,
 				0C3FB4E62AA0B77800C1CE2F /* Shapes */,
 				0C3FB4E42AA0B77800C1CE2F /* TextField */,
@@ -537,6 +563,7 @@
 			isa = PBXGroup;
 			children = (
 				0C22719C2AA5F89400579022 /* SignUpInput.graphql.swift */,
+				982CE6962AA7076200EF6678 /* ResetPasswordInput.graphql.swift */,
 				0C3FB5422AA0CBF300C1CE2F /* LoginInput.graphql.swift */,
 				99FA9D5C2AA0D135006D1D74 /* UpdateProfileInput.graphql.swift */,
 				985E887B2A9DD4550069CB3E /* RateFilter.graphql.swift */,
@@ -551,6 +578,8 @@
 			children = (
 				9993847D2AA72A52001454DE /* ChangePasswordMutation.graphql.swift */,
 				0C22719A2AA5F86100579022 /* SignUpMutation.graphql.swift */,
+				982CE6992AA7078300EF6678 /* ResetPasswordEmailMutation.graphql.swift */,
+				982CE6982AA7078300EF6678 /* ResetPasswordMutation.graphql.swift */,
 				0C3FB5462AA0CD5900C1CE2F /* LoginMutation.graphql.swift */,
 				99FA9D582AA0C710006D1D74 /* UpdateProfileMutation.graphql.swift */,
 				98BA7D8C2A9E0C8A004BF312 /* AddShopToFavoriteMutation.graphql.swift */,
@@ -602,6 +631,7 @@
 				985593672A8E6EE400A3E76C /* UIElements */,
 				0C3FB5202AA0BADC00C1CE2F /* Titles */,
 				9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */,
+				982CE6872AA5CDCF00EF6678 /* ForgotPassword */,
 				9905A0DB2A8CF8C2003B5FF5 /* Preview Content */,
 			);
 			path = Birthday;
@@ -1011,7 +1041,9 @@
 				0C3FB53D2AA0BD6800C1CE2F /* RegisterViewModel.swift in Sources */,
 				98BA7D8F2A9E0C8A004BF312 /* RemoveShopFromFavoriteMutation.graphql.swift in Sources */,
 				985593922A963BA700A3E76C /* Toast.swift in Sources */,
+				982CE6952AA6110200EF6678 /* SimpleTextFieldModel.swift in Sources */,
 				985593A02A963C9300A3E76C /* ShopDetailView.swift in Sources */,
+				982CE6892AA5CE4200EF6678 /* ForgotPasswordView.swift in Sources */,
 				98BA7D8A2A9DDF09004BF312 /* GetShopsRepository.swift in Sources */,
 				0C3FB5292AA0BADC00C1CE2F /* TextFieldPlaceholders.swift in Sources */,
 				0C3FB50C2AA0B7BB00C1CE2F /* Font + Extension.swift in Sources */,
@@ -1028,6 +1060,7 @@
 				0C3FB51C2AA0BABB00C1CE2F /* UserDefaultsKeys.swift in Sources */,
 				99F9E2E92A939C8C004ED89F /* GraphQLRepository.swift in Sources */,
 				9939A9142A933B9600D3B19E /* TabBarView.swift in Sources */,
+				982CE6932AA5DD5100EF6678 /* NewPasswordViewModel.swift in Sources */,
 				9939A9182A933C7600D3B19E /* TabViewTab.swift in Sources */,
 				994ECA982A96164A003D89A5 /* Date.swift in Sources */,
 				0C3FB5162AA0BA6700C1CE2F /* MainView.swift in Sources */,
@@ -1045,6 +1078,7 @@
 				0164CD1B2A9B53650046DEFC /* AddBirthdayModel.swift in Sources */,
 				017DB1622A8F581E0055BACF /* ProfileScreen.swift in Sources */,
 				015DA3292A9E12C700F2902C /* Mutation.graphql.swift in Sources */,
+				982CE68F2AA5DA8500EF6678 /* SimpleTextFieldStyle.swift in Sources */,
 				0168396C2A98E34A00E483FC /* PhotoPicker.swift in Sources */,
 				99F9E2E52A9393F9004ED89F /* Api.graphql.swift in Sources */,
 				985593982A963BF600A3E76C /* ShopListViewModel.swift in Sources */,
@@ -1055,22 +1089,28 @@
 				015DA32B2A9E141F00F2902C /* DeleteBirthdayMutation.graphql.swift in Sources */,
 				0164CD1D2A9B53850046DEFC /* AddBirthdayScreen.swift in Sources */,
 				985593962A963BC800A3E76C /* Shop.swift in Sources */,
+				982CE69A2AA7078300EF6678 /* ResetPasswordMutation.graphql.swift in Sources */,
 				985E88802A9DD4550069CB3E /* ShopFilter.graphql.swift in Sources */,
 				0C3FB5302AA0BB2F00C1CE2F /* SignInView.swift in Sources */,
 				0C3FB5272AA0BADC00C1CE2F /* ButtonTitles.swift in Sources */,
 				0C3FB51F2AA0BABB00C1CE2F /* Regexes.swift in Sources */,
+				982CE6972AA7076200EF6678 /* ResetPasswordInput.graphql.swift in Sources */,
 				0C3FB5472AA0CD5900C1CE2F /* LoginMutation.graphql.swift in Sources */,
 				98BA7D952A9E11BC004BF312 /* AddRemoveShopToFavorite.swift in Sources */,
 				985593942A963BBC00A3E76C /* ToastView.swift in Sources */,
 				015682B12AA0841C002E4445 /* DateExtension.swift in Sources */,
+				982CE68B2AA5CE5900EF6678 /* ForgotPasswordViewModel.swift in Sources */,
+				982CE68D2AA5D9A900EF6678 /* SimpleTextField.swift in Sources */,
 				0C3FB4FF2AA0B77900C1CE2F /* ValidationTextFieldStyle.swift in Sources */,
 				9855939C2A963C3000A3E76C /* ShopView.swift in Sources */,
 				0C3FB5432AA0CBF300C1CE2F /* LoginInput.graphql.swift in Sources */,
+				982CE6912AA5DD2D00EF6678 /* NewPasswordView.swift in Sources */,
 				99FA9D552AA0BDEB006D1D74 /* GetProfileQuery.graphql.swift in Sources */,
 				9855939A2A963C1100A3E76C /* ShopListView.swift in Sources */,
 				994ECAA52A961FAC003D89A5 /* BirthdayCell.swift in Sources */,
 				985E88792A9DD3240069CB3E /* GetShopsQuery.graphql.swift in Sources */,
 				999384842AA72BC7001454DE /* ChangePasswordView.swift in Sources */,
+				982CE69B2AA7078300EF6678 /* ResetPasswordEmailMutation.graphql.swift in Sources */,
 				0C3FB5042AA0B77900C1CE2F /* FullRoundedButtonStyle.swift in Sources */,
 				994ECAB12A973075003D89A5 /* Date + Extension.swift in Sources */,
 				0C3FB5452AA0CC8200C1CE2F /* SignInRepository.swift in Sources */,
@@ -1241,7 +1281,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Birthday/Preview Content\"";
-				DEVELOPMENT_TEAM = VBZ5789L53;
+				DEVELOPMENT_TEAM = X9GLW84L39;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Birthday/Info.plist;
