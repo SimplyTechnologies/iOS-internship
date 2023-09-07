@@ -25,8 +25,8 @@ struct BirthdayDetailsScreen: View {
             .alert(isPresented: $viewModel.showAlert) {
               Alert(
                 title: Text(
-                "Are you sure you want to delete this birthday information?"
-              ),
+                  "Are you sure you want to delete this birthday information?"
+                ),
                 primaryButton: .destructive(
                   Text("Yes")
                 ) {
@@ -43,7 +43,7 @@ struct BirthdayDetailsScreen: View {
           .padding(.horizontal)
           imageView
             .padding()
-            
+          
           Text(viewModel.birthdayDetails.name)
             .fontWeight(.bold)
             .padding(1)
@@ -51,7 +51,7 @@ struct BirthdayDetailsScreen: View {
           Text(
             viewModel.birthdayDetails.date.stringFromDate()
           )
-            .foregroundColor(.black)
+          .foregroundColor(.black)
           HStack {
             Text("Relationship :")
               .foregroundColor(.black)
@@ -71,8 +71,15 @@ struct BirthdayDetailsScreen: View {
             GenerateMessageView(viewModel: viewModel)
           } else {
             Spacer()
-            Button("Generate Message") {
+            Button {
               viewModel.isGeneratingMessage.toggle()
+            } label: {
+              Text("Generate Message")
+                .padding(.horizontal, 28)
+                .padding(.vertical, 8)
+                .foregroundColor(.white)
+                .background(Color.primaryColor)
+                .cornerRadius(16)
             }
             .buttonStyle(PrimaryButtonStyle())
             .padding()
