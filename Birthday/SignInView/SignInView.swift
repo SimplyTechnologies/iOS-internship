@@ -81,7 +81,7 @@ struct SignInView: View {
               // MARK: Forgot Password button
               NavigationLink(ButtonTitles.forgotPassword) {
                 EmptyView()
-                //              ForgotPasswordView()
+                ForgotPasswordView()
               }
               .font(Font.custom(weight: .bold, size: 12))
               .foregroundColor(Color.primaryColor)
