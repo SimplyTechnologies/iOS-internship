@@ -6,6 +6,7 @@ struct AddBirthdayScreen: View {
   
   @ObservedObject var viewModel: AddBirthdayViewModel
   @StateObject var homeScreenViewModel: HomeViewModel
+  @Environment(\.presentationMode) var presentationMode
   @State private var isSaveButtonEnabled = false
   @State private var addRelationshipEnabled = false
   @State private var addToCalendar = false
@@ -218,6 +219,7 @@ struct AddBirthdayScreen: View {
               date: viewModel.birthdayDetails.date.stringFromDate()
             )
           )
+          presentationMode.wrappedValue.dismiss()
           homeScreenViewModel.getBirthdays()
           if addToCalendar {
             if authorizationStatus == .authorized {
@@ -235,6 +237,9 @@ struct AddBirthdayScreen: View {
         .buttonStyle(PrimaryButtonStyle())
         .padding()
       }
+    }
+    .overlay {
+      viewModel.isLoading ? LoadingIndicator() : nil
     }
     .sheet(isPresented: $viewModel.iSImagePickerPresented) {
       ImagePicker(selectedImage: $viewModel.addImage)

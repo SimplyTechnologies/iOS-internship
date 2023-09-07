@@ -32,15 +32,18 @@ class AddBirthdayViewModel: ObservableObject {
     birthdaysRepository.addBirthday(by: input)
       .receive(on: DispatchQueue.main)
       .sink { [weak self] result in
-        self?.isLoading = false
+        
         switch result {
-        case .finished: break
+        case .finished:
+          break
         case .failure(let error):
           print(error)
         }
       } receiveValue: { [weak self] birthdayData in
+        self?.isLoading = false
       }
       .store(in: &cancellables)
+    
   }
   
   func addRepeatingEventToCalendar() {
