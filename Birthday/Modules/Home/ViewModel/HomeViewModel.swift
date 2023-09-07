@@ -4,15 +4,26 @@ import Foundation
 
 final class HomeViewModel: ObservableObject {
   
+  static var updateStatusSubject = PassthroughSubject<Void, Never>()
+  
   @Published var birthdays: [BirthdayModel] = []
   @Published var isLoading: Bool = false
   
   private var cancellables: Set<AnyCancellable> = []
   private let birthdayRepository: BirthdaysRepository
   
+  private var updateStatusPublisher: AnyPublisher<Void, Never> = {
+    updateStatusSubject.eraseToAnyPublisher()
+  }()
+  
   init(birthdayRepository: BirthdaysRepository) {
     self.birthdayRepository = birthdayRepository
     getBirthdays()
+    
+    updateStatusPublisher.sink { _ in
+      self.getBirthdays()
+    }
+    .store(in: &cancellables)
   }
   
   func getBirthdays() {

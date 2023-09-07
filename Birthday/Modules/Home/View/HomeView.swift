@@ -11,18 +11,15 @@ struct HomeView: View {
         .edgesIgnoringSafeArea(.top)
       VStack {
         Image("LogoBirthApp")
-          .padding(.vertical, 10)
         if viewModel.birthdays.isEmpty && !viewModel.isLoading {
-          Spacer()
-          addNewBirthdayButton
-            .padding(.bottom, 20)
+          EmptyStateView(description: "Let's add some birthdays.")
         } else {
           birthdaysView
         }
       }
     }
     .navigationBarHidden(true)
-    .onAppear {
+    .refreshable {
       viewModel.getBirthdays()
     }
     .overlay {
@@ -51,18 +48,6 @@ struct HomeView: View {
     }
   }
   
-  private var addNewBirthdayButton: some View {
-    // TODO: - Remove when reusable buttons will be ready
-    Button {
-      
-    } label: {
-      Text("Add a New Birthday")
-        .padding()
-        .background(Color.primaryColor)
-        .foregroundColor(Color.secondaryColor)
-        .cornerRadius(16)
-    }
-  }
 }
 
 struct HomeView_Previews: PreviewProvider {

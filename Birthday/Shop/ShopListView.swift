@@ -12,7 +12,6 @@ struct ShopListView: View {
       
       VStack {
         Image(Images.logo.rawValue)
-          .padding(.vertical, 10)
         
         ZStack(alignment: .trailing) {
           TextField("Search", text: $viewModel.searchText)
@@ -59,9 +58,7 @@ struct ShopListView: View {
         ScrollView {
           VStack(spacing: 18) {
             if viewModel.sortedShops.isEmpty && !viewModel.isLoading {
-              Text("No search results found")
-                .foregroundColor(.gray)
-                .padding()
+              EmptyStateView(description: "Please try again.")
             } else {
               ForEach(viewModel.sortedShops, id: \.id) { shop in
                 NavigationLink(
@@ -91,9 +88,6 @@ struct ShopListView: View {
         }
         .navigationBarHidden(true)
         .frame(maxWidth: .infinity)
-        .onAppear {
-          viewModel.getShops(shopFilter: Api.ShopFilter())
-        }
         .onTapGesture {
           UIApplication.shared.endEditing()
         }
@@ -110,8 +104,12 @@ struct ShopListView: View {
       }
       .animation(.easeInOut, value: viewModel.toasts.count)
       .zIndex(1)
-    } .overlay {
+    }
+    .overlay {
       viewModel.isLoading ? ProgressView() : nil
+    }
+    .refreshable {
+      viewModel.getShops(shopFilter: Api.ShopFilter())
     }
   }
   
