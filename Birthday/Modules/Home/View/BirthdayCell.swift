@@ -8,7 +8,8 @@ struct BirthdayCell: View {
   var body: some View {
     HStack {
       imageView
-      VStack(alignment: .leading, spacing: 10) {
+        .padding(.trailing)
+      VStack(alignment: .leading, spacing: 15) {
         Text(model.name)
           .font(Font.custom(weight: .bold, size: 20))
         Text(model.date.stringFromDate())
@@ -26,25 +27,51 @@ struct BirthdayCell: View {
   }
   
   private var imageView: some View {
-    AsyncImage(url: URL(string: model.image)) { image in
-      image
-        .resizable()
-        .scaledToFill()
-        .frame(width: 70, height: 70)
-        .cornerRadius(50)
-    } placeholder: {
-      ZStack {
-        Color.secondaryColor
-        Image(systemName: "person")
+    Group {
+      if let imageData = model.image,
+         !imageData.isEmpty,
+         let data = Data(base64Encoded: imageData),
+         let uiImage = UIImage(data: data) {
+        Image(uiImage: uiImage)
           .resizable()
-          .frame(width: 30, height: 30)
-          .foregroundColor(Color.white)
-      }
+          .frame(width: 70, height: 70)
+          .scaledToFill()
+          .cornerRadius(35)
+          
+      } else {
+        ZStack {
+          Color.secondaryColor
+          Image(systemName: "person")
+            .resizable()
+            .frame(width: 30, height: 30)
+            .foregroundColor(Color.white)
+        }
         .cornerRadius(40)
+      }
     }
     .frame(width: 70, height: 70)
-    .padding(.trailing, 44)
+    .cornerRadius(35)
   }
+  
+  
+  //    AsyncImage(url: URL(string: model.image)) { image in
+  //      image
+  //        .resizable()
+  //        .scaledToFill()
+  //        .frame(width: 70, height: 70)
+  //        .cornerRadius(50)
+  //    } placeholder: {
+  //      ZStack {
+  //        Color.secondaryColor
+  //        Image(systemName: "person")
+  //          .resizable()
+  //          .frame(width: 30, height: 30)
+  //          .foregroundColor(Color.white)
+  //      }
+  //        .cornerRadius(40)
+  //    }
+  //    .frame(width: 70, height: 70)
+  //    .padding(.trailing, 44)
 }
 
 struct BirthdayCell_Previews: PreviewProvider {

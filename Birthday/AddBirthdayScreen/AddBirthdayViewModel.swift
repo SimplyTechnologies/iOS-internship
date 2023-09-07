@@ -1,6 +1,7 @@
 
 import Combine
 import UIKit
+import EventKit
 
 class AddBirthdayViewModel: ObservableObject {
   
@@ -8,12 +9,16 @@ class AddBirthdayViewModel: ObservableObject {
   @Published var isImagePickerPresented = false
   @Published var iSImagePickerPresented = false
   @Published var addImage: UIImage?
-
+  private var eventStore = EKEventStore()
+  private var authorizationStatus: EKAuthorizationStatus = EKEventStore.authorizationStatus(for: .event)
+  
   private var cancellables: Set<AnyCancellable> = []
   
   private let birthdaysRepository: BirthdaysRepository
-  var birthdayDetails: BirthdayModel
-  
+  @Published var birthdayDetails: BirthdayModel
+  var relations: [String] = [
+    "Best Friend", "Mother", "Father", "Grandmother", "Grandfather", "Brother", "Sister", "Uncle", "Daughter"
+  ]
   init(
     birthdayDetails: BirthdayModel,
     birthdaysRepository: BirthdaysRepository
@@ -34,9 +39,31 @@ class AddBirthdayViewModel: ObservableObject {
           print(error)
         }
       } receiveValue: { [weak self] birthdayData in
-//        print(birthdayData)
       }
       .store(in: &cancellables)
+  }
+  
+  func addRepeatingEventToCalendar() {
+    let event = EKEvent(eventStore: eventStore)
+    event.title = "\(birthdayDetails.name)'s Birthday"
+    event.calendar = eventStore.defaultCalendarForNewEvents
+    event.notes = "Congratulate!!!"
+    event.startDate = Calendar.current.date(from: birthdayDetails.date.get(.year, .month, .day))!
+    event.endDate = event.startDate.addingTimeInterval(
+      86400
+    )
+    let recurrenceRule = EKRecurrenceRule(
+      recurrenceWith: .yearly,
+      interval: 1,
+      end: nil
+    )
+    event.recurrenceRules = [recurrenceRule]
+    do {
+      try eventStore.save(event, span: .thisEvent)
+      print("Repeating event saved to calendar")
+    } catch {
+      print("Error saving repeating event: \(error.localizedDescription)")
+    }
   }
   
 }

@@ -10,5 +10,7 @@
 		<string>Karma-Bold.ttf</string>
 		<string>Karma-Regular.ttf</string>
 	</array>
+	<key>NSCalendarsUsageDescription</key>
+	<string></string>
 </dict>
 </plist>

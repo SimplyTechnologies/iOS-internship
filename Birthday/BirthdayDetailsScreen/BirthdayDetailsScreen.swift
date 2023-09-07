@@ -91,22 +91,25 @@ struct BirthdayDetailsScreen: View {
     }
   }
   private var imageView: some View {
-    AsyncImage(url: URL(string: viewModel.birthdayDetails.image)) { image in
-      image
-        .resizable()
-        .scaledToFill()
-    } placeholder: {
-      ZStack {
-        Color.secondaryColor
-        Image(systemName: "person")
-          .resizable()
-          .scaledToFit()
-          .foregroundColor(Color.white)
-          .frame(width: 80)
+    Group {
+      if let imageData = viewModel.birthdayDetails.image,
+         !imageData.isEmpty,
+         let data = Data(base64Encoded: imageData),
+         let uiImage = UIImage(data: data) {
+        Image(uiImage: uiImage)
+          .frame(width: 150, height: 150)
+          .cornerRadius(75)
+      } else {
+        ZStack {
+          Color.secondaryColor
+          Image(systemName: "person")
+            .resizable()
+            .frame(width: 80, height: 80)
+            .foregroundColor(Color.white)
+        }
+        .cornerRadius(40)
       }
     }
-    .frame(width: 150, height: 150)
-    .cornerRadius(75)
   }
 }
 

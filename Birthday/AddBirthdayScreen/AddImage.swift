@@ -3,7 +3,7 @@ import SwiftUI
 
 struct AddImage: UIViewControllerRepresentable {
   
-  @Binding var addingImage: UIImage?
+  @Binding var addImage: UIImage?
   
   func makeUIViewController(context: Context) -> UIImagePickerController {
     let imagePicker = UIImagePickerController()
@@ -39,7 +39,7 @@ struct AddImage: UIViewControllerRepresentable {
       ]
     ) {
       if let selectedImage = info[.originalImage] as? UIImage {
-        parent2.addingImage = selectedImage
+        parent2.addImage = selectedImage
       }
       picker.dismiss(
         animated: true,
