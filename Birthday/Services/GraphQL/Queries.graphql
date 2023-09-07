@@ -100,8 +100,17 @@ mutation UpdateProfile($updateProfileInput: UpdateProfileInput!) {
   }
 }
 
+<<<<<<< HEAD
 mutation ChangePassword($oldPassword: String!, $newPassword: String!) {
   changePassword(oldPassword: $oldPassword, newPassword: $newPassword) {
     id
+=======
+mutation signUp($signUpInput: SignUpInput!) {
+  signUp(signUpInput: $signUpInput) {
+    id
+    email
+    firstName
+    lastName
+>>>>>>> fbcba15 (Added new functionality, fixed bugs, added UI elements)
   }
 }

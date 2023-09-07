@@ -5,179 +5,147 @@ struct RegisterView: View {
   
   @StateObject private var viewModel = RegisterViewModel()
   @FocusState private var focusField: TextFieldPlaceholders?
-  
+  @State private var isPasswordHidden: Bool = true
+      
   var body: some View {
+    let textFields: [
+      Binding<TextFieldModel>
+    ] = [
+      $viewModel.name,
+      $viewModel.surname,
+      $viewModel.email,
+      $viewModel.password,
+      $viewModel.repeatedPassword
+    ]
+    
     ZStack {
       Color.backgroundColor
         .ignoresSafeArea()
       
-      ScrollView(showsIndicators: false) {
-        VStack {
-          
-          // MARK: - Title
-          TitleText(
-            title: Titles.register,
-            size: 30
-          )
-          .padding(.top, 15)
-          .padding(.bottom, 31)
-          
-          // MARK: - TextFields
-          VStack(spacing: 0) {
+      VStack {
+        Spacer(minLength: 30)
+        
+        ScrollView(showsIndicators: false) {
+          VStack(spacing: 30) {
+            Spacer(minLength: 15)
             
-            // MARK: Name
-            ValidationTextField(
-              placeholder: TextFieldPlaceholders.name.rawValue,
-              text: $viewModel.name.text,
-              hasError: $viewModel.name.error
+            TitleText(
+              title: Titles.register,
+              size: 30
             )
-            .padding(.bottom, viewModel.name.error.0 ? 5 : 30)
-            .textContentType(.givenName)
-            .onChange(of: viewModel.name.text) { _ in
-              viewModel.checkLength(by: .name)
-              viewModel.checkTextField(by: .name)
-            }
-            .focused($focusField, equals: .name)
-            .submitLabel(.next)
-            .onSubmit {
-              focusField = .surname
-            }
             
-            // MARK: Surname
-            ValidationTextField(
-              placeholder: TextFieldPlaceholders.surname.rawValue,
-              text: $viewModel.surname.text,
-              hasError: $viewModel.surname.error
-            )
-            .padding(.bottom, viewModel.surname.error.0 ? 5 : 30)
-            .textContentType(.familyName)
-            .onChange(of: viewModel.surname.text) { _ in
-              viewModel.checkLength(by: .surname)
-              viewModel.checkTextField(by: .surname)
-            }
-            .focused($focusField, equals: .surname)
-            .submitLabel(.next)
-            .onSubmit {
-              focusField = .email
-            }
-            
-            // MARK: Email
-            ValidationTextField(
-              placeholder: TextFieldPlaceholders.email.rawValue,
-              text: $viewModel.email.text,
-              hasError: $viewModel.email.error,
-              isAutocapitalization: false
-            )
-            .padding(.bottom, viewModel.email.error.0 ? 5 : 30)
-            .keyboardType(.emailAddress)
-            .textContentType(.emailAddress)
-            .onChange(of: viewModel.email.text) { _ in
-              viewModel.checkLength(by: .email)
-              viewModel.checkTextField(by: .email)
-            }
-            .focused($focusField, equals: .email)
-            .submitLabel(.next)
-            .onSubmit {
-              focusField = .password
-            }
-            
-            // MARK: Password
-            ValidationTextField(
-              placeholder: TextFieldPlaceholders.password.rawValue,
-              text: $viewModel.password.text,
-              hasError: $viewModel.password.error,
-              isSecure: true
-            )
-            .padding(.bottom, viewModel.password.error.0 ? 5 : 30)
-            .textContentType(.password)
-            .onChange(of: viewModel.password.text) { _ in
-              viewModel.checkTextField(by: .password)
-              
-              if viewModel.password.text != viewModel.repeatPassword.text {
-                viewModel.repeatPassword.text = ""
+            // MARK: - TextFields
+            VStack(spacing: 0) {
+              ForEach(TextFieldPlaceholders.allCases, id: \.id) { placeholder in
+                let index = placeholder.id
+                
+                ValidationTextField(
+                  placeholder: placeholder.description,
+                  text: textFields[index].text,
+                  errorMessage: textFields[index].wrappedValue.errorMessage,
+                  isAutocapitalization: placeholder == .email ? false : true,
+                  isSecure: placeholder == .password || placeholder == .repeatedPassword,
+                  isPasswordHidden: $isPasswordHidden,
+                  submitLabel: placeholder == .repeatedPassword ? .done : .next
+                )
+                .textContentType(
+                  placeholder == .name
+                  ? .givenName
+                  : placeholder == .surname
+                  ? .familyName
+                  : placeholder == .email
+                  ? .emailAddress
+                  : (placeholder == .password || placeholder == .repeatedPassword)
+                  ? .oneTimeCode
+                  : .name
+                )
+                .keyboardType(
+                  placeholder == .email
+                  ? .emailAddress
+                  : .default
+                )
+                .onChange(of: textFields[index].wrappedValue.text) { _ in
+                  viewModel.checkTextField(by: placeholder)
+                  
+                  if placeholder == .password {
+                    viewModel.resetRepeatedPasswordIfNeeded()
+                  }
+                }
+                .focused($focusField, equals: placeholder)
+                .onSubmit {
+                  if placeholder == .repeatedPassword {
+                    focusField = nil
+                  } else {
+                    focusField = TextFieldPlaceholders(rawValue: index + 1)
+                  }
+                }
               }
             }
-            .focused($focusField, equals: .password)
-            .submitLabel(.next)
-            .onSubmit {
-              focusField = .repeatPassword
-            }
+            .padding(.horizontal, 37)
             
-            // MARK: Repeat password
-            ValidationTextField(
-              placeholder: TextFieldPlaceholders.repeatPassword.rawValue,
-              text: $viewModel.repeatPassword.text,
-              hasError: $viewModel.repeatPassword.error,
-              isSecure: true
-            )
-            .padding(.bottom, viewModel.repeatPassword.error.0 ? 5 : 30)
-            .textContentType(.password)
-            .onChange(of: viewModel.repeatPassword.text) { _ in
-              viewModel.checkTextField(by: .repeatPassword)
+            // MARK: Register button
+            NavigationLink(
+              isActive: $viewModel.isLoading
+            ) {
+              MainView()
+            } label: {
+              Text(Titles.register)
+                .onTapGesture {
+                  viewModel.registration() //viewModel.fakeRegistration(result: .failure(NetworkError.registrationError))
+                  viewModel.isLoading = true
+                }
             }
-            .focused($focusField, equals: .repeatPassword)
-            .submitLabel(.next)
-            .onSubmit {
-              focusField = nil
-            }
+            .padding(.horizontal, 76)
+            .buttonStyle(FullRoundedButtonStyle(isDisable: viewModel.isButtonDisabled))
+            .disabled(viewModel.isButtonDisabled)
+            
+            Spacer(minLength: 30)
           }
-          .padding(.horizontal, 37)
-          
-          // MARK: Register button
-          NavigationLink {
-            SignInView()
-          } label: {
-            Text(Titles.register)
-              .onTapGesture {
-                viewModel.registration()
-              }
-          }
-          .padding(.bottom, 30)
-          .padding(.horizontal, 76)
-          .buttonStyle(
-            FullRoundedButtonStyle(
-              isDisable: viewModel.isDisable
-            )
-          )
-          .disabled(viewModel.isDisable)
-          .alert(
-            AlertTitles.registrationError,
-            isPresented: $viewModel.hasRegistrationError
-          ) {
-            Button(
-              ButtonTitles.ok,
-              role: .cancel
-            ) {}
-          } message: {
-            Text(NetworkError.registrationError.description)
-          }
+          .frame(maxHeight: .infinity)
+          .background(.white)
+          .cornerRadius(30)
+          .padding(.horizontal, 24)
         }
-        .frame(maxHeight: .infinity)
-        .background(.white)
-        .cornerRadius(30)
-        .padding(.horizontal, 24)
-      }
-      
-      if !viewModel.toastIsHidden {
-        Text(ToastTitles.successMessage)
-          .font(
-            Font.custom(
-              weight: .bold, size: 16)
-          )
-          .foregroundColor(Color.primaryColor)
-          .multilineTextAlignment(.center)
-          .padding(.all, 15)
-          .background(Color.backgroundColor)
-          .cornerRadius(15)
-          .shadow(color: .gray.opacity(0.6), radius: 15)
-          .padding(.horizontal, 60)
-          .transition(
-            .asymmetric(
-              insertion: .move(edge: .bottom),
-              removal: .opacity
+        
+        if viewModel.isLoading {
+          LoadingIndicator()
+        }
+        
+        if !viewModel.registrationError.1.isEmpty {
+          Text(viewModel.registrationError.1)
+            .font(Font.custom(weight: .bold, size: 16))
+            .foregroundColor(Color.primaryColor)
+            .multilineTextAlignment(.center)
+            .padding(.all, 15)
+            .background(Color.backgroundColor)
+            .cornerRadius(15)
+            .shadow(color: .gray.opacity(0.6), radius: 15)
+            .padding(.horizontal)
+            .transition(
+              .asymmetric(
+                insertion: .move(edge: .bottom),
+                removal: .opacity
+              )
             )
-          )
+        }
       }
+
+      Spacer()
+    }
+//    .toast(
+//      message: viewModel.registrationError.1,
+//      isPresented: $viewModel.registrationError.0
+//    )
+    .customAlert(
+      title: AlertTitles.registrationError,
+      message: NetworkError.registrationError.description,
+      isPresented: $viewModel.alertIsPresented
+    )
+    .animation(Animation.easeInOut, value: viewModel.alertIsPresented)
+    .navigationBarHidden(true)
+    .accentColor(Color.primaryColor)
+    .onTapGesture {
+      UIApplication.shared.endEditing()
     }
     .navigationBar()
     .onTapGesture {
@@ -187,9 +155,15 @@ struct RegisterView: View {
 }
 
 struct RegisterView_Previews: PreviewProvider {
-  
+
   static var previews: some View {
-    RegisterView()
+    Group {
+//      RegisterView()
+//        .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
+
+      RegisterView()
+        .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+    }
   }
-  
+
 }

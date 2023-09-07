@@ -6,7 +6,8 @@ struct MainView: View {
   @StateObject private var viewModel = MainViewModel()
   
   var body: some View {
-    if viewModel.isLogged {
+    #warning("Добавить анимацию")
+    if viewModel.isAuthorized {
       TabBarView()
     } else {
       NavigationView {

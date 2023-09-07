@@ -3,53 +3,70 @@ import Combine
 import Foundation.NSPredicate
 
 final class SignInViewModel: ObservableObject {
-  
+    
   @Published var email = TextFieldModel()
   @Published var password = TextFieldModel()
   
-  @Published var isChecked: Bool = false
-  
-  // Property for set `Sign In` button state
-  @Published var isValidationSuccess: Bool = false
-  @Published var isDisable: Bool = true
+  @Published var isCheckboxChecked: Bool = false
+  @Published var hasUserLoggedIn: Bool = false
+  @Published var isButtonDisabled: Bool = true
   @Published var isLoading: Bool = false
-  
+    
   private let storeManager = StoreManager.shared
   private let accessToken = AccessToken.shared
   private let hapticManager = HapticManager.shared
+  
   private let signInRepository = SignInRepositoryImpl()
   private var cancellables = Set<AnyCancellable>()
   
+  @Published var textFields: [TextFieldModel] = []
+  
   var hasError: Bool = false
   
-  // Checking email against a regular expression
-  private func checkEmailRegex() {
+  init() {
+    textFields = [email, password]
+    
+    email.text = storeManager.getStringObject(for: UserDefaultsKeys.email.rawValue)
+    
+    storeManager.removeObject(for: UserDefaultsKeys.email.rawValue)
+  }
+  
+  private func checkEmail() {
+    guard !email.text.isEmpty else {
+      email.errorMessage = LocalError.emptyEmail.description
+      return
+    }
+    
     guard NSPredicate(
       format: Regexes.matchFormat,
       Regexes.email.regex
     )
       .evaluate(with: email.text)
     else {
-      email.error = (true, LocalError.invalidEmail.description)
+      email.errorMessage = LocalError.invalidEmail.description
       return
     }
     
-    email.error = (false, nil)
+    email.errorMessage = .emptyString
   }
   
   func trimCharacterOverflow() {
     let charLimit = 60
     let text = email.text
-    
+
     if text.count > charLimit {
       email.text = String(text.prefix(charLimit))
     }
   }
    
-  // Checking password minimum length and against a regular expression
   private func checkPassword() {
+    guard !password.text.isEmpty else {
+      password.errorMessage = LocalError.emptyPassword.description
+      return
+    }
+    
     guard password.text.count >= 8 else {
-      password.error = (true, LocalError.shortPassword.description)
+      password.errorMessage = LocalError.shortPassword.description
       return
     }
     
@@ -59,11 +76,11 @@ final class SignInViewModel: ObservableObject {
     )
       .evaluate(with: password.text)
     else {
-      password.error = (true, LocalError.invalidPassword.description)
+      password.errorMessage = LocalError.invalidPassword.description
       return
     }
     
-    password.error = (false, nil)
+    password.errorMessage = .emptyString
   }
   
   func signIn() {
@@ -71,7 +88,8 @@ final class SignInViewModel: ObservableObject {
       payload:
         Api.LoginInput(
           email: email.text,
-          password: password.text)
+          password: password.text
+        )
     )
     .receive(on: DispatchQueue.main)
     .sink { [weak self] result in
@@ -79,30 +97,31 @@ final class SignInViewModel: ObservableObject {
       
       switch result {
       case .failure:
-        self.hasError = true
-        self.isValidationSuccess = false
-        self.isLoading = false
-        self.hapticManager.callHaptic(with: .error, and: .medium)
+        hasError = true
+        hasUserLoggedIn = false
+        isLoading = false
+        hapticManager.callHaptic(with: .error, and: .medium)
       case .finished:
-        self.hasError = false
-        self.isValidationSuccess = true
-        self.isLoading = false
-        self.hapticManager.callHaptic(with: .success, and: .medium)
+        hasError = false
         
         // Saving information that the user has logged
-        self.storeManager.setValue(true, for: UserDefaultsKeys.isLogged.rawValue)
+        storeManager.setValue(true, for: UserDefaultsKeys.isLoggedInOnce.rawValue)
         
         // If there is a checkmark, then save the token creation date
-        if self.isChecked {
-          self.accessToken.saveDate()
+        if isCheckboxChecked {
+          accessToken.saveDate()
         }
+        
+        hapticManager.callHaptic(with: .success, and: .medium)
+        hasUserLoggedIn = true
+        isLoading = false
       }
     } receiveValue: { [weak self] token in
       guard let self else { return }
       
       // Saving a token for further use in the session
       accessToken.save(token: token.access_token)
-      MainViewModel.LoginStatusSubject.send(true)
+      MainViewModel.loginStatusSubject.send(true)
     }
     .store(in: &cancellables)
   }
@@ -110,30 +129,22 @@ final class SignInViewModel: ObservableObject {
   func setButton() {
     if email.text.isEmpty
       || password.text.isEmpty
-      || email.error.0
-      || password.error.0 {
-      isDisable = true
+        
+      || !email.errorMessage.isEmpty
+      || !password.errorMessage.isEmpty {
+      isButtonDisabled = true
     } else {
-      isDisable = false
+      isButtonDisabled = false
     }
   }
   
-  // Getting user's email, if it exists
-  func getEmailFromStore() {
-    let emailValue = storeManager.getStringObject(
-      for: UserDefaultsKeys.email.rawValue
-    )
-    
-    email.text = emailValue
-  }
-  
-  // Checking textfields validation and setting `Sign In` button
-  func checkFieldAndSetButton(
-    by field: TextFieldPlaceholders
+
+  func checkTextFieldAndSetButton(
+    by textField: TextFieldPlaceholders
   ) {
-    switch field {
+    switch textField {
     case .email:
-      self.checkEmailRegex()
+      self.checkEmail()
     case .password:
       self.checkPassword()
     default:

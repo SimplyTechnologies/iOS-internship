@@ -25,6 +25,10 @@
 		017DB1622A8F581E0055BACF /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1612A8F581E0055BACF /* ProfileScreen.swift */; };
 		017DB1652A8F6E700055BACF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1642A8F6E700055BACF /* ProfileView.swift */; };
 		017DB1682A8F6F020055BACF /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1672A8F6F020055BACF /* PrimaryButtonStyle.swift */; };
+		0C01092E2AA346140052975F /* ScreenTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C01092D2AA346140052975F /* ScreenTopView.swift */; };
+		0C22719B2AA5F86100579022 /* SignUpMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C22719A2AA5F86100579022 /* SignUpMutation.graphql.swift */; };
+		0C22719D2AA5F89400579022 /* SignUpInput.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C22719C2AA5F89400579022 /* SignUpInput.graphql.swift */; };
+		0C22719F2AA5F8FB00579022 /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C22719E2AA5F8FB00579022 /* RegisterRepository.swift */; };
 		0C3FB4FC2AA0B77900C1CE2F /* ValidationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB4E52AA0B77800C1CE2F /* ValidationTextField.swift */; };
 		0C3FB4FD2AA0B77900C1CE2F /* RoundedCornersRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB4E72AA0B77800C1CE2F /* RoundedCornersRectangle.swift */; };
 		0C3FB4FF2AA0B77900C1CE2F /* ValidationTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB4EB2AA0B77800C1CE2F /* ValidationTextFieldStyle.swift */; };
@@ -59,17 +63,16 @@
 		0C3FB5362AA0BB5200C1CE2F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5342AA0BB5100C1CE2F /* NetworkError.swift */; };
 		0C3FB53C2AA0BD6800C1CE2F /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB53A2AA0BD6800C1CE2F /* RegisterView.swift */; };
 		0C3FB53D2AA0BD6800C1CE2F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB53B2AA0BD6800C1CE2F /* RegisterViewModel.swift */; };
-		0C3FB53F2AA0BF0600C1CE2F /* RegisterTextFieldModel + Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB53E2AA0BF0600C1CE2F /* RegisterTextFieldModel + Equatable.swift */; };
 		0C3FB5432AA0CBF300C1CE2F /* LoginInput.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5422AA0CBF300C1CE2F /* LoginInput.graphql.swift */; };
 		0C3FB5452AA0CC8200C1CE2F /* SignInRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5442AA0CC8200C1CE2F /* SignInRepository.swift */; };
 		0C3FB5472AA0CD5900C1CE2F /* LoginMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5462AA0CD5900C1CE2F /* LoginMutation.graphql.swift */; };
 		0C3FB5492AA0CDB900C1CE2F /* AccessToken.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5482AA0CDB900C1CE2F /* AccessToken.graphql.swift */; };
 		0C3FB54B2AA0CF2F00C1CE2F /* Pods_Birthday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3FB54A2AA0CF2F00C1CE2F /* Pods_Birthday.framework */; };
 		0C3FB54F2AA0CFBD00C1CE2F /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 0C3FB54E2AA0CFBD00C1CE2F /* Apollo */; };
-		0C3FB5512AA0D1BA00C1CE2F /* apollo-ios-cli in Resources */ = {isa = PBXBuildFile; fileRef = 0C3FB5502AA0D1BA00C1CE2F /* apollo-ios-cli */; };
 		0C3FB5582AA13C3200C1CE2F /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5572AA13C3200C1CE2F /* LoadingIndicator.swift */; };
 		0C3FB55A2AA14E1A00C1CE2F /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5592AA14E1A00C1CE2F /* HapticManager.swift */; };
 		0CB016FE2AA1FB1B008BCC1F /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB016FD2AA1FB1B008BCC1F /* LandingViewModel.swift */; };
+		0CD861B12AA9C0BD00055642 /* AlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD861B02AA9C0BD00055642 /* AlertViewModifier.swift */; };
 		985593642A8E6E9100A3E76C /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593632A8E6E9100A3E76C /* Color + Extension.swift */; };
 		985593922A963BA700A3E76C /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593912A963BA700A3E76C /* Toast.swift */; };
 		985593942A963BBC00A3E76C /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593932A963BBC00A3E76C /* ToastView.swift */; };
@@ -149,6 +152,10 @@
 		017DB1612A8F581E0055BACF /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		017DB1642A8F6E700055BACF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		017DB1672A8F6F020055BACF /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		0C01092D2AA346140052975F /* ScreenTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTopView.swift; sourceTree = "<group>"; };
+		0C22719A2AA5F86100579022 /* SignUpMutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpMutation.graphql.swift; sourceTree = "<group>"; };
+		0C22719C2AA5F89400579022 /* SignUpInput.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInput.graphql.swift; sourceTree = "<group>"; };
+		0C22719E2AA5F8FB00579022 /* RegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepository.swift; sourceTree = "<group>"; };
 		0C3FB4E52AA0B77800C1CE2F /* ValidationTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationTextField.swift; sourceTree = "<group>"; };
 		0C3FB4E72AA0B77800C1CE2F /* RoundedCornersRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersRectangle.swift; sourceTree = "<group>"; };
 		0C3FB4EB2AA0B77800C1CE2F /* ValidationTextFieldStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationTextFieldStyle.swift; sourceTree = "<group>"; };
@@ -183,16 +190,16 @@
 		0C3FB5342AA0BB5100C1CE2F /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		0C3FB53A2AA0BD6800C1CE2F /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		0C3FB53B2AA0BD6800C1CE2F /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
-		0C3FB53E2AA0BF0600C1CE2F /* RegisterTextFieldModel + Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RegisterTextFieldModel + Equatable.swift"; sourceTree = "<group>"; };
 		0C3FB5422AA0CBF300C1CE2F /* LoginInput.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInput.graphql.swift; sourceTree = "<group>"; };
 		0C3FB5442AA0CC8200C1CE2F /* SignInRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRepository.swift; sourceTree = "<group>"; };
 		0C3FB5462AA0CD5900C1CE2F /* LoginMutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginMutation.graphql.swift; sourceTree = "<group>"; };
 		0C3FB5482AA0CDB900C1CE2F /* AccessToken.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessToken.graphql.swift; sourceTree = "<group>"; };
 		0C3FB54A2AA0CF2F00C1CE2F /* Pods_Birthday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Birthday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0C3FB5502AA0D1BA00C1CE2F /* apollo-ios-cli */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "apollo-ios-cli"; sourceTree = "<group>"; };
 		0C3FB5572AA13C3200C1CE2F /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		0C3FB5592AA14E1A00C1CE2F /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		0CB016FD2AA1FB1B008BCC1F /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
+		0CD861B02AA9C0BD00055642 /* AlertViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModifier.swift; sourceTree = "<group>"; };
+		0CD861B22AA9C0E700055642 /* View + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Extension.swift"; sourceTree = "<group>"; };
 		43137589BDF5678B8045873F /* Pods-Birthday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthday.debug.xcconfig"; path = "Target Support Files/Pods-Birthday/Pods-Birthday.debug.xcconfig"; sourceTree = "<group>"; };
 		5A45D5187426C71C62F6FF11 /* Pods-Birthday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthday.release.xcconfig"; path = "Target Support Files/Pods-Birthday/Pods-Birthday.release.xcconfig"; sourceTree = "<group>"; };
 		9605DC23AE115B87A291A31E /* Pods_Birthday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Birthday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -471,9 +478,26 @@
 			path = ProgressView;
 			sourceTree = "<group>";
 		};
+		0CD861AF2AA9C0AB00055642 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				0CD861B02AA9C0BD00055642 /* AlertViewModifier.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		0CD861B52AA9DC0400055642 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				0CD861B22AA9C0E700055642 /* View + Extension.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		985593672A8E6EE400A3E76C /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				0CD861AF2AA9C0AB00055642 /* ViewModifiers */,
 				0C3FB5562AA13BCC00C1CE2F /* ProgressView */,
 				0C3FB4F22AA0B77900C1CE2F /* Button Styles */,
 				0C3FB4F52AA0B77900C1CE2F /* Fonts */,
@@ -482,6 +506,7 @@
 				0C3FB4E42AA0B77800C1CE2F /* TextField */,
 				0C3FB4EA2AA0B77800C1CE2F /* TextField Styles */,
 				0C3FB4EF2AA0B77900C1CE2F /* Texts */,
+				0C01092D2AA346140052975F /* ScreenTopView.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -511,6 +536,7 @@
 		985E887A2A9DD4550069CB3E /* InputObjects */ = {
 			isa = PBXGroup;
 			children = (
+				0C22719C2AA5F89400579022 /* SignUpInput.graphql.swift */,
 				0C3FB5422AA0CBF300C1CE2F /* LoginInput.graphql.swift */,
 				99FA9D5C2AA0D135006D1D74 /* UpdateProfileInput.graphql.swift */,
 				985E887B2A9DD4550069CB3E /* RateFilter.graphql.swift */,
@@ -524,6 +550,7 @@
 			isa = PBXGroup;
 			children = (
 				9993847D2AA72A52001454DE /* ChangePasswordMutation.graphql.swift */,
+				0C22719A2AA5F86100579022 /* SignUpMutation.graphql.swift */,
 				0C3FB5462AA0CD5900C1CE2F /* LoginMutation.graphql.swift */,
 				99FA9D582AA0C710006D1D74 /* UpdateProfileMutation.graphql.swift */,
 				98BA7D8C2A9E0C8A004BF312 /* AddShopToFavoriteMutation.graphql.swift */,
@@ -540,6 +567,7 @@
 				9905A0D32A8CF8C1003B5FF5 /* Products */,
 				0A8E6F59DF06E687E5AA3412 /* Pods */,
 				B4305D2FA6EA6FC7F5D85362 /* Frameworks */,
+				0CD861B52AA9DC0400055642 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -623,6 +651,7 @@
 				98BA7D892A9DDF09004BF312 /* GetShopsRepository.swift */,
 				98BA7D942A9E11BC004BF312 /* AddRemoveShopToFavorite.swift */,
 				0C3FB5442AA0CC8200C1CE2F /* SignInRepository.swift */,
+				0C22719E2AA5F8FB00579022 /* RegisterRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -670,7 +699,6 @@
 				994ECAB02A973075003D89A5 /* Date + Extension.swift */,
 				99F9E2EB2A93A9B5004ED89F /* Error + Extension.swift */,
 				0C3FB50B2AA0B7BA00C1CE2F /* Font + Extension.swift */,
-				0C3FB53E2AA0BF0600C1CE2F /* RegisterTextFieldModel + Equatable.swift */,
 				994ECAAD2A973041003D89A5 /* String + Extension.swift */,
 				99FA9D5E2AA0D32B006D1D74 /* UIImage + Extension.swift */,
 				9993847B2AA72412001454DE /* View + Extension.swift */,
@@ -682,7 +710,6 @@
 		998E7D0B2A8DF2F500E8F807 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0C3FB5502AA0D1BA00C1CE2F /* apollo-ios-cli */,
 				99F9E2E72A939BF4004ED89F /* RequestManager */,
 				998E7D2D2A8E4AEE00E8F807 /* GraphQL */,
 			);
@@ -876,7 +903,6 @@
 			files = (
 				9905A0DD2A8CF8C2003B5FF5 /* Preview Assets.xcassets in Resources */,
 				0C3FB5062AA0B77900C1CE2F /* Karma-Light.ttf in Resources */,
-				0C3FB5512AA0D1BA00C1CE2F /* apollo-ios-cli in Resources */,
 				0C3FB5092AA0B77900C1CE2F /* Karma-Bold.ttf in Resources */,
 				0C3FB50A2AA0B77900C1CE2F /* Karma-Regular.ttf in Resources */,
 				0C3FB5072AA0B77900C1CE2F /* Karma-Medium.ttf in Resources */,
@@ -950,6 +976,7 @@
 				99F9E2E12A9393F9004ED89F /* User.graphql.swift in Sources */,
 				0C3FB52C2AA0BB1800C1CE2F /* TextFieldModel.swift in Sources */,
 				994ECAA12A961F36003D89A5 /* HomeViewModel.swift in Sources */,
+				0C22719B2AA5F86100579022 /* SignUpMutation.graphql.swift in Sources */,
 				0C3FB5112AA0BA5D00C1CE2F /* LandingView.swift in Sources */,
 				98BA7D8E2A9E0C8A004BF312 /* AddShopToFavoriteMutation.graphql.swift in Sources */,
 				016839682A98982900E483FC /* UserModel.swift in Sources */,
@@ -976,7 +1003,7 @@
 				99F9E2E32A9393F9004ED89F /* SchemaConfiguration.swift in Sources */,
 				994ECA9B2A961770003D89A5 /* BirthdaysRepository.swift in Sources */,
 				9993847C2AA72412001454DE /* View + Extension.swift in Sources */,
-				0C3FB53F2AA0BF0600C1CE2F /* RegisterTextFieldModel + Equatable.swift in Sources */,
+				0C22719D2AA5F89400579022 /* SignUpInput.graphql.swift in Sources */,
 				0C3FB52A2AA0BADC00C1CE2F /* Titles.swift in Sources */,
 				99F9E2E42A9393F9004ED89F /* SchemaMetadata.graphql.swift in Sources */,
 				0C3FB53C2AA0BD6800C1CE2F /* RegisterView.swift in Sources */,
@@ -988,6 +1015,7 @@
 				98BA7D8A2A9DDF09004BF312 /* GetShopsRepository.swift in Sources */,
 				0C3FB5292AA0BADC00C1CE2F /* TextFieldPlaceholders.swift in Sources */,
 				0C3FB50C2AA0B7BB00C1CE2F /* Font + Extension.swift in Sources */,
+				0CD861B12AA9C0BD00055642 /* AlertViewModifier.swift in Sources */,
 				995742642A9360B4005A3B7F /* RequestServices.swift in Sources */,
 				0C3FB5032AA0B77900C1CE2F /* TitleText.swift in Sources */,
 				0C3FB5492AA0CDB900C1CE2F /* AccessToken.graphql.swift in Sources */,
@@ -1012,6 +1040,7 @@
 				994ECAAE2A973041003D89A5 /* String + Extension.swift in Sources */,
 				9905A0D62A8CF8C1003B5FF5 /* (null) in Sources */,
 				999384862AA751B8001454DE /* ChangePasswordViewModel.swift in Sources */,
+				0C22719F2AA5F8FB00579022 /* RegisterRepository.swift in Sources */,
 				98BA7D932A9E0CC1004BF312 /* UserFavoriteShop.graphql.swift in Sources */,
 				0164CD1B2A9B53650046DEFC /* AddBirthdayModel.swift in Sources */,
 				017DB1622A8F581E0055BACF /* ProfileScreen.swift in Sources */,
@@ -1045,6 +1074,7 @@
 				0C3FB5042AA0B77900C1CE2F /* FullRoundedButtonStyle.swift in Sources */,
 				994ECAB12A973075003D89A5 /* Date + Extension.swift in Sources */,
 				0C3FB5452AA0CC8200C1CE2F /* SignInRepository.swift in Sources */,
+				0C01092E2AA346140052975F /* ScreenTopView.swift in Sources */,
 				0C3FB51D2AA0BABB00C1CE2F /* AccessToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 
-import Foundation
+import Foundation.NSCalendar
 
 extension Calendar {
   

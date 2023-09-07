@@ -1,8 +1,6 @@
 
 enum LocalError: Error {
-  
-  case unknownError
-  
+    
   // MARK: - Empty error
   case emptyName
   case emptySurname
@@ -26,9 +24,6 @@ enum LocalError: Error {
   // MARK: - Description
   var description: String {
     switch self {
-      // MARK: - Unknown error
-    case .unknownError:
-      return "Sorry, an error occurred registering your account, please try again."
       
       // MARK: - Empty error
     case .emptyName:

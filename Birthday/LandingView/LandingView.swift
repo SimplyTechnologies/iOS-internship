@@ -3,8 +3,7 @@ import SwiftUI
 
 struct LandingView: View {
   
-  @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-  @StateObject private var viewModel = LandingViewModel()
+  @ObservedObject private var viewModel = LandingViewModel()
   
   var body: some View {
     ZStack {
@@ -14,14 +13,13 @@ struct LandingView: View {
       VStack(spacing: 8) {
         Image(Images.logo.rawValue)
           .resizable()
-          .frame(height: 93)
-          .padding(.horizontal, 104)
+          .frame(width: 185, height: 93)
           .padding(.bottom, 50)
         
         // MARK: Sign In button
         NavigationLink(
           Titles.signIn,
-          isActive: $viewModel.isAlreadyLogged
+          isActive: $viewModel.isLoggedInOnce
         ) {
           SignInView()
         }
@@ -32,11 +30,11 @@ struct LandingView: View {
             foregroundColor: Color.primaryColor
           )
         )
-        .padding(.horizontal, 68)
         
         // MARK: Register button
         NavigationLink(
           Titles.register
+          
         ) {
           RegisterView()
         }
@@ -47,9 +45,11 @@ struct LandingView: View {
             foregroundColor: Color.secondaryColor
           )
         )
-        .padding(.horizontal, 68)
       }
+      .padding(.horizontal, 68)
     }
+    .accentColor(Color.primaryColor)
+    .navigationBarHidden(true)
   }
   
 }

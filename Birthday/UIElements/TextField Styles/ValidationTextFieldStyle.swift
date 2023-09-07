@@ -3,15 +3,15 @@ import SwiftUI
 
 struct ValidationTextFieldStyle: TextFieldStyle {
   
-  private var isError: Bool
   private var isAutocapitalization: Bool
+  private let submitLabel: SubmitLabel
   
   init(
-    isError: Bool = false,
-    isAutocapitalization: Bool
+    isAutocapitalization: Bool,
+    submitLabel: SubmitLabel = .next
   ) {
-    self.isError = isError
     self.isAutocapitalization = isAutocapitalization
+    self.submitLabel = submitLabel
   }
   
   func _body(configuration: TextField<Self._Label>) -> some View {
@@ -22,6 +22,7 @@ struct ValidationTextFieldStyle: TextFieldStyle {
       .autocorrectionDisabled()
       .textInputAutocapitalization(isAutocapitalization ? .words : .never)
       .frame(height: 41)
+      .submitLabel(submitLabel)
   }
   
 }

@@ -1,12 +1,12 @@
 
 enum NetworkError: Error {
   
-  case validationFailure
+  case authorizationFailure
   case registrationError
   
   var description: String {
     switch self {
-    case .validationFailure:
+    case .authorizationFailure:
       // swiftlint:disable:next line_length
       return "We could not find an account with a set email or password. Please check the entered credentials"
     case .registrationError:
