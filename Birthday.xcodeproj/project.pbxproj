@@ -523,8 +523,6 @@
 			children = (
 				982CE6882AA5CE4200EF6678 /* ForgotPasswordView.swift */,
 				982CE68A2AA5CE5900EF6678 /* ForgotPasswordViewModel.swift */,
-				982CE6902AA5DD2D00EF6678 /* NewPasswordView.swift */,
-				982CE6922AA5DD5100EF6678 /* NewPasswordViewModel.swift */,
 			);
 			path = ForgotPassword;
 			sourceTree = "<group>";
@@ -535,6 +533,15 @@
 				982CE69D2AAA0FA800EF6678 /* KerningView.swift */,
 			);
 			path = Kerning;
+			sourceTree = "<group>";
+		};
+		982CE69F2AAAFFF900EF6678 /* New Password */ = {
+			isa = PBXGroup;
+			children = (
+				982CE6902AA5DD2D00EF6678 /* NewPasswordView.swift */,
+				982CE6922AA5DD5100EF6678 /* NewPasswordViewModel.swift */,
+			);
+			path = "New Password";
 			sourceTree = "<group>";
 		};
 		985593672A8E6EE400A3E76C /* UIElements */ = {
@@ -635,6 +642,8 @@
 				0C3FB50F2AA0BA5D00C1CE2F /* LandingView */,
 				0C3FB52D2AA0BB2F00C1CE2F /* SignInView */,
 				0C3FB5392AA0BD6800C1CE2F /* RegisterView */,
+				982CE6872AA5CDCF00EF6678 /* ForgotPassword */,
+				982CE69F2AAAFFF900EF6678 /* New Password */,
 				9939A9112A933B8200D3B19E /* Modules */,
 				017DB1662A8F6EB10055BACF /* ButtonStyles */,
 				017DB1632A8F6E480055BACF /* Profile */,
@@ -1321,7 +1330,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.birthdayyy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.birthday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

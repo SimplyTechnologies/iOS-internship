@@ -133,7 +133,7 @@ struct RegisterView: View {
       Spacer()
     }
     .customAlert(
-      title: AlertTitles.registrationError,
+      type: .primary, title: AlertTitles.registrationError,
       message: NetworkError.registrationError.description,
       isPresented: $viewModel.alertIsPresented
     )

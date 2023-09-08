@@ -9,6 +9,8 @@ struct ProfileScreen: View {
   
   @Environment(\.presentationMode) var presentationMode
   
+  @State var wantToLogout: Bool = false
+  
   var body: some View {
     ZStack {
       Color.backgroundColor
@@ -54,8 +56,7 @@ struct ProfileScreen: View {
               .buttonStyle(PrimaryButtonStyle())
               
               Button {
-                viewModel.signOut()
-                presentationMode.wrappedValue.dismiss()
+                wantToLogout = true
               } label: {
                 Text("Sign Out")
               }
@@ -73,9 +74,18 @@ struct ProfileScreen: View {
       }
       .font(Font.custom(weight: .bold, size: 20))
     } .navigationBarHidden(true)
-    .overlay {
-      viewModel.isLoading ? ProgressView() : nil
-    }
+      .overlay {
+        viewModel.isLoading ? ProgressView() : nil
+      }
+      .customAlert(
+        type: .secondary,
+        title: "",
+        message: "Are you sure you want to sign out?",
+        secondaryAction: {
+          viewModel.signOut()
+            presentationMode.wrappedValue.dismiss()
+          }, isPresented: $wantToLogout)
+      .animation(.easeInOut, value: wantToLogout)
   }
   
 }

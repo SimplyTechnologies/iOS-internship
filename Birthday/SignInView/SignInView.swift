@@ -33,7 +33,11 @@ struct SignInView: View {
           
           // MARK: - TextFields
           VStack(spacing: 0) {
-            ForEach(Array(TextFieldPlaceholders.signInCases.enumerated()), id: \.element) { index, placeholder in
+            ForEach(
+              Array(
+                TextFieldPlaceholders.signInCases.enumerated()),
+              id: \.element
+            ) { index, placeholder in
               ValidationTextField(
                 placeholder: placeholder.description,
                 text: textFields[index].text,
@@ -123,7 +127,7 @@ struct SignInView: View {
       UIApplication.shared.endEditing()
     }
     .customAlert(
-      title: AlertTitles.authorizationError,
+      type: .primary, title: AlertTitles.authorizationError,
       message: NetworkError.authorizationFailure.description,
       isPresented: $viewModel.hasError
     )
