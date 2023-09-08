@@ -85,7 +85,7 @@ struct RegisterView: View {
             
             // MARK: Register button
             NavigationLink(
-              isActive: $viewModel.isLoading
+              isActive: $viewModel.hasUserRegistered
             ) {
               MainView()
             } label: {
@@ -96,7 +96,11 @@ struct RegisterView: View {
                 }
             }
             .padding(.horizontal, 76)
-            .buttonStyle(FullRoundedButtonStyle(isDisable: viewModel.isButtonDisabled))
+            .buttonStyle(
+              FullRoundedButtonStyle(
+                isDisable: viewModel.isButtonDisabled
+              )
+            )
             .disabled(viewModel.isButtonDisabled)
             
             Spacer(minLength: 30)
@@ -107,12 +111,8 @@ struct RegisterView: View {
           .padding(.horizontal, 24)
         }
         
-        if viewModel.isLoading {
-          LoadingIndicator()
-        }
-        
-        if !viewModel.registrationError.1.isEmpty {
-          Text(viewModel.registrationError.1)
+        if !viewModel.registrationError.message.isEmpty {
+          Text(viewModel.registrationError.message)
             .font(Font.custom(weight: .bold, size: 16))
             .foregroundColor(Color.primaryColor)
             .multilineTextAlignment(.center)
@@ -137,6 +137,11 @@ struct RegisterView: View {
       message: NetworkError.registrationError.description,
       isPresented: $viewModel.alertIsPresented
     )
+    .overlay {
+      if viewModel.isLoading {
+        LoadingIndicator()
+      }
+    }
     .animation(Animation.easeInOut, value: viewModel.alertIsPresented)
     .navigationBarHidden(true)
     .accentColor(Color.primaryColor)
@@ -144,10 +149,8 @@ struct RegisterView: View {
       UIApplication.shared.endEditing()
     }
     .navigationBar()
-    .onTapGesture {
-      UIApplication.shared.endEditing()
-    }
   }
+  
 }
 
 struct RegisterView_Previews: PreviewProvider {

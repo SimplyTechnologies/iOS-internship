@@ -14,8 +14,8 @@ final class RegisterViewModel: ObservableObject {
   @Published var isLoading: Bool = false
   @Published var hasUserRegistered: Bool = false
   @Published var alertIsPresented: Bool = false
-  @Published var toastIsHidden: Bool = true
-  @Published var registrationError: (Bool, String) = (false, .emptyString)
+  @Published var toastIsPresented: Bool = false
+  @Published var registrationError: (error: Bool, message: String) = (false, .emptyString)
     
   private let storeManager = StoreManager.shared
   private let hapticManager = HapticManager.shared
@@ -109,10 +109,28 @@ final class RegisterViewModel: ObservableObject {
       
       switch result {
       case .failure(let error):
-        registrationError = (true, error.localizedDescription)
-        hasUserRegistered = false
+        if error.localizedDescription == NetworkError.userExists.description {
+          
+          storeManager.setValue(
+            true, for: UserDefaultsKeys.isFromRegistration.rawValue
+          )
+          
+          storeManager.setValue(email.text, for: UserDefaultsKeys.email.rawValue)
+          
+          registrationError = (true, error.localizedDescription)
+          
+          DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.hasUserRegistered = true
+          }
+          
+        } else {
+          registrationError = (true, error.localizedDescription)
+          hasUserRegistered = false
+        }
+        
         isLoading = false
         hapticManager.callHaptic(with: .error, and: .medium)
+  
       case .finished:
         break
       }
@@ -122,12 +140,10 @@ final class RegisterViewModel: ObservableObject {
       registrationError = (false, .emptyString)
       
       storeManager.setValue(
-        true, for: UserDefaultsKeys.isLoggedInOnce.rawValue
+        true, for: UserDefaultsKeys.isFromRegistration.rawValue
       )
       
       storeManager.setValue(email.text, for: UserDefaultsKeys.email.rawValue)
-      
-      MainViewModel.loginStatusSubject.send(false)
       
       hasUserRegistered = true
       
@@ -137,9 +153,9 @@ final class RegisterViewModel: ObservableObject {
     .store(in: &cancellable)
     
     if hasUserRegistered {
-      showToast()
+      redirectionIfUserExists()
     } else {
-      toastIsHidden = true
+      toastIsPresented = false
     }
   }
   
@@ -198,13 +214,23 @@ final class RegisterViewModel: ObservableObject {
     setButtonState()
   }
   
-  func showToast() {
-    toastIsHidden = false
-    
+//  func showToast() {
+//    toastIsHidden = false
+//
+//    DispatchQueue.main.asyncAfter(
+//      deadline: .now() + 3
+//    ) {
+//      self.toastIsHidden = true
+//    }
+//  }
+  
+  func redirectionIfUserExists() {
+    toastIsPresented = true
+
     DispatchQueue.main.asyncAfter(
       deadline: .now() + 3
     ) {
-      self.toastIsHidden = true
+      self.toastIsPresented = false
     }
   }
   

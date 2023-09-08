@@ -21,16 +21,16 @@ extension View {
     )
   }
   
-  func toast(
-    message: String,
-    isPresented: Binding<Bool>
-  ) -> some View {
-    modifier(
-      ToastViewModifier(
-        message: message,
-        isPresented: isPresented
-      )
-    )
-  }
+//  func toast(
+//    message: String,
+//    isPresented: Binding<Bool>
+//  ) -> some View {
+//    modifier(
+//      ToastViewModifier(
+//        message: message,
+//        isPresented: isPresented
+//      )
+//    )
+//  }
   
 }
