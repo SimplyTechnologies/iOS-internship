@@ -64,7 +64,6 @@ struct NewPasswordView: View {
               .background(Color.primaryColor)
               .cornerRadius(10)
           }
-          .padding(.bottom, 75)
           NavigationLink(
             destination: MainView(),
             isActive: $viewModel.isPasswordUpdated,
@@ -73,6 +72,8 @@ struct NewPasswordView: View {
           .opacity(0)
           Spacer()
         }
+        
+        Spacer()
       }
       .padding(.horizontal, 37)
       .alert(isPresented: $viewModel.showAlert) {
@@ -88,7 +89,7 @@ struct NewPasswordView: View {
           }
         )
       }
-    }
+    } .navigationBar()
   }
   
 }

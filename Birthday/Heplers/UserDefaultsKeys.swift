@@ -7,5 +7,6 @@ enum UserDefaultsKeys: String {
   case isLoggedInOnce
   case token
   case tokenCreationDate
+  case isFromRegistration
   
 }

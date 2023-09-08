@@ -8,6 +8,8 @@ struct SignInView: View {
   @State private var checked: Bool = false
   @State private var isPasswordHidden: Bool = true
   
+  var emailTetForPreset: String? = nil
+  
   var body: some View {
     let textFields: [
       Binding<TextFieldModel>

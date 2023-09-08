@@ -5,22 +5,33 @@ import Foundation
 final class MainViewModel: ObservableObject {
   
   static var loginStatusSubject = PassthroughSubject<Bool, Never>()
+//  static var isAfterRegistraionSubject = PassthroughSubject<Bool, Never>()
 
   @Published var isAuthorized = false
+//  @Published var isAfterRegistration = false
   
   private let storeManager = StoreManager.shared
+  
   private var loginStatusPublisher: AnyPublisher<Bool, Never> = {
     loginStatusSubject.eraseToAnyPublisher()
   }()
-  private var cancellable = Set<AnyCancellable>()
+//  private var isAfterRegistraionPublisher: AnyPublisher<Bool, Never> = {
+//    isAfterRegistraionSubject.eraseToAnyPublisher()
+//  }()
+  private var cancellables = Set<AnyCancellable>()
   
   init() {
     isTokenExists()
     
-    loginStatusPublisher.sink { isLogin in
-      self.isAuthorized = isLogin
+    loginStatusPublisher.sink { isAuthorized in
+      self.isAuthorized = isAuthorized
     }
-    .store(in: &cancellable)
+    .store(in: &cancellables)
+    
+//    isAfterRegistraionPublisher.sink { isAfterRegistration in
+//      self.isAfterRegistration = isAfterRegistration
+//    }
+//    .store(in: &cancellables)
   }
   
   func isTokenExists() {

@@ -28,7 +28,6 @@
 		017DB1622A8F581E0055BACF /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1612A8F581E0055BACF /* ProfileScreen.swift */; };
 		017DB1652A8F6E700055BACF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1642A8F6E700055BACF /* ProfileView.swift */; };
 		017DB1682A8F6F020055BACF /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1672A8F6F020055BACF /* PrimaryButtonStyle.swift */; };
-		0C01092E2AA346140052975F /* ScreenTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C01092D2AA346140052975F /* ScreenTopView.swift */; };
 		0C22719B2AA5F86100579022 /* SignUpMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C22719A2AA5F86100579022 /* SignUpMutation.graphql.swift */; };
 		0C22719D2AA5F89400579022 /* SignUpInput.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C22719C2AA5F89400579022 /* SignUpInput.graphql.swift */; };
 		0C22719F2AA5F8FB00579022 /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C22719E2AA5F8FB00579022 /* RegisterRepository.swift */; };
@@ -170,7 +169,6 @@
 		017DB1612A8F581E0055BACF /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		017DB1642A8F6E700055BACF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		017DB1672A8F6F020055BACF /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
-		0C01092D2AA346140052975F /* ScreenTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTopView.swift; sourceTree = "<group>"; };
 		0C22719A2AA5F86100579022 /* SignUpMutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpMutation.graphql.swift; sourceTree = "<group>"; };
 		0C22719C2AA5F89400579022 /* SignUpInput.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInput.graphql.swift; sourceTree = "<group>"; };
 		0C22719E2AA5F8FB00579022 /* RegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepository.swift; sourceTree = "<group>"; };
@@ -552,7 +550,6 @@
 				0C3FB4E42AA0B77800C1CE2F /* TextField */,
 				0C3FB4EA2AA0B77800C1CE2F /* TextField Styles */,
 				0C3FB4EF2AA0B77900C1CE2F /* Texts */,
-				0C01092D2AA346140052975F /* ScreenTopView.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -651,8 +648,8 @@
 				985593672A8E6EE400A3E76C /* UIElements */,
 				0C3FB5202AA0BADC00C1CE2F /* Titles */,
 				9905A0D92A8CF8C2003B5FF5 /* Assets.xcassets */,
-				982CE6872AA5CDCF00EF6678 /* ForgotPassword */,
 				9905A0DB2A8CF8C2003B5FF5 /* Preview Content */,
+				982CE6872AA5CDCF00EF6678 /* ForgotPassword */,
 			);
 			path = Birthday;
 			sourceTree = "<group>";
@@ -1140,7 +1137,6 @@
 				0C3FB5042AA0B77900C1CE2F /* FullRoundedButtonStyle.swift in Sources */,
 				994ECAB12A973075003D89A5 /* Date + Extension.swift in Sources */,
 				0C3FB5452AA0CC8200C1CE2F /* SignInRepository.swift in Sources */,
-				0C01092E2AA346140052975F /* ScreenTopView.swift in Sources */,
 				0C3FB51D2AA0BABB00C1CE2F /* AccessToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
