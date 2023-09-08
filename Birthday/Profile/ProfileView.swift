@@ -87,6 +87,7 @@ struct ProfileView: View {
             "First Name",
             text: $viewModel.user.firstName
           )
+          .autocorrectionDisabled()
           .padding(10)
           .foregroundColor(.black)
           .overlay(
@@ -108,6 +109,7 @@ struct ProfileView: View {
             "Last Name",
             text: $viewModel.user.lastName
           )
+          .autocorrectionDisabled()
           .padding(10)
           .foregroundColor(.black)
           .font(Font.custom(weight: .bold, size: 20))
