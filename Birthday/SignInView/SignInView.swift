@@ -4,7 +4,7 @@ import SwiftUI
 struct SignInView: View {
   
   @StateObject private var viewModel = SignInViewModel()
-  @FocusState private var focusField: TextFieldPlaceholders?
+  @FocusState private var focusField: TextFieldPlaceholder?
   @State private var checked: Bool = false
   @State private var isPasswordHidden: Bool = true
   
@@ -35,7 +35,7 @@ struct SignInView: View {
           VStack(spacing: 0) {
             ForEach(
               Array(
-                TextFieldPlaceholders.signInCases.enumerated()),
+                TextFieldPlaceholder.signInCases.enumerated()),
               id: \.element
             ) { index, placeholder in
               ValidationTextField(
@@ -48,7 +48,7 @@ struct SignInView: View {
                 submitLabel: placeholder == .password ? .done : .next
               )
               .keyboardType(placeholder == .email ? .emailAddress : .default)
-              .textContentType(placeholder == .email ? .emailAddress : .oneTimeCode)
+              .textContentType(placeholder == .email ? .emailAddress : .none)
               .onChange(of: textFields[index].wrappedValue.text) { _ in
                 if placeholder == .email {
                   viewModel.trimCharacterOverflow()
@@ -61,7 +61,7 @@ struct SignInView: View {
                 if placeholder == .password {
                   focusField = nil
                 } else {
-                  focusField = TextFieldPlaceholders(rawValue: index + 3)
+                  focusField = TextFieldPlaceholder(rawValue: index + 3)
                 }
               }
             }

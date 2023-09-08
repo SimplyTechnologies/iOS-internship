@@ -4,7 +4,7 @@ import SwiftUI
 struct RegisterView: View {
   
   @StateObject private var viewModel = RegisterViewModel()
-  @FocusState private var focusField: TextFieldPlaceholders?
+  @FocusState private var focusField: TextFieldPlaceholder?
   @State private var isPasswordHidden: Bool = true
       
   var body: some View {
@@ -36,7 +36,7 @@ struct RegisterView: View {
             
             // MARK: - TextFields
             VStack(spacing: 0) {
-              ForEach(TextFieldPlaceholders.allCases, id: \.id) { placeholder in
+              ForEach(TextFieldPlaceholder.allCases, id: \.id) { placeholder in
                 let index = placeholder.id
                 
                 ValidationTextField(
@@ -52,12 +52,10 @@ struct RegisterView: View {
                   placeholder == .name
                   ? .givenName
                   : placeholder == .surname
-                  ? .familyName
-                  : placeholder == .email
-                  ? .emailAddress
-                  : (placeholder == .password || placeholder == .repeatedPassword)
-                  ? .oneTimeCode
-                  : .name
+                    ? .familyName
+                    : placeholder == .email
+                      ? .emailAddress
+                      : .none
                 )
                 .keyboardType(
                   placeholder == .email
@@ -76,7 +74,7 @@ struct RegisterView: View {
                   if placeholder == .repeatedPassword {
                     focusField = nil
                   } else {
-                    focusField = TextFieldPlaceholders(rawValue: index + 1)
+                    focusField = TextFieldPlaceholder(rawValue: index + 1)
                   }
                 }
               }
@@ -111,22 +109,12 @@ struct RegisterView: View {
           .padding(.horizontal, 24)
         }
         
-        if !viewModel.registrationError.message.isEmpty {
-          Text(viewModel.registrationError.message)
-            .font(Font.custom(weight: .bold, size: 16))
-            .foregroundColor(Color.primaryColor)
-            .multilineTextAlignment(.center)
-            .padding(.all, 15)
-            .background(Color.backgroundColor)
-            .cornerRadius(15)
-            .shadow(color: .gray.opacity(0.6), radius: 15)
-            .padding(.horizontal)
-            .transition(
-              .asymmetric(
-                insertion: .move(edge: .bottom),
-                removal: .opacity
-              )
-            )
+        if !viewModel.registrationErrorMessage.isEmpty {
+          ToastText(viewModel.registrationErrorMessage)
+        }
+        
+        if !viewModel.registrationSuccessMessage.isEmpty {
+          ToastText(viewModel.registrationSuccessMessage)
         }
       }
 

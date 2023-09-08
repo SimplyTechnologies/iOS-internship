@@ -39,9 +39,8 @@ struct KerningTextField: UIViewRepresentable {
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-      parent.text = textField.text ?? ""
+      parent.text = textField.text ?? .emptyString
     }
-    
   }
   
 }

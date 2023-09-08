@@ -137,7 +137,7 @@ final class SignInViewModel: ObservableObject {
   }
 
   func checkTextFieldAndSetButton(
-    by textField: TextFieldPlaceholders
+    by textField: TextFieldPlaceholder
   ) {
     switch textField {
     case .email:

@@ -8,4 +8,8 @@ struct Titles {
   static let getTheCode = "Get The Code"
   static let repeatedPassword = "Repeat New Password"
   
+  static let oldPassword = "Old Password"
+  static let newPassword = "New Password"
+  static let repeatNewPassword = "Repeat New Password"
+  
 }

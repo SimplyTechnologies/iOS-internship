@@ -15,7 +15,8 @@ final class RegisterViewModel: ObservableObject {
   @Published var hasUserRegistered: Bool = false
   @Published var alertIsPresented: Bool = false
   @Published var toastIsPresented: Bool = false
-  @Published var registrationError: (error: Bool, message: String) = (false, .emptyString)
+  @Published var registrationErrorMessage: String = .emptyString
+  @Published var registrationSuccessMessage: String = .emptyString
     
   private let storeManager = StoreManager.shared
   private let hapticManager = HapticManager.shared
@@ -117,14 +118,14 @@ final class RegisterViewModel: ObservableObject {
           
           storeManager.setValue(email.text, for: UserDefaultsKeys.email.rawValue)
           
-          registrationError = (true, error.localizedDescription)
+          registrationErrorMessage = error.localizedDescription
           
-          DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+          DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.hasUserRegistered = true
           }
           
         } else {
-          registrationError = (true, error.localizedDescription)
+          registrationErrorMessage = error.localizedDescription
           hasUserRegistered = false
         }
         
@@ -137,7 +138,7 @@ final class RegisterViewModel: ObservableObject {
     } receiveValue: { [weak self] _ in
       guard let self else { return }
       
-      registrationError = (false, .emptyString)
+      registrationErrorMessage = .emptyString
       
       storeManager.setValue(
         true, for: UserDefaultsKeys.isFromRegistration.rawValue
@@ -145,7 +146,11 @@ final class RegisterViewModel: ObservableObject {
       
       storeManager.setValue(email.text, for: UserDefaultsKeys.email.rawValue)
       
-      hasUserRegistered = true
+      registrationSuccessMessage = ToastTitles.successMessage
+
+      DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        self.hasUserRegistered = true
+      }
       
       isLoading = false
       hapticManager.callHaptic(with: .success, and: .medium)
@@ -159,7 +164,7 @@ final class RegisterViewModel: ObservableObject {
     }
   }
   
-  func checkTextField(by textField: TextFieldPlaceholders) {
+  func checkTextField(by textField: TextFieldPlaceholder) {
     switch textField {
     case .name:
       name.text = name.text.cutTailIfLimitExceeded(with: 20)
@@ -213,16 +218,6 @@ final class RegisterViewModel: ObservableObject {
     
     setButtonState()
   }
-  
-//  func showToast() {
-//    toastIsHidden = false
-//
-//    DispatchQueue.main.asyncAfter(
-//      deadline: .now() + 3
-//    ) {
-//      self.toastIsHidden = true
-//    }
-//  }
   
   func redirectionIfUserExists() {
     toastIsPresented = true
