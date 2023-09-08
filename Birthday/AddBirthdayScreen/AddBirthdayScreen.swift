@@ -91,6 +91,7 @@ struct AddBirthdayScreen: View {
               "",
               text: $viewModel.birthdayDetails.name
             )
+            .autocorrectionDisabled()
             .padding(10)
           }
           .padding(.horizontal, 60)
@@ -186,7 +187,7 @@ struct AddBirthdayScreen: View {
         .tint(Color.primaryColor)
         .padding()
         .padding(
-          .horizontal, 49
+          .horizontal, 30
         )
         HStack {
           Button {
@@ -267,7 +268,7 @@ struct AddBirthdayScreen: View {
             Color.black
         )
         .cornerRadius(66)
-        .font(Font.custom(weight: .bold, size: 13))
+        .font(Font.custom(weight: .bold, size: 12))
       
     }
   }

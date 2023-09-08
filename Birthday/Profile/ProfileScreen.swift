@@ -30,7 +30,7 @@ struct ProfileScreen: View {
           VStack {
             ProfileView(viewModel: viewModel)
             Spacer()
-              .frame(height: 30)
+              .frame(height: 120)
             if viewModel.isEditingModeOff {
               Button(
                 "Edit Account"
