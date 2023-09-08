@@ -45,7 +45,7 @@ enum LocalError: Error {
     case .invalidName:
       return "Enter only 'a-z, A-Z, -' symbols"
     case .invalidSurname:
-      return "The surname can contain only latin letters and dashes"
+      return "Enter only 'a-z, A-Z, -' symbols"
     case .invalidEmail:
       return "Please enter a valid email address"
     case .invalidPassword:

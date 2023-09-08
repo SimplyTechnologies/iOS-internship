@@ -3,7 +3,7 @@ import SwiftUI
 
 struct NewPasswordView: View {
   
-  @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+  @Environment(\.dismiss) var dismiss
   @ObservedObject private var viewModel: NewPasswordViewModel
   @State private var isPasswordHidden = true
   
@@ -76,23 +76,17 @@ struct NewPasswordView: View {
         Spacer()
       }
       .padding(.horizontal, 37)
-      .alert(isPresented: $viewModel.showAlert) {
-        Alert(
-          title: Text(
-            // swiftlint:disable:next line_length
-            "The code you entered was not correct. Please double-check the code and try again."
-          ),
-          dismissButton: .default(
-            Text("OK")
-          ) {
-            mode.wrappedValue.dismiss()
-          }
-        )
-      }
-    } .navigationBar()
+    }
+    .navigationBar()
+    .customAlert(
+      type: .primary, title: "",
+      message: "The code you entered was not correct. Please double-check the code and try again.",
+      action: {
+        dismiss()
+      }, isPresented: $viewModel.showAlert)
   }
-  
 }
+  
 
 struct NewPasswordView_Previews: PreviewProvider {
   

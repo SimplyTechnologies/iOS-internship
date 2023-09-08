@@ -22,23 +22,6 @@ struct BirthdayDetailsScreen: View {
                 .foregroundColor(.black)
                 .padding()
             }
-            .alert(isPresented: $viewModel.showAlert) {
-              Alert(
-                title: Text(
-                  "Are you sure you want to delete this birthday information?"
-                ),
-                primaryButton: .destructive(
-                  Text("Yes")
-                ) {
-                  viewModel.deleteBirthday(by: viewModel.birthdayDetails.id)
-                  presentationMode.wrappedValue.dismiss()
-                  
-                },
-                secondaryButton: .default(
-                  Text("No")
-                )
-              )
-            }
           }
           .padding(.horizontal)
           imageView
@@ -95,14 +78,22 @@ struct BirthdayDetailsScreen: View {
     .onTapGesture {
       UIApplication.shared.endEditing()
     }
+    .customAlert(
+      type: .secondary,
+      title: "",
+      message: "Are you sure you want to delete this birthday information?",
+      secondaryAction: {
+        viewModel.deleteBirthday(by: viewModel.birthdayDetails.id)
+        presentationMode.wrappedValue.dismiss()
+      }, isPresented: $viewModel.showAlert)
   }
   
   @ViewBuilder
   private var imageView: some View {
     if let imageData = viewModel.birthdayDetails.image,
-       !imageData.isEmpty,
-       let data = Data(base64Encoded: imageData),
-       let uiImage = UIImage(data: data) {
+        !imageData.isEmpty,
+        let data = Data(base64Encoded: imageData),
+        let uiImage = UIImage(data: data) {
       Image(uiImage: uiImage)
         .frame(width: 150, height: 150)
         .cornerRadius(75)

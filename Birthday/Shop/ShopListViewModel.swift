@@ -64,12 +64,19 @@ class ShopListViewModel: ObservableObject {
       isSuccess: true
     )
     toasts.append(toast)
-    DispatchQueue.main.asyncAfter(
-      deadline: .now() + toast.duration
-    ) {
+    if toasts.count > 3 {
       if let index = self.toasts.firstIndex(
         where: { $0 == toast }) {
         self.toasts.remove(at: index)
+      }
+    } else {
+      DispatchQueue.main.asyncAfter(
+        deadline: .now() + toast.duration
+      ) {
+        if let index = self.toasts.firstIndex(
+          where: { $0 == toast }) {
+          self.toasts.remove(at: index)
+        }
       }
     }
   }
