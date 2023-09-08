@@ -1,5 +1,5 @@
 
-enum TextFieldPlaceholders: Int, CaseIterable, Identifiable {
+enum TextFieldPlaceholder: Int, CaseIterable, Identifiable {
   
   var id: Int {
     self.rawValue
@@ -27,4 +27,5 @@ enum TextFieldPlaceholders: Int, CaseIterable, Identifiable {
   }
   
   static let signInCases = [Self.email, Self.password]
+  
 }

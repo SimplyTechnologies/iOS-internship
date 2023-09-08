@@ -23,7 +23,7 @@
 		0164CD1B2A9B53650046DEFC /* AddBirthdayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD1A2A9B53650046DEFC /* AddBirthdayModel.swift */; };
 		0164CD1D2A9B53850046DEFC /* AddBirthdayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164CD1C2A9B53850046DEFC /* AddBirthdayScreen.swift */; };
 		016839682A98982900E483FC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016839672A98982900E483FC /* UserModel.swift */; };
-		0168396A2A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016839692A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift */; };
+		0168396A2A989B7200E483FC /* ProfileScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016839692A989B7200E483FC /* ProfileScreenViewModel.swift */; };
 		0168396C2A98E34A00E483FC /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0168396B2A98E34A00E483FC /* PhotoPicker.swift */; };
 		017DB1622A8F581E0055BACF /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1612A8F581E0055BACF /* ProfileScreen.swift */; };
 		017DB1652A8F6E700055BACF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017DB1642A8F6E700055BACF /* ProfileView.swift */; };
@@ -56,7 +56,7 @@
 		0C3FB5262AA0BADC00C1CE2F /* AlertTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5212AA0BADC00C1CE2F /* AlertTitles.swift */; };
 		0C3FB5272AA0BADC00C1CE2F /* ButtonTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5222AA0BADC00C1CE2F /* ButtonTitles.swift */; };
 		0C3FB5282AA0BADC00C1CE2F /* ToastTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5232AA0BADC00C1CE2F /* ToastTitles.swift */; };
-		0C3FB5292AA0BADC00C1CE2F /* TextFieldPlaceholders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5242AA0BADC00C1CE2F /* TextFieldPlaceholders.swift */; };
+		0C3FB5292AA0BADC00C1CE2F /* TextFieldPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5242AA0BADC00C1CE2F /* TextFieldPlaceholder.swift */; };
 		0C3FB52A2AA0BADC00C1CE2F /* Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5252AA0BADC00C1CE2F /* Titles.swift */; };
 		0C3FB52C2AA0BB1800C1CE2F /* TextFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB52B2AA0BB1800C1CE2F /* TextFieldModel.swift */; };
 		0C3FB5302AA0BB2F00C1CE2F /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB52E2AA0BB2F00C1CE2F /* SignInView.swift */; };
@@ -74,6 +74,8 @@
 		0C3FB5582AA13C3200C1CE2F /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5572AA13C3200C1CE2F /* LoadingIndicator.swift */; };
 		0C3FB55A2AA14E1A00C1CE2F /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3FB5592AA14E1A00C1CE2F /* HapticManager.swift */; };
 		0CB016FE2AA1FB1B008BCC1F /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB016FD2AA1FB1B008BCC1F /* LandingViewModel.swift */; };
+		0CB2D3C42AAB3C4C00B5DDA9 /* ChangePasswordTextFieldPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB2D3C32AAB3C4C00B5DDA9 /* ChangePasswordTextFieldPlaceholder.swift */; };
+		0CB2D3C62AAB462900B5DDA9 /* ToastText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB2D3C52AAB462900B5DDA9 /* ToastText.swift */; };
 		0CD861B12AA9C0BD00055642 /* AlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD861B02AA9C0BD00055642 /* AlertViewModifier.swift */; };
 		982CE6892AA5CE4200EF6678 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE6882AA5CE4200EF6678 /* ForgotPasswordView.swift */; };
 		982CE68B2AA5CE5900EF6678 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE68A2AA5CE5900EF6678 /* ForgotPasswordViewModel.swift */; };
@@ -85,7 +87,7 @@
 		982CE6972AA7076200EF6678 /* ResetPasswordInput.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE6962AA7076200EF6678 /* ResetPasswordInput.graphql.swift */; };
 		982CE69A2AA7078300EF6678 /* ResetPasswordMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE6982AA7078300EF6678 /* ResetPasswordMutation.graphql.swift */; };
 		982CE69B2AA7078300EF6678 /* ResetPasswordEmailMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE6992AA7078300EF6678 /* ResetPasswordEmailMutation.graphql.swift */; };
-		982CE69E2AAA0FA800EF6678 /* KerningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE69D2AAA0FA800EF6678 /* KerningView.swift */; };
+		982CE69E2AAA0FA800EF6678 /* KerningTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982CE69D2AAA0FA800EF6678 /* KerningTextField.swift */; };
 		985593642A8E6E9100A3E76C /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593632A8E6E9100A3E76C /* Color + Extension.swift */; };
 		985593922A963BA700A3E76C /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593912A963BA700A3E76C /* Toast.swift */; };
 		985593942A963BBC00A3E76C /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985593932A963BBC00A3E76C /* ToastView.swift */; };
@@ -164,7 +166,7 @@
 		0164CD1A2A9B53650046DEFC /* AddBirthdayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBirthdayModel.swift; sourceTree = "<group>"; };
 		0164CD1C2A9B53850046DEFC /* AddBirthdayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBirthdayScreen.swift; sourceTree = "<group>"; };
 		016839672A98982900E483FC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		016839692A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swiftViewModel.swift; sourceTree = "<group>"; };
+		016839692A989B7200E483FC /* ProfileScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swift; sourceTree = "<group>"; };
 		0168396B2A98E34A00E483FC /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		017DB1612A8F581E0055BACF /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		017DB1642A8F6E700055BACF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -197,7 +199,7 @@
 		0C3FB5212AA0BADC00C1CE2F /* AlertTitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertTitles.swift; sourceTree = "<group>"; };
 		0C3FB5222AA0BADC00C1CE2F /* ButtonTitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTitles.swift; sourceTree = "<group>"; };
 		0C3FB5232AA0BADC00C1CE2F /* ToastTitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastTitles.swift; sourceTree = "<group>"; };
-		0C3FB5242AA0BADC00C1CE2F /* TextFieldPlaceholders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldPlaceholders.swift; sourceTree = "<group>"; };
+		0C3FB5242AA0BADC00C1CE2F /* TextFieldPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldPlaceholder.swift; sourceTree = "<group>"; };
 		0C3FB5252AA0BADC00C1CE2F /* Titles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Titles.swift; sourceTree = "<group>"; };
 		0C3FB52B2AA0BB1800C1CE2F /* TextFieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModel.swift; sourceTree = "<group>"; };
 		0C3FB52E2AA0BB2F00C1CE2F /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -214,6 +216,8 @@
 		0C3FB5572AA13C3200C1CE2F /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		0C3FB5592AA14E1A00C1CE2F /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		0CB016FD2AA1FB1B008BCC1F /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
+		0CB2D3C32AAB3C4C00B5DDA9 /* ChangePasswordTextFieldPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordTextFieldPlaceholder.swift; sourceTree = "<group>"; };
+		0CB2D3C52AAB462900B5DDA9 /* ToastText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastText.swift; sourceTree = "<group>"; };
 		0CD861B02AA9C0BD00055642 /* AlertViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModifier.swift; sourceTree = "<group>"; };
 		43137589BDF5678B8045873F /* Pods-Birthday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthday.debug.xcconfig"; path = "Target Support Files/Pods-Birthday/Pods-Birthday.debug.xcconfig"; sourceTree = "<group>"; };
 		5A45D5187426C71C62F6FF11 /* Pods-Birthday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Birthday.release.xcconfig"; path = "Target Support Files/Pods-Birthday/Pods-Birthday.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,7 +232,7 @@
 		982CE6962AA7076200EF6678 /* ResetPasswordInput.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordInput.graphql.swift; sourceTree = "<group>"; };
 		982CE6982AA7078300EF6678 /* ResetPasswordMutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordMutation.graphql.swift; sourceTree = "<group>"; };
 		982CE6992AA7078300EF6678 /* ResetPasswordEmailMutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailMutation.graphql.swift; sourceTree = "<group>"; };
-		982CE69D2AAA0FA800EF6678 /* KerningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KerningView.swift; sourceTree = "<group>"; };
+		982CE69D2AAA0FA800EF6678 /* KerningTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KerningTextField.swift; sourceTree = "<group>"; };
 		985593632A8E6E9100A3E76C /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
 		985593912A963BA700A3E76C /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		985593932A963BBC00A3E76C /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
@@ -335,7 +339,7 @@
 				017DB1642A8F6E700055BACF /* ProfileView.swift */,
 				0168396B2A98E34A00E483FC /* PhotoPicker.swift */,
 				016839672A98982900E483FC /* UserModel.swift */,
-				016839692A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift */,
+				016839692A989B7200E483FC /* ProfileScreenViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -362,6 +366,7 @@
 			children = (
 				0C3FB4E52AA0B77800C1CE2F /* ValidationTextField.swift */,
 				982CE68C2AA5D9A900EF6678 /* SimpleTextField.swift */,
+				982CE69D2AAA0FA800EF6678 /* KerningTextField.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -396,6 +401,7 @@
 			children = (
 				0C3FB4F02AA0B77900C1CE2F /* ErrorMessageText.swift */,
 				0C3FB4F12AA0B77900C1CE2F /* TitleText.swift */,
+				0CB2D3C52AAB462900B5DDA9 /* ToastText.swift */,
 			);
 			path = Texts;
 			sourceTree = "<group>";
@@ -469,8 +475,9 @@
 				0C3FB5212AA0BADC00C1CE2F /* AlertTitles.swift */,
 				0C3FB5222AA0BADC00C1CE2F /* ButtonTitles.swift */,
 				0C3FB5232AA0BADC00C1CE2F /* ToastTitles.swift */,
-				0C3FB5242AA0BADC00C1CE2F /* TextFieldPlaceholders.swift */,
+				0C3FB5242AA0BADC00C1CE2F /* TextFieldPlaceholder.swift */,
 				0C3FB5252AA0BADC00C1CE2F /* Titles.swift */,
+				0CB2D3C32AAB3C4C00B5DDA9 /* ChangePasswordTextFieldPlaceholder.swift */,
 			);
 			path = Titles;
 			sourceTree = "<group>";
@@ -547,7 +554,6 @@
 		985593672A8E6EE400A3E76C /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
-				982CE69C2AAA0F7600EF6678 /* Kerning */,
 				0CD861AF2AA9C0AB00055642 /* ViewModifiers */,
 				0C3FB5562AA13BCC00C1CE2F /* ProgressView */,
 				0C3FB4F52AA0B77900C1CE2F /* Fonts */,
@@ -1044,6 +1050,7 @@
 				9993847A2AA723FF001454DE /* CustomNavigationBarModifier.swift in Sources */,
 				998E7D222A8E147700E8F807 /* Queries.graphql in Sources */,
 				0C3FB5012AA0B77900C1CE2F /* Images.swift in Sources */,
+				0CB2D3C42AAB3C4C00B5DDA9 /* ChangePasswordTextFieldPlaceholder.swift in Sources */,
 				99FA9D5D2AA0D135006D1D74 /* UpdateProfileInput.graphql.swift in Sources */,
 				015DA3232A9DE0BB00F2902C /* BirthdayApp.swift in Sources */,
 				0164CD142A9B440C0046DEFC /* BirthdayDetailsModel.swift in Sources */,
@@ -1072,7 +1079,7 @@
 				985593A02A963C9300A3E76C /* ShopDetailView.swift in Sources */,
 				982CE6892AA5CE4200EF6678 /* ForgotPasswordView.swift in Sources */,
 				98BA7D8A2A9DDF09004BF312 /* GetShopsRepository.swift in Sources */,
-				0C3FB5292AA0BADC00C1CE2F /* TextFieldPlaceholders.swift in Sources */,
+				0C3FB5292AA0BADC00C1CE2F /* TextFieldPlaceholder.swift in Sources */,
 				0C3FB50C2AA0B7BB00C1CE2F /* Font + Extension.swift in Sources */,
 				0CD861B12AA9C0BD00055642 /* AlertViewModifier.swift in Sources */,
 				995742642A9360B4005A3B7F /* RequestServices.swift in Sources */,
@@ -1080,7 +1087,7 @@
 				0C3FB5492AA0CDB900C1CE2F /* AccessToken.graphql.swift in Sources */,
 				994ECAA72A961FE5003D89A5 /* BirthdayModel.swift in Sources */,
 				99F9E2EC2A93A9B5004ED89F /* Error + Extension.swift in Sources */,
-				982CE69E2AAA0FA800EF6678 /* KerningView.swift in Sources */,
+				982CE69E2AAA0FA800EF6678 /* KerningTextField.swift in Sources */,
 				9993847E2AA72A52001454DE /* ChangePasswordMutation.graphql.swift in Sources */,
 				98BA7D922A9E0CC1004BF312 /* Mutation.graphql.swift in Sources */,
 				985E88772A9DD25C0069CB3E /* Shop.graphql.swift in Sources */,
@@ -1109,10 +1116,11 @@
 				017DB1622A8F581E0055BACF /* ProfileScreen.swift in Sources */,
 				015DA3292A9E12C700F2902C /* Mutation.graphql.swift in Sources */,
 				982CE68F2AA5DA8500EF6678 /* SimpleTextFieldStyle.swift in Sources */,
+				0CB2D3C62AAB462900B5DDA9 /* ToastText.swift in Sources */,
 				0168396C2A98E34A00E483FC /* PhotoPicker.swift in Sources */,
 				99F9E2E52A9393F9004ED89F /* Api.graphql.swift in Sources */,
 				985593982A963BF600A3E76C /* ShopListViewModel.swift in Sources */,
-				0168396A2A989B7200E483FC /* ProfileScreenViewModel.swiftViewModel.swift in Sources */,
+				0168396A2A989B7200E483FC /* ProfileScreenViewModel.swift in Sources */,
 				9855939E2A963C7E00A3E76C /* ShopDetailViewModel.swift in Sources */,
 				985E887F2A9DD4550069CB3E /* AvgPriceFilter.graphql.swift in Sources */,
 				0164CD132A9B440C0046DEFC /* BirthdayDetailsScreen.swift in Sources */,
@@ -1277,7 +1285,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Birthday/Preview Content\"";
-				DEVELOPMENT_TEAM = DA9H7Z32HZ;
+				DEVELOPMENT_TEAM = QDAGX7ZH88;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Birthday/Info.plist;
@@ -1294,7 +1302,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.birthdayyy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.birthdayyyy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1313,7 +1321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Birthday/Preview Content\"";
-				DEVELOPMENT_TEAM = X9GLW84L39;
+				DEVELOPMENT_TEAM = QDAGX7ZH88;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Birthday/Info.plist;
