@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 struct KerningTextField: UIViewRepresentable {
@@ -14,6 +13,8 @@ struct KerningTextField: UIViewRepresentable {
     textField.font = UIFont.init(name: Font.Karma.bold.rawValue, size: 18)
     textField.placeholder = placeholder
     textField.textColor = UIColor(Color.primaryColor)
+    textField.keyboardType = .numberPad
+    textField.addDoneCancelToolbar()
     
     return textField
   }
@@ -39,8 +40,34 @@ struct KerningTextField: UIViewRepresentable {
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-      parent.text = textField.text ?? .emptyString
+      parent.text = textField.text ?? ""
     }
+    
   }
+  
+}
+
+
+extension UITextField {
+  
+  func addDoneCancelToolbar(onDone: (target: Any, action: Selector)? = nil, onCancel: (target: Any, action: Selector)? = nil) {
+    let onCancel = onCancel ?? (target: self, action: #selector(cancelButtonTapped))
+    let onDone = onDone ?? (target: self, action: #selector(doneButtonTapped))
+    
+    let toolbar: UIToolbar = UIToolbar()
+    toolbar.barStyle = .default
+    toolbar.items = [
+      UIBarButtonItem(title: "Cancel", style: .plain, target: onCancel.target, action: onCancel.action),
+      UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
+      UIBarButtonItem(title: "Done", style: .done, target: onDone.target, action: onDone.action)
+    ]
+    toolbar.sizeToFit()
+    
+    self.inputAccessoryView = toolbar
+  }
+  
+  // Default actions:
+  @objc func doneButtonTapped() { self.resignFirstResponder() }
+  @objc func cancelButtonTapped() { self.resignFirstResponder() }
   
 }

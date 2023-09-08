@@ -93,13 +93,6 @@ struct ForgotPasswordView: View {
                       viewModel.codeText = String(newValue.prefix(6))
                     }
                   }
-                  .toolbar {
-                    ToolbarItem(placement: .keyboard) {
-                      Button("Done") {
-                        UIApplication.shared.endEditing()
-                      }
-                    }
-                  }
               }
               .background(.white)
               .cornerRadius(13)
